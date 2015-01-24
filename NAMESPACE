@@ -1,0 +1,2 @@
+importFrom(tools, write_PACKAGES)
+exportPattern("^[[:alpha:]]+")
