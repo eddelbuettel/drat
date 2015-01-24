@@ -1,0 +1,8 @@
+2015-01-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Version 0.0.1
+
+	* R/add.R: Initial version
+	* R/insert.R: Ditto
+
+	* TODO.md: Added with some first notes
