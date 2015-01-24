@@ -15,6 +15,7 @@
 ##' @return NULL is returned.
 ##' @author Dirk Eddelbuettel
 insert <- function(file, repodir=getOption("dratRepo", "~/git/drat")) {
+    ## TODO: make src/contrib if needed
     setwd( file.path(repodir, "src", "contrib") )
     if (!file.exists(file)) stop("File", file, "not found", .Call=FALSE)
     file.copy(file, ".")
