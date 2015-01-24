@@ -4,11 +4,15 @@
 \alias{add}
 \title{Add a (drat) repository to the current session}
 \usage{
-add(name)
+add(account, alturl)
 }
 \arguments{
-\item{name}{GitHub account name for which a \sQuote{drat} archive
+\item{account}{GitHub account for which a \sQuote{drat} archive
 is to be added.}
+
+\item{alturl}{Alternative repo specification with a complete url
+string. Exactly one of \sQuote{account} or \sQuote{alturl} must be
+provided.}
 }
 \value{
 The altered set of repositories
@@ -19,11 +23,14 @@ been supported for years.  It is equally easy to add local
 archives from the same machine, or local network, or university /
 company network as well as other publically available
 repositories.  This function aids in the process, and defaults to
-adding a \sQuote{drat} archive at GitHub under the given name.
+adding a \sQuote{drat} archive at GitHub under the given account.
 }
 \details{
 This function retrieves the current set of repositories and adds
-(or overwrites) the entry for the given \sQuote{name}.
+(or overwrites) the entry for the given \sQuote{account}. For
+non-GitHub repositories an alternative URL can be specified as
+\sQuote{alturl}.  Exactly one of \sQuote{account} or
+\sQuote{alturl} must be provided.
 }
 \author{
 Dirk Eddelbuettel
