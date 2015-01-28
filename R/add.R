@@ -11,21 +11,23 @@
 ##' \sQuote{alturl}.  Exactly one of \sQuote{account} or
 ##' \sQuote{alturl} must be provided.
 ##' @title Add a (drat) repository to the current session
-##' @param account GitHub account for which a \sQuote{drat} archive
-##' is to be added.
+##' @param account Character vector with one or more GitHub account for
+##' which a \sQuote{drat} archive is to be added.
 ##' @param alturl Alternative repo specification with a complete url
-##' string. Exactly one of \sQuote{account} or \sQuote{alturl} must be
-##' provided.
+##' string. If \sQuote{alturl} is provided, a single \sQuote{account}
+##' must be provided as well.
 ##' @return The altered set of repositories
 ##' @author Dirk Eddelbuettel
 add <- function(account, alturl) {
     r <- getOption("repos")
     if (!missing(account) && missing(alturl)) {
-        r[account] <- paste0("https://", account, ".github.io/drat/")
-    } else if (missing(account) && !missing(alturl)) {
+        for (acct in account) {
+            r[acct] <- paste0("https://", acct, ".github.io/drat/")
+        }
+    } else if (!missing(account) && !missing(alturl)) {
         r[account] <- alturl
     } else {
-        stop("Please provide either 'account' or 'alturl'.", call.=FALSE)
+        stop("Please provide either 'account' (and if desired 'alturl').", call.=FALSE)
     }
     options(repos = r)
     invisible(r)

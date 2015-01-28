@@ -7,12 +7,12 @@
 add(account, alturl)
 }
 \arguments{
-\item{account}{GitHub account for which a \sQuote{drat} archive
-is to be added.}
+\item{account}{Character vector with one or more GitHub account for
+which a \sQuote{drat} archive is to be added.}
 
 \item{alturl}{Alternative repo specification with a complete url
-string. Exactly one of \sQuote{account} or \sQuote{alturl} must be
-provided.}
+string. If \sQuote{alturl} is provided, a single \sQuote{account}
+must be provided as well.}
 }
 \value{
 The altered set of repositories
