@@ -1,3 +1,7 @@
+2015-01-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* man/drat-package.Rd: Updated
+
 2015-01-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Version 0.0.1
