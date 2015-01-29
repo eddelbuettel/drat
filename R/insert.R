@@ -21,7 +21,7 @@ insert <- function(file,
                    commit=FALSE) {
     ## TODO: make src/contrib if needed
     srcdir <- file.path(repodir, "src", "contrib")
-    setwd(src)
+    setwd(srcdir)
     if (!file.exists(file)) stop("File", file, "not found", .Call=FALSE)
     tgtfile <- file.path(srcdir, file)
     file.copy(file, tgtfile)
