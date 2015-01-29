@@ -6,9 +6,10 @@
   + switching to gh-pages (and back)
   + commit
   + push
+  [ Added on Jan 28 via simple system() call; needs more robust interface ]
 
-- Supporting binary package (for Windows and maybe OS X) would nice but is
-  lower priority 
+- Supporting binary packages (for Windows and maybe OS X) would nice but is
+  lower priority -- especially as R now tries bianry _and_ source
 
 - Signing the PACKAGES file via gpg (a la Debian) would be a nice
   step. Validation would be needed as well.
