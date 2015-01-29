@@ -4,6 +4,8 @@
 
 	* R/add.R (add): Allow for multiple accounts added at once
 
+	* tests/simpleTests.R: Added first simple test script
+
 	* man/drat-package.Rd: Updated
 
 2015-01-23  Dirk Eddelbuettel  <edd@debian.org>
