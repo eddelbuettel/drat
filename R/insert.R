@@ -19,13 +19,17 @@
 insert <- function(file,
                    repodir=getOption("dratRepo", "~/git/drat"),
                    commit=FALSE) {
+
+    if (!file.exists(file)) stop("File ", file, " not found\n", .Call=FALSE)
+
     ## TODO: make src/contrib if needed
     srcdir <- file.path(repodir, "src", "contrib")
-    setwd(srcdir)
-    if (!file.exists(file)) stop("File", file, "not found", .Call=FALSE)
+    if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
+
     tgtfile <- file.path(srcdir, file)
-    file.copy(file, tgtfile)
-    write_PACKAGES(".", type="source")
+    file.copy(file, tgtfile, overwrite=TRUE)
+
+    write_PACKAGES(srcdir, type="source")
     ## TODO: generalize to binary
 
     if (commit && length(Sys.which("git") > 0)) {

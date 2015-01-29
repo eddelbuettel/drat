@@ -1,3 +1,7 @@
+2015-01-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/insert.R (insert): Small enhancements / corrections
+
 2015-01-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insert.R (insert): Offer optional git add, commit push
