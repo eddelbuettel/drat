@@ -4,13 +4,16 @@
 \alias{insert}
 \title{Insert a source archive into a drat repository}
 \usage{
-insert(file, repodir = getOption("dratRepo", "~/git/drat"))
+insert(file, repodir = getOption("dratRepo", "~/git/drat"), commit = FALSE)
 }
 \arguments{
 \item{file}{A source archive in \code{tar.gz} form.}
 
 \item{repodir}{A local directory corresponding to the repository
 top-leve directory.}
+
+\item{commit}{A boolean toggle to select automatic git operations
+\sQuote{add}, \sQuote{commit}, and \sQuote{push}.}
 }
 \value{
 NULL is returned.

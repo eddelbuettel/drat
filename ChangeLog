@@ -1,6 +1,8 @@
 2015-01-28  Dirk Eddelbuettel  <edd@debian.org>
 
-	* R/add.R (add): Allow for multiple accounts
+	* R/insert.R (insert): Offer optional git add, commit push
+
+	* R/add.R (add): Allow for multiple accounts added at once
 
 	* man/drat-package.Rd: Updated
 

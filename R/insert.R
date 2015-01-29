@@ -12,15 +12,27 @@
 ##' @param file A source archive in \code{tar.gz} form.
 ##' @param repodir A local directory corresponding to the repository
 ##' top-leve directory.
+##' @param commit A boolean toggle to select automatic git operations
+##' \sQuote{add}, \sQuote{commit}, and \sQuote{push}.
 ##' @return NULL is returned.
 ##' @author Dirk Eddelbuettel
-insert <- function(file, repodir=getOption("dratRepo", "~/git/drat")) {
+insert <- function(file,
+                   repodir=getOption("dratRepo", "~/git/drat"),
+                   commit=FALSE) {
     ## TODO: make src/contrib if needed
-    setwd( file.path(repodir, "src", "contrib") )
+    srcdir <- file.path(repodir, "src", "contrib")
+    setwd(src)
     if (!file.exists(file)) stop("File", file, "not found", .Call=FALSE)
-    file.copy(file, ".")
+    tgtfile <- file.path(srcdir, file)
+    file.copy(file, tgtfile)
     write_PACKAGES(".", type="source")
     ## TODO: generalize to binary
+
+    if (commit && length(Sys.which("git") > 0)) {
+        setwd(repodir)
+        cmd <- sprintf("git add %s; git commit -m\"adding %s to drat\"; git push", file, file)
+        system(cmd) ## TODO: error checking
+    }
     invisible(NULL)
 }
     
