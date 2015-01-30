@@ -18,7 +18,7 @@
 ##' must be provided as well.
 ##' @return The altered set of repositories
 ##' @author Dirk Eddelbuettel
-add <- function(account, alturl) {
+addRepo <- function(account, alturl) {
     r <- getOption("repos")
     if (!missing(account) && missing(alturl)) {
         for (acct in account) {
