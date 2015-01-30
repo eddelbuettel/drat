@@ -17,3 +17,6 @@
 - Supports GH orgs? That is just an account name after all.
 
 - Mention http://stackoverflow.com/questions/2905650/creating-a-local-r-package-repository/
+
+- Should add() be called subscribe(), and insert() be called insertRelease()
+  or addRelease() ?  
