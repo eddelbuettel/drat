@@ -1,6 +1,10 @@
 2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R (addRepo): Renamed from add.R; function now addRepo()
+
+	* R/insertRelease.R (insertRelease): Renamed from insert.R, function
+	renamed too to stress that repos contains releases not commits
+
 	* tests/simpleTests.R: Changed to use addRepo()
 
 2015-01-29  Dirk Eddelbuettel  <edd@debian.org>
