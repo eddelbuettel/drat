@@ -16,9 +16,9 @@
 ##' \sQuote{add}, \sQuote{commit}, and \sQuote{push}.
 ##' @return NULL is returned.
 ##' @author Dirk Eddelbuettel
-insert <- function(file,
-                   repodir=getOption("dratRepo", "~/git/drat"),
-                   commit=FALSE) {
+insertRelease <- function(file,
+                          repodir=getOption("dratRepo", "~/git/drat"),
+                          commit=FALSE) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", .Call=FALSE)
 
