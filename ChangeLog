@@ -1,3 +1,7 @@
+2015-02-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/insertPackage.R (insertPackage): Renamed from insertRelesae()
+
 2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R (addRepo): Renamed from add.R; function now addRepo()
