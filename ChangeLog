@@ -2,6 +2,8 @@
 
 	* R/insertPackage.R (insertPackage): Renamed from insertRelesae()
 
+	* NAMESPACE: Explicitly expotr addRepo() and insertPackage()
+
 2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R (addRepo): Renamed from add.R; function now addRepo()

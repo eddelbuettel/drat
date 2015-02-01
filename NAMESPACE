@@ -1,2 +1,3 @@
 importFrom(tools, write_PACKAGES)
-exportPattern("^[[:alpha:]]+")
+export(addRepo,
+       insertPackage)
