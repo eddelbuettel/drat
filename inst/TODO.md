@@ -18,5 +18,5 @@
 
 - Mention http://stackoverflow.com/questions/2905650/creating-a-local-r-package-repository/
 
-- Should add() be called subscribe(), and insert() be called insertRelease()
+- [DONE] Should add() be called subscribe(), and insert() be called insertRelease()
   or addRelease() ?  
