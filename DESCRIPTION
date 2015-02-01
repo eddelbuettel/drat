@@ -1,9 +1,9 @@
 Package: drat
 Type: Package
-Title: Dirk's R Archive Template
+Title: Drat R Archive Template
 Version: 0.0.1
-Date: 2015-01-23
+Date: 2015-01-31
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
-Description: Creation and Use of R Archives 
+Description: Creation and Use of R Repositories 
 License: GPL (>= 2)
