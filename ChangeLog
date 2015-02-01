@@ -4,6 +4,13 @@
 
 	* NAMESPACE: Explicitly expotr addRepo() and insertPackage()
 
+	* R/addRepo.R (add): Also provide unexported alias drat:::add()
+	* R/insertPackage.R (insert): Ditto for drat:::insert()
+
+	* inst/TODO.md: Moved from top-level
+
+	* tests/simpleTests.R (testInsertLocal): Expanded tests
+
 2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R (addRepo): Renamed from add.R; function now addRepo()
