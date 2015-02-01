@@ -14,9 +14,9 @@
   
 }
 \details{
-  Given a user account \sQuote{xyz} on GitHub, and a repository
+  Given a user account on GitHub, say, \sQuote{eddelbuettel}, and a repository
   \sQuote{drat}, we can infer an top-level repostory URL as such as
-  \url{https://xyz.github.io/drat} by supplying only the username (as
+  \url{https://eddelbuettel.github.io/drat} by supplying only the username (as
   the rest is inferred by defaults).  This allows us to create easily
   useable, identifiable and shareable per-user repositories---without
   the user having to create and administer a webserver anywhere.

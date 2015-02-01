@@ -2,7 +2,7 @@ Package: drat
 Type: Package
 Title: Drat R Archive Template
 Version: 0.0.1
-Date: 2015-01-31
+Date: 2015-02-01
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: Creation and Use of R Repositories 
