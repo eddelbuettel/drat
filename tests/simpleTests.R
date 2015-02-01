@@ -25,12 +25,13 @@ testInsertGit <- function() {
     ## simple test for local git (non-GitHub push) test
 
     ## local gh-pages git dir
-    localGit <- "~/git/drat/src/contrib"
+    localGit <- "~/git/drat"
+    localGitSD <- "~/git/drat/src/contrib"
     ## guessing a tarball
     localSource <- file.path(getwd(), "..", "..",
                              paste0("drat_", packageVersion("drat"), ".tar.gz"))
     ## could be generalized via 
-    if (file.exists(localSource) && file.exists(localGit)) {
+    if (file.exists(localSource) && file.exists(localGitSD)) {
         drat::insertPackage(localSource, localGit)
     }
 }
