@@ -1,0 +1,26 @@
+# Sample .travis.yml for R projects.
+#
+# See https://github.com/craigcitro/r-travis
+#     https://github.com/eddelbuettel/r-travis/
+
+language: c
+
+env:
+  global:
+    - R_BUILD_ARGS="--no-build-vignettes --no-manual"
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
+    - _R_CHECK_FORCE_SUGGESTS_=FALSE
+
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+
+script:
+  - ./travis-tool.sh run_tests
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+

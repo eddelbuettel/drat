@@ -11,6 +11,9 @@
 
 	* tests/simpleTests.R (testInsertLocal): Expanded tests
 
+	* .travis.yml (script): Added Travis CI support
+	* .Rbuildignore: Added to exclude Travis file
+
 2015-01-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R (addRepo): Renamed from add.R; function now addRepo()
