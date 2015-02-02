@@ -25,7 +25,8 @@ See the package documentation, or the
 
 ### Getting Started
 
-You can install the package from [CRAN](http://cran.r-project.org) via
+You can install the package from [CRAN](http://cran.r-project.org) (once it
+will have left the `incoming/` directory there) via
 `install.packages("drat")` after which you consult the manual pages.
 
 Alternatively, for a first installation, you can also do
@@ -36,12 +37,19 @@ install.packages("drat", repos="http://eddelbuettel.github.io/drat")
 
 After either initial installation, you can add line such as
 
-```
+```{.r}
 drat:::add("eddelbuettel")
 ```
 
 to your session or startup files (see `help(Startup)`) and use
 `update.packages()` as usual---also reflection the new drat archive.
+
+Package insertion into a repo then works by passing the package tarball
+filename as an argument to `insertPackage()` or its shorthand variant:
+
+```{.r}
+drat:::insert("drat_0.0.1.tar.gz")
+```
 
 ### Author
 
