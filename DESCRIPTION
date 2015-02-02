@@ -1,9 +1,13 @@
 Package: drat
 Type: Package
 Title: Drat R Archive Template
-Version: 0.0.2
+Version: 0.0.1
 Date: 2015-02-02
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: Creation and Use of R Repositories 
+ via two helper functions to insert packages into a repository, and to add
+ repository information to the current R session. Two primary types of
+ repositories are support: gh-pages at GitHub, as well as local repositories 
+ on either the same machine or a local network.
 License: GPL (>= 2)
