@@ -5,18 +5,19 @@ Drat R Archive Template
 ### Background
 
 The R package ecosystem is one of the cornerstones of the success seen by R.
-As of this writing, over 6200 are on [CRAN](http://cran.r-project.org),
+As of this writing, over 6200 packages are on [CRAN](http://cran.r-project.org),
 several hundred more at [BioConductor](http://www.bioconductor.org) and at
 [OmegaHat](http://www.omegahat.org).
 
 Support for multiple repositories is built deeply into R; mostly via the
 (default) package `utils`. The
 [`update.packages`](http://www.rdocumentation.org/packages/utils/functions/update.packages)
-function (along with several others from the `utils` package) can used for these three default
-repositories as well as many others with ease. But it seemed that support for
-_simple creation and use_ of local repositories was however missing.
+function (along with several others from the `utils` package) can used with
+ease for these three default repositories as well as many others. But it
+seemed that support for _simple creation and use_ of local repositories was
+missing.
 
-Drat tries to help here and support two principal modes:
+Drat tries to help here and supports two principal modes:
 - *GitHub* by leveraging `gh-pages`
 - *Other repos* by using other storage where you can write and provide html access
 
