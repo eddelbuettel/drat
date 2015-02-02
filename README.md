@@ -27,7 +27,7 @@ See the package documentation, or the
 
 #### Not yet on CRAN 
 
-One day we be able to install the package from [CRAN](http://cran.r-project.org) via
+One day we may be able to install the package from [CRAN](http://cran.r-project.org) via
 `install.packages("drat")` and see the manual pages.
 
 #### In the meantime
