@@ -1,3 +1,11 @@
+2015-02-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Version 0.0.2
+
+	* R/addRepo.R (addRepo): Use http, not https, at GitHub
+
+	* man/drat-package.Rd: Ditto
+
 2015-02-01  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R (insertPackage): Renamed from insertRelesae()

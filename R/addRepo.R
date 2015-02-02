@@ -30,7 +30,7 @@ addRepo <- function(account, alturl) {
     r <- getOption("repos")
     if (!missing(account) && missing(alturl)) {
         for (acct in account) {
-            r[acct] <- paste0("https://", acct, ".github.io/drat/")
+            r[acct] <- paste0("http://", acct, ".github.io/drat/")
         }
     } else if (!missing(account) && !missing(alturl)) {
         r[account] <- alturl
