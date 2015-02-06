@@ -1,3 +1,11 @@
+2015-02-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* man/drat-package.Rd (Maintainer): Correction from pull request #2
+	by Colin Gillespie applied
+
+	* R/addRepo.R: Clarify alturl argument as per issue ticket #3
+	* man/addRepo.Rd: Ditto
+
 2015-02-04  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Version 0.0.1

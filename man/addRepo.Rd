@@ -36,8 +36,7 @@ adding a \sQuote{drat} archive at GitHub under the given account.
 This function retrieves the current set of repositories and adds
 (or overwrites) the entry for the given \sQuote{account}. For
 non-GitHub repositories an alternative URL can be specified as
-\sQuote{alturl}.  Exactly one of \sQuote{account} or
-\sQuote{alturl} must be provided.
+\sQuote{alturl} (and assigned to \sQuote{account}.
 
 An aliased function \code{add} is also available, but not exported
 via \code{NAMESPACE} to not clobber a possibly unrelated function;
