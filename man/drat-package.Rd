@@ -45,6 +45,6 @@ Maintainer: Dirk Eddelbuettel <edd@debian.org>
 }
 \examples{
   \dontrun{
-  drat::addRepo{"eddelbuettel"}   # adds the repo of GitHub user 'eddelbuettel'
+  drat::addRepo("eddelbuettel")   # adds the repo of GitHub user 'eddelbuettel'
 }
 }
