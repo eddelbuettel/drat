@@ -7,10 +7,7 @@ Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: Creation and Use of R Repositories via two helper functions 
  to insert packages into a repository, and to add repository information 
- to the current R session. 
- .
- Two primary types of repositories are support: gh-pages at GitHub, as well
- as local repositories on either the same machine or a local network.  
- .
- Drat is a recursive acronym which stands for Drat R Archive Template.
+ to the current R session. Two primary types of repositories are support:
+ gh-pages at GitHub, as well as local repositories on either the same machine
+ or a local network. Drat is a recursive acronym: Drat R Archive Template. 
 License: GPL (>= 2)
