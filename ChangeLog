@@ -1,3 +1,7 @@
+2015-02-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version): Bumping Version and Date
+
 2015-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Description): Remove continuation lines which trigger
