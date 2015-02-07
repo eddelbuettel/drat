@@ -6,6 +6,7 @@
   + switching to gh-pages (and back)
   + commit
   + push
+  
   [ Added on Jan 28 via simple system() call; needs more robust interface ]
 
 - Supporting binary packages (for Windows and maybe OS X) would nice but is
@@ -19,4 +20,4 @@
 - Mention http://stackoverflow.com/questions/2905650/creating-a-local-r-package-repository/
 
 - [DONE] Should add() be called subscribe(), and insert() be called insertRelease()
-  or addRelease() ?  
+  or addRelease() ?
