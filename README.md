@@ -52,6 +52,15 @@ filename as an argument to `insertPackage()` or its shorthand variant:
 drat:::insert("drat_0.0.1.tar.gz")
 ```
 
+You can now add, commit and push the new version. A somewhat experimental
+option also exists for the `insertPackage()` aka `drat:::insert()` function.
+
+### Status
+
+The package is now released onto [CRAN](http://cran.r-project.org). A few possible
+improvements, additions and next steps are listed in the
+[TODO.md](https://github.com/eddelbuettel/drat/blob/master/inst/TODO.md) file.
+
 ### Author
 
 Dirk Eddelbuettel 
