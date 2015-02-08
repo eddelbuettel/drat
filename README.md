@@ -69,11 +69,12 @@ possible improvements, additions and next steps are listed in the
 [TODO.md](https://github.com/eddelbuettel/drat/blob/master/inst/TODO.md)
 file.
 
-A few drat repositories are starting to appear (besides this one). Via direct
-forks, I am aware of these:
+A few drat repositories are starting to appear (besides this one). Via a
+combination of direct forks and GitHub search, I am aware of these:
 
  - [hrbrmstr](https://github.com/hrbrmstr/drat)
  - [yutannihilation](https://github.com/yutannihilation/drat)
+ - [gschofl](https://github.com/gschofl/drat/)
 
 ### Author
 
