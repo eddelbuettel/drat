@@ -21,8 +21,9 @@ Drat tries to help here and supports two principal modes:
 - *GitHub* by leveraging `gh-pages`
 - *Other repos* by using other storage where you can write and provide html access
 
-See the package documentation, or the
-[package page](http://dirk.eddelbuettel.com/code/drat.html) for more.
+See the next section about to get started, the package documentation, the
+[drat package page](http://dirk.eddelbuettel.com/code/drat.html) or the
+[drat blog section](http://dirk.eddelbuettel.com/blog/code/drat/) for more.
 
 ### Getting Started
 
@@ -54,6 +55,12 @@ drat:::insert("drat_0.0.1.tar.gz")
 
 You can now add, commit and push the new version. A somewhat experimental
 option also exists for the `insertPackage()` aka `drat:::insert()` function.
+
+The package documentation provides more detils; the
+[drat package page](http://dirk.eddelbuettel.com/code/drat.html) has a longer
+tutorial, and the
+[drat blog section](http://dirk.eddelbuettel.com/blog/code/drat/) has even
+more.
 
 ### Status
 
