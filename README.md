@@ -57,9 +57,16 @@ option also exists for the `insertPackage()` aka `drat:::insert()` function.
 
 ### Status
 
-The package is now released onto [CRAN](http://cran.r-project.org). A few possible
-improvements, additions and next steps are listed in the
-[TODO.md](https://github.com/eddelbuettel/drat/blob/master/inst/TODO.md) file.
+The package is now available from [CRAN](http://cran.r-project.org). A few
+possible improvements, additions and next steps are listed in the
+[TODO.md](https://github.com/eddelbuettel/drat/blob/master/inst/TODO.md)
+file.
+
+A few drat repositories are starting to appear (besides this one). Via direct
+forks, I am aware of these:
+
+ - [hrbrmstr](https://github.com/hrbrmstr/drat)
+ - [yutannihilation](https://github.com/yutannihilation/drat)
 
 ### Author
 
