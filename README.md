@@ -23,7 +23,7 @@ Drat tries to help here and supports two principal modes:
 
 See the next section about to get started, the package documentation, the
 [drat package page](http://dirk.eddelbuettel.com/code/drat.html) or the
-[drat blog section](http://dirk.eddelbuettel.com/blog/code/drat/) for more.
+[blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) for more.
 
 ### Getting Started
 
@@ -59,7 +59,7 @@ option also exists for the `insertPackage()` aka `drat:::insert()` function.
 The package documentation provides more detils; the
 [drat package page](http://dirk.eddelbuettel.com/code/drat.html) has a longer
 tutorial, and the
-[drat blog section](http://dirk.eddelbuettel.com/blog/code/drat/) has even
+[blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) has even
 more.
 
 ### Status
