@@ -27,14 +27,11 @@ See the next section about to get started, the package documentation, the
 
 ### Getting Started
 
-You can install the package from [CRAN](http://cran.r-project.org) (once it
-will have left the `incoming/` directory there) via
-`install.packages("drat")` after which you consult the manual pages.
-
-Alternatively, for a first installation, you can also do
-
-```{.r}
-install.packages("drat", repos="http://eddelbuettel.github.io/drat")
+You can install the package from [CRAN](http://cran.r-project.org) via the
+standard `install.packages("drat")`.  Alternatively, for a first
+installation, you can also do `install.packages("drat",
+repos="http://eddelbuettel.github.io/drat")` to install directly from the
+drat repository.  
 ```
 
 After either initial installation, you can add line such as
