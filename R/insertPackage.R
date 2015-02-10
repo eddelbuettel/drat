@@ -32,6 +32,7 @@ insertPackage <- function(file,
     ## TODO: make src/contrib if needed
     if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
 
+    ## TODO: branch on Windows / OS X files
     srcdir <- file.path(repodir, "src", "contrib")
     if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
 
@@ -43,7 +44,9 @@ insertPackage <- function(file,
 
     if (commit && length(Sys.which("git") > 0)) {
         setwd(repodir)
-        cmd <- sprintf("git add %s; git commit -m\"adding %s to drat\"; git push", file, file)
+        cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
+                             "git commit -m\"adding %s to drat\";"
+                             "git push"), file, file)
         system(cmd) ## TODO: error checking
     }
     invisible(NULL)
