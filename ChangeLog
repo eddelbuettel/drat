@@ -3,6 +3,8 @@
 	* R/pruneRepo.R (.pruneRepo): Beginnings of a helper function to
 	identify older versions of given packages in a repo directory
 
+	* inst/TODO.md: Added item to generalize sources beyond .tar.gz
+
 2015-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): Bumping Version and Date

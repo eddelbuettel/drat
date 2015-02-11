@@ -21,3 +21,6 @@
 
 - [DONE] Should add() be called subscribe(), and insert() be called insertRelease()
   or addRelease() ?
+
+- Generalize regular expression from ".tar.gz" to tarballs compressed with
+  other compression algorithms just like `tools/packages.R` does
