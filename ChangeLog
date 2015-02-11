@@ -1,3 +1,8 @@
+2015-02-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/pruneRepo.R (.pruneRepo): Beginnings of a helper function to
+	identify older versions of given packages in a repo directory
+
 2015-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): Bumping Version and Date
