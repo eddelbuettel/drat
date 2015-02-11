@@ -45,7 +45,7 @@ insertPackage <- function(file,
     if (commit && length(Sys.which("git") > 0)) {
         setwd(repodir)
         cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
-                             "git commit -m\"adding %s to drat\";"
+                             "git commit -m\"adding %s to drat\";",
                              "git push"), file, file)
         system(cmd) ## TODO: error checking
     }
