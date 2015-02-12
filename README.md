@@ -69,11 +69,14 @@ possible improvements, additions and next steps are listed in the
 file.
 
 A few drat repositories are starting to appear (besides this one). Via a
-combination of direct forks and GitHub search, I am aware of these:
+combination of looking at the direct forks as well as GitHub search, I became
+aware of these:
 
  - [hrbrmstr](https://github.com/hrbrmstr/drat)
  - [yutannihilation](https://github.com/yutannihilation/drat)
  - [gschofl](https://github.com/gschofl/drat/)
+ - [csgillespie](https://github.com/csgillespie/drat)
+ - [homerhanumat](https://github.com/homerhanumat/drat)
 
 ### Author
 
