@@ -6,7 +6,8 @@
   + switching to gh-pages (and back)
   + commit
   + push
-  
+  [ Partially DONE -- might be useful to look into the git2r package ]
+
   [ Added on Jan 28 via simple system() call; needs more robust interface ]
 
 - Supporting binary packages (for Windows and maybe OS X) would nice but is

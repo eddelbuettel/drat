@@ -1,3 +1,8 @@
+2015-02-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/insertPackage.R (insertPackage): Correct directory location for
+	the (optional) git commands
+
 2015-02-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/pruneRepo.R (.pruneRepo): Beginnings of a helper function to
