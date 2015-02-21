@@ -1,7 +1,7 @@
 Package: drat
-Version: 0.0.1.1
+Version: 0.0.1.2
 License: GPL (>= 2)
-MD5sum: 748d725eb3cb71a2b7506144917e219a
+MD5sum: 2d0370983f64a0dca74349f666e1d7ec
 NeedsCompilation: no
 
 Package: RcppAPT
