@@ -35,30 +35,49 @@ insertPackage <- function(file,
     ## TODO: make src/contrib if needed
     if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
 
-    ## TODO: branch on Windows / OS X files
+    ## check for the optional git2r package
+    haspkg <- requireNamespace("git2r")
+    hascmd <- length(Sys.which("git")) > 0
+
+    ## if we are to commit and have git2r -- this seems buggy right now
+    ## if (commit && haspkg) {
+    ##     repo <- git2r::repository(repodir)
+    ##     git2r::checkout(repo, "gh-pages")
+    ## }
+    if (commit && hascmd) {
+        setwd(repodir)
+        system("git checkout gh-pages")
+    }
+    
+    ## TODO: maybe branch on Windows / OS X files
     srcdir <- file.path(repodir, "src", "contrib")
     if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
 
-
+    ## copy file into repo
     file.copy(file, srcdir, overwrite=TRUE)
 
+    ## update index
     write_PACKAGES(srcdir, type="source")
     ## TODO: generalize to binary
 
-    if (commit && length(Sys.which("git") > 0)) {
-        if (requireNamespace("git2r")) {
-            repo <- git2r::repository(".")
-            git2r::checkout(repo, "gh-pages")
+    if (commit) {
+        if (haspkg) {
+            repo <- git2r::repository(repodir)
             setwd(srcdir)
-            git2r::add(repo, c(file, "PACKAGES", "PACKAGES.gz"))
+            git2r::add(repo, file.path(srcdir, file))
+            git2r::add(repo, file.path(srcdir, "PACKAGES"))
+            git2r::add(repo, file.path(srcdir, "PACKAGES.gz"))
             git2r::commit(repo, paste("adding", file, "to drat"))
             git2r::push(repo)
-        } else {
+        } else if (hascmd) {
             setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"adding %s to drat\";",
                                  "git push"), file, file)
             system(cmd) ## TODO: error checking
+        } else {
+            warning("Commit skipped as both git2r package and git command missing.",
+                    .Call=FALSE)
         }
     }
     invisible(NULL)
