@@ -64,11 +64,11 @@ insertPackage <- function(file,
         if (haspkg) {
             repo <- git2r::repository(repodir)
             setwd(srcdir)
-            git2r::add(repo, file.path(srcdir, file))
-            git2r::add(repo, file.path(srcdir, "PACKAGES"))
-            git2r::add(repo, file.path(srcdir, "PACKAGES.gz"))
+            git2r::add(repo, file.path("src", "contrib", file))
+            git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
+            git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
             git2r::commit(repo, paste("adding", file, "to drat"))
-            git2r::push(repo)
+            # git2r::push(repo)
         } else if (hascmd) {
             setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
