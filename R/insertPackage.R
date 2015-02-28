@@ -44,10 +44,17 @@ insertPackage <- function(file,
 
     if (commit && length(Sys.which("git") > 0)) {
         setwd(srcdir)
-        cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
-                             "git commit -m\"adding %s to drat\";",
-                             "git push"), file, file)
-        system(cmd) ## TODO: error checking
+        if (requireNamespace(git2)) {
+            repo <- repository(".")
+            add(repo, c(file, "PACKAGES", "PACKAGES.gz"))
+            commit(repo, paste("adding", file, "to drat"))
+            push(repo)
+        } else {
+            cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
+                                 "git commit -m\"adding %s to drat\";",
+                                 "git push"), file, file)
+            system(cmd) ## TODO: error checking
+        }
     }
     invisible(NULL)
 }
