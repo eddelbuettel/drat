@@ -39,6 +39,8 @@ insertPackage <- function(file,
     haspkg <- requireNamespace("git2r")
     hascmd <- length(Sys.which("git")) > 0
 
+    curwd <- getwd()
+    
     ## if we are to commit and have git2r -- this seems buggy right now
     ## if (commit && haspkg) {
     ##     repo <- git2r::repository(repodir)
@@ -54,7 +56,7 @@ insertPackage <- function(file,
     if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
 
     ## copy file into repo
-    file.copy(file, srcdir, overwrite=TRUE)
+    file.copy(file.path(curwd, file), srcdir, overwrite=TRUE)
 
     ## update index
     write_PACKAGES(srcdir, type="source")
