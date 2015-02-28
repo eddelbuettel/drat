@@ -1,5 +1,6 @@
 
-## still incomplete ...
+## still raw but mostly complete ...
+## should it remove as well?
 
 .pruneRepo <- function(repodir=file.path(getOption("dratRepo", "~/git/drat"), "src", "contrib"),
                        remove=FALSE) {
