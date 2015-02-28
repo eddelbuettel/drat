@@ -26,4 +26,4 @@
 
 - Generalize regular expression from ".tar.gz" to tarballs compressed with
   other compression algorithms just like `tools/packages.R` does
-  [ Actually we never test for the extension and just show tar.gz as an example. ]
+  [ DONE in pruneRepo.R ]

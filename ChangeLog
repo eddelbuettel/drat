@@ -3,6 +3,9 @@
 	* R/insertPackage.R: Also use git2r for checkout of gh-pages branch;
 	document git2r in help page.
 
+	* R/pruneRepo.R: Default path for repo also contains src/contrib/;
+	generalize regular expression for source tarball
+
 	* inst/TODO.md: Updated with recent changes
 
 2015-02-27  Dirk Eddelbuettel  <edd@debian.org>

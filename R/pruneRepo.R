@@ -1,10 +1,10 @@
 
 ## still incomplete ...
 
-.pruneRepo <- function(repodir=getOption("dratRepo", "~/git/drat"),
+.pruneRepo <- function(repodir=file.path(getOption("dratRepo", "~/git/drat"), "src", "contrib"),
                        remove=FALSE) {
-    ## TODO: deal with other extensions
-    ext <- "\\.tar\\.gz$"
+
+    ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
     files <- list.files(repodir, pattern=ext, full.names=FALSE)
 
     ## subst. out the extension
