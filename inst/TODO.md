@@ -7,8 +7,8 @@
   + commit
   + push
   [ Partially DONE -- might be useful to look into the git2r package ]
-
   [ Added on Jan 28 via simple system() call; needs more robust interface ]
+  [ DONE via git2r ]
 
 - Supporting binary packages (for Windows and maybe OS X) would nice but is
   lower priority -- especially as R now tries bianry _and_ source
@@ -17,6 +17,7 @@
   step. Validation would be needed as well.
 
 - Supports GH orgs? That is just an account name after all.
+  [ DONE, see the RcppCore drat repo ]
 
 - Mention http://stackoverflow.com/questions/2905650/creating-a-local-r-package-repository/
 
@@ -25,3 +26,4 @@
 
 - Generalize regular expression from ".tar.gz" to tarballs compressed with
   other compression algorithms just like `tools/packages.R` does
+  [ Actually we never test for the extension and just show tar.gz as an example. ]

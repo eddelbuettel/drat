@@ -3,6 +3,8 @@
 	* R/insertPackage.R: Also use git2r for checkout of gh-pages branch;
 	document git2r in help page.
 
+	* inst/TODO.md: Updated with recent changes
+
 2015-02-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R: Use git2r if available
