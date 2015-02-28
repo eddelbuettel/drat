@@ -1,7 +1,9 @@
 2015-02-28  Dirk Eddelbuettel  <edd@debian.org>
 
-	* R/insertPackage.R: Also use git2r for checkout of gh-pages branch;
-	document git2r in help page.
+	* DESCRIPTION (Version, Date): New release 0.0.2
+
+	* R/insertPackage.R: Document git2r in help page, don't use git2r for
+	checkout yet though (cf git2r issue #109)
 
 	* R/pruneRepo.R: Default path for repo also contains src/contrib/;
 	generalize regular expression for source tarball
