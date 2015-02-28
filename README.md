@@ -77,6 +77,9 @@ aware of these:
  - [gschofl](https://github.com/gschofl/drat/)
  - [csgillespie](https://github.com/csgillespie/drat)
  - [homerhanumat](https://github.com/homerhanumat/drat)
+ - [cboettig](https://github.com/cboettig/drat)
+ - [shabbychef](https://github.com/shabbychef/drat)
+ - [RcppCore](https://github.com/RcppCore/drat)
 
 ### Author
 
