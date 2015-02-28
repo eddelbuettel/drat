@@ -17,6 +17,7 @@ before_install:
   - ./travis-tool.sh bootstrap
 
 script:
+  - ./travis-tool.sh install_r git2r
   - ./travis-tool.sh run_tests
 
 notifications:

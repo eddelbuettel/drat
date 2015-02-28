@@ -5,6 +5,8 @@
 
 	* DESCRIPTION (Version,Date): Bump Date: and Version:
 
+	* .travis.yml: Also install git2r
+
 2015-02-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version,Date): Bump Date: and Version:
