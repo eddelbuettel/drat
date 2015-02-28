@@ -36,8 +36,11 @@ inserting a given source archive into a given repository.
 }
 \details{
 This function inserts the given package file into the given
-(local) package repository and updates the index. One can then
-push to remote such as GitHub.
+(local) package repository and updates the index. By setting the
+\code{commit} option to \code{TRUE}, one can then push to a remote
+git code repository. If the \code{\link[git2r]{git2r}} package is
+installed, it is used for the interaction with the git repository;
+otherwise the \code{git} shell command is used.
 
 An aliased function \code{insert} is also available, but not
 exported via \code{NAMESPACE} to not clobber a possibly unrelated

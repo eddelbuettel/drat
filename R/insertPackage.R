@@ -6,8 +6,11 @@
 ##' inserting a given source archive into a given repository.
 ##'
 ##' This function inserts the given package file into the given
-##' (local) package repository and updates the index. One can then
-##' push to remote such as GitHub.
+##' (local) package repository and updates the index. By setting the
+##' \code{commit} option to \code{TRUE}, one can then push to a remote
+##' git code repository. If the \code{\link[git2r]{git2r}} package is
+##' installed, it is used for the interaction with the git repository;
+##' otherwise the \code{git} shell command is used.
 ##'
 ##' An aliased function \code{insert} is also available, but not
 ##' exported via \code{NAMESPACE} to not clobber a possibly unrelated
@@ -43,13 +46,15 @@ insertPackage <- function(file,
     ## TODO: generalize to binary
 
     if (commit && length(Sys.which("git") > 0)) {
-        setwd(srcdir)
-        if (requireNamespace(git2)) {
-            repo <- repository(".")
-            add(repo, c(file, "PACKAGES", "PACKAGES.gz"))
-            commit(repo, paste("adding", file, "to drat"))
-            push(repo)
+        if (requireNamespace("git2r")) {
+            repo <- git2r::repository(".")
+            git2r::checkout(repo, "gh-pages")
+            setwd(srcdir)
+            git2r::add(repo, c(file, "PACKAGES", "PACKAGES.gz"))
+            git2r::commit(repo, paste("adding", file, "to drat"))
+            git2r::push(repo)
         } else {
+            setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"adding %s to drat\";",
                                  "git push"), file, file)
