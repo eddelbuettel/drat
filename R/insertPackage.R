@@ -41,12 +41,10 @@ insertPackage <- function(file,
 
     curwd <- getwd()
     
-    ## if we are to commit and have git2r -- this seems buggy right now
-    ## if (commit && haspkg) {
-    ##     repo <- git2r::repository(repodir)
-    ##     git2r::checkout(repo, "gh-pages")
-    ## }
-    if (commit && hascmd) {
+    if (commit && haspkg) {    			# if we are to commit and have git2r -- this seems buggy right now
+         repo <- git2r::repository(repodir)
+         git2r::checkout(repo, "gh-pages")
+    } else if (commit && hascmd) {
         setwd(repodir)
         system("git checkout gh-pages")
     }
