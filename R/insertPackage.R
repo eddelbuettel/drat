@@ -76,7 +76,7 @@ insertPackage <- function(file,
             setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"adding %s to drat\";",
-                                 "git push"), package_tgz, package_tgz)
+                                 "git push"), file, package_tgz)
             system(cmd) ## TODO: error checking
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
