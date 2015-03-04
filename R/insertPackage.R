@@ -41,12 +41,13 @@ insertPackage <- function(file,
 
     curwd <- getwd()
     
-    if (commit && haspkg) {    			# if we are to commit and have git2r -- this seems buggy right now
-         repo <- git2r::repository(repodir)
-         git2r::checkout(repo, "gh-pages")
+    if (commit && haspkg) {  
+        repo <- git2r::repository(repodir)
+        git2r::checkout(repo, "gh-pages")
     } else if (commit && hascmd) {
         setwd(repodir)
         system("git checkout gh-pages")
+        setwd(curwd)
     }
     
     ## TODO: maybe branch on Windows / OS X files
@@ -54,17 +55,18 @@ insertPackage <- function(file,
     if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
 
     ## copy file into repo
-    file.copy(file.path(curwd, file), srcdir, overwrite=TRUE)
+    file.copy(file, srcdir, overwrite=TRUE)
 
     ## update index
     write_PACKAGES(srcdir, type="source")
     ## TODO: generalize to binary
 
     if (commit) {
+        pkg <- basename(file)
         if (haspkg) {
             repo <- git2r::repository(repodir)
             setwd(srcdir)
-            git2r::add(repo, file.path("src", "contrib", file))
+            git2r::add(repo, file.path("src", "contrib", pkg))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
             git2r::commit(repo, paste("adding", file, "to drat"))
@@ -73,7 +75,7 @@ insertPackage <- function(file,
             setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"adding %s to drat\";",
-                                 "git push"), file, file)
+                                 "git push"), pkg, pkg)
             system(cmd) ## TODO: error checking
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
