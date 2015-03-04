@@ -61,20 +61,22 @@ insertPackage <- function(file,
     write_PACKAGES(srcdir, type="source")
     ## TODO: generalize to binary
 
+		package_tgz <- basename(file)
+
     if (commit) {
         if (haspkg) {
             repo <- git2r::repository(repodir)
             setwd(srcdir)
-            git2r::add(repo, file.path("src", "contrib", file))
+            git2r::add(repo, file.path("src", "contrib", package_tgz))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
-            git2r::commit(repo, paste("adding", file, "to drat"))
+            git2r::commit(repo, paste("adding", package_tgz, "to drat"))
             # git2r::push(repo)
         } else if (hascmd) {
             setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"adding %s to drat\";",
-                                 "git push"), file, file)
+                                 "git push"), package_tgz, package_tgz)
             system(cmd) ## TODO: error checking
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
