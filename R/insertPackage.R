@@ -54,7 +54,8 @@ insertPackage <- function(file,
     if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
 
     ## copy file into repo
-    file.copy(file.path(curwd, file), srcdir, overwrite=TRUE)
+		stopifnot(file.copy(file.path(curwd, file), srcdir, overwrite=TRUE) || 
+							file.copy(file, srcdir, overwrite=TRUE))
 
     ## update index
     write_PACKAGES(srcdir, type="source")
