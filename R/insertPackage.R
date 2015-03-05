@@ -71,7 +71,7 @@ insertPackage <- function(file,
             git2r::add(repo, file.path("src", "contrib", pkg))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
-            git2r::commit(repo, paste("adding", file, "to drat"))
+            git2r::commit(repo, paste("adding", pkg, "to drat"))
             # git2r::push(repo)
         } else if (hascmd) {
             setwd(srcdir)
