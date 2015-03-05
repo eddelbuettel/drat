@@ -55,8 +55,10 @@ insertPackage <- function(file,
     if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
 
     ## copy file into repo
-    file.copy(file, srcdir, overwrite=TRUE)
-
+    if (!file.copy(file, srcdir, overwrite=TRUE)) {
+        stop("File ", file, " can not be copied to ", srcdir, .Call=FALSE)
+    }
+    
     ## update index
     write_PACKAGES(srcdir, type="source")
     ## TODO: generalize to binary
