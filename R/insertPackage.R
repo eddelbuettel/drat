@@ -36,7 +36,7 @@ insertPackage <- function(file,
     if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
 
     ## check for the optional git2r package
-    haspkg <- requireNamespace("git2r")
+    haspkg <- requireNamespace("git2r", quietly=TRUE)
     hascmd <- length(Sys.which("git")) > 0
 
     curwd <- getwd()
