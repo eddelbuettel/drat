@@ -5,12 +5,3 @@ License: GPL (>= 2)
 MD5sum: 3eef42152f4d3541e089e925007825ae
 NeedsCompilation: no
 
-Package: RcppAPT
-Version: 0.0.1
-Imports: Rcpp (>= 0.11.0)
-LinkingTo: Rcpp
-License: GPL (>= 2)
-OS_type: unix
-MD5sum: 3c26df7bd933d88b5f81280754ff1f11
-NeedsCompilation: yes
-
