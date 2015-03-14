@@ -1,8 +1,8 @@
 Package: drat
-Version: 0.0.2.2
+Version: 0.0.2.3
 Suggests: git2r
 License: GPL (>= 2)
-MD5sum: 3eef42152f4d3541e089e925007825ae
+MD5sum: ce18cc539f679e97f021efa2861d6e89
 NeedsCompilation: no
 
 Package: RcppAPT
