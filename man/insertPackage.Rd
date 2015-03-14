@@ -46,6 +46,12 @@ An aliased function \code{insert} is also available, but not
 exported via \code{NAMESPACE} to not clobber a possibly unrelated
 function; use it via \code{drat:::insert()}.
 }
+\examples{
+\dontrun{
+  insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
+  insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
+}
+}
 \author{
 Dirk Eddelbuettel
 }

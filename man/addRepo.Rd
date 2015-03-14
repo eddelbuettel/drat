@@ -42,6 +42,12 @@ An aliased function \code{add} is also available, but not exported
 via \code{NAMESPACE} to not clobber a possibly unrelated function;
 use it via \code{drat:::add()}.
 }
+\examples{
+\dontrun{
+  addRepo("eddelbuettel", "RcppCore")        # adds two GitHub repos
+  addRepo("LocalRepo", "file:///nas/R/repo") # adds local file-based repo
+}
+}
 \author{
 Dirk Eddelbuettel
 }

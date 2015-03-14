@@ -1,3 +1,9 @@
+2015-03-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/addRepo.R: Added examples (inside \dontrun{}) to help page
+
+	* R/insertPackage.R: Idem
+
 2015-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R (insertPackage): Add quietly=TRUE to requireNamespace

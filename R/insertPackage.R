@@ -25,6 +25,11 @@
 ##' @param ... For the aliases variant, a catch-all collection of
 ##' parameters.
 ##' @return NULL is returned.
+##' @examples
+##' \dontrun{
+##'   insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
+##'   insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
+##' }
 ##' @author Dirk Eddelbuettel
 insertPackage <- function(file,
                           repodir=getOption("dratRepo", "~/git/drat"),
