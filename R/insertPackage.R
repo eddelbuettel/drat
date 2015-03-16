@@ -45,6 +45,7 @@ insertPackage <- function(file,
     hascmd <- length(Sys.which("git")) > 0
 
     curwd <- getwd()
+    on.exit(setwd(curwd))               # restore current working directory 
     
     if (commit && haspkg) {  
         repo <- git2r::repository(repodir)

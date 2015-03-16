@@ -1,3 +1,8 @@
+2015-03-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/insertPackage.R (insertPackage): Use on.exit() with setwd() to
+	ensure we return to current working directory  		(closes #9)
+
 2015-03-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R: Added examples (inside \dontrun{}) to help page
@@ -6,7 +11,8 @@
 
 2015-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
-	* R/insertPackage.R (insertPackage): Add quietly=TRUE to requireNamespace
+	* R/insertPackage.R (insertPackage): Add quietly=TRUE to
+	requireNamespace
 
 2015-03-04  Dirk Eddelbuettel  <edd@debian.org>
 
