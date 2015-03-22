@@ -1,7 +1,7 @@
 Package: drat
-Version: 0.0.2.3
+Version: 0.0.2.4
 Suggests: git2r
 License: GPL (>= 2)
-MD5sum: ce18cc539f679e97f021efa2861d6e89
+MD5sum: 967de835548f961782158dcdd69332bd
 NeedsCompilation: no
 
