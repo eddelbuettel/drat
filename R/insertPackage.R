@@ -20,8 +20,10 @@
 ##' @param file A source archive in \code{tar.gz} form.
 ##' @param repodir A local directory corresponding to the repository
 ##' top-leve directory.
-##' @param commit A boolean toggle to select automatic git operations
-##' \sQuote{add}, \sQuote{commit}, and \sQuote{push}.
+##' @param commit Either boolean toggle to select automatic git operations
+##' \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
+##' a character variable can be used to specify a commit message; this also
+##' implies the \sQuote{TRUE} values in other contexts.
 ##' @param ... For the aliases variant, a catch-all collection of
 ##' parameters.
 ##' @return NULL is returned.
@@ -46,6 +48,14 @@ insertPackage <- function(file,
 
     curwd <- getwd()
     on.exit(setwd(curwd))               # restore current working directory 
+
+    pkg <- basename(file)
+    msg <- if (isTRUE(commit)) sprintf("Adding %s to drat", pkg) else ""
+    ## special case of commit via message: not TRUE, and character 
+    if (!isTRUE(commit) && typeof(commit) == "character" && nchar(commit) > 0) {
+        msg <- commit
+        commit <- TRUE
+    }
     
     if (commit && haspkg) {  
         repo <- git2r::repository(repodir)
@@ -70,21 +80,20 @@ insertPackage <- function(file,
     ## TODO: generalize to binary
 
     if (commit) {
-        pkg <- basename(file)
         if (haspkg) {
             repo <- git2r::repository(repodir)
             setwd(srcdir)
             git2r::add(repo, file.path("src", "contrib", pkg))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
             git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
-            git2r::commit(repo, paste("adding", pkg, "to drat"))
+            git2r::commit(repo, msg)
             #TODO: authentication woes?   git2r::push(repo)  
             message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n") 
         } else if (hascmd) {
             setwd(srcdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
-                                 "git commit -m\"adding %s to drat\";",
-                                 "git push"), pkg, pkg)
+                                 "git commit -m\"%s\";",
+                                 "git push"), pkg, msg)
             system(cmd) ## TODO: error checking
             message("Added, committed and pushed ", pkg, " plus PACKAGES files.\n") 
         } else {
