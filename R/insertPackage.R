@@ -37,7 +37,6 @@ insertPackage <- function(file,
 
     if (!file.exists(file)) stop("File ", file, " not found\n", .Call=FALSE)
     
-    ## TODO: make src/contrib if needed
     if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
 
     ## check for the optional git2r package
@@ -55,33 +54,58 @@ insertPackage <- function(file,
         system("git checkout gh-pages")
         setwd(curwd)
     }
-    
-    ## TODO: maybe branch on Windows / OS X files
-    srcdir <- file.path(repodir, "src", "contrib")
-    if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
+
+    #from src/library/tools/R/packages.R
+    pkgtype <- if (length(i <- grep("_.*\\.tar\\..*$", file))){
+      "source"
+    } else if (length(i <- grep("_.*\\.tgz$", file))){
+      "mac.binary"
+    } else if (length(i <- grep("_.*\\.zip$", file))){
+      "win.binary"
+    } else {
+      stop("Unknown package type", .Call=FALSE)
+    }
+
+    reldir <- if (pkgtype == "source"){
+        # it's a source package
+        file.path("src", "contrib")
+    } else if (pkgtype == "win.binary") {
+        rversion <- sprintf("%s.%s", base::getRversion()$major, base::getRversion()$minor)
+        file.path("bin", "windows", "contrib", rversion)
+    } else if (pkgtype == "mac.binary") {
+        rversion <- sprintf("%s.%s", base::getRversion()$major, base::getRversion()$minor)
+        file.path("bin", "macosx", "contrib", rversion)
+    }
+
+    pkgdir = file.path(repodir, reldir)
+
+    if (!file.exists(pkgdir)){
+         if (!dir.create(pkgdir, recursive = TRUE)){
+            stop("Directory ", pkgdir, " couldn't be created\n", .Call=FALSE)
+         }
+    }
 
     ## copy file into repo
-    if (!file.copy(file, srcdir, overwrite=TRUE)) {
-        stop("File ", file, " can not be copied to ", srcdir, .Call=FALSE)
+    if (!file.copy(file, pkgdir, overwrite=TRUE)) {
+        stop("File ", file, " can not be copied to ", pkgdir, .Call=FALSE)
     }
     
     ## update index
-    write_PACKAGES(srcdir, type="source")
-    ## TODO: generalize to binary
+    write_PACKAGES(pkgdir, type=pkgtype)
 
     if (commit) {
         pkg <- basename(file)
         if (haspkg) {
             repo <- git2r::repository(repodir)
-            setwd(srcdir)
-            git2r::add(repo, file.path("src", "contrib", pkg))
-            git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
-            git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
+            setwd(pkgdir)
+            git2r::add(repo, file.path(reldir, pkg))
+            git2r::add(repo, file.path(reldir, "PACKAGES"))
+            git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
             git2r::commit(repo, paste("adding", pkg, "to drat"))
             #TODO: authentication woes?   git2r::push(repo)  
             message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n") 
         } else if (hascmd) {
-            setwd(srcdir)
+            setwd(pkgdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"adding %s to drat\";",
                                  "git push"), pkg, pkg)
