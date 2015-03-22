@@ -38,7 +38,12 @@ insertPackage <- function(file,
     if (!file.exists(file)) stop("File ", file, " not found\n", .Call=FALSE)
     
     ## TODO: make src/contrib if needed
-    if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
+    if (!file.exists(repodir)) {
+        stop("Repository directory ", repodir, " not found\n",
+             "You can either set the 'repodir' parameter ('insertPackage(..., repodir=\"/path/to/dratrepo/\")')\n",
+             "or use 'option(dratRepo = \"/path/to/dratrepo/\")' to set one as a default.\n",
+             .Call=FALSE)
+    }
 
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly=TRUE)
