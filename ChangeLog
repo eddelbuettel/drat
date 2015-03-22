@@ -1,7 +1,9 @@
 2015-03-22  Dirk Eddelbuettel  <edd@debian.org>
 
-	* inst/scripts/git2targz.sh (tarball): Beginnings of helper script to
-	create a tarball (suitable for a drat repo) given a repo URL
+	* R/insertPackage.R: Support setting a commit message
+
+	* inst/scripts/git2targz.sh: Beginnings of helper script to create a
+	tarball (suitable for a drat repo) given a repo URL
 
 2015-03-16  Dirk Eddelbuettel  <edd@debian.org>
 
