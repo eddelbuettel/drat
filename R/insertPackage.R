@@ -17,9 +17,9 @@
 ##' function; use it via \code{drat:::insert()}.
 ##' @title Insert a package source archive into a drat repository
 ##' @aliases drat:::insert
-##' @param file A source archive in \code{tar.gz} form.
+##' @param file An R (source/binary) package.
 ##' @param repodir A local directory corresponding to the repository
-##' top-leve directory.
+##' top-level directory.
 ##' @param commit Either boolean toggle to select automatic git operations
 ##' \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
 ##' a character variable can be used to specify a commit message; this also
@@ -39,7 +39,6 @@ insertPackage <- function(file,
 
     if (!file.exists(file)) stop("File ", file, " not found\n", .Call=FALSE)
     
-    ## TODO: make src/contrib if needed
     if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
 
     ## check for the optional git2r package
@@ -65,32 +64,38 @@ insertPackage <- function(file,
         system("git checkout gh-pages")
         setwd(curwd)
     }
-    
-    ## TODO: maybe branch on Windows / OS X files
-    srcdir <- file.path(repodir, "src", "contrib")
-    if (!file.exists(srcdir)) stop("Directory ", srcdir, " not found\n", .Call=FALSE)
+
+    pkgtype <- identifyPackageType(file)
+    reldir <- getPathForPackageType(pkgtype)
+
+    pkgdir = file.path(repodir, reldir)
+
+    if (!file.exists(pkgdir)){
+         if (!dir.create(pkgdir, recursive = TRUE)){
+            stop("Directory ", pkgdir, " couldn't be created\n", .Call=FALSE)
+         }
+    }
 
     ## copy file into repo
-    if (!file.copy(file, srcdir, overwrite=TRUE)) {
-        stop("File ", file, " can not be copied to ", srcdir, .Call=FALSE)
+    if (!file.copy(file, pkgdir, overwrite=TRUE)) {
+        stop("File ", file, " can not be copied to ", pkgdir, .Call=FALSE)
     }
     
     ## update index
-    write_PACKAGES(srcdir, type="source")
-    ## TODO: generalize to binary
+    write_PACKAGES(pkgdir, type=pkgtype)
 
     if (commit) {
         if (haspkg) {
             repo <- git2r::repository(repodir)
-            setwd(srcdir)
-            git2r::add(repo, file.path("src", "contrib", pkg))
-            git2r::add(repo, file.path("src", "contrib", "PACKAGES"))
-            git2r::add(repo, file.path("src", "contrib", "PACKAGES.gz"))
+            setwd(pkgdir)
+            git2r::add(repo, file.path(reldir, pkg))
+            git2r::add(repo, file.path(reldir, "PACKAGES"))
+            git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
             git2r::commit(repo, msg)
             #TODO: authentication woes?   git2r::push(repo)  
             message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n") 
         } else if (hascmd) {
-            setwd(srcdir)
+            setwd(pkgdir)
             cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
                                  "git commit -m\"%s\";",
                                  "git push"), pkg, msg)
@@ -108,3 +113,47 @@ insertPackage <- function(file,
     
 ##' @rdname insertPackage
 insert <- function(...) insertPackage(...)
+
+##' This function identifies the package type from a filename.
+##'
+##' The returned string is suitable for \code{write_PACKAGES()}
+##' @title Identifies the package type from a filename
+##' @param file An R (source/binary) package.
+##' @return string Type of the supplied package.
+##' @author Jan Schulz
+identifyPackageType <- function(file){
+    #from src/library/tools/R/packages.R
+    ret <- if (length(i <- grep("_.*\\.tar\\..*$", file))){
+      "source"
+    } else if (length(i <- grep("_.*\\.tgz$", file))){
+      "mac.binary"
+    } else if (length(i <- grep("_.*\\.zip$", file))){
+      "win.binary"
+    } else {
+      stop("Unknown package type", .Call=FALSE)
+    }
+    return(ret)
+}
+
+##' This function returns the directory path (relative to 
+##' the repo root) where the package needs to be copied to.
+##'
+##' @title Get relative path for package type
+##' @param pgktype The package type as a string.
+##' @param rversion String which identifies the major.minor 
+### R version, which was used to build this package. Defaults 
+##' to the version of the current interpreter.
+##' @return string Relative file path where packages of 
+##' this type should be copied to.
+##' @author Jan Schulz
+getPathForPackageType <- function(pkgtype, 
+                                  rversion=sprintf("%s.%s", base::getRversion()$major, base::getRversion()$minor)){
+    ret <- if (pkgtype == "source"){
+        file.path("src", "contrib")
+    } else if (pkgtype == "win.binary") {
+        file.path("bin", "windows", "contrib", rversion)
+    } else if (pkgtype == "mac.binary") {
+        file.path("bin", "macosx", "contrib", rversion)
+    }
+    return(ret)
+}
