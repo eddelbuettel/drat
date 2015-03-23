@@ -15,7 +15,7 @@ insert(...)
 \item{file}{A source archive in \code{tar.gz} form.}
 
 \item{repodir}{A local directory corresponding to the repository
-top-leve directory.}
+top-level directory.}
 
 \item{commit}{A boolean toggle to select automatic git operations
 \sQuote{add}, \sQuote{commit}, and \sQuote{push}.}
