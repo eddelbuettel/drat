@@ -15,10 +15,12 @@ insert(...)
 \item{file}{A source archive in \code{tar.gz} form.}
 
 \item{repodir}{A local directory corresponding to the repository
-top-level directory.}
+top-leve directory.}
 
-\item{commit}{A boolean toggle to select automatic git operations
-\sQuote{add}, \sQuote{commit}, and \sQuote{push}.}
+\item{commit}{Either boolean toggle to select automatic git operations
+\sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
+a character variable can be used to specify a commit message; this also
+implies the \sQuote{TRUE} values in other contexts.}
 
 \item{...}{For the aliases variant, a catch-all collection of
 parameters.}
