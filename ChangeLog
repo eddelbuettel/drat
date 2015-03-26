@@ -1,3 +1,8 @@
+2015-03-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/addRepo.R: Added/extended/clarified example
+	* man/addRepo.Rd: Corresponding Rd file
+
 2015-03-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R: Support setting a commit message
