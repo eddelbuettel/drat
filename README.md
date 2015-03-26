@@ -81,6 +81,7 @@ aware of these:
  - [shabbychef](https://github.com/shabbychef/drat)
  - [RcppCore](https://github.com/RcppCore/drat)
  - [arilamstein](https://github.com/arilamstein/drat)
+ - [piccolbo](https://github.com/piccolbo/drat)
  - [ghrr](https://github.com/ghrr/drat)
 
 ### Travis Integration
