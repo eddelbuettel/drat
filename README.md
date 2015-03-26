@@ -82,6 +82,13 @@ aware of these:
  - [RcppCore](https://github.com/RcppCore/drat)
  - [arilamstein](https://github.com/arilamstein/drat)
 
+### Travis Integration
+
+Colin Gillespie has started to integrate [Travis
+CI](http://www.travis-ci.org) with dart, see his
+[dratTravis](https://github.com/csgillespie/dratTravis) repository for more
+details. 
+
 ### Author
 
 Dirk Eddelbuettel 
