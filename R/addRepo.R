@@ -26,8 +26,11 @@
 ##' @return The altered set of repositories
 ##' @examples
 ##' \dontrun{
-##'   addRepo("eddelbuettel", "RcppCore")        # adds two GitHub repos
-##'   addRepo("LocalRepo", "file:///nas/R/repo") # adds local file-based repo
+##'   addRepo("drat")                            # adds GitHub repo via default URL
+##'   addRepo(c("eddelbuettel", "ghrr"))         # ditto but adds two repos at once
+##'
+##'   addRepo("LocalRepo", "/nas/R/repo")        # adds local file-based repo,
+##'                                              # assumes you can read /nas/R/repo
 ##' }
 ##' @author Dirk Eddelbuettel
 addRepo <- function(account, alturl) {
