@@ -1,6 +1,9 @@
 2015-03-27  Dirk Eddelbuettel  <edd@debian.org>
 
-	* vignettes/WhyDrat.Rmd (drat): Adding post by Steven as vignette
+	* vignettes/WhyDrat.Rmd: Adding post by Steven as vignette
+
+	* vignettes/CombiningDratAndTravis.Rmd: Adding (work-in-progress)
+	post by Colin 
 
 2015-03-26  Dirk Eddelbuettel  <edd@debian.org>
 
