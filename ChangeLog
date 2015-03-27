@@ -1,3 +1,7 @@
+2015-03-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/WhyDrat.Rmd (drat): Adding post by Steven as vignette
+
 2015-03-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R: Added/extended/clarified example
