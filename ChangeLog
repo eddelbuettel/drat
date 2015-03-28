@@ -1,6 +1,7 @@
 2015-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Added knitr to Suggests: and VignetteBuilder:
+	* .travis.yml: Added knitr
 
 2015-03-27  Dirk Eddelbuettel  <edd@debian.org>
 
