@@ -2,10 +2,11 @@ Package: drat
 Type: Package
 Title: Drat R Archive Template
 Version: 0.0.2.4
-Date: 2015-03-22
+Date: 2015-03-28
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
-Suggests: git2r
+Suggests: git2r, knitr
+VignetteBuilder: knitr
 Description: Creation and Use of R Repositories via two helper functions 
  to insert packages into a repository, and to add repository information 
  to the current R session. Two primary types of repositories are support:

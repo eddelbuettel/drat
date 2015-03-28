@@ -1,9 +1,13 @@
+2015-03-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Added knitr to Suggests: and VignetteBuilder:
+
 2015-03-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/WhyDrat.Rmd: Adding post by Steven as vignette
 
 	* vignettes/CombiningDratAndTravis.Rmd: Adding (work-in-progress)
-	post by Colin 
+	post by Colin
 
 2015-03-26  Dirk Eddelbuettel  <edd@debian.org>
 
