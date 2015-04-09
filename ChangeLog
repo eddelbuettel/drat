@@ -1,3 +1,13 @@
+2015-04-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratForPackageUsers.Rmd: Added new vignette detailing
+	drat use for package users (ie someone install from a drat)
+
+2015-04-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratForPackageAuthors.Rmd: Added new vignette detailing
+	drat use for package authors (ie someone writing to a drat)
+
 2015-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Added knitr to Suggests: and VignetteBuilder:
