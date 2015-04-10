@@ -1,7 +1,9 @@
 2015-04-09  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): New release 0.0.3
+
 	* vignettes/DratForPackageUsers.Rmd: Added new vignette detailing
-	drat use for package users (ie someone install from a drat)
+	drat use for package users (ie someone installing from a drat)
 
 2015-04-08  Dirk Eddelbuettel  <edd@debian.org>
 

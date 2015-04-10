@@ -87,7 +87,7 @@ left to the user.
 
 ### GitHub and Travis Integration
 
-[Colin Gillespie](http://www.mas.ncl.ac.uk/~ncsg3/) has provided a nice
+[Colin Gillespie](https://github.com/csgillespie) has provided a nice
 walk-through of how to have [Travis CI](https://travis-ci.org/) automagically
 push packages into a [drat](http://dirk.eddelbuettel.com/code/drat.html)
 repo. This is included as another (currently work-in-progress) vignette
