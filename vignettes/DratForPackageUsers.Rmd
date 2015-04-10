@@ -15,8 +15,8 @@ The [drat](http://dirk.eddelbuettel.com/code/drat.html) package makes it
 trivially easy to deploy package repositories.  There are essentially just
 two ways to use a package repository:
 
-1) You write to the repository as a _package author_ to publish your package; or
-1) You read from the reposiory as a _package user_ to install or update one or more packages.
+1) You _write_ to the repository as a _package author_ to publish your package; or
+1) You _read_ from the reposiory as a _package user_ to install or update one or more packages.
 
 This vignette deals with the second case: How to use
 [drat](http://dirk.eddelbuettel.com/code/drat.html) as package users.  A
@@ -28,7 +28,9 @@ This vignette deals with the second case: How to use
 [drat](http://dirk.eddelbuettel.com/code/drat.html) makes it _very_ easy to
 use an R package repository hosted on GitHub.  It assumes simply that the R
 package repository is hosted in a GitHub repository named `drat`.  With that,
-we only need one piece of information: the name of the repository.  So
+we only need one piece of information: the name of the repository (and if
+this seem mysterious see the discussion in the
+[companion vignette](DratForPackageAuthors.html).  So
 
 ```{r, eval=FALSE}
 drat::addRepo("eddelbuettel")
@@ -38,7 +40,7 @@ adds my drat repo (which contains only the drat package in order to keep the
 footprint of forking small).
 
 One can add several repositoties at once. The following statements adds the
-repos for Rcpp and my catch-all ghrr repo:
+repo for Rcpp and my catch-all ghrr repo:
 
 ```{r, eval=FALSE}
 drat::addRepo(c("eddelbuettel", "RcppCore", "ghrr"))
@@ -49,12 +51,12 @@ Note that this use a vectorised first argument, rather than three arguments.
 
 ## Case 2: Using Another Repo
 
-Sometimes we want to use repositories not confirming to the GitHub `drat`
-pattern.  This use case may simply be a different URL.  Another common (and
-very useful case) is for a locally hosted repository.
+Sometimes we want to use repositories not conforming to the GitHub `drat`
+pattern.  This use case may simply be a different URL, or server.  Another
+common (and very useful case) is for a locally hosted repository.
 
 In this case we use the two argument form: the first argument sets the name
-with the `repos` vector, and the second provides the local (filesystem-based)
+within the `repos` vector, and the second provides the local (filesystem-based)
 or remote (web-based) URL:
 
 ```

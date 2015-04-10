@@ -15,11 +15,11 @@ The [drat](http://dirk.eddelbuettel.com/code/drat.html) package makes it
 trivially easy to deploy package repositories.  There are essentially just
 two ways to use a package repository:
 
-1) You write to the repository as a _package author_ to publish your package; or
-1) You read from the reposiory as a _package user_ to install or update one or more packages.
+1) You _write_ to the repository as a _package author_ to publish your package; or
+1) You _read_ from the reposiory as a _package user_ to install or update one or more packages.
 
 This vignette deals with the first case: How to use
-[drat](http://dirk.eddelbuettel.com/code/drat.html) as package author.  A
+[drat](http://dirk.eddelbuettel.com/code/drat.html) as a package author.  A
 [companion vignette for package users](DratForPackageUsers.html) is available as well.
 
 
@@ -28,15 +28,15 @@ This vignette deals with the first case: How to use
 ### GitHub as a Web Server
 
 The core motivation for [drat](http://dirk.eddelbuettel.com/code/drat.html)
-comes from [GitHub](http://github.com).  As you may know, _any_ GitHub user
-(or organization) can enable a website for a given repository.  At it takes
-is to create a [git
-branch](http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+comes from [GitHub](http://github.com) and its implied web server.  As you
+may know, _any_ GitHub user (or organization) can enable a website for a
+given repository.  All it takes is to create a
+[git branch](http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 named `gh-pages`.  After that, a website is automatically visible.
 
 To make this more explicit, consider a hypothetical user John with account
 `johndoe`. Once John creates a repo `foo` and in it a branch `gh-pages`, he
-will have a web address `http://johndoe.github.io/foo`.
+will have a web address `http://johndoe.github.io/foo` for this repo.
 
 More formally, for a user `USER`, and a given repo named `drat`, we can
 always assume `http://USER.github.io/drat`.
@@ -46,7 +46,7 @@ needed is a repository named `drat` with a `gh-pages` branch.  If you are
 familiar with `git` at the command-line, you can just create the branch (and
 the `src/contrib/ directory structure in it; see below).
 
-If you are less familiar with git, a really easy shortcut is to just
+If you are less familiar with git, a really easy shortcut is to simply
 [fork](https://help.github.com/articles/fork-a-repo/) the actual
 [drat](http://dirk.eddelbuettel.com/code/drat.html) repo.  It contains the
 drat source code which you could keep, or remove.  The fork only serves to
@@ -55,10 +55,11 @@ set up the required `gh-pages` branch, and the `src/contrib/` directory.
 ### Place Files into the Local Repo
 
 We can now assume that you have a local git repository named `drat` with a
-subdirectory `src` containing a further subdirectory `contrib`.  You are now
-ready to insert a package into it.  For simplicit, let us assume the package
-is named `myPkg` and is at version 0.5. So `R CMD build` created a file
-`myPkg_0.5.tar.gz`.
+subdirectory `src` containing a further subdirectory `contrib`.
+
+You are now ready to insert a package into it.  For simplicit, let us assume
+the package is named `myPkg` and is at version 0.5. So `R CMD build` created
+a file `myPkg_0.5.tar.gz`.
 
 Then via
 
@@ -68,8 +69,9 @@ drat::insertPackage("myPkg_0.5.tar.gz")
 ```
 
 the source package will be copied into the default drat repo at location
-`~/git/drat`. Should you git repos live in a different place, just specify
-this either via the `options()` entry "dratRepo" or directly:
+`~/git/drat`. Should your git repository checkouts live in a different place
+on your machine, just specify this either via the `options()` entry
+"dratRepo" or directly:
 
 ```{r, eval=FALSE}
 ## insert given package into given repo on local file system
@@ -82,8 +84,8 @@ file will be updated.
 Lastly, if you have `git` (the command-line tool) or the wicked
 [git2r](http://cran.r-project.org/web/packages/git2r/index.html) package
 installed, then you can also use the `commit=TRUE` option to have the new
-files added and committed.  Neither of these pushes, so that last step is
-left to the user.
+files added and committed.  Neither of these variant pushes, so that last
+step is left to the user (as it commonly requires authentication).
 
 ### GitHub and Travis Integration
 
@@ -123,7 +125,8 @@ drat::insertPackage("myPkg_0.5.tar.gz", "/nfs/groups/groupABC/R/drat")
 ```
 
 This updates the PACKAGES file (and its compressed variant) after which the
-repository is ready to serve files.
+repository is ready to serve files. See
+[the companion vignette](DratForPackageUsers.html) for how to deploy it.
 
 ## Summary
 
@@ -137,7 +140,7 @@ Repositories can also be local (and private) as well: all that
 is write access to a directory.
 
 Lastly, serving that directory as a repository then requires a web server
-(automatic via the GitHub repo option) or other file access.  How to access
-packages from [drat](http://dirk.eddelbuettel.com/code/drat.html) repository
-is described in a companion vignette.
+(easiest via the automatic GitHub repo option) or other file access.  How to
+access packages from [drat](http://dirk.eddelbuettel.com/code/drat.html)
+repository is described in [the companion vignette](DratForPackageUsers.html).
 
