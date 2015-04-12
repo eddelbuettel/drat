@@ -1,8 +1,8 @@
 Package: drat
 Type: Package
 Title: Drat R Archive Template
-Version: 0.0.3
-Date: 2015-04-09
+Version: 0.0.3.1
+Date: 2015-04-12
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Suggests: git2r, knitr
