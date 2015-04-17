@@ -10,9 +10,9 @@
 
 <meta name="author" content="Colin Gillespie and Dirk Eddelbuettel" />
 
-<meta name="date" content="2015-03-27" />
+<meta name="date" content="2015-04-14" />
 
-<title>Combining Drat and Travis</title>
+<title>Combining Drat and Travis CI</title>
 
 
 
@@ -26,48 +26,73 @@
 
 
 <div id="header">
-<h1 class="title">Combining Drat and Travis</h1>
+<h1 class="title">Combining Drat and Travis CI</h1>
 <h4 class="author"><em>Colin Gillespie and Dirk Eddelbuettel</em></h4>
-<h4 class="date"><em>2015-03-27</em></h4>
+<h4 class="date"><em>2015-04-14</em></h4>
 </div>
 
 
-<blockquote>
-<p>Note: This is work in progress started with Colin initial README in the dratTravis repo. To be expanded and as of yet incomplete</p>
-</blockquote>
-<div id="basics" class="section level2">
-<h2>Basics</h2>
-<ul>
-<li><a href="https://github.com/eddelbuettel/drat">Drat</a> is a useful little package, for, <em>inter-alia</em>, using github <em>gh-pages</em> as an R repository</li>
-<li><a href="https://github.com/craigcitro/r-travis">Travis</a> is a hosted continuous integration service. It is integrated with gitHub and offers first class support for a number of languages, but importantly, R.</li>
-</ul>
-<p>The <a href="https://github.com/csgillespie/dratTravis">dratTravis</a> package illustrates how to automatically update a <code>drat</code> github repository, on a <em>successful</em> travis build.</p>
+<div id="what-is-travis-ci" class="section level2">
+<h2>What is Travis CI?</h2>
+<p><a href="https://travis-ci.org/">Travis CI</a> is a hosted continuous integration service. It is integrated with GitHub and offers first class support for a number of languages, but importantly for us, R. Travis CI enables package authors to continually ensure their package always builds and passes associated unit tests.</p>
+<p>Whenever a commit is pushed to a git repository that contains an R package, Travis CI attempts to build the associated R package (see <a href="https://github.com/craigcitro/r-travis">r-travis</a> for R specific examples). This ensures the repository always contains a working package. This vignette describes a modification to the standard Travis CI workflow. If a package build is successful, the package is then pushed to a drat repository.</p>
 </div>
-<div id="getting-started" class="section level2">
-<h2>Getting Started</h2>
+<div id="preliminaries" class="section level2">
+<h2>Preliminaries</h2>
+<p>Unsurprisingly in order to integrate Travis CI with drat, you must first to have a <a href="https://github.com/eddelbuettel/drat">drat</a> repository and secondly add <a href="https://github.com/craigcitro/r-travis">Travis CI</a> support to that repository.</p>
+</div>
+<div id="workflow" class="section level2">
+<h2>Workflow</h2>
 <ol style="list-style-type: decimal">
-<li><p>Set up a <a href="https://github.com/eddelbuettel/drat">drat</a> repo</p></li>
-<li><p>Add <a href="https://github.com/craigcitro/r-travis">travis</a> support to your package</p></li>
-<li><p>Get a github <a href="https://github.com/settings/tokens/new">API token</a> to generate a new Personal access token. You might need to re-enter your password. Just select <code>repo</code>, or if your repository is public, you can select <code>public_repo</code> instead. GitHub will create the token and give you a chance to copy it down.</p></li>
-<li>Travis will need to <a href="http://docs.travis-ci.com/user/encryption-keys/">encrypt</a> this token. The short story is: <code># Install Ruby first. Will probably require sudo   gem install travis</code> If <code>sudo</code> isn’t available, you can do a local install <code># Look at ~/.gem/   gem install --user-install travis</code></li>
-<li><code>cd</code> to the R package directory, and run <code>travis encrypt GH_TOKEN=$MY_ACCESS_TOKEN --add env.global</code> where <code>$MY_ACCESS_TOKEN</code> is your access token. The <code>--add env.global</code> automatically adds the token to your <code>.travis.yml</code> file</li>
-<li>Copy across <code>deploy.sh</code> and edit appropriately.</li>
-<li><p>Add the line <code>after_success: - test $TRAVIS_PULL_REQUEST == &quot;false&quot; &amp;&amp; test $TRAVIS_BRANCH == &quot;master&quot; &amp;&amp; bash deploy.sh</code></p>
-to your <code>.travis.yml</code> file. This means your <code>drat</code> repository is only updated:
+<li><p>To allow Travis CI to push to your GitHub repository, we need to generate a GitHub <a href="https://github.com/settings/tokens/new">API token</a>. After re-entering your password, just select <code>repo</code>, or if your repository is public, select <code>public_repo</code>. GitHub will create the token and give you a chance to copy it down.</p></li>
+<li><p>Travis CI will then <a href="http://docs.travis-ci.com/user/encryption-keys/">encrypt</a> this token. The short story is:</p>
+<pre><code># Install Ruby first. Will probably require sudo
+gem install travis</code></pre>
+<p>If <code>sudo</code> isn’t available, you can do a local install</p>
+<pre><code># Look at ~/.gem/
+gem install --user-install travis</code></pre></li>
+<li><p><code>cd</code> to the R package directory and run</p>
+<pre><code>travis encrypt GH_TOKEN=$MY_ACCESS_TOKEN --add env.global</code></pre>
+where <code>$MY_ACCESS_TOKEN</code> is your access token. The <code>--add env.global</code> automatically adds the token to your <code>.travis.yml</code> file.</li>
+<li><p>Add the <code>deploy.sh</code> shell script to your repository and edit appropriately. An example is found at the end of this vignette and also in the <a href="https://github.com/csgillespie/dratTravis">dratTravis</a> repository.</p></li>
+<li><p>Add the line</p>
+<pre><code>after_success:
+  - test $TRAVIS_PULL_REQUEST == &quot;false&quot; &amp;&amp; 
+    test $TRAVIS_BRANCH == &quot;master&quot; &amp;&amp; 
+    bash deploy.sh</code></pre>
+to your <code>.travis.yml</code> file. This means your <code>drat</code> repository is only updated
 <ul>
-<li>for successful builds</li>
-<li>only on the master branch</li>
-<li>not for pull requests</li>
+<li>for successful builds;</li>
+<li>only on the master branch;</li>
+<li>and not for pull requests.</li>
 </ul></li>
 </ol>
 </div>
-<div id="todo" class="section level2">
-<h2>TODO</h2>
-<ol style="list-style-type: decimal">
-<li>The bash script is a bit hacky.</li>
-<li>I suspect the call to <code>devtools::build</code> in <code>deploy.sh</code> isn’t needed. Since travis has already built the R package, it should be around somewhere (but I couldn’t find it).</li>
-<li>It should be possible to only update if a version is tagged. Travis provides a variable <code>$TRAVIS_TAG</code>, that is empty if the commit isn’t a tag. <strong>But</strong> when tagging, <code>$TRAVIS_BRANCH</code> also changes to the tag name.</li>
-</ol>
+<div id="example-deploy.sh-script" class="section level2">
+<h2>Example <code>deploy.sh</code> script</h2>
+<pre><code>#!/bin/bash
+set -o errexit -o nounset
+addToDrat(){
+  cd ..; mkdir drat; cd drat
+
+  ## Set up Repo parameters
+  git init
+  git config user.name &quot;XXX YYY&quot;
+  git config user.email &quot;XXXX@example.com&quot;
+  git config --global push.default simple
+
+  ## Get drat repo
+  git remote add upstream &quot;https://$GH_TOKEN@github.com/GITHUB_USERNAME/drat.git&quot;
+  git fetch upstream
+  git checkout gh-pages
+
+  Rscript -e &quot;drat::insertPackage(devtools::build('../PKG_NAME'), \
+    repodir = '.', \
+    commit='Travis update: build $TRAVIS_BUILD_NUMBER')&quot;
+  git push
+
+}
+addToDrat</code></pre>
 </div>
 
 
