@@ -15,7 +15,7 @@ vignette: >
 [Travis CI](https://travis-ci.org/) is a hosted continuous integration service. 
 It is integrated with GitHub and offers first class support for a number of languages, 
 but importantly for us, R. 
-Travis CI enables package authors to continually ensure their package always builds and
+Travis CI enables package authors to continually ensure their package always build and
 passes associated unit tests. 
 
 Whenever a commit is pushed to a git repository that contains an R package, 
@@ -24,7 +24,7 @@ Travis CI attempts to build the associated R package (see
 This ensures the repository 
 always contains a working package. This vignette describes a modification to the standard
 Travis CI workflow. If a package build is successful, the package is then
-pushed to a drat repository.
+pushed to a [drat](http://dirk.eddelbuettel.com/code/drat.html) repository.
 
 
 ## Preliminaries
@@ -45,10 +45,10 @@ and give you a chance to copy it down.
 1. Travis CI will then [encrypt](http://docs.travis-ci.com/user/encryption-keys/) this token. 
 The short story is:
 ```
-# Install Ruby first. Will probably require sudo
+# Install Ruby first. This may require sudo
 gem install travis
 ```
-If `sudo` isn't available, you can do a local install
+If `sudo` is not available, you can do a local install
 ```
 # Look at ~/.gem/
 gem install --user-install travis
@@ -62,7 +62,7 @@ where `$MY_ACCESS_TOKEN` is your access token. The `--add env.global` automatica
 is found at the end of this vignette and also in the 
 [dratTravis](https://github.com/csgillespie/dratTravis) repository.
 
-1. Add the line
+1. Add the lines
 ```
     after_success:
       - test $TRAVIS_PULL_REQUEST == "false" && 

@@ -34,8 +34,8 @@
 
 <div id="what-is-travis-ci" class="section level2">
 <h2>What is Travis CI?</h2>
-<p><a href="https://travis-ci.org/">Travis CI</a> is a hosted continuous integration service. It is integrated with GitHub and offers first class support for a number of languages, but importantly for us, R. Travis CI enables package authors to continually ensure their package always builds and passes associated unit tests.</p>
-<p>Whenever a commit is pushed to a git repository that contains an R package, Travis CI attempts to build the associated R package (see <a href="https://github.com/craigcitro/r-travis">r-travis</a> for R specific examples). This ensures the repository always contains a working package. This vignette describes a modification to the standard Travis CI workflow. If a package build is successful, the package is then pushed to a drat repository.</p>
+<p><a href="https://travis-ci.org/">Travis CI</a> is a hosted continuous integration service. It is integrated with GitHub and offers first class support for a number of languages, but importantly for us, R. Travis CI enables package authors to continually ensure their package always build and passes associated unit tests.</p>
+<p>Whenever a commit is pushed to a git repository that contains an R package, Travis CI attempts to build the associated R package (see <a href="https://github.com/craigcitro/r-travis">r-travis</a> for R specific examples). This ensures the repository always contains a working package. This vignette describes a modification to the standard Travis CI workflow. If a package build is successful, the package is then pushed to a <a href="http://dirk.eddelbuettel.com/code/drat.html">drat</a> repository.</p>
 </div>
 <div id="preliminaries" class="section level2">
 <h2>Preliminaries</h2>
@@ -46,16 +46,16 @@
 <ol style="list-style-type: decimal">
 <li><p>To allow Travis CI to push to your GitHub repository, we need to generate a GitHub <a href="https://github.com/settings/tokens/new">API token</a>. After re-entering your password, just select <code>repo</code>, or if your repository is public, select <code>public_repo</code>. GitHub will create the token and give you a chance to copy it down.</p></li>
 <li><p>Travis CI will then <a href="http://docs.travis-ci.com/user/encryption-keys/">encrypt</a> this token. The short story is:</p>
-<pre><code># Install Ruby first. Will probably require sudo
+<pre><code># Install Ruby first. This may require sudo
 gem install travis</code></pre>
-<p>If <code>sudo</code> isn’t available, you can do a local install</p>
+<p>If <code>sudo</code> is not available, you can do a local install</p>
 <pre><code># Look at ~/.gem/
 gem install --user-install travis</code></pre></li>
 <li><p><code>cd</code> to the R package directory and run</p>
 <pre><code>travis encrypt GH_TOKEN=$MY_ACCESS_TOKEN --add env.global</code></pre>
 where <code>$MY_ACCESS_TOKEN</code> is your access token. The <code>--add env.global</code> automatically adds the token to your <code>.travis.yml</code> file.</li>
 <li><p>Add the <code>deploy.sh</code> shell script to your repository and edit appropriately. An example is found at the end of this vignette and also in the <a href="https://github.com/csgillespie/dratTravis">dratTravis</a> repository.</p></li>
-<li><p>Add the line</p>
+<li><p>Add the lines</p>
 <pre><code>after_success:
   - test $TRAVIS_PULL_REQUEST == &quot;false&quot; &amp;&amp; 
     test $TRAVIS_BRANCH == &quot;master&quot; &amp;&amp; 
