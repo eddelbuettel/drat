@@ -11,7 +11,8 @@
   [ DONE via git2r ]
 
 - Supporting binary packages (for Windows and maybe OS X) would nice but is
-  lower priority -- especially as R now tries bianry _and_ source
+  lower priority -- especially as R now tries binary _and_ source
+  [ DONE thanks to Jan ]
 
 - Signing the PACKAGES file via gpg (a la Debian) would be a nice
   step. Validation would be needed as well.
