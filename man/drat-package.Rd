@@ -21,10 +21,9 @@
   useable, identifiable and shareable per-user repositories---without
   the user having to create and administer a webserver anywhere.
 
-  Two higher level functions then allow both insertion of source package
-  in the common compressed \sQuote{tar.gz} format, as well as addition
-  of a given drat repository to an R session so that package in the
-  repository can be accesses.
+  Two higher level functions then allow both insertion of (source or
+  binary) packages, as well as addition of a given drat repository to an
+  R session so that package in the repository can be accesses.
 }
 \author{
 Dirk Eddelbuettel

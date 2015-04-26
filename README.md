@@ -44,7 +44,9 @@ See the vignettes
 - [Drat for Package Authors](http://eddelbuettel.github.io/drat/DratForPackageAuthors.html), 
 - [Drat for Package Users](http://eddelbuettel.github.io/drat/DratForPackageUsers.html)
 
-for the two principal uses cases.  Also see [Why Drat?](http://eddelbuettel.github.io/drat/WhyDrat.html) for basic motivation.  The package documentation provides more details.  The
+for the two principal uses cases.  Also see
+[Why Drat?](http://eddelbuettel.github.io/drat/WhyDrat.html) for basic
+motivation.  The package documentation provides more details.  The
 [drat package page](http://dirk.eddelbuettel.com/code/drat.html) has a longer
 tutorial, and the
 [blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) has even
@@ -52,7 +54,9 @@ more.
 
 ### Status
 
-The package is available from [CRAN](http://cran.r-project.org) and starting to get some use. Possible improvements, additions and next steps are listed in the
+The package is available from [CRAN](http://cran.r-project.org) and starting
+to get some use. Possible improvements, additions and next steps are listed
+in the
 [TODO.md](https://github.com/eddelbuettel/drat/blob/master/inst/TODO.md)
 file.
 
@@ -72,10 +76,11 @@ A few drat repositories are starting to appear (besides this one). An incomplete
 
 ### Travis Integration
 
-Colin Gillespie has started to integrate [Travis
-CI](http://www.travis-ci.org) with dart, see his
+Colin Gillespie has started to integrate
+[Travis CI](http://www.travis-ci.org) with dart, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more
-details. 
+details, and the contributed vignette
+[Combining Drat and Travis](http://eddelbuettel.github.io/drat/DratForPackageAuthors.htm)
 
 ### Author
 
