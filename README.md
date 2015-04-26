@@ -1,11 +1,11 @@
-## drat [![Build Status](https://travis-ci.org/eddelbuettel/drat.png)](https://travis-ci.org/eddelbuettel/drat) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+## drat [![Build Status](https://travis-ci.org/eddelbuettel/drat.png)](https://travis-ci.org/eddelbuettel/drat) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) [![Downloads](http://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](https://github.com/metacran/cranlogs.app)
 
 Drat R Archive Template
 
 ### Background
 
 The R package ecosystem is one of the cornerstones of the success seen by R.
-As of this writing, over 6200 packages are on [CRAN](http://cran.r-project.org),
+As of this writing, over 6500 packages are on [CRAN](http://cran.r-project.org),
 several hundred more at [BioConductor](http://www.bioconductor.org) and at
 [OmegaHat](http://www.omegahat.org).
 
