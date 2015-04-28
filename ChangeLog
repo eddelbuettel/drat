@@ -1,3 +1,8 @@
+2015-04-28  Carl Boettiger <cboettig@gmail.com>
+
+	* R/insertPackage.R (insertPackage): Protect git2r::commit() call
+	with tryCatch() to gracefully deal with error conditions
+
 2015-04-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/DratFAQ.Rmd: Beginnings of a Drat FAQ vignette
