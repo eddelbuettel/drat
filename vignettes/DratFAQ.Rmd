@@ -1,0 +1,89 @@
+---
+title: "Drat Frequently Asked Questions"
+author: "Dirk Eddelbuettel"
+date: "2015-04-27"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Drat Frequently Asked Questions}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## What is drat?
+
+Good question.  Drat is an R package which makes it really easy to provide R
+packages via a _repository_, and also makes it easy to use such repositories
+for package installation and upgrades.
+
+## Where is drat?
+
+drat itself is a package, so it has source code (on GitHub) and a package (on
+the main R repositpory network).
+
+But wait: we also call the repositories created or used via drat "drat"
+repositories.  So we have to distinguish between "drat the package" and "a
+drat repository" created or used by it.
+
+## What other documentation is there?
+
+Glad you asked.  We have written
+
++ a [package webpage](http://dirk.eddelbuettel.com/code/drat.html) giving a
+first instroduction
++ several [blog posts](http://dirk.eddelbuettel.com/blog/code/drat/) on the package
+and its releases
++ the [GitHub page README](http://github.com/eddelbuettel/drat)
++ several [vignettes accessible from the package page](http://cran.rstudio.com/package=drat)
+and other places.
++ the [drat repo page](http://eddelbuettel.github.io/drat)
+
+
+## Why GitHub?
+
+Several answers:
+
++ Because it is there and used by ever increasing numbers of authors.
++ Because it is pretty fast and reliable, no matter where you are.
++ Because it _already gives every repository owner a web-server_ via the
+gh-pages branch.
++ Because all we need is a web-server and some file system space
++ Because the single variable "user" uniquely identifies a URL
+"user.github.io/drat/", and communicating a single variable is easier than
+communicating a full URL
+
+## What if not GitHub?
+
+Fear not, as drat also supports repositories on a local drive, or shared
+network drive, or actually just about anything where you can write to or read
+from.
+
+## Why could install_github be wrong?
+
+`install_github()` is a fine tool and does want it sets out to do: grab a
+snapshot from GitHub and install it.  This can be he HEAD (by default), or a
+tag, or a commit, or from a branch.
+
+But we think that is not what R needs. R has become so very successful for
+many reasons, but (in the eyes of many) one key part of the success was
+_repositories_ ensuring both _easy installation_ and _easy upgrades_.
+
+That second point is lost on `install_github()`: it installs what we may call
+"orphans".  Packages that are disconnected from an upgrade path.  (With the
+exception, of course, of a newer version of what you install appearing in a
+known repository so that `update.packages` will see it.)  I think that is a
+disservice to the users, and a repository can do better in a fundamental way
+that access to (somewhat random) commits do.  Of course, one _could_ write
+new code building on top of `install_github()` and adding the functionality.
+But then, why? R _already_ has this functionality, and had it for decades:
+using repositories.  So drat does not aim to replace `install_github()`; it
+simply aims at something both different and possibly much simpler.
+
+Moreover, drat puts the "release" option back into the hand of the _package
+authors_. By cutting a release tarball and placing it into a repository, we
+think a possibly more informed release snapshot is distributed than by
+pointing at any branch of repository.
+
+And last but not least, drat (>= 0.0.4) and its repositories also support binary
+installations.
+
+
