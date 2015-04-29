@@ -94,7 +94,7 @@ insertPackage <- function(file,
             git2r::add(repo, file.path(reldir, pkg))
             git2r::add(repo, file.path(reldir, "PACKAGES"))
             git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
-            git2r::commit(repo, msg)
+            tryCatch(git2r::commit(repo, msg), error = function(e) warning(e))
             #TODO: authentication woes?   git2r::push(repo)  
             message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n") 
         } else if (hascmd) {
