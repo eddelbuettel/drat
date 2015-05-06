@@ -18,11 +18,15 @@ for package installation and upgrades.
 ## Where is drat?
 
 drat itself is a package, so it has source code (on GitHub) and a package (on
-the main R repositpory network).
+the main R repository network).
 
 But wait: we also call the repositories created or used via drat "drat"
 repositories.  So we have to distinguish between "drat the package" and "a
 drat repository" created or used by it.
+
+Hope this clarified. Drat really can be different things which reside in
+different places but it aims to be _a helper package which helps creating and
+using R package repositories easier_.
 
 ## What other documentation is there?
 
@@ -38,12 +42,12 @@ and other places.
 + the [drat repo page](http://eddelbuettel.github.io/drat)
 
 
-## Why GitHub?
+## Why the focus on GitHub?
 
 Several answers:
 
-+ Because it is there and used by ever increasing numbers of authors.
-+ Because it is pretty fast and reliable, no matter where you are.
++ Because it is there and used by ever increasing numbers of package authors.
++ Because it is pretty fast and reliable, no matter where in the world you are.
 + Because it _already gives every repository owner a web-server_ via the
 gh-pages branch.
 + Because all we need is a web-server and some file system space
@@ -51,11 +55,16 @@ gh-pages branch.
 "user.github.io/drat/", and communicating a single variable is easier than
 communicating a full URL
 
+Taken together, we have this a pretty good to _default on GitHub_ for
+repositories.  But read on ...
+
 ## What if not GitHub?
 
 Fear not, as drat also supports repositories on a local drive, or shared
 network drive, or actually just about anything where you can write to or read
 from.
+
+We detail that in the corresponding vignettes.
 
 ## Why could install_github be wrong?
 
@@ -70,11 +79,11 @@ _repositories_ ensuring both _easy installation_ and _easy upgrades_.
 That second point is lost on `install_github()`: it installs what we may call
 "orphans".  Packages that are disconnected from an upgrade path.  (With the
 exception, of course, of a newer version of what you install appearing in a
-known repository so that `update.packages` will see it.)  I think that is a
+known repository so that `update.packages` will see it.)  We think that is a
 disservice to the users, and a repository can do better in a fundamental way
-that access to (somewhat random) commits do.  Of course, one _could_ write
+than provide access to (somewhat random) commits.  Of course, one _could_ write
 new code building on top of `install_github()` and adding the functionality.
-But then, why? R _already_ has this functionality, and had it for decades:
+But then, why? R already has this functionality, and had it for decades:
 using repositories.  So drat does not aim to replace `install_github()`; it
 simply aims at something both different and possibly much simpler.
 
@@ -86,4 +95,9 @@ pointing at any branch of repository.
 And last but not least, drat (>= 0.0.4) and its repositories also support binary
 installations.
 
+## Can drat work with binaries?
+
+You bet.  Jan Schulz provided a [careful pull request](https://github.com/eddelbuettel/drat/pull/16).
+He now uses drat with Windows binaries in a repo for the
+[IRkernel](https://github.com/IRkernel/IRkernel) project.
 
