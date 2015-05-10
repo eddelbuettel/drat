@@ -143,7 +143,7 @@ identifyPackageType <- function(file) {
 ##' the repo root) where the package needs to be copied to.
 ##'
 ##' @title Get relative path for package type
-##' @param pgktype The package type as a string.
+##' @param pkgtype The package type as a string.
 ##' @param rversion String which identifies the major.minor 
 ### R version, which was used to build this package. Defaults 
 ##' to the version of the current interpreter.

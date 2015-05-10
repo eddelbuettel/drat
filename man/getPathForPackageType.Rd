@@ -7,10 +7,10 @@
 getPathForPackageType(pkgtype, rversion)
 }
 \arguments{
+\item{pkgtype}{The package type as a string.}
+
 \item{rversion}{String which identifies the major.minor
 to the version of the current interpreter.}
-
-\item{pgktype}{The package type as a string.}
 }
 \value{
 string Relative file path where packages of
