@@ -1,10 +1,26 @@
 
-## still raw but mostly complete ...
-
+##' The function determines which packages in a repositories can be
+##' removed as they are being \sQuote{shadowed} by a newer version of
+##' the same packages.
+##'
+##' Given a package name, R will always find the newest version of
+##' that package. Older versions are therefore effectively shadowed
+##' and can be removed without functionally changing a repository.
+##' @title Prune repository from older copies of packages
+##' @param repopath Character variable with the path to the repo;
+##' defaults to the value of the \dQuote{dratRepo} option with
+##' \dQuote{"~/git/drat"} as fallback
+##' @param type Character variable for the typoe of repsitory, so far \dQuote{source}
+##' @param remove Logical variable indicating whether files should be removed 
+##' @return A data frame describing the repository is returned
+##' containing columns with columns \dQuote{file}, \dQuote{package}
+##' (just the name), \dQuote{version} and a logical variable
+##' \dQuote{newest} indicating if the package can be removed.
+##' @author Dirk Eddelbuettel
 pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
                       type="source", 
                       remove=FALSE) {
-
+   
     ## TODO need to deal with binary repos...
     repodir <- file.path(repopath, "src", "contrib")
     
@@ -44,16 +60,19 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
     ## 9  winsorize_0.0.2.tar.gz winsorize    0.0.2   TRUE
     ## R>
 
+    haspkg <- requireNamespace("git2r", quietly=TRUE)
+    
     if (remove != FALSE) {
         rmfiles <- df[!df[,"newest"], "file"]
         if (remove == "git") {
-            repo <- repository(repopath)
-            for (f in rmfile) {
+            if (!haspkg) stop("The 'pruneRepo' function requires the 'git2r' packages.", call.=FALSE)
+            repo <- git2r::repository(repopath)
+            for (f in rmfiles) {
                 fullfile <- file.path(repodir, f)
-                rm_file(repo, fullfile)
+                git2r::rm_file(repo, fullfile)
             }
         } else {
-            for (f in rmfile) {
+            for (f in rmfiles) {
                 fullfile <- file.path(repodir, f)
                 unlink(fullfile)
             }

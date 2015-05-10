@@ -2,9 +2,13 @@
 
 	* DESCRIPTION: Roll Date and Version
 
+	* NAMESPACE: Also export new functions pruneRepo and initRepo
+
 	* R/pruneRepo.R (pruneRepo): Added (untested so far) removal
+	* man/pruneRepo.Rd: Initial documentation
 
 	* R/initRepo.R (initRepo): (Very) initial  version of a repo creator
+	* man/initRepo.Rd: Initial documentation
 
 	* R/insertPackage.R (identifyPackageType): Fix documentation typo
 

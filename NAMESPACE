@@ -1,3 +1,5 @@
 importFrom(tools, write_PACKAGES)
 export(addRepo,
-       insertPackage)
+       initRepo,
+       insertPackage,
+       pruneRepo)
