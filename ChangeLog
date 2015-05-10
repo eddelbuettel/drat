@@ -1,6 +1,6 @@
-2015-05-08  Dirk Eddelbuettel  <edd@debian.org>
+2015-05-10  Dirk Eddelbuettel  <edd@debian.org>
 
-	* R/initRepo.R (initRepo): Initial version of a repo creator
+	* R/initRepo.R (initRepo): (Very) initial  version of a repo creator
 
 2015-04-28  Carl Boettiger <cboettig@gmail.com>
 

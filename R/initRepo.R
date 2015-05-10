@@ -1,6 +1,7 @@
 
 
-initRepo <- function(basepath="~/git", name="drat") {
+initRepo <- function(basepath="~/git",
+                     name="drat") {
 
     dir <- file.path(basepath, name)
     if (file.exists(dir)) stop("Directory '", dir, "' already exists.", call.=FALSE)
@@ -16,5 +17,5 @@ initRepo <- function(basepath="~/git", name="drat") {
     
     dir.create(file.path(dir, "src"))
     dir.create(file.path(dir, "src", "contrib"))
-    
+    ## create binary path as well ?
 }
