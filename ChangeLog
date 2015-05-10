@@ -1,8 +1,12 @@
 2015-05-10  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION: Roll Date and Version
+
 	* R/pruneRepo.R (pruneRepo): Added (untested so far) removal
 
 	* R/initRepo.R (initRepo): (Very) initial  version of a repo creator
+
+	* R/insertPackage.R (identifyPackageType): Fix documentation typo
 
 2015-04-28  Carl Boettiger <cboettig@gmail.com>
 
