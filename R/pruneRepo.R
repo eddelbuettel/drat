@@ -6,7 +6,7 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
                       remove=FALSE) {
 
     ## TODO need to deal with binary repos...
-    repodir <- file.path(repopath, "src", "contrib"),
+    repodir <- file.path(repopath, "src", "contrib")
     
     ##ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
     ext <- "\\.tar\\..*$"            
