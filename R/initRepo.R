@@ -5,6 +5,9 @@
 ##' Currently only \sQuote{src/contrib} for source repositories is
 ##' supported.
 ##'
+##' This function is still undergoing development and polish and may
+##' change in subsequent versions.
+##'
 ##' @title Intialize a git repo for drat
 ##' @param name A character variable with the name the new repository,
 ##' the default is \dQuote{drat}.

@@ -31,6 +31,9 @@ the same packages.
 Given a package name, R will always find the newest version of
 that package. Older versions are therefore effectively shadowed
 and can be removed without functionally changing a repository.
+
+This function is still undergoing development and polish and may
+change in subsequent versions.
 }
 \author{
 Dirk Eddelbuettel

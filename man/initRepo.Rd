@@ -25,6 +25,9 @@ out \sQuote{gh-pages} branch and fills it with the required path.
 \details{
 Currently only \sQuote{src/contrib} for source repositories is
 supported.
+
+This function is still undergoing development and polish and may
+change in subsequent versions.
 }
 \author{
 Dirk Eddelbuettel

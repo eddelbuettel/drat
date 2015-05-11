@@ -6,6 +6,10 @@
 ##' Given a package name, R will always find the newest version of
 ##' that package. Older versions are therefore effectively shadowed
 ##' and can be removed without functionally changing a repository.
+##'
+##' This function is still undergoing development and polish and may
+##' change in subsequent versions.
+##'
 ##' @title Prune repository from older copies of packages
 ##' @param repopath Character variable with the path to the repo;
 ##' defaults to the value of the \dQuote{dratRepo} option with
@@ -65,7 +69,8 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
     if (remove != FALSE) {
         rmfiles <- df[!df[,"newest"], "file"]
         if (remove == "git") {
-            if (!haspkg) stop("The 'pruneRepo' function requires the 'git2r' packages.", call.=FALSE)
+            if (!haspkg)
+                stop("The 'pruneRepo' function requires the 'git2r' packages.", call.=FALSE)
             repo <- git2r::repository(repopath)
             for (f in rmfiles) {
                 fullfile <- file.path(repodir, f)
@@ -81,5 +86,7 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
 
     invisible(df)
 }
+
+
 
 
