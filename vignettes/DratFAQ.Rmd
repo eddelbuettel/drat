@@ -24,9 +24,9 @@ But wait: we also call the repositories created or used via drat "drat"
 repositories.  So we have to distinguish between "drat the package" and "a
 drat repository" created or used by it.
 
-Hope this clarified. Drat really can be different things which reside in
-different places but it aims to be _a helper package which helps creating and
-using R package repositories easier_.
+Hope this clarified things a little. Drat really can be different things
+which reside in different places but it aims to be _a helper package which
+helps creating and using R package repositories easier_.
 
 ## What other documentation is there?
 
@@ -51,8 +51,8 @@ Several answers:
 + Because it _already gives every repository owner a web-server_ via the
 gh-pages branch.
 + Because all we need is a web-server and some file system space
-+ Because the single variable "user" uniquely identifies a URL
-"user.github.io/drat/", and communicating a single variable is easier than
++ Because the single variable `user` uniquely identifies a URL
+`user.github.io/drat/`, and communicating a single variable is easier than
 communicating a full URL
 
 Taken together, we have this a pretty good to _default on GitHub_ for
@@ -101,3 +101,5 @@ You bet.  Jan Schulz provided a [careful pull request](https://github.com/eddelb
 He now uses drat with Windows binaries in a repo for the
 [IRkernel](https://github.com/IRkernel/IRkernel) project.
 
+However, not all functions have been extended, and support for OS X has not
+been added either.  Contributions would be more than welcome.
