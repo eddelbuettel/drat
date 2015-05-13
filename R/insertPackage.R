@@ -130,7 +130,7 @@ identifyPackageType <- function(file) {
     ret <- if (grepl("_.*\\.tar\\..*$", file)) {
         "source"
     } else if (grepl("_.*\\.tgz$", file)) {
-        "mac.binary"
+        "mac.binary.mavericks"
     } else if (grepl("_.*\\.zip$", file)) {
         "win.binary"
     } else {
@@ -157,12 +157,13 @@ getPathForPackageType <- function(pkgtype, rversion) {
         ## or:    sprintf("%s.%s", base::getRversion()$major, base::getRversion()$minor)
     }
     if (missing(rversion)) rversion <- .getRVersionString()
-    ret <- if (pkgtype == "source") {
+    if (pkgtype == "source") {
         file.path("src", "contrib")
     } else if (pkgtype == "win.binary") {
         file.path("bin", "windows", "contrib", rversion)
     } else if (pkgtype == "mac.binary") {
         file.path("bin", "macosx", "contrib", rversion)
-    }
-    return(ret)
+    } else if (pkgtype == "mac.binary.mavericks") {
+        file.path("bin", "macosx", "mavericks", "contrib", rversion)
+    } else NULL
 }
