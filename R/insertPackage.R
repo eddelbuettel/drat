@@ -130,7 +130,7 @@ identifyPackageType <- function(file) {
     ret <- if (grepl("_.*\\.tar\\..*$", file)) {
         "source"
     } else if (grepl("_.*\\.tgz$", file)) {
-        "mac.binary"
+        "mac.binary.mavericks"
     } else if (grepl("_.*\\.zip$", file)) {
         "win.binary"
     } else {
