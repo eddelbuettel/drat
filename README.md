@@ -77,7 +77,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
 ### Travis Integration
 
 Colin Gillespie has started to integrate
-[Travis CI](http://www.travis-ci.org) with dart, see his
+[Travis CI](http://www.travis-ci.org) with drat, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more
 details, and the contributed vignette
 [Combining Drat and Travis](http://eddelbuettel.github.io/drat/DratForPackageAuthors.htm)
