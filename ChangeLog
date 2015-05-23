@@ -3,6 +3,9 @@
 	* R/addRepo.R: In non-GH mode, explicitly check for spaces in the URL
 	and abort if found as file-based access with spaces breaks.
 
+	* R/addRepo.R: State that file-based URL has to be 'file:/some/path'
+	* man/addRepo.Rd: Ditto
+
 2015-05-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/DratFAQ.Rmd (vignette): Small edits

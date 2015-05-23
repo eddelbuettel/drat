@@ -16,7 +16,9 @@ which a \sQuote{drat} archive is to be added.}
 
 \item{alturl}{Alternative repo specification with a complete url
 string. If \sQuote{alturl} is provided, a single \sQuote{account}
-must be provided as well.}
+must be provided as well.  For file-based access, the URL format
+has to follow the \code{file:/some/path/} format starting with
+\sQuote{file} followed by a single colon.}
 
 \item{...}{For the aliases variant, a catch-all collection of
 parameters.}
@@ -47,7 +49,7 @@ use it via \code{drat:::add()}.
   addRepo("drat")                            # adds GitHub repo via default URL
   addRepo(c("eddelbuettel", "ghrr"))         # ditto but adds two repos at once
 
-  addRepo("LocalRepo", "/nas/R/repo")        # adds local file-based repo,
+  addRepo("LocalRepo", "file:/nas/R/repo")   # adds local file-based repo,
                                              # assumes you can read /nas/R/repo
 }
 }
