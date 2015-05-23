@@ -40,6 +40,11 @@ addRepo <- function(account, alturl) {
             r[acct] <- paste0("http://", acct, ".github.io/drat/")
         }
     } else if (!missing(account) && !missing(alturl)) {
+        if (.Platform$OS.type == "windows") {
+            if (grepl(' ', alturl, fixed=TRUE)) {
+                stop("The path '", alturl, "' contains spaces which is not permitted.", call.=FALSE)
+            }
+        }
         r[account] <- alturl
     } else {
         stop("Please provide either 'account' (and if desired 'alturl').", call.=FALSE)

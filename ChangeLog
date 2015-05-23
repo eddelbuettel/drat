@@ -1,3 +1,8 @@
+2015-05-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/addRepo.R: In non-GH mode, explicitly check for spaces in the URL
+	and abort if found as file-based access with spaces breaks.
+
 2015-05-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/DratFAQ.Rmd (vignette): Small edits
