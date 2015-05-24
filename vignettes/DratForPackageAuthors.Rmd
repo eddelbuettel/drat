@@ -1,7 +1,7 @@
 ---
 title: "Drat Basics for Package Authors: Distributing Packages"
 author: "Dirk Eddelbuettel"
-date: "2015-04-08"
+date: "2015-05-24"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Drat Basics for Package Authors: Distributing Packages}
