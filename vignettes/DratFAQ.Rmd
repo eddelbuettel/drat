@@ -109,6 +109,6 @@ been added either.  Contributions would be more than welcome.
 Glad you asked!  See the last line of the `DESCRIPTION` file of the
 [wikipediatrend package](https://github.com/petermeissner/wikipediatrend/blob/master/DESCRIPTION)
 and its [official repository page](http://cran.rstudio.com/web/packages/wikipediatrend/index.html).
-It very happily uses the [ghrr](http://ghrr.github.io/drat] drat repo to
+It very happily uses the [ghrr](http://ghrr.github.io/drat) drat repo to
 provide the two suggested packages [AnomalyDetection](https://github.com/twitter/AnomalyDetection) and
 [BreakoutDetection](https://github.com/twitter/BreakoutDetection).
