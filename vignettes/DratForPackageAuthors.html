@@ -108,8 +108,8 @@ drat::<span class="kw">insertPackage</span>(<span class="st">&quot;myPkg_0.5.tar
 <p>This is similar to the usage described above. Suppose that you are part of groupABC which has access to directory on shared filesystem somewhere, say under <code>/nfs/groups/groupABC/</code> where you created a directory <code>drat</code> within a directory <code>R</code>. We once again require that the resulting directory <code>/nfs/groups/groupABC/R/drat</code> contains a <code>src/contrib</code> directory structure.</p>
 <p>Hence, the following command would copy the package and update the index files:</p>
 <pre class="sourceCode r"><code class="sourceCode r">## insert given package into given repo on a network-local file system
-drat::<span class="kw">insertPackage</span>(<span class="st">&quot;myPkg_0.5.tar.gz&quot;</span>, <span class="st">&quot;/nfs/groups/groupABC/R/drat&quot;</span>)</code></pre>
-<p>This updates the PACKAGES file (and its compressed variant) after which the repository is ready to serve files. See <a href="DratForPackageUsers.html">the companion vignette</a> for how to deploy it.</p>
+drat::<span class="kw">insertPackage</span>(<span class="st">&quot;myPkg_0.5.tar.gz&quot;</span>, <span class="st">&quot;file:/nfs/groups/groupABC/R/drat&quot;</span>)</code></pre>
+<p>This updates the PACKAGES file (and its compressed variant) after which the repository is ready to serve files. See <a href="DratForPackageUsers.html">the companion vignette</a> for how to deploy it. Note that the location URL should begin with <code>file:</code>.</p>
 </div>
 </div>
 <div id="summary" class="section level2">

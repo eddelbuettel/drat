@@ -80,8 +80,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2>Case 2: Using Another Repo</h2>
 <p>Sometimes we want to use repositories not conforming to the GitHub <code>drat</code> pattern. This use case may simply be a different URL, or server. Another common (and very useful case) is for a locally hosted repository.</p>
 <p>In this case we use the two argument form: the first argument sets the name within the <code>repos</code> vector, and the second provides the local (filesystem-based) or remote (web-based) URL:</p>
-<pre><code>drat::addRepo(&quot;workgroup&quot;, &quot;file:///nfs/groups/groupABC/R/drat&quot;RcppCore&quot;)</code></pre>
-<p>where the same local network repository example is used as in the example in the <a href="DratForPackageAuthors.html">companion vignette</a>.</p>
+<pre><code>drat::addRepo(&quot;workgroup&quot;, &quot;file:/nfs/groups/groupABC/R/drat&quot;RcppCore&quot;)</code></pre>
+<p>where the same local network repository example is used as in the example in the <a href="DratForPackageAuthors.html">companion vignette</a>. Note that we start the location URL with <code>file:</code>.</p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
