@@ -1,7 +1,7 @@
 ---
 title: "Drat Frequently Asked Questions"
 author: "Dirk Eddelbuettel"
-date: "2015-04-27"
+date: "2015-05-24"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Drat Frequently Asked Questions}
@@ -103,3 +103,12 @@ He now uses drat with Windows binaries in a repo for the
 
 However, not all functions have been extended, and support for OS X has not
 been added either.  Contributions would be more than welcome.
+
+## Can drat act as an `Additional_repositories` ?
+
+Glad you asked!  See the last line of the `DESCRIPTION` file of the
+[wikipediatrend package](https://github.com/petermeissner/wikipediatrend/blob/master/DESCRIPTION)
+and its [official repository page](http://cran.rstudio.com/web/packages/wikipediatrend/index.html).
+It very happily uses the [ghrr](http://ghrr.github.io/drat] drat repo to
+provide the two suggested packages [AnomalyDetection](https://github.com/twitter/AnomalyDetection) and
+[BreakoutDetection](https://github.com/twitter/BreakoutDetection).
