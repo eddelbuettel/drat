@@ -1,3 +1,13 @@
+2015-05-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): New release 0.0.4
+
+	* README.md: Corrected one URL, added link to drat FAQ
+
+2015-05-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratFAQ.Rmd (vignette): Added new section
+
 2015-05-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R: In non-GH mode, explicitly check for spaces in the URL
