@@ -41,10 +41,11 @@ to install directly from the drat repository.
 
 See the vignettes 
 
+- [Drat FAQ](http://eddelbuettel.github.io/drat/DratFAQ.html), 
 - [Drat for Package Authors](http://eddelbuettel.github.io/drat/DratForPackageAuthors.html), 
 - [Drat for Package Users](http://eddelbuettel.github.io/drat/DratForPackageUsers.html)
 
-for the two principal uses cases.  Also see
+for the FAQ and two principal uses cases.  Also see
 [Why Drat?](http://eddelbuettel.github.io/drat/WhyDrat.html) for basic
 motivation.  The package documentation provides more details.  The
 [drat package page](http://dirk.eddelbuettel.com/code/drat.html) has a longer
@@ -80,7 +81,7 @@ Colin Gillespie has started to integrate
 [Travis CI](http://www.travis-ci.org) with drat, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more
 details, and the contributed vignette
-[Combining Drat and Travis](http://eddelbuettel.github.io/drat/DratForPackageAuthors.htm)
+[Combining Drat and Travis](http://eddelbuettel.github.io/drat/CombiningDratAndTravis.html)
 
 ### Author
 
