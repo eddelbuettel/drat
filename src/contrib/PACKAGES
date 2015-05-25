@@ -1,7 +1,7 @@
 Package: drat
-Version: 0.0.3.1
+Version: 0.0.4
 Suggests: git2r, knitr
 License: GPL (>= 2)
-MD5sum: c11bf2eb3bd7168ed6f33e1c859744e3
+MD5sum: 96a3a1f4d859b60fc83066f66e9d4761
 NeedsCompilation: no
 
