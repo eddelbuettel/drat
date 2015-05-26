@@ -112,3 +112,12 @@ and its [official repository page](http://cran.rstudio.com/web/packages/wikipedi
 It very happily uses the [ghrr](http://ghrr.github.io/drat) drat repo to
 provide the two suggested packages [AnomalyDetection](https://github.com/twitter/AnomalyDetection) and
 [BreakoutDetection](https://github.com/twitter/BreakoutDetection).
+
+## What about the miniCRAN package?
+
+The [miniCRAN](http://cran.rstudio.com/package=miniCRAN) package creates
+self-sufficient repositories by examining the dependency graph and
+downloading all dependent packages.  As such, it is more of complement to
+drat than an alternative --- and Word is that several people have in fact
+combined both.
+

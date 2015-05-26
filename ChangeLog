@@ -1,3 +1,7 @@
+2015-05-26  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratFAQ.Rmd (vignette): Add a short paragraph about miniCRAN
+
 2015-05-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): New release 0.0.4
