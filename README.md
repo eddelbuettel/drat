@@ -12,7 +12,7 @@ several hundred more at [BioConductor](http://www.bioconductor.org) and at
 Support for multiple repositories is built deeply into R; mostly via the
 (default) package `utils`. The
 [`update.packages`](http://www.rdocumentation.org/packages/utils/functions/update.packages)
-function (along with several others from the `utils` package) can used with
+function (along with several others from the `utils` package) can be used with
 ease for these three default repositories as well as many others. But it
 seemed that support for _simple creation and use_ of local repositories was
 missing.
