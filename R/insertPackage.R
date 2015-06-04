@@ -38,10 +38,10 @@ insertPackage <- function(file,
                           repodir=getOption("dratRepo", "~/git/drat"),
                           commit=FALSE) {
 
-    if (!file.exists(file)) stop("File ", file, " not found\n", .Call=FALSE)
+    if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
 
     ## TODO src/contrib if needed, preferably via git2r
-    if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", .Call=FALSE)
+    if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", call.=FALSE)
 
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly=TRUE)
@@ -75,13 +75,13 @@ insertPackage <- function(file,
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
         if (!dir.create(pkgdir, recursive = TRUE)) {
-            stop("Directory ", pkgdir, " couldn't be created\n", .Call=FALSE)
+            stop("Directory ", pkgdir, " couldn't be created\n", call.=FALSE)
         }
     }
 
     ## copy file into repo
     if (!file.copy(file, pkgdir, overwrite=TRUE)) {
-        stop("File ", file, " can not be copied to ", pkgdir, .Call=FALSE)
+        stop("File ", file, " can not be copied to ", pkgdir, call.=FALSE)
     }
     
     ## update index
@@ -106,7 +106,7 @@ insertPackage <- function(file,
             message("Added, committed and pushed ", pkg, " plus PACKAGES files.\n") 
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
-                    .Call=FALSE)
+                    call.=FALSE)
         }
     }
     invisible(NULL)
@@ -134,7 +134,7 @@ identifyPackageType <- function(file) {
     } else if (grepl("_.*\\.zip$", file)) {
         "win.binary"
     } else {
-        stop("Unknown package type", .Call=FALSE)
+        stop("Unknown package type", call.=FALSE)
     }
     return(ret)
 }
