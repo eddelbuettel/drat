@@ -44,7 +44,7 @@ always assume `http://USER.github.io/drat`.
 So for you as a package author with a given GitHub account, all that is
 needed is a repository named `drat` with a `gh-pages` branch.  If you are
 familiar with `git` at the command-line, you can just create the branch (and
-the `src/contrib/ directory structure in it; see below).
+the `src/contrib/` directory structure in it; see below).
 
 If you are less familiar with git, a really easy shortcut is to simply
 [fork](https://help.github.com/articles/fork-a-repo/) the actual
