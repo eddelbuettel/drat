@@ -1,3 +1,24 @@
+2015-07-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Author): Finally credit all contributors;
+	(Version): Roll minor version
+	(Date): Update Date
+
+2015-07-29  Matt Jones <gitcode@magisa.org>
+
+	* R/insertPackage.R: Better support for OS X binaries via
+	getPathForMac() function which  untars the tgz file, extracts the
+	Built: line from the description, and determines if the build
+	platform was "darwin13", in which case "mavericks" is included on the
+	returned path.
+
+2015-07-25  Thomas Leeper <thosjleeper@gmail.com>
+
+	* R/archivePackages.R: New function to (optionally) archive
+	existing packages when a new one gets added.
+	* R/insertPackages.R: Support archivePackages()
+	* R/pruneRepo.R: Support archivePackages()
+
 2015-06-04  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R (insertPackage): Correct use from .Call to call.
