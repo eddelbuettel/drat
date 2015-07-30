@@ -14,7 +14,10 @@
 ##' @param repopath Character variable with the path to the repo;
 ##' defaults to the value of the \dQuote{dratRepo} option with
 ##' \dQuote{"~/git/drat"} as fallback
-##' @param type Character variable for the typoe of repsitory, so far \dQuote{source}
+##' @param type Character variable for the type of repository, so far \dQuote{source}
+##' @param pkg Optional character variable specifying a package name, whose
+##' older versions should be pruned. If missing (the default), pruning is 
+##' performed on all packages.
 ##' @param remove Logical variable indicating whether files should be removed 
 ##' @return A data frame describing the repository is returned
 ##' containing columns with columns \dQuote{file}, \dQuote{package}
@@ -23,6 +26,7 @@
 ##' @author Dirk Eddelbuettel
 pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
                       type="source", 
+                      pkg,
                       remove=FALSE) {
    
     ## TODO need to deal with binary repos...
@@ -50,6 +54,9 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
     df$newest <- !duplicated(df$package)
 
     df <- df[order(df$package, df$version, decreasing=FALSE),]
+    if (!missing(pkg)) {
+        df <- df[df$package %in% pkg,]
+    }
 
     ## R> df
     ##                      file   package  version newest

@@ -5,14 +5,18 @@
 \title{Prune repository from older copies of packages}
 \usage{
 pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = "source",
-  remove = FALSE)
+  pkg, remove = FALSE)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
 defaults to the value of the \dQuote{dratRepo} option with
 \dQuote{"~/git/drat"} as fallback}
 
-\item{type}{Character variable for the typoe of repsitory, so far \dQuote{source}}
+\item{type}{Character variable for the type of repository, so far \dQuote{source}}
+
+\item{pkg}{Optional character variable specifying a package name, whose
+older versions should be pruned. If missing (the default), pruning is
+performed on all packages.}
 
 \item{remove}{Logical variable indicating whether files should be removed}
 }

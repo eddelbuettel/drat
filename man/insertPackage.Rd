@@ -7,7 +7,7 @@
 \title{Insert a package source or binary file into a drat repository}
 \usage{
 insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
-  commit = FALSE)
+  commit = FALSE, action = c("none", "archive", "prune"))
 
 insert(...)
 }
@@ -21,6 +21,12 @@ top-level directory.}
 \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
 a character variable can be used to specify a commit message; this also
 implies the \sQuote{TRUE} values in other contexts.}
+
+\item{action}{A character string containing one of: \dQuote{none}
+(the default; add the new package into the repo, effectively masking
+previous versions), \dQuote{archive} (place any previous versions into
+a package-specific archive folder, creating such an archive if it does
+not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).}
 
 \item{...}{For the aliases variant, a catch-all collection of
 parameters.}
@@ -53,6 +59,10 @@ function; use it via \code{drat:::insert()}.
 \dontrun{
   insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
   insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
+}
+\dontrun{
+  insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
+  insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
 }
 }
 \author{

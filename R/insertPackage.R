@@ -25,6 +25,11 @@
 ##' \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
 ##' a character variable can be used to specify a commit message; this also
 ##' implies the \sQuote{TRUE} values in other contexts.
+##' @param action A character string containing one of: \dQuote{none} 
+##' (the default; add the new package into the repo, effectively masking 
+##' previous versions), \dQuote{archive} (place any previous versions into 
+##' a package-specific archive folder, creating such an archive if it does 
+##' not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).
 ##' @param ... For the aliases variant, a catch-all collection of
 ##' parameters.
 ##' @return NULL is returned.
@@ -33,10 +38,15 @@
 ##'   insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
 ##'   insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
 ##' }
+##' \dontrun{
+##'   insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
+##'   insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
+##' }
 ##' @author Dirk Eddelbuettel
 insertPackage <- function(file,
                           repodir=getOption("dratRepo", "~/git/drat"),
-                          commit=FALSE) {
+                          commit=FALSE,
+                          action=c("none", "archive", "prune")) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
 
@@ -109,6 +119,16 @@ insertPackage <- function(file,
                     call.=FALSE)
         }
     }
+    
+    action <- match.arg(action)
+    pkgname <- gsub("\\.tar\\..*$", "", pkg)
+    pkgname <- strsplit(pkgname, "_", fixed=TRUE)[[1L]][1L]
+    if (action == "prune") {
+        pruneRepo(repopath = repodir, pkg = pkgname, remove = TRUE)
+    } else if (action == "archive") {
+        archivePackages(repopath = repodir, pkg = pkgname)
+    }
+    
     invisible(NULL)
 }
 
