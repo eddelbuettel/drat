@@ -210,8 +210,9 @@ getPathForMac <- function(rversion, file) {
     untar(file, exdir=tf)
     
     # Find the BUILT metadata line
-    description <- readLines(file.path(tf, pkg_name, "DESCRIPTION"))
-    built_string <- description[grep("Built:", description)]
+    path <- file.path(tf, pkg_name, "DESCRIPTION")
+    built_string <- read.dcf(path, 'Built')
+    parts <- strsplit(built_string, ';\\s*')[[1]]
     unlink(file.path(tf, pkg_name), recursive=TRUE)
     #built_string <- 'Built: R 3.2.0; x86_64-apple-darwin13.4.0; 2015-07-28 01:17:32 UTC; unix'
     #built_string <- 'Built: R 3.2.0; x86_64-apple-darwin10.8.0; 2015-05-11 23:54:50 UTC; unix'
@@ -223,7 +224,7 @@ getPathForMac <- function(rversion, file) {
     # rversion <- gsub(pattern, "\\1", str_extract(built[[1]][1], pattern)[[1]])
     
     # Return the correct package path based on the darwin version
-    if (grepl("darwin13", built_string)) {
+    if (grepl("darwin13", parts[[2]])) {
         file.path("bin", "macosx", "mavericks", "contrib", rversion)
     } else {
         file.path("bin", "macosx", "contrib", rversion)
