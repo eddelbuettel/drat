@@ -5,6 +5,10 @@
 	(getPathForPackage): Simplified earlier function by Jan and Dirk
 	(insertPackage): Use new / modified functions
 
+	* NAMESPACE: Import two functions from utils to please R CMD check
+	* vignettes/DratForPackageAuthors.Rmd (drat): Use canonical CRAN URL
+	to please R CMD check even more
+
 2015-07-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Author): Finally credit all contributors;
