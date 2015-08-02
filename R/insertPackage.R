@@ -78,7 +78,7 @@ insertPackage <- function(file,
     }
 
     pkgtype <- identifyPackageType(file)
-    reldir <- getPathForPackageType(pkgtype, file=file)
+    reldir <- getPathForPackage(file)
 
     pkgdir <- file.path(repodir, reldir)
 
@@ -159,75 +159,67 @@ identifyPackageType <- function(file) {
     return(ret)
 }
 
+##' This function returns the compile-time information added
+##' to the \code{DESCRIPTION} file in the package.
+##'
+##' @title Get information from a binary package 
+##' @param file the fully qualified path of the package
+##' @return A named vector with several components
+##' @author Dirk Eddelbuettel
+getPackageInfo <- function(file) {
+    if (!file.exists(file)) stop("File ", file, " not found!", call.=FALSE)
+    
+    td <- tempdir()
+    if (grepl(".zip$", file)) {
+        unzip(file, exdir=td)
+    } else if (grepl(".tgz$", file)) {
+        untar(file, exdir=td)
+    } else {
+        stop("No sure we can handle ", file, call.=FALSE)
+    }
+
+    pkgname <- gsub("^([a-zA-Z0-9]*)_.*", "\\1", basename(file))
+    
+    path <- file.path(tf, pkgname, "DESCRIPTION")
+    builtstring <- read.dcf(path, 'Built')
+    unlink(file.path(td, pkgname), recursive=TRUE)
+
+    fields <- strsplit(builtstring, "; ")[[1]]
+    names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
+
+    rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
+    isDarwin13 <- ifelse(fields["OSflavour"] == "x86_64-apple-darwin13.4.0", "yes", "no")
+    fields <- c(fields, "Rmajor"=unname(rmajor), "Mavericks"=unname(isDarwin13))
+
+    return(fields)
+}
+
 ##' This function returns the directory path (relative to 
 ##' the repo root) where the package needs to be copied to.
 ##'
 ##' @title Get relative path for package type
-##' @param pkgtype The package type as a string.
-##' @param rversion String which identifies the major.minor 
-##' R version, which was used to build this package. Defaults 
-##' to the version of the current interpreter.
-##' @param file the fully qualified path of the package
+##' @param file The fully qualified path of the package
 ##' @return string Relative file path where packages of 
 ##' this type should be copied to.
-##' @author Jan Schulz and Dirk Eddelbuettel
-getPathForPackageType <- function(pkgtype, rversion, file) {
-    .getRVersionString <- function() {
-        paste(getRversion()$major, getRversion()$minor, sep=".")
-        ## or:    gsub("\\.\\d+$", "", getRversion())
-        ## or:    sprintf("%s.%s", base::getRversion()$major, base::getRversion()$minor)
-    }
-    if (missing(rversion)) rversion <- .getRVersionString()
-    ret <- if (pkgtype == "source") {
-        file.path("src", "contrib")
+##' @author Jan Schulz, Dirk Eddelbuettel and Matthew Jones
+getPathForPackage <- function(file) {
+    pkgtype <- identifyPackageType(file)
+    fields <- getPackageInfo(file)
+    rversion <- unname(fields["Rmajor"])
+        
+    if (pkgtype == "source") {
+        ret <- file.path("src", "contrib")
     } else if (pkgtype == "win.binary") {
-        file.path("bin", "windows", "contrib", rversion)
+        ret <- file.path("bin", "windows", "contrib", rversion)
     } else if (pkgtype == "mac.binary") {
-        getPathForMac(rversion, file)
+        if (unname(fields["Mavericks"]) == "yes") {
+            ret <- file.path("bin", "macosx", "mavericks", "contrib", rversion)
+        } else {
+            ret <- file.path("bin", "macosx", "contrib", rversion)
+        }
     }
     return(ret)
 }
 
-##' This function parses the Built metadata from DESCRIPTION
-##' in a package submission to determine the MacOS path for
-##' binary builds.
-##'
-##' @title Extract R version and built architecture from package DESCRIPTION
-##' @param rversion String which identifies the major.minor 
-##' R version, which was used to build this package. Defaults 
-##' to the version of the current interpreter.
-##' @param file The fully qualified path to the package archive file
-##' @return string Relative file path where packages of 
-##' this type should be copied to.
-##' @author Matthew Jones
-getPathForMac <- function(rversion, file) {
-    if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
-    
-    # Untar the package and extract the DESCRIPTION file
-    pkg <- basename(file)
-    pkg_name <- sub("_.*", "", pkg)
-    tf <- tempdir()
-    untar(file, exdir=tf)
-    
-    # Find the BUILT metadata line
-    path <- file.path(tf, pkg_name, "DESCRIPTION")
-    built_string <- read.dcf(path, 'Built')
-    parts <- strsplit(built_string, ';\\s*')[[1]]
-    unlink(file.path(tf, pkg_name), recursive=TRUE)
-    #built_string <- 'Built: R 3.2.0; x86_64-apple-darwin13.4.0; 2015-07-28 01:17:32 UTC; unix'
-    #built_string <- 'Built: R 3.2.0; x86_64-apple-darwin10.8.0; 2015-05-11 23:54:50 UTC; unix'
-    #built_string <- 'Built: R 3.2.1; x86_64-w64-mingw32; 2015-06-30 15:08:30 UTC; windows'
-    
-    # TODO: Extract the built R version from BUILT
-    # built <- strsplit(built_string, ';')
-    # pattern <- "R (.*).."
-    # rversion <- gsub(pattern, "\\1", str_extract(built[[1]][1], pattern)[[1]])
-    
-    # Return the correct package path based on the darwin version
-    if (grepl("darwin13", parts[[2]])) {
-        file.path("bin", "macosx", "mavericks", "contrib", rversion)
-    } else {
-        file.path("bin", "macosx", "contrib", rversion)
-    }
-}
+
 
