@@ -175,7 +175,9 @@ getPackageInfo <- function(file) {
     } else if (grepl(".tgz$", file)) {
         untar(file, exdir=td)
     } else {
-        stop("No sure we can handle ", file, call.=FALSE)
+        ##stop("Not sure we can handle ", file, call.=FALSE)
+        fields <- c("Source"=TRUE, "Rmajor"=NA, "Mavericks"=FALSE)
+        return(fields)
     }
 
     pkgname <- gsub("^([a-zA-Z0-9]*)_.*", "\\1", basename(file))
