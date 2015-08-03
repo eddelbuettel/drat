@@ -215,7 +215,7 @@ getPathForPackage <- function(file) {
     } else if (pkgtype == "mac.binary") {
         if (fields["OSflavour"] == "") {
             # non-binary package, treated as Mavericks
-            warning("Non-binary OS X package will be installed in Mavericks path.")
+            message("Note: Non-binary OS X package will be installed in Mavericks path.")
             fields["Mavericks"] <- "yes"
         }
         if (unname(fields["Mavericks"]) == "yes") {

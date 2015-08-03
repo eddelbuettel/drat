@@ -1,7 +1,7 @@
 2015-08-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R (getPathForPackage): In case of non-compiled OS X
-	package, issue a warnings that it will be install in Mavericks path.
+	package, issue a message that it will be install in Mavericks path.
 
 2015-08-02  Dirk Eddelbuettel  <edd@debian.org>
 
