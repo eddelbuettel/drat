@@ -1,7 +1,7 @@
 2015-08-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R (getPackageInfo): New function, building on
-	earlier code by Matt Jones and Jan Schulze
+	earlier code by Matt Jones and Jan Schulz
 	(getPathForPackage): Simplified earlier function by Jan and Dirk
 	(insertPackage): Use new / modified functions
 
