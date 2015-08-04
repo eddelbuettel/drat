@@ -85,7 +85,7 @@ addToDrat(){
 
   ## Get drat repo
   git remote add upstream &quot;https://$GH_TOKEN@github.com/GITHUB_USERNAME/drat.git&quot;
-  git fetch upstream
+  git fetch upstream 2&gt;err.txt
   git checkout gh-pages
 
   Rscript -e &quot;drat::insertPackage('$PKG_REPO/$PKG_TARBALL', \
