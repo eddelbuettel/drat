@@ -1,3 +1,14 @@
+2015-08-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): New release 0.1.0
+
+	* vignettes/DratFAQ.Rmd (vignette): Updated with respect to support
+	for binary packages on OS X and Windows; added commit message entry
+
+	* inst/scripts/getCommitMessageForDrat.sh: Added
+
+ 	* README.md: Updated
+
 2015-08-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/insertPackage.R (getPathForPackage): In case of non-compiled OS X
