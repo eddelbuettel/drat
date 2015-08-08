@@ -44,7 +44,7 @@ See the vignettes
 - [Drat FAQ](http://eddelbuettel.github.io/drat/DratFAQ.html), 
 - [Drat for Package Authors](http://eddelbuettel.github.io/drat/DratForPackageAuthors.html), 
 - [Drat for Package Users](http://eddelbuettel.github.io/drat/DratForPackageUsers.html)
-- [[Why Drat?](http://eddelbuettel.github.io/drat/WhyDrat.html)
+- [Why Drat?](http://eddelbuettel.github.io/drat/WhyDrat.html)
 - [Drat Lightning Talk at useR!2015](http://dirk.eddelbuettel.com/papers/useR2015_drat.pdf)
 
 for the FAQ, two principal uses cases, basic motivation and an overview / introduction.
