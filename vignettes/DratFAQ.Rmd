@@ -97,12 +97,10 @@ installations.
 
 ## Can drat work with binaries?
 
-You bet.  Jan Schulz provided a [careful pull request](https://github.com/eddelbuettel/drat/pull/16).
-He now uses drat with Windows binaries in a repo for the
-[IRkernel](https://github.com/IRkernel/IRkernel) project.
-
-However, not all functions have been extended, and support for OS X has not
-been added either.  Contributions would be more than welcome.
+You bet.  Jan Schulz provided a
+[careful pull request](https://github.com/eddelbuettel/drat/pull/16) to
+provide initial support upon which we have built. As of release 0.1.0,
+this should just work for both Windows and OS X.
 
 ## Can drat act as an `Additional_repositories` ?
 
@@ -121,3 +119,25 @@ downloading all dependent packages.  As such, it is more of complement to
 drat than an alternative --- and Word is that several people have in fact
 combined both.
 
+## Is there a suggested commit message converntion?
+
+The small helper script `getCommitMessageForDrat.sh` implements a simple
+format I have suggested in the past and used:
+
+```sh
+edd@max:~/git/drat(master)$ inst/scripts/getCommitMessageForDrat.sh 
+drat 0.1.0 94248ed git@github.com:eddelbuettel/drat.git
+edd@max:~/git/drat(master)$ 
+```
+
+It combined four elements:
+- the package name
+- the current version
+- the current git repository commit hash marker
+- the repository URL.
+
+When both source and binary packages are uploaded, I often add `(src)` or
+`(win)` to indicate the type of package committed.
+
+This format has worked and could form the basis of a standard, but
+suggestions and refinements are certainly welcome.
