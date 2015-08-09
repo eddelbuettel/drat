@@ -77,7 +77,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
  - [ghrr](https://github.com/ghrr/drat)
 
 The [rOpenSci](https://ropensci.org) project uses
-[Drat](http://dirk.eddelbuettel.com/code/drat.html) to distribute their code
+[drat](http://dirk.eddelbuettel.com/code/drat.html) to distribute their code
 and has written a
 [nice blog post](https://ropensci.org/blog/2015/08/04/a-drat-repository-for-ropensci/)
 about it.
