@@ -73,6 +73,8 @@ to your <code>.travis.yml</code> file. This means your <code>drat</code> reposit
 <pre><code>#!/bin/bash
 set -o errexit -o nounset
 addToDrat(){
+  PKG_REPO=$PWD
+
   cd ..; mkdir drat; cd drat
 
   ## Set up Repo parameters
@@ -83,10 +85,10 @@ addToDrat(){
 
   ## Get drat repo
   git remote add upstream &quot;https://$GH_TOKEN@github.com/GITHUB_USERNAME/drat.git&quot;
-  git fetch upstream
+  git fetch upstream 2&gt;err.txt
   git checkout gh-pages
 
-  Rscript -e &quot;drat::insertPackage(devtools::build('../PKG_NAME'), \
+  Rscript -e &quot;drat::insertPackage('$PKG_REPO/$PKG_TARBALL', \
     repodir = '.', \
     commit='Travis update: build $TRAVIS_BUILD_NUMBER')&quot;
   git push
