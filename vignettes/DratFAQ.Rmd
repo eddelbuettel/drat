@@ -68,8 +68,8 @@ We detail that in the corresponding vignettes.
 
 ## Why could install_github be wrong?
 
-`install_github()` is a fine tool and does want it sets out to do: grab a
-snapshot from GitHub and install it.  This can be he HEAD (by default), or a
+`install_github()` is a fine tool and does what it sets out to do: grab a
+snapshot from GitHub and install it.  This can be the HEAD (by default), or a
 tag, or a commit, or from a branch.
 
 But we think that is not what R needs. R has become so very successful for
