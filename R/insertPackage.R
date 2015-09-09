@@ -72,7 +72,7 @@ insertPackage <- function(file,
     
     if (commit && haspkg) {  
         repo <- git2r::repository(repodir)
-        if (pullfirst) git2r::pull(repo)
+        if (isTRUE(pullfirst)) git2r::pull(repo)
         git2r::checkout(repo, "gh-pages")
     } else if (commit && hascmd) {
         setwd(repodir)
