@@ -7,7 +7,8 @@
 \title{Insert a package source or binary file into a drat repository}
 \usage{
 insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
-  commit = FALSE, action = c("none", "archive", "prune"))
+  commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
+  "prune"))
 
 insert(...)
 }
@@ -21,6 +22,8 @@ top-level directory.}
 \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
 a character variable can be used to specify a commit message; this also
 implies the \sQuote{TRUE} values in other contexts.}
+
+\item{pullfirst}{Boolean toggle to call \code{git pull} before inserting the package.}
 
 \item{action}{A character string containing one of: \dQuote{none}
 (the default; add the new package into the repo, effectively masking

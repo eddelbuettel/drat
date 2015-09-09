@@ -25,6 +25,7 @@
 ##' \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
 ##' a character variable can be used to specify a commit message; this also
 ##' implies the \sQuote{TRUE} values in other contexts.
+##' @param pullfirst Boolean toggle to call \code{git pull} before inserting the package. 
 ##' @param action A character string containing one of: \dQuote{none} 
 ##' (the default; add the new package into the repo, effectively masking 
 ##' previous versions), \dQuote{archive} (place any previous versions into 
@@ -46,6 +47,7 @@
 insertPackage <- function(file,
                           repodir=getOption("dratRepo", "~/git/drat"),
                           commit=FALSE,
+                          pullfirst=FALSE,
                           action=c("none", "archive", "prune")) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
@@ -70,9 +72,11 @@ insertPackage <- function(file,
     
     if (commit && haspkg) {  
         repo <- git2r::repository(repodir)
+        if (pullfirst) git2r::pull(repo)
         git2r::checkout(repo, "gh-pages")
     } else if (commit && hascmd) {
         setwd(repodir)
+        if (isTRUE(pullfirst)) system("git pull")
         system("git checkout gh-pages")
         setwd(curwd)
     }
