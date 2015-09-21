@@ -184,7 +184,7 @@ getPackageInfo <- function(file) {
         return(fields)
     }
 
-    pkgname <- gsub("^([a-zA-Z0-9]*)_.*", "\\1", basename(file))
+    pkgname <- gsub("^([a-zA-Z0-9.]*)_.*", "\\1", basename(file))
     path <- file.path(td, pkgname, "DESCRIPTION")
     builtstring <- read.dcf(path, 'Built')
     unlink(file.path(td, pkgname), recursive=TRUE)
