@@ -4,4 +4,5 @@ export(addRepo,
        initRepo,
        insertPackage,
        pruneRepo,
-       archivePackages)
+       archivePackages,
+       packageHtml)
