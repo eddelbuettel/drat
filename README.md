@@ -5,7 +5,7 @@ Drat R Archive Template
 ### Background
 
 The R package ecosystem is one of the cornerstones of the success seen by R.
-As of this writing, almost 7000 packages are on [CRAN](http://cran.r-project.org),
+As of early 2016, almost 8000 packages are on [CRAN](http://cran.r-project.org),
 with about one thousand more at [BioConductor](http://www.bioconductor.org) and
 probably another hundred at [OmegaHat](http://www.omegahat.org).
 
@@ -75,6 +75,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
  - [arilamstein](https://github.com/arilamstein/drat)
  - [piccolbo](https://github.com/piccolbo/drat)
  - [ghrr](https://github.com/ghrr/drat)
+ - [dmlc](https://github.com/dmlc/drat)
 
 The [rOpenSci](https://ropensci.org) project uses
 [drat](http://dirk.eddelbuettel.com/code/drat.html) to distribute their code
