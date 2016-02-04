@@ -22,7 +22,7 @@ before_install:
   - ./travis-tool.sh bootstrap
 
 install:
-  - ./travis-tool.sh install_aptget r-cran-git2r r-cran-knitr
+  - ./travis-tool.sh install_aptget r-cran-git2r r-cran-knitr r-cran-rmarkdown
 
 script:
   - ./travis-tool.sh run_tests
