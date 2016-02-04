@@ -75,6 +75,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
  - [arilamstein](https://github.com/arilamstein/drat)
  - [piccolbo](https://github.com/piccolbo/drat)
  - [ghrr](https://github.com/ghrr/drat)
+ - [cloudyr](https://cloudyr.github.io/drat)
  - [dmlc](https://github.com/dmlc/drat)
 
 The [rOpenSci](https://ropensci.org) project uses
