@@ -9,8 +9,8 @@ language: c
 
 env:
   global:
-    - R_BUILD_ARGS="--no-manual"
-    - R_CHECK_ARGS="--no-manual --as-cran"
+    - R_BUILD_ARGS="--no-build-vignettes --no-manual"
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
     - _R_CHECK_FORCE_SUGGESTS_=FALSE
 
 before_install:
