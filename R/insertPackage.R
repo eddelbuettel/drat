@@ -53,7 +53,7 @@ insertPackage <- function(file,
     if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
 
     ## TODO src/contrib if needed, preferably via git2r
-    if (!file.exists(repodir)) stop("Directory ", repodir, " not found\n", call.=FALSE)
+    if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call.=FALSE)
 
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly=TRUE)
