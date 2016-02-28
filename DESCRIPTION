@@ -2,10 +2,11 @@ Package: drat
 Type: Package
 Title: Drat R Archive Template
 Version: 0.1.0.1
-Date: 2016-02-26
+Date: 2016-02-27
 Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Sebastian
  Gibb, Colin Gillespie, Matt Jones, Thomas Leeper, Steven Pav and Jan Schulz.
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Depends: R (>= 3.2.0)
 Imports: utils
 Suggests: git2r, knitr
 VignetteBuilder: knitr
