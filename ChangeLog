@@ -1,3 +1,8 @@
+2016-02-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratForPackageAuthors.Rmd: Correct file:// URL
+	* vignettes/DratForPackageUsers.Rmd: Idem
+
 2016-02-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Add versioned Depends: on R (>= 3.2.0)

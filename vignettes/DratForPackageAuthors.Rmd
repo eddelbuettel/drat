@@ -121,7 +121,7 @@ Hence, the following command would copy the package and update the index files:
 
 ```{r, eval=FALSE}
 ## insert given package into given repo on a network-local file system
-drat::insertPackage("myPkg_0.5.tar.gz", "file:/nfs/groups/groupABC/R/drat")
+drat::insertPackage("myPkg_0.5.tar.gz", "file://nfs/groups/groupABC/R/drat")
 ```
 
 This updates the PACKAGES file (and its compressed variant) after which the

@@ -60,7 +60,7 @@ within the `repos` vector, and the second provides the local (filesystem-based)
 or remote (web-based) URL:
 
 ```
-drat::addRepo("workgroup", "file:/nfs/groups/groupABC/R/drat"RcppCore")
+drat::addRepo("workgroup", "file://nfs/groups/groupABC/R/drat")
 ```
 
 where the same local network repository example is used as in the example in
