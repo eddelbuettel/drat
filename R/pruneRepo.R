@@ -43,7 +43,7 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
     pkgs <- sapply(strsplit(files, "_", fixed=TRUE), "[", 1L)
 
     ## versions is then the remainder to the right -- FIXME for something better
-    verstxt <- gsub("[a-zA-Z0-9]*_", "", noextfiles)
+    verstxt <- gsub("[a-zA-Z0-9\\.]*_", "", noextfiles)
 
     ## parse into proper version objects -- thanks, base R!
     vers <- package_version(verstxt)
