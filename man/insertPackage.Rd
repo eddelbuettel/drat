@@ -8,7 +8,7 @@
 \usage{
 insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
   commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
-  "prune"))
+  "prune"), ...)
 
 insert(...)
 }
@@ -25,14 +25,14 @@ implies the \sQuote{TRUE} values in other contexts.}
 
 \item{pullfirst}{Boolean toggle to call \code{git pull} before inserting the package.}
 
-\item{action}{A character string containing one of: \dQuote{none}
-(the default; add the new package into the repo, effectively masking
-previous versions), \dQuote{archive} (place any previous versions into
-a package-specific archive folder, creating such an archive if it does
+\item{action}{A character string containing one of: \dQuote{none} 
+(the default; add the new package into the repo, effectively masking 
+previous versions), \dQuote{archive} (place any previous versions into 
+a package-specific archive folder, creating such an archive if it does 
 not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).}
 
-\item{...}{For the aliases variant, a catch-all collection of
-parameters.}
+\item{...}{For \code{insert} the aliases variant, a catch-all collection of
+parameters. For \code{insertPackage} it passed to \code{write_PACKAGES}.}
 }
 \value{
 NULL is returned.

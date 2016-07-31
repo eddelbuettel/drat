@@ -31,8 +31,8 @@
 ##' previous versions), \dQuote{archive} (place any previous versions into 
 ##' a package-specific archive folder, creating such an archive if it does 
 ##' not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).
-##' @param ... For the aliases variant, a catch-all collection of
-##' parameters.
+##' @param ... For \code{insert} the aliases variant, a catch-all collection of
+##' parameters. For \code{insertPackage} arguments passed to \code{write_PACKAGES}.
 ##' @return NULL is returned.
 ##' @examples
 ##' \dontrun{
@@ -48,7 +48,8 @@ insertPackage <- function(file,
                           repodir=getOption("dratRepo", "~/git/drat"),
                           commit=FALSE,
                           pullfirst=FALSE,
-                          action=c("none", "archive", "prune")) {
+                          action=c("none", "archive", "prune"),
+                          ...) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
 
@@ -99,7 +100,7 @@ insertPackage <- function(file,
     }
     
     ## update index
-    write_PACKAGES(pkgdir, type=pkgtype)
+    write_PACKAGES(pkgdir, type=pkgtype, ...)
 
     if (commit) {
         if (haspkg) {
