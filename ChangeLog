@@ -1,3 +1,7 @@
+2016-08-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Switch to using run.sh
+
 2016-07-31  Jan Gorecki  <j.gorecki@wit.edu.pl>
 
 	* R/insertPackage.R: Support additional fields
