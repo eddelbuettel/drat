@@ -1,4 +1,13 @@
-2016-03-09  Antonio Piccolboni <antonio@piccolboni.info>
+2016-07-31  Jan Gorecki  <j.gorecki@wit.edu.pl>
+
+	* R/insertPackage.R: Support additional fields
+	* man/insertPackage.Rd: Idem
+
+2016-06-02  Colin Gillespie  <csgillespie@gmail.com>
+
+	* R/addRepo: Use https URLs
+
+2016-03-09  Antonio Piccolboni  <antonio@piccolboni.info>
 
 	* R/pruneRepo.R: Generalize regexp to allow dots in package names
 
