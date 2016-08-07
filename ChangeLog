@@ -1,3 +1,15 @@
+2016-08-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Add URL and BugReports links
+
+	* inst/NEWS.Rd: Added
+
+	* README.md: Use canonical CRAN URL
+	* vignettes/DratFAQ.Rmd: Ditto
+
+	* vignettes/DratFAQ.Rmd: Update question on Additional_repositories
+	as the original example moved on
+
 2016-08-01  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .travis.yml: Switch to using run.sh for Travis CI
