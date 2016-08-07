@@ -1,6 +1,5 @@
 \name{NEWS}
 \title{News for Package \pkg{drat}}
-\newcommand{\ghrepo}{\href{https://github.com/#1}{\pkg{#1}}}
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
