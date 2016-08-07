@@ -47,7 +47,7 @@
     \item Added Windows and OS X support (Jan Schulz in PR \ghpr{16})
     \item New vignette \emph{Drat FAQ} started
     \item More improvement to code and behaviour
-  
+  }  
 }
 
 \section{Changes in drat version 0.0.3 (2015-04-10)}{
@@ -58,6 +58,7 @@
     \item New vignette by Steven Pav on \emph{Why Drat?}
     \item New vignette by Colin Gilespie on \emph{Drat and Travis} 
     \item New vignettes for package authors, and users
+  }
 }
 
 \section{Changes in drat version 0.0.2 (2015-03-01)}{

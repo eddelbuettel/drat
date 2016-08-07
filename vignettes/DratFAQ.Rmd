@@ -37,7 +37,7 @@ first instroduction
 + several [blog posts](http://dirk.eddelbuettel.com/blog/code/drat/) on the package
 and its releases
 + the [GitHub page README](http://github.com/eddelbuettel/drat)
-+ several [vignettes accessible from the package page](http://cran.rstudio.com/package=drat)
++ several [vignettes accessible from the package page](http://cran.r-project.org/package=drat)
 and other places.
 + the [drat repo page](http://eddelbuettel.github.io/drat)
 
@@ -104,16 +104,22 @@ this should just work for both Windows and OS X.
 
 ## Can drat act as an `Additional_repositories` ?
 
-Glad you asked!  See the last line of the `DESCRIPTION` file of the
-[wikipediatrend package](https://github.com/petermeissner/wikipediatrend/blob/master/DESCRIPTION)
-and its [official repository page](http://cran.rstudio.com/web/packages/wikipediatrend/index.html).
-It very happily uses the [ghrr](http://ghrr.github.io/drat) drat repo to
-provide the two suggested packages [AnomalyDetection](https://github.com/twitter/AnomalyDetection) and
-[BreakoutDetection](https://github.com/twitter/BreakoutDetection).
+Glad you asked!  In fact, you can use
+[this GitHub query](https://github.com/search?q=Additional_repositories+drat&type=Code&utf8=%E2%9C%93)
+to find several dozen of packages using `Additional_repositories` to point to
+drat repos (still having drat in their name; other such as
+[packages.ropensci.org](http://packages.ropensci.org/) may use domain nane
+such that the search may miss them). One example we used to point to here
+changed however. So for a more stable use case, one example from my packages:
+the [RcppRedis package](http://cran.r-project.org/package=RcppRedis) points
+[via this line](https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21)
+to the [ghrr drat](http://ghrr.github.io/drat) to (optionally) use the
+[RcppMsgPack](https://github.com/eddelbuettel/rcppmsgpack) package (which is
+not on CRAN as it uses a MsgPack release newer than what it in Debian).
 
 ## What about the miniCRAN package?
 
-The [miniCRAN](http://cran.rstudio.com/package=miniCRAN) package creates
+The [miniCRAN](http://cran.r-project.org/package=miniCRAN) package creates
 self-sufficient repositories by examining the dependency graph and
 downloading all dependent packages.  As such, it is more of complement to
 drat than an alternative --- and Word is that several people have in fact
