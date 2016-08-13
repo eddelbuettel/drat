@@ -1,3 +1,8 @@
+2016-08-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/pruneRepo.R: Extend documentation to also mention option
+	remove="git" to invoke git2r::rm (where available)
+
 2016-08-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Add URL and BugReports links
