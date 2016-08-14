@@ -9,7 +9,7 @@ Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Sebastian
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Depends: R (>= 3.2.0)
 Imports: utils
-Suggests: git2r, knitr
+Suggests: git2r, knitr, rmarkdown
 VignetteBuilder: knitr
 Description: Creation and use of R Repositories via helper functions 
  to insert packages into a repository, and to add repository information 
