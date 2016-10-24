@@ -37,7 +37,7 @@ first instroduction
 + several [blog posts](http://dirk.eddelbuettel.com/blog/code/drat/) on the package
 and its releases
 + the [GitHub page README](http://github.com/eddelbuettel/drat)
-+ several [vignettes accessible from the package page](http://cran.r-project.org/package=drat)
++ several [vignettes accessible from the package page](https://cran.r-project.org/package=drat)
 and other places.
 + the [drat repo page](http://eddelbuettel.github.io/drat)
 
@@ -111,7 +111,7 @@ drat repos (still having drat in their name; other such as
 [packages.ropensci.org](http://packages.ropensci.org/) may use domain nane
 such that the search may miss them). One example we used to point to here
 changed however. So for a more stable use case, one example from my packages:
-the [RcppRedis package](http://cran.r-project.org/package=RcppRedis) points
+the [RcppRedis package](https://cran.r-project.org/package=RcppRedis) points
 [via this line](https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21)
 to the [ghrr drat](http://ghrr.github.io/drat) to (optionally) use the
 [RcppMsgPack](https://github.com/eddelbuettel/rcppmsgpack) package (which is
@@ -119,7 +119,7 @@ not on CRAN as it uses a MsgPack release newer than what it in Debian).
 
 ## What about the miniCRAN package?
 
-The [miniCRAN](http://cran.r-project.org/package=miniCRAN) package creates
+The [miniCRAN](https://cran.r-project.org/package=miniCRAN) package creates
 self-sufficient repositories by examining the dependency graph and
 downloading all dependent packages.  As such, it is more of complement to
 drat than an alternative --- and Word is that several people have in fact
