@@ -22,20 +22,9 @@ missing.
 - *GitHub* by leveraging `gh-pages`
 - *Other repos* by using other storage where you can write and provide html access
 
-See the next section about to get started, the package documentation, the
+Please see the next section about how to get started, the package documentation, the
 [drat package page](http://dirk.eddelbuettel.com/code/drat.html) or the
 [blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) for more.
-
-### Installation
-
-You can install the package from [CRAN](https://cran.r-project.org) via the
-standard `install.packages("drat")`.  Alternatively,  you can also do
-
-```{.r}
-install.packages("drat", repos="http://eddelbuettel.github.io/drat")
-``` 
-
-to install directly from the drat repository. 
 
 ### Getting Started
 
@@ -53,6 +42,24 @@ The package documentation provides more details.  The
 tutorial, and the
 [blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) has even
 more.
+
+### Installation
+
+You can install the package from [CRAN](https://cran.r-project.org) via the
+standard
+
+```{.r}
+install.packages("drat")
+```
+
+or alternatively,  you can also do
+
+```{.r}
+install.packages("drat", repos="http://eddelbuettel.github.io/drat")
+``` 
+
+to install directly from the drat repository. 
+
 
 ### Status
 

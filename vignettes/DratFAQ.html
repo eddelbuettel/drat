@@ -12,7 +12,7 @@
 
 <meta name="author" content="Dirk Eddelbuettel" />
 
-<meta name="date" content="2015-05-24" />
+<meta name="date" content="2016-10-27" />
 
 <title>Drat Frequently Asked Questions</title>
 
@@ -32,13 +32,18 @@
 
 <h1 class="title toc-ignore">Drat Frequently Asked Questions</h1>
 <h4 class="author"><em>Dirk Eddelbuettel</em></h4>
-<h4 class="date"><em>2015-05-24</em></h4>
+<h4 class="date"><em>2016-10-27</em></h4>
 
 
 
 <div id="what-is-drat" class="section level2">
 <h2>What is drat?</h2>
 <p>Good question. Drat is an R package which makes it really easy to provide R packages via a <em>repository</em>, and also makes it easy to use such repositories for package installation and upgrades.</p>
+</div>
+<div id="why-use-drat" class="section level2">
+<h2>Why use drat?</h2>
+<p>The motivation for drat is to give package authors more control over how they make their packages available to users. It does this by enabling package authors to make releases on a GitHub repository (or any server, more on this below). drat allows anyone to create their own package repository – just like <a href="https://cran.r-project.org">CRAN</a>.</p>
+<p>There are two key advantages of using drat over other methods of installing packages from GitHub. First is that a package installed from a drat repository will be supported by <code>install.packages()</code> and <code>update.packages()</code>, so the user has easy methods for keeping up-to-date. A second advantage of using drat is that the package author can control what other people get when they download your package from GitHub. With other methods, users typically download a random install snapshot, which might have unexpected consequences for them.</p>
 </div>
 <div id="where-is-drat" class="section level2">
 <h2>Where is drat?</h2>
@@ -88,7 +93,7 @@
 </div>
 <div id="can-drat-act-as-an-additional_repositories" class="section level2">
 <h2>Can drat act as an <code>Additional_repositories</code> ?</h2>
-<p>Glad you asked! In fact, you can use <a href="https://github.com/search?q=Additional_repositories+drat&amp;type=Code&amp;utf8=%E2%9C%93">this GitHub query</a> to find several dozen of packages using <code>Additional_repositories</code> to point to drat repos (still having drat in their name; other such as <a href="http://packages.ropensci.org/">packages.ropensci.org</a> may use domain nane such that the search may miss them). One example we used to point to here changed however. So for a more stable use case, one example from my packages: the <a href="http://cran.r-project.org/package=RcppRedis">RcppRedis package</a> points <a href="https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21">via this line</a> to the <a href="http://ghrr.github.io/drat">ghrr drat</a> to (optionally) use the <a href="https://github.com/eddelbuettel/rcppmsgpack">RcppMsgPack</a> package (which is not on CRAN as it uses a MsgPack release newer than what it in Debian).</p>
+<p>Glad you asked! In fact, you can use <a href="https://github.com/search?q=Additional_repositories+drat&amp;type=Code&amp;utf8=%E2%9C%93">this GitHub query</a> to find several dozen of packages using <code>Additional_repositories</code> to point to drat repos (still having drat in their name; other such as <a href="http://packages.ropensci.org/">packages.ropensci.org</a> may use domain nane such that the search may miss them). One example we used to point to here changed however. So for a more stable use case, one example from my packages: the <a href="https://cran.r-project.org/package=RcppRedis">RcppRedis package</a> points <a href="https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21">via this line</a> to the <a href="http://ghrr.github.io/drat">ghrr drat</a> to (optionally) use the <a href="https://github.com/eddelbuettel/rcppmsgpack">RcppMsgPack</a> package (which is not on CRAN as it uses a MsgPack release newer than what it in Debian).</p>
 </div>
 <div id="what-about-the-minicran-package" class="section level2">
 <h2>What about the miniCRAN package?</h2>

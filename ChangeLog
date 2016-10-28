@@ -1,3 +1,10 @@
+2016-10-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.2
+
+	* vignettes/DratFAQ.Rmd (vignette): Added 'Why use drat' section at
+	the top based on a suggestion by Ben Marwick
+
 2016-10-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version and date

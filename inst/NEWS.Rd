@@ -3,6 +3,17 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.1.2 (2016-10-28)}{
+  \itemize{
+    \item Changes in drat documentation
+    \itemize{
+      \item The FAQ vignette added a new question \emph{Why use drat}
+      \item URLs were made canonical, omegahat.net was updated from .org
+      \item Several files (README.md, Description, help pages) were edited
+    }
+  }
+}
+
 \section{Changes in drat version 0.1.1 (2016-08-07)}{
   \itemize{
     \item Changes in drat functionality

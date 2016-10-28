@@ -1,7 +1,7 @@
 ---
 title: "Drat Frequently Asked Questions"
 author: "Dirk Eddelbuettel"
-date: "2015-05-24"
+date: "2016-10-27"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Drat Frequently Asked Questions}
@@ -14,6 +14,23 @@ vignette: >
 Good question.  Drat is an R package which makes it really easy to provide R
 packages via a _repository_, and also makes it easy to use such repositories
 for package installation and upgrades.
+
+## Why use drat?
+
+The motivation for drat is to give package authors more control over how they
+make their packages available to users. It does this by enabling package
+authors to make releases on a GitHub repository (or any server, more on this
+below). drat allows anyone to create their own package repository -- just
+like [CRAN](https://cran.r-project.org).
+
+There are two key advantages of using drat over other methods of installing
+packages from GitHub. First is that a package installed from a drat
+repository will be supported by `install.packages()` and `update.packages()`,
+so the user has easy methods for keeping up-to-date. A second advantage of
+using drat is that the package author can control what other people get when
+they download your package from GitHub.  With other methods, users typically
+download a random install snapshot, which might have unexpected consequences
+for them.
 
 ## Where is drat?
 
