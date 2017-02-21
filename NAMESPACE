@@ -1,7 +1,0 @@
-importFrom(tools, "write_PACKAGES")
-importFrom(utils, "untar", "unzip")
-export(addRepo,
-       initRepo,
-       insertPackage,
-       pruneRepo,
-       archivePackages)
