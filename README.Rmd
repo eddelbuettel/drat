@@ -9,17 +9,21 @@ While this repository is public, it's primarily purpose is internal to Jumping R
 
 ### Creating a new package
 
-  * The package name should have the prefix `jr`, followed by a capital letter.
-  * Copy the `.gitignore` and `.RbuildIgnore` to the new package from this `drat` repository. 
-  If you update these files, please consider updating the drat master copies.
-  * Copy the `.travis.yml` from this repository to your page. If there is a `Makefile`
-  to run before the build need to uncomment out `before_script`
+  * Create a new [repository](https://github.com/jr-packages) with the correct package name: `jrXxxx`
   * On travis:
-    * add the secure variable `GITHUB_PAT` (ask Colin)
-    * ensure [travis](https://travis-ci.org/profile/jr-packages) will build your package
-  
- 
+    * add the secure variable `GITHUB_PAT` (ask Colin). The `GITHUB_PAT` variable is needed to 
+    push packages to this drat repo.
+    * ensure [travis](https://travis-ci.org/profile/jr-packages) will build your package. You'll need
+    to sync your account to pick up the package.
+  * Clone the directory
+  * Copy the contents of the `jrXxxx` directory to a new directory
+    * Replace XXX in the DESCRIPTION file and in the `R/jrXxx-package.R` file
+    * Update README.md
+  * Push to GitHub
+  * Add you package to the list below.
+
 ### Current Packages
 
+  * [jrIntroduction](https://github.com/jr-packages/jrIntroduction)
   * [jrProgramming](https://github.com/jr-packages/jrProgramming)
   

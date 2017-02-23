@@ -1,0 +1,17 @@
+Package: jrXXXXX
+Type: Package
+Title: Jumping Rivers: COURSE NAME
+Version: 0.1.0
+Authors@R: c(
+    person("Colin", "Gillespie", email = "colin@jumpingrivers.com", role = c("aut", "cre")), 
+    person("Jamie", "Owen", email = "jamie@jumpingrivers.com", role = "aut"))
+Description: A package for the COURSE NAME course run by Jumping
+  Rivers.
+URL: http://www.jumpingrivers.com/
+License: GPL-3
+Depends:
+    R (>= 3.1.0)
+Suggests:
+    knitr
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
