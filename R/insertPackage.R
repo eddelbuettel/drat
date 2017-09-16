@@ -25,11 +25,11 @@
 ##' \sQuote{add}, \sQuote{commit}, and \sQuote{push} or, alternatively,
 ##' a character variable can be used to specify a commit message; this also
 ##' implies the \sQuote{TRUE} values in other contexts.
-##' @param pullfirst Boolean toggle to call \code{git pull} before inserting the package. 
-##' @param action A character string containing one of: \dQuote{none} 
-##' (the default; add the new package into the repo, effectively masking 
-##' previous versions), \dQuote{archive} (place any previous versions into 
-##' a package-specific archive folder, creating such an archive if it does 
+##' @param pullfirst Boolean toggle to call \code{git pull} before inserting the package.
+##' @param action A character string containing one of: \dQuote{none}
+##' (the default; add the new package into the repo, effectively masking
+##' previous versions), \dQuote{archive} (place any previous versions into
+##' a package-specific archive folder, creating such an archive if it does
 ##' not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).
 ##' @param ... For \code{insert} the aliases variant, a catch-all collection of
 ##' parameters. For \code{insertPackage} arguments passed to \code{write_PACKAGES}.
@@ -61,17 +61,17 @@ insertPackage <- function(file,
     hascmd <- length(Sys.which("git")) > 0
 
     curwd <- getwd()
-    on.exit(setwd(curwd))               # restore current working directory 
+    on.exit(setwd(curwd))               # restore current working directory
 
     pkg <- basename(file)
     msg <- if (isTRUE(commit)) sprintf("Adding %s to drat", pkg) else ""
-    ## special case of commit via message: not TRUE, and character 
+    ## special case of commit via message: not TRUE, and character
     if (!isTRUE(commit) && typeof(commit) == "character" && nchar(commit) > 0) {
         msg <- commit
         commit <- TRUE
     }
-    
-    if (commit && haspkg) {  
+
+    if (commit && haspkg) {
         repo <- git2r::repository(repodir)
         if (isTRUE(pullfirst)) git2r::pull(repo)
         git2r::checkout(repo, "gh-pages")
@@ -98,7 +98,7 @@ insertPackage <- function(file,
     if (!file.copy(file, pkgdir, overwrite=TRUE)) {
         stop("File ", file, " can not be copied to ", pkgdir, call.=FALSE)
     }
-    
+
     ## update index
     write_PACKAGES(pkgdir, type=pkgtype, ...)
 
@@ -109,22 +109,26 @@ insertPackage <- function(file,
             git2r::add(repo, file.path(reldir, pkg))
             git2r::add(repo, file.path(reldir, "PACKAGES"))
             git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
+            if (file.exists(file.path(reldir, "PACKAGES.rds")))
+                git2r::add(repo, file.path(reldir, "PACKAGES.rds"))
             tryCatch(git2r::commit(repo, msg), error = function(e) warning(e))
-            #TODO: authentication woes?   git2r::push(repo)  
-            message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n") 
+            #TODO: authentication woes?   git2r::push(repo)
+            message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n")
         } else if (hascmd) {
             setwd(pkgdir)
-            cmd <- sprintf(paste("git add %s PACKAGES PACKAGES.gz;",
+            pkgfs <- "PACKAGES PACKAGES.gz"
+            if (file.exists(file.path(reldir, "PACKAGES.rds"))) pkgfs <- paste(pkgfs, "PACKAGES.rds")
+            cmd <- sprintf(paste("git add %s %s;",
                                  "git commit -m\"%s\";",
-                                 "git push"), pkg, msg)
+                                 "git push"), pkg, pkgfs, msg)
             system(cmd) ## TODO: error checking
-            message("Added, committed and pushed ", pkg, " plus PACKAGES files.\n") 
+            message("Added, committed and pushed ", pkg, " plus PACKAGES files.\n")
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
                     call.=FALSE)
         }
     }
-    
+
     action <- match.arg(action)
     pkgname <- gsub("\\.tar\\..*$", "", pkg)
     pkgname <- strsplit(pkgname, "_", fixed=TRUE)[[1L]][1L]
@@ -133,12 +137,12 @@ insertPackage <- function(file,
     } else if (action == "archive") {
         archivePackages(repopath = repodir, pkg = pkgname)
     }
-    
+
     invisible(NULL)
 }
 
 
-    
+
 ##' @rdname insertPackage
 insert <- function(...) insertPackage(...)
 
@@ -167,13 +171,13 @@ identifyPackageType <- function(file) {
 ##' This function returns the compile-time information added
 ##' to the \code{DESCRIPTION} file in the package.
 ##'
-##' @title Get information from a binary package 
+##' @title Get information from a binary package
 ##' @param file the fully qualified path of the package
 ##' @return A named vector with several components
 ##' @author Dirk Eddelbuettel
 getPackageInfo <- function(file) {
     if (!file.exists(file)) stop("File ", file, " not found!", call.=FALSE)
-    
+
     td <- tempdir()
     if (grepl(".zip$", file)) {
         unzip(file, exdir=td)
@@ -200,19 +204,19 @@ getPackageInfo <- function(file) {
     return(fields)
 }
 
-##' This function returns the directory path (relative to 
+##' This function returns the directory path (relative to
 ##' the repo root) where the package needs to be copied to.
 ##'
 ##' @title Get relative path for package type
 ##' @param file The fully qualified path of the package
-##' @return string Relative file path where packages of 
+##' @return string Relative file path where packages of
 ##' this type should be copied to.
 ##' @author Jan Schulz, Dirk Eddelbuettel and Matthew Jones
 getPathForPackage <- function(file) {
     pkgtype <- identifyPackageType(file)
     fields <- getPackageInfo(file)
     rversion <- unname(fields["Rmajor"])
-        
+
     if (pkgtype == "source") {
         ret <- file.path("src", "contrib")
     } else if (pkgtype == "win.binary") {
