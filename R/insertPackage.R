@@ -47,7 +47,7 @@
 insertPackage <- function(file,
                           repodir=getOption("dratRepo", "~/git/drat"),
                           commit=FALSE,
-                          pullfirst=FALSE,
+                          pullfirst=FALSE, push=TRUE,
                           action=c("none", "archive", "prune"),
                           ...) {
 
@@ -103,26 +103,34 @@ insertPackage <- function(file,
     write_PACKAGES(pkgdir, type=pkgtype, ...)
 
     if (commit) {
+      setwd(pkgdir) # already includes reldir
+      pkgfs <- c("PACKAGES", "PACKAGES.gz")
+      if (file.exists("PACKAGES.rds")) pkgfs <- c(pkgfs, "PACKAGES.rds")
         if (haspkg) {
             repo <- git2r::repository(repodir)
-            setwd(pkgdir)
-            git2r::add(repo, file.path(reldir, pkg))
-            git2r::add(repo, file.path(reldir, "PACKAGES"))
-            git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
-            if (file.exists(file.path(reldir, "PACKAGES.rds")))
-                git2r::add(repo, file.path(reldir, "PACKAGES.rds"))
+            git2r::add(repo, pkg)
+            git2r::add(repo, pkgfs)
             tryCatch(git2r::commit(repo, msg), error = function(e) warning(e))
+            message("Added and committed ", pkg, " plus PACKAGES files.\n")
             #TODO: authentication woes?   git2r::push(repo)
-            message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n")
+            if(push) {
+              warning("Push not available with 'git2r'.")
+              message("Still need to push.")
+            }
         } else if (hascmd) {
-            setwd(pkgdir)
-            pkgfs <- "PACKAGES PACKAGES.gz"
-            if (file.exists(file.path(reldir, "PACKAGES.rds"))) pkgfs <- paste(pkgfs, "PACKAGES.rds")
-            cmd <- sprintf(paste("git add %s %s;",
-                                 "git commit -m\"%s\";",
-                                 "git push"), pkg, pkgfs, msg)
-            system(cmd) ## TODO: error checking
-            message("Added, committed and pushed ", pkg, " plus PACKAGES files.\n")
+          pkgfs = paste(pkgfs, collapse=" ")
+            system2("git", args = sprintf("add %s %s", pkg, pkgfs))
+            system2("git", args = sprintf("commit -m%s", shQuote(msg)))
+            message("Added and committed ", pkg, " plus PACKAGES files.\n")
+            if(push) {
+              s = system2("git", args = "push")
+              if(s>0) {
+                warning("Push failed, still need to push.")
+              } else {
+               message("Pushed ", pkg, " plus PACKAGES files.\n") 
+              }
+            }
+            ## TODO: error checking
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
                     call.=FALSE)
