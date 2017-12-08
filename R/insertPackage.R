@@ -120,9 +120,9 @@ insertPackage <- function(file,
             }
         } else if (hascmd) {
           
-            setwd(pkgdir)
+            setwd(pkgdir) # already includes reldir
             pkgfs <- "PACKAGES PACKAGES.gz"
-            if (file.exists(file.path(reldir, "PACKAGES.rds"))) 
+            if (file.exists("PACKAGES.rds")) 
               pkgfs <- paste(pkgfs, "PACKAGES.rds")
             system2("git", args = sprintf("add %s %s", pkg, pkgfs))
             system2("git", args = sprintf("commit -m%s", shQuote(msg)))
