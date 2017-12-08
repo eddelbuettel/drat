@@ -103,14 +103,16 @@ insertPackage <- function(file,
     write_PACKAGES(pkgdir, type=pkgtype, ...)
 
     if (commit) {
+      setwd(pkgdir) # already includes reldir
+      pkgfs <- c("PACKAGES", "PACKAGES.gz")
+      if (file.exists("PACKAGES.rds")) pkgfs <- c(pkgfs, "PACKAGES.rds")
         if (haspkg) {
             repo <- git2r::repository(repodir)
-            setwd(pkgdir)
-            git2r::add(repo, file.path(reldir, pkg))
-            git2r::add(repo, file.path(reldir, "PACKAGES"))
-            git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
-            if (file.exists(file.path(reldir, "PACKAGES.rds")))
-                git2r::add(repo, file.path(reldir, "PACKAGES.rds"))
+            git2r::add(repo, pkg)
+            git2r::add(repo, pkgfs)
+            # git2r::add(repo, "PACKAGES.gz")
+            # if (file.exists(file.path(reldir, "PACKAGES.rds")))
+            #     git2r::add(repo, file.path(reldir, "PACKAGES.rds"))
             tryCatch(git2r::commit(repo, msg), error = function(e) warning(e))
             message("Added and committed ", pkg, " plus PACKAGES files.\n")
             #TODO: authentication woes?   git2r::push(repo)
@@ -119,11 +121,7 @@ insertPackage <- function(file,
               message("Still need to push.")
             }
         } else if (hascmd) {
-          
-            setwd(pkgdir) # already includes reldir
-            pkgfs <- "PACKAGES PACKAGES.gz"
-            if (file.exists("PACKAGES.rds")) 
-              pkgfs <- paste(pkgfs, "PACKAGES.rds")
+          pkgfs = paste(pkgfs, collapse=" ")
             system2("git", args = sprintf("add %s %s", pkg, pkgfs))
             system2("git", args = sprintf("commit -m%s", shQuote(msg)))
             message("Added and committed ", pkg, " plus PACKAGES files.\n")
@@ -134,7 +132,6 @@ insertPackage <- function(file,
               } else {
                message("Pushed ", pkg, " plus PACKAGES files.\n") 
               }
-              
             }
             ## TODO: error checking
         } else {
