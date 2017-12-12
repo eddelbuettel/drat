@@ -185,7 +185,7 @@ getPackageInfo <- function(file) {
         untar(file, exdir=td)
     } else {
         ##stop("Not sure we can handle ", file, call.=FALSE)
-        fields <- c("Source"=TRUE, "Rmajor"=NA, "Mavericks"=FALSE)
+        fields <- c("Source"=TRUE, "Rmajor"=NA, "osxFolder"="")
         return(fields)
     }
 
@@ -198,8 +198,13 @@ getPackageInfo <- function(file) {
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
 
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
-    isDarwin13 <- ifelse(fields["OSflavour"] == "x86_64-apple-darwin13.4.0", "yes", "no")
-    fields <- c(fields, "Rmajor"=unname(rmajor), "Mavericks"=unname(isDarwin13))
+    
+    osxFolder <- switch(fields["OSflavour"], 
+                        "x86_64-apple-darwin13.4.0"="mavericks", 
+                        "x86_64-apple-darwin15.6.0"="el-capitan", 
+                        "")
+    
+    fields <- c(fields, "Rmajor"=unname(rmajor), "osxFolder"=osxFolder)
 
     return(fields)
 }
@@ -222,13 +227,13 @@ getPathForPackage <- function(file) {
     } else if (pkgtype == "win.binary") {
         ret <- file.path("bin", "windows", "contrib", rversion)
     } else if (pkgtype == "mac.binary") {
-        if (fields["OSflavour"] == "") {
-            # non-binary package, treated as Mavericks
-            message("Note: Non-binary OS X package will be installed in Mavericks path.")
-            fields["Mavericks"] <- "yes"
+        if (unname(fields["OSflavour"]) == "") {
+            # non-binary package, treated as el-capitan
+            fields["osxFolder"] <- "el-capitan"
+            message("Note: Non-binary OS X package will be installed in ", fields["osxFolder"], " path.")
         }
-        if (unname(fields["Mavericks"]) == "yes") {
-            ret <- file.path("bin", "macosx", "mavericks", "contrib", rversion)
+        if (unname(fields["osxFolder"]) != "") {
+            ret <- file.path("bin", "macosx", fields["osxFolder"], "contrib", rversion)
         } else {
             ret <- file.path("bin", "macosx", "contrib", rversion)
         }
