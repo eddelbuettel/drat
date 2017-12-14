@@ -229,7 +229,11 @@ getPathForPackage <- function(file) {
     } else if (pkgtype == "mac.binary") {
         if (unname(fields["OSflavour"]) == "") {
             # non-binary package, treated as el-capitan
-            fields["osxFolder"] <- "el-capitan"
+            if(grepl("mac.binary", .Platform$pkgType)) {
+              fields["osxFolder"] <- gsub("mac.binary.", "", .Platform$pkgType)
+            } else {
+              fields["osxFolder"] <- "el-capitan"
+            }
             message("Note: Non-binary OS X package will be installed in ", fields["osxFolder"], " path.")
         }
         if (unname(fields["osxFolder"]) != "") {
