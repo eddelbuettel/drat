@@ -12,6 +12,10 @@
       \item The target branch can now be set via a global option (Neal
       Futz in \ghpr{68} addressing \ghit{61}).
     }
+    \item Changes in drat documentation
+    \itemize{
+      \item Updated `README.md` removing another stale example URL
+    }
   }
 }
 
@@ -19,8 +23,12 @@
   \itemize{
     \item Changes in drat functionality
     \itemize{
-      \item \code{PACKAGE.rds} files are now also considerd.
-      \item Travis now downloads the script via https.
+      \item Ensure `PACKAGES.rds`, if present, is also inserted in repo
+      \item Use https to fetch Travis CI script from r-travis
+    }
+    \item Changes in drat documentation
+    \itemize{
+      \item Updated `README.md` removing stale example URLs (\ghpr{63})
     }
   }
 }

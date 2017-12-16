@@ -8,11 +8,15 @@
 	mavericks and el-capitan repos; allow for global option() value
 	dratBranch to select a branch to commit to
 
+2017-10-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/insertPackage.R (insertPackage): Always add PACKAGES.rds
+
 2017-09-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.3
 
-	* R/insertPackage.R (insertPackage): Consider PACKAGE.rds too
+	* R/insertPackage.R (insertPackage): Consider PACKAGES.rds too
 
 	* README.md: Remove one now-defunct drat repo from list
 
