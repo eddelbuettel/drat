@@ -71,7 +71,6 @@ file.
 
 A few drat repositories are starting to appear (besides this one). An incomplete list (looking at the direct forks as well as GitHub search):
 
- - [hrbrmstr](https://github.com/hrbrmstr/drat)
  - [yutannihilation](https://github.com/yutannihilation/drat)
  - [gschofl](https://github.com/gschofl/drat/)
  - [csgillespie](https://github.com/csgillespie/drat)
