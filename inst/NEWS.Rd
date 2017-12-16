@@ -3,6 +3,28 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.1.4 (2017-12-16)}{
+  \itemize{
+    \item Changes in drat functionality
+    \itemize{
+      \item Binaries for macOS are now split by R version into two
+      different directories (Neal Futz in \ghpr{67} addring \ghit{64}).
+      \item The target branch can now be set via a global option (Neal
+      Futz in \ghpr{68} addressing \ghit{61}).
+    }
+  }
+}
+
+\section{Changes in drat version 0.1.3 (2017-09-16)}{
+  \itemize{
+    \item Changes in drat functionality
+    \itemize{
+      \item \code{PACKAGE.rds} files are now also considerd.
+      \item Travis now downloads the script via https.
+    }
+  }
+}
+
 \section{Changes in drat version 0.1.2 (2016-10-28)}{
   \itemize{
     \item Changes in drat documentation
