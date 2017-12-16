@@ -11,6 +11,7 @@
       different directories (Neal Futz in \ghpr{67} addring \ghit{64}).
       \item The target branch can now be set via a global option (Neal
       Futz in \ghpr{68} addressing \ghit{61}).
+      \item In commit mode, add file \code{PACKAGES.rds} unconditionally.
     }
     \item Changes in drat documentation
     \itemize{
