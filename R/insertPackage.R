@@ -24,6 +24,7 @@
 ##' \describe{
 ##'   \item{\code{dratRepo}}{Path to git repo. Defaults to \code{~/git/drat}}
 ##'   \item{\code{dratBranch}}{The git branch to store packages on. Defaults to \code{gh-pages}}
+##'   \item{\code{dratCreds}}{A \code{git2r} credentials object. Not used via command mode.}
 ##' }
 ##'
 ##' @title Insert a package source or binary file into a drat repository
@@ -122,7 +123,7 @@ insertPackage <- function(file,
             git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
             git2r::add(repo, file.path(reldir, "PACKAGES.rds"))
             tryCatch(git2r::commit(repo, msg), error = function(e) warning(e))
-            #TODO: authentication woes?   git2r::push(repo)
+            git2r::push(repo, credentials=getOption("dratCreds"))
             message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n")
         } else if (hascmd) {
             setwd(pkgdir)
