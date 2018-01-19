@@ -96,7 +96,7 @@ insertPackage <- function(file,
     pkgtype <- identifyPackageType(file)
     reldir <- getPathForPackage(file)
 
-    pkgdir <- file.path(repodir, reldir)
+    pkgdir <- normalizePath(file.path(repodir, reldir))
 
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
@@ -116,7 +116,7 @@ insertPackage <- function(file,
     if (commit) {
         if (haspkg) {
             repo <- git2r::repository(repodir)
-            setwd(pkgdir)
+            setwd(repodir)
             git2r::add(repo, file.path(reldir, pkg))
             git2r::add(repo, file.path(reldir, "PACKAGES"))
             git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
