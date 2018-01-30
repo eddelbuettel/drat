@@ -16,7 +16,10 @@ testSkeletonGit2r <- function() {
   #https://github.com/r-lib/testthat/issues/129
   R_TESTS=Sys.getenv("R_TESTS")
   Sys.setenv(R_TESTS="")
-  system(sprintf("R CMD build %s --no-manual", file.path(wd, "foo")))
+  cwd <- getwd()
+  setwd(wd)
+  system("R CMD build foo --no-manual")
+  setwd(cwd)
   Sys.setenv(R_TESTS=R_TESTS)
   message("dratting")
   
@@ -32,7 +35,7 @@ testSkeletonGit2r <- function() {
   git2r::branch_create(comm,"gh-pages")
 
   # finally add the package
-  drat::insertPackage(file = "foo_1.0.tar.gz", repodir = rdir, commit = "test")
+  drat::insertPackage(file = file.path(wd, "foo_1.0.tar.gz"), repodir = rdir, commit = "test")
   list(git2r::status(repo), dir(rdir, recursive = TRUE))
 }
 
