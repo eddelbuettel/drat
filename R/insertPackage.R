@@ -116,11 +116,11 @@ insertPackage <- function(file,
     if (commit) {
         if (haspkg) {
             repo <- git2r::repository(repodir)
-            setwd(repodir)
-            git2r::add(repo, file.path(reldir, pkg))
-            git2r::add(repo, file.path(reldir, "PACKAGES"))
-            git2r::add(repo, file.path(reldir, "PACKAGES.gz"))
-            git2r::add(repo, file.path(reldir, "PACKAGES.rds"))
+            setwd(pkgdir)
+            git2r::add(repo, pkg)
+            git2r::add(repo, "PACKAGES")
+            git2r::add(repo, "PACKAGES.gz")
+            git2r::add(repo, "PACKAGES.rds")
             tryCatch(git2r::commit(repo, msg), error = function(e) warning(e))
             #TODO: authentication woes?   git2r::push(repo)
             message("Added and committed ", pkg, " plus PACKAGES files. Still need to push.\n")
