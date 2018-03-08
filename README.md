@@ -24,6 +24,7 @@ This is an R package repository for the [Jumping Rivers](www.jumpingrivers.com) 
 | [jrSql](https://github.com/jr-packages/jrSql)                   | [![Build Status](https://api.travis-ci.org/jr-packages/jrSql.png?branch=master)](https://travis-ci.org/jr-packages/)          |
 | [jrStan](https://github.com/jr-packages/jrStan)                 | [![Build Status](https://api.travis-ci.org/jr-packages/jrStan.png?branch=master)](https://travis-ci.org/jr-packages/)         |
 | [jrTidyverse](https://github.com/jr-packages/jrTidyverse)       | [![Build Status](https://api.travis-ci.org/jr-packages/jrTidyverse.png?branch=master)](https://travis-ci.org/jr-packages/)    |
+| [jrWhyR](https://github.com/jr-packages/jrWhyR)       | [![Build Status](https://api.travis-ci.org/jr-packages/jrWhyR.png?branch=master)](https://travis-ci.org/jr-packages/)    |
 
 ### Other R packages
 
