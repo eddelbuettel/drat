@@ -6,10 +6,10 @@
 ##' adding a \sQuote{drat} archive at GitHub under the given account.
 ##'
 ##' This function retrieves the current set of repositories and adds
-##' (or overwrites) the entry for the given \sQuote{account}. For
-##' non-GitHub repositories an alternative URL can be specified as
-##' \sQuote{alturl} (and assigned to \sQuote{account}.
-##'
+##' (or overwrites) the entry for the given \sQuote{account}, see 
+##' \code{getOption("repos")} for results. For non-GitHub repositories 
+##' an alternative URL can be specified as \sQuote{alturl} and assigned
+##'  to \sQuote{account}.
 ##'
 ##' An aliased function \code{add} is also available, but not exported
 ##' via \code{NAMESPACE} to not clobber a possibly unrelated function;
@@ -28,7 +28,8 @@
 ##' @return The altered set of repositories
 ##' @examples
 ##' \dontrun{
-##'   addRepo("drat")                            # adds GitHub repo via default URL
+##'   addRepo("github_user_name")                # adds GitHub repo via default URL
+##'   getOption("repos")                         # check updated repo option
 ##'   addRepo(c("eddelbuettel", "ghrr"))         # ditto but adds two repos at once
 ##'
 ##'   addRepo("LocalRepo", "file:/nas/R/repo")   # adds local file-based repo,
