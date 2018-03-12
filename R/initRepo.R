@@ -13,6 +13,8 @@
 ##'   repo git remote.
 ##' @param basepath A character variable with path to the directory in which the
 ##'   new repository is to be created. The default value is \dQuote{~/git}.
+##' @param branch The github repo branch to serve the repo. Default to be 
+##' \code{gh-pages}.
 ##' @param remote_type Add github remote with \dQuote{SSH} or \dQuote{HTTPS}
 ##'   format.
 ##' @param push Push changes to github remote in the end if available. This may
@@ -21,6 +23,7 @@
 ##'   \code{NULL} invisibly.
 ##' @author Dirk Eddelbuettel
 initRepo <- function(name="drat", basepath="~/git", 
+                     branch = getOption("dratBranch", "gh-pages"),
                      remote_type = "SSH" , push = FALSE) {
     ## parse name
     github_acc <- NULL
@@ -51,7 +54,7 @@ initRepo <- function(name="drat", basepath="~/git",
     git2r::add(repo, "README.md")
     cmt <- git2r::commit(repo, "Initial Commit in master with README.md")
 
-    git2r::checkout(repo, "gh-pages", create=TRUE)
+    git2r::checkout(repo, branch, create=TRUE)
     # create source path
     dir.create(file.path(dir, "src"))
     dir.create(file.path(dir, "src", "contrib"))
@@ -75,16 +78,18 @@ initRepo <- function(name="drat", basepath="~/git",
                                  })
     # create folders and empty package index files
     binary_folders <- unlist(c(win_binary_folders, mac_binary_folders))
+    # give a context in case there is warning/error in folder creation
+    message("Creating binary repositories paths")
     lapply(binary_folders, function(folder) {
-      message("Creating binary repositories paths")
       dir.create(folder, recursive = TRUE)
       file.create(file.path(folder, "PACKAGES"))
     })
     git2r::add(repo, ".")
-    git2r::commit(repo, "Initial Commit in gh-pages with repositories paths")
+    git2r::commit(repo, paste0("Initial Commit in ", branch, 
+                               " with repositories paths"))
     # push repo
     if (push) git2r::push(repo, name = "origin", 
-                          refspec = "refs/heads/gh-pages")
+                          refspec = paste0("refs/heads/", branch))
     
     invisible(NULL)
 }

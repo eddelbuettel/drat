@@ -43,6 +43,8 @@
 ##' not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).
 ##' @param ... For \code{insert} the aliases variant, a catch-all collection of
 ##' parameters. For \code{insertPackage} arguments passed to \code{write_PACKAGES}.
+##' @param branch The github repo branch to serve the repo. Default to be 
+##' \code{gh-pages}.
 ##' @return NULL is returned.
 ##' @examples
 ##' \dontrun{
@@ -59,6 +61,7 @@ insertPackage <- function(file,
                           commit=FALSE,
                           pullfirst=FALSE,
                           action=c("none", "archive", "prune"),
+                          branch = getOption("dratBranch", "gh-pages"),
                           ...) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
@@ -81,7 +84,7 @@ insertPackage <- function(file,
         commit <- TRUE
     }
 
-    branch <- getOption("dratBranch", "gh-pages")
+    # branch <- getOption("dratBranch", "gh-pages")
     if (commit && haspkg) {
         repo <- git2r::repository(repodir)
         if (isTRUE(pullfirst)) git2r::pull(repo)

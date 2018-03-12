@@ -4,17 +4,21 @@
 \alias{initRepo}
 \title{Intialize a git repo for drat}
 \usage{
-initRepo(name = "drat", basepath = "~/git", remote_type = "SSH",
+initRepo(name = "drat", basepath = "~/git",
+  branch = getOption("dratBranch", "gh-pages"), remote_type = "SSH",
   push = FALSE)
 }
 \arguments{
 \item{name}{A character variable with the name the new repository, the
 default is \dQuote{drat}. If name has two parts in format of
 \dQuote{account_name/repo_name}, the cooresponding github repo is set as
-repo git remote. The initialized repo is pushed to remote in the end.}
+repo git remote.}
 
 \item{basepath}{A character variable with path to the directory in which the
 new repository is to be created. The default value is \dQuote{~/git}.}
+
+\item{branch}{The github repo branch to serve the repo. Default to be 
+\code{gh-pages}.}
 
 \item{remote_type}{Add github remote with \dQuote{SSH} or \dQuote{HTTPS}
 format.}
@@ -29,8 +33,7 @@ The function is invoked for its side-effects and only returns
 \description{
 This helper function create a new repository, creates and checks out
 \sQuote{gh-pages} branch and fills it with the required path for both source
-and binary repositories. The initialized repo is pushed to github remote in
-the end if \sQuote{name} includes both account name and repo name.
+and binary repositories.
 }
 \details{
 This function is still undergoing development and polish and may change in
