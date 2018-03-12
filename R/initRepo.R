@@ -42,7 +42,7 @@ initRepo <- function(name="drat", basepath="~/git",
     # https://github.com/account_name/repo_name.git
     # git@github.com:account_name/repo_name.git
     remote_url <- switch(remote_type,
-       SSH = paste0("git@github.com", github_acc, "/", name, ".git"),
+       SSH = paste0("git@github.com:", github_acc, "/", name, ".git"),
        HTTPS = paste0("https://github.com/", github_acc, "/", name, ".git")
     )
     if (!is.null(github_acc)) git2r::remote_add(repo, "origin", remote_url)
