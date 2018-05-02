@@ -2,7 +2,8 @@
 set -o errexit -o nounset
 PKG_REPO=$PWD
 
-addToDrat(){
+
+getRepo(){
   cd ..; mkdir drat; cd drat
 
   ## Set up Repo parameters
@@ -14,8 +15,11 @@ addToDrat(){
   ## Get drat repo
   git remote add upstream "https://$GITHUB_PAT@github.com/JR-packages/drat.git"
   git fetch upstream 2>err.txt
-  git checkout gh-pages 
+  Rscript -e "file.remove('err.txt')"
+  git checkout gh-pages
+}
 
+addToDrat(){
   Rscript -e "drat::insertPackage('$PKG_REPO/$PKG_TARBALL', \
     repodir = '.', \
     commit='Travis update $PKG_REPO: build $TRAVIS_BUILD_NUMBER')"
@@ -23,30 +27,24 @@ addToDrat(){
   cd ..
 }
 
-addToWebSite(){
-  R CMD INSTALL $PKG_REPO/$PKG_TARBALL
-  Rscript -e "devtools::build_vignettes('$PKG_REPO')"
-  mkdir rcourses_github_io; cd rcourses_github_io
 
-  ## Set up Repo parameters
-  git init
-  git config user.name "Colin Gillespie"
-  git config user.email "csgillespie@gmail.com"
-  git config --global push.default simple
+addToAppVeyor(){
+  Rscript -e "fname = list.files(path = '../$APPVEYOR_PROJECT_NAME/', full.names = TRUE, pattern = '*.zip');\
+    drat::insertPackage(fname, \
+      repodir = '.', \
+      commit=FALSE)"
 
-  ## Get drat repo
-  git remote add upstream "https://$GH_TOKEN@github.com/rcourses/rcourses.github.io.git"
-  git fetch upstream 2>err.txt
-  git checkout master
-  git status
-  
-  cp -v $PKG_REPO/inst/doc/*.pdf $(basename $PKG_REPO)/
-  git add $(basename $PKG_REPO)/*.pdf
-  git commit -a -m "Travis update $PKG_REPO: build $TRAVIS_BUILD_NUMBER"
-
+  git add *
+  git commit -m "Appveyor update $APPVEYOR_PROJECT_NAME: build $APPVEYOR_BUILD_NUMBER (R-$R_VERSION)"
   git push 2>err.txt
   cd ..
 }
 
-addToDrat
-#addToWebSite
+getRepo
+if [ $TRAVIS == true ]
+then
+  addToDrat
+else
+  addToAppVeyor
+fi
+
