@@ -1,8 +1,6 @@
 #!/bin/bash
 set -o errexit -o nounset
 PKG_REPO=$PWD
-
-
 getRepo(){
   cd ..; mkdir drat; cd drat
 
@@ -28,23 +26,5 @@ addToDrat(){
 }
 
 
-addToAppVeyor(){
-  Rscript -e "fname = list.files(path = '../$APPVEYOR_PROJECT_NAME/', full.names = TRUE, pattern = '*.zip');\
-    drat::insertPackage(fname, \
-      repodir = '.', \
-      commit=FALSE)"
-
-  git add *
-  git commit -m "Appveyor update $APPVEYOR_PROJECT_NAME: build $APPVEYOR_BUILD_NUMBER (R-$R_VERSION)"
-  git push 2>err.txt
-  cd ..
-}
-
 getRepo
-if [ $TRAVIS == true ]
-then
-  addToDrat
-else
-  addToAppVeyor
-fi
-
+addToDrat
