@@ -1,0 +1,54 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+Jumping Rivers R Package Repository
+-----------------------------------
+
+This is an R package repository for the [Jumping Rivers](www.jumpingrivers.com) training courses. While this repository is public, it's primarily purpose is internal to Jumping Rivers.
+
+### Creating a new package
+
+-   Create a new [repository](https://github.com/jr-packages) with the correct package name: `jrXxxx`
+-   On travis:
+    -   add the secure variable `GITHUB_PAT` (ask Colin). The `GITHUB_PAT` variable is needed to push packages to this drat repo.
+    -   ensure [travis](https://travis-ci.org/profile/jr-packages) will build your package. You'll need to sync your account to pick up the package.
+-   Clone the directory
+-   Copy the contents of the `jrXxxx` directory to a new directory
+    -   Replace XXX in the DESCRIPTION file and in the `R/jrXxx-package.R` file
+    -   Update README.md
+-   Push to GitHub
+-   Add your package to the list below.
+    -   Add package name to the correct vector in the README.Rmd file and knit the file
+    -   (Please keep it in alphabetical order)
+
+
+### Current Packages
+
+```{r, echo = FALSE}
+library(knitr)
+library(tibble)
+pkgs = c("jrAdvanced", "jrAnalytics", "jrAutomate", "jrBig", "jrEfficient", "jrGgplot2", "jrIntroBio", "jrIntroduction", "jrModelling", "jrNotes", "jrPredictive", "jrProgBio","jrProgramming", "jrPresentation", "jrShiny", "jrSql", "jrStan", "jrTidyverse", "jrTidyverse2","jrWhyR")
+Packages = paste0("[", pkgs, "](https://github.com/jr-packages/", pkgs, ")")
+Build_Status = paste0("[![Build Status](https://api.travis-ci.org/jr-packages/",
+                      pkgs, ".png?branch=master)](https://travis-ci.org/jr-packages/)")
+tib = tibble(Package = Packages, `Build Status` = Build_Status)
+kable(tib)
+```
+
+### Other R Packages
+
+```{r, echo = FALSE}
+opkgs = c("efficientTutorial")
+oPackages =  paste0("[", opkgs, "](https://github.com/jr-packages/", opkgs, ")")
+oBuild_Status = paste0("[![Build Status](https://api.travis-ci.org/jr-packages/",
+                      opkgs, ".png?branch=master)](https://travis-ci.org/jr-packages/)")
+tib2 = tibble(Packages = oPackages, `Build Status` = oBuild_Status)
+kable(tib2)
+```
+
+### To do 
+
+Scrape package names automatically
