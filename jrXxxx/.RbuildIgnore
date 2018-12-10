@@ -1,5 +1,0 @@
-^.*\.Rproj$
-^\.Rproj\.user$
-Makefile
-.travis.yml
-vignettes/figure
