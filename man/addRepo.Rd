@@ -36,7 +36,7 @@ adding a \sQuote{drat} archive at GitHub under the given account.
 }
 \details{
 This function retrieves the current set of repositories (see
-\code{getOption("repos") for the current values) and adds
+\code{getOption("repos")} for the current values) and adds
 (or overwrites) the entry for the given \sQuote{account}. For
 non-GitHub repositories an alternative URL can be specified as
 \sQuote{alturl} (and assigned to \sQuote{account} as well.
