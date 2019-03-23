@@ -1,6 +1,9 @@
 2019-03-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add dependencies badge
+	
+	* tests/skeleton_git2r.R (testSkeletonGit2r): Ensure 'R' is prefixed
+	by proper path as recommended in Section 1.6 of Writing R Extensions
 
 2018-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
