@@ -1,3 +1,7 @@
+2019-03-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add dependencies badge
+
 2018-03-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/addRepo.R: Minor documentation update
