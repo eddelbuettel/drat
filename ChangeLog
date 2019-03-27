@@ -1,3 +1,21 @@
+2019-03-27  Christoph Stepper <christoph.stepper@gfk.com>
+	
+	* R/archivePackages.R: Simplification of argument use
+	* R/pruneRepo.R: Idem
+	* R/insertPackage.R: Idem
+	* man/archivePackages.Rd: Idem
+	* man/pruneRepo.Rd: Idem
+	
+2019-03-25  Christoph Stepper <christoph.stepper@gfk.com>
+
+	* R/archivePackages.R: Support binary packages
+	* R/pruneRepo.R: Idem
+
+	* man/archivePackages.Rd: Added documentation
+	* man/pruneRepo.Rd: Idem
+
+	* man/*.Rd: Rebuilt under current roxygen2
+
 2019-03-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add dependencies badge
@@ -10,6 +28,11 @@
 	* R/addRepo.R: Minor documentation update
 	* man/addRepo.Rd: Idem
 
+2018-01-30  Neal Fultz  <nfultz@gmail.com>
+
+	* R/insertPackage.R: Correct working directoru for git2r
+	* tests/skeleton_git2r.R: Add end-to-end test
+	
 2017-12-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.4
