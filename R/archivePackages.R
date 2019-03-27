@@ -19,17 +19,17 @@
 ##'   archivePackages(pkg = "drat")  # archive older copies of just one package
 ##' }
 ##' @author Thomas J. Leeper
-archivePackages <- function(repopath=getOption("dratRepo", "~/git/drat"),
-                            type="source", 
+archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
+                            type = "source", 
                             pkg) {
    
     ## TODO need to deal with binary repos...
-    repodir <- file.path(repopath, "src", "contrib")
-    
+    repodir <- contrib.url(repopath, type)
+
     archive <- file.path(repodir, "Archive")
     if (!file.exists(archive)) {
         if (!dir.create(archive, recursive = TRUE)) {
-            stop("Archive directory not found and couldn't be created\n", call.=FALSE)
+            stop("Archive directory not found and couldn't be created\n", call. = FALSE)
         }
     }
     
@@ -37,18 +37,18 @@ archivePackages <- function(repopath=getOption("dratRepo", "~/git/drat"),
         parchive <- file.path(repodir, "Archive", x)
         if (!file.exists(parchive)) {
             if (!dir.create(parchive, recursive = TRUE)) {
-                stop("Package archive directory for ", x," not found and couldn't be created\n", call.=FALSE)
+                stop("Package archive directory for ", x," not found and couldn't be created\n", call. = FALSE)
             }
         }
     }
     
     if (missing(pkg)) {
-        old <- pruneRepo(repopath = repopath, remove = FALSE)
+        old <- pruneRepo(repopath = repopath, type = type, remove = FALSE)
         old <- old[!old[,"newest"], ]
         sapply(unique(old$package), mkArchive)
     } else {
         pkg <- unique(pkg)
-        old <- pruneRepo(repopath = repopath, pkg = pkg, remove = FALSE)
+        old <- pruneRepo(repopath = repopath, type = type, pkg = pkg, remove = FALSE)
         old <- old[!old[,"newest"] & old[,"package"] %in% pkg, ]
         sapply(pkg, mkArchive)
     }

@@ -55,19 +55,19 @@
 ##' }
 ##' @author Dirk Eddelbuettel
 insertPackage <- function(file,
-                          repodir=getOption("dratRepo", "~/git/drat"),
-                          commit=FALSE,
-                          pullfirst=FALSE,
-                          action=c("none", "archive", "prune"),
+                          repodir = getOption("dratRepo", "~/git/drat"),
+                          commit = FALSE,
+                          pullfirst = FALSE,
+                          action = c("none", "archive", "prune"),
                           ...) {
 
-    if (!file.exists(file)) stop("File ", file, " not found\n", call.=FALSE)
+    if (!file.exists(file)) stop("File ", file, " not found\n", call. = FALSE)
 
     ## TODO src/contrib if needed, preferably via git2r
-    if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call.=FALSE)
+    if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call. = FALSE)
 
     ## check for the optional git2r package
-    haspkg <- requireNamespace("git2r", quietly=TRUE)
+    haspkg <- requireNamespace("git2r", quietly = TRUE)
     hascmd <- length(Sys.which("git")) > 0
 
     curwd <- getwd()
@@ -101,17 +101,17 @@ insertPackage <- function(file,
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
         if (!dir.create(pkgdir, recursive = TRUE)) {
-            stop("Directory ", pkgdir, " couldn't be created\n", call.=FALSE)
+            stop("Directory ", pkgdir, " couldn't be created\n", call. = FALSE)
         }
     }
 
     ## copy file into repo
-    if (!file.copy(file, pkgdir, overwrite=TRUE)) {
-        stop("File ", file, " can not be copied to ", pkgdir, call.=FALSE)
+    if (!file.copy(file, pkgdir, overwrite = TRUE)) {
+        stop("File ", file, " can not be copied to ", pkgdir, call. = FALSE)
     }
 
     ## update index
-    write_PACKAGES(pkgdir, type=pkgtype, ...)
+    write_PACKAGES(pkgdir, type = pkgtype, ...)
 
     if (commit) {
         if (haspkg) {
@@ -134,17 +134,19 @@ insertPackage <- function(file,
             message("Added, committed and pushed ", pkg, " plus PACKAGES files.\n")
         } else {
             warning("Commit skipped as both git2r package and git command missing.",
-                    call.=FALSE)
+                    call. = FALSE)
         }
     }
 
     action <- match.arg(action)
     pkgname <- gsub("\\.tar\\..*$", "", pkg)
-    pkgname <- strsplit(pkgname, "_", fixed=TRUE)[[1L]][1L]
+    pkgname <- strsplit(pkgname, "_", fixed = TRUE)[[1L]][1L]
     if (action == "prune") {
-        pruneRepo(repopath = repodir, pkg = pkgname, remove = TRUE)
+        pruneRepo(repopath = repodir,  
+                  type = pkgtype, pkg = pkgname, remove = TRUE)
     } else if (action == "archive") {
-        archivePackages(repopath = repodir, pkg = pkgname)
+        archivePackages(repopath = repodir, 
+                        type = pkgtype, pkg = pkgname)
     }
 
     invisible(NULL)
@@ -172,7 +174,7 @@ identifyPackageType <- function(file) {
     } else if (grepl("_.*\\.zip$", file)) {
         "win.binary"
     } else {
-        stop("Unknown package type", call.=FALSE)
+        stop("Unknown package type", call. = FALSE)
     }
     return(ret)
 }
@@ -185,23 +187,23 @@ identifyPackageType <- function(file) {
 ##' @return A named vector with several components
 ##' @author Dirk Eddelbuettel
 getPackageInfo <- function(file) {
-    if (!file.exists(file)) stop("File ", file, " not found!", call.=FALSE)
+    if (!file.exists(file)) stop("File ", file, " not found!", call. = FALSE)
 
     td <- tempdir()
     if (grepl(".zip$", file)) {
-        unzip(file, exdir=td)
+        unzip(file, exdir = td)
     } else if (grepl(".tgz$", file)) {
-        untar(file, exdir=td)
+        untar(file, exdir = td)
     } else {
         ##stop("Not sure we can handle ", file, call.=FALSE)
-        fields <- c("Source"=TRUE, "Rmajor"=NA, "osxFolder"="")
+        fields <- c("Source" = TRUE, "Rmajor" = NA, "osxFolder" = "")
         return(fields)
     }
 
     pkgname <- gsub("^([a-zA-Z0-9.]*)_.*", "\\1", basename(file))
     path <- file.path(td, pkgname, "DESCRIPTION")
     builtstring <- read.dcf(path, 'Built')
-    unlink(file.path(td, pkgname), recursive=TRUE)
+    unlink(file.path(td, pkgname), recursive = TRUE)
 
     fields <- strsplit(builtstring, "; ")[[1]]
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
@@ -209,11 +211,11 @@ getPackageInfo <- function(file) {
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
 
     osxFolder <- switch(fields["OSflavour"],
-                        "x86_64-apple-darwin13.4.0"="mavericks",
-                        "x86_64-apple-darwin15.6.0"="el-capitan",
+                        "x86_64-apple-darwin13.4.0" = "mavericks",
+                        "x86_64-apple-darwin15.6.0" = "el-capitan",
                         "")
 
-    fields <- c(fields, "Rmajor"=unname(rmajor), "osxFolder"=osxFolder)
+    fields <- c(fields, "Rmajor" = unname(rmajor), "osxFolder" = osxFolder)
 
     return(fields)
 }
@@ -238,7 +240,7 @@ getPathForPackage <- function(file) {
     } else if (pkgtype == "mac.binary") {
         if (unname(fields["OSflavour"]) == "") {
             # non-binary package, treated as el-capitan
-            if(grepl("mac.binary", .Platform$pkgType)) {
+            if (grepl("mac.binary", .Platform$pkgType)) {
               fields["osxFolder"] <- gsub("mac.binary.", "", .Platform$pkgType)
             } else {
               fields["osxFolder"] <- "el-capitan"

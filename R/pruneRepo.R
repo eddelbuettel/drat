@@ -30,36 +30,52 @@
 ##'  logical variable \dQuote{newest} indicating if the package can
 ##'  be removed.
 ##' @author Dirk Eddelbuettel
-pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
-                      type="source", 
+pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
+                      type = "source", 
                       pkg,
-                      remove=FALSE) {
+                      remove = FALSE) {
    
     ## TODO need to deal with binary repos...
-    repodir <- file.path(repopath, "src", "contrib")
-    
+    repodir <- contrib.url(repopath, type)
+
     ##ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
-    ext <- "\\.tar\\..*$"            
-    files <- list.files(repodir, pattern=ext, full.names=FALSE)
+    # ext <- "\\.tar\\..*$"            
+    
+    ext <- if (type == "source") {
+        "\\.tar\\..*$"
+    } else if (type == "mac.binary") {
+        "\\.tgz$"
+    } else if (type == "win.binary") {
+        "\\.zip$"
+    } else {
+        stop("Unknown package type", call. = FALSE)
+    }
+    
+    
+    files <- list.files(repodir, pattern = ext, full.names = FALSE)
 
     ## subst. out the extension
     noextfiles <- gsub(ext, "", files)
-
+    noextfiles <- do.call(rbind, strsplit(noextfiles, "_", fixed = TRUE))
+    
     ## package names to the left
-    pkgs <- sapply(strsplit(files, "_", fixed=TRUE), "[", 1L)
+    # pkgs <- sapply(strsplit(files, "_", fixed=TRUE), "[", 1L)
+    pkgs <- noextfiles[, 1]
 
     ## versions is then the remainder to the right -- FIXME for something better
-    verstxt <- gsub("[a-zA-Z0-9\\.]*_", "", noextfiles)
-
+    # verstxt <- gsub("[a-zA-Z0-9\\.]*_", "", noextfiles)
+    verstxt <- noextfiles[, 2]
+    
+    
     ## parse into proper version objects -- thanks, base R!
     vers <- package_version(verstxt)
 
-    df <- data.frame(file=files, package=pkgs, version=vers, stringsAsFactors=FALSE)
+    df <- data.frame(file = files, package = pkgs, version = vers, stringsAsFactors = FALSE)
 
-    df <- df[order(df$package, df$version, decreasing=TRUE),]
+    df <- df[order(df$package, df$version, decreasing = TRUE),]
     df$newest <- !duplicated(df$package)
 
-    df <- df[order(df$package, df$version, decreasing=FALSE),]
+    df <- df[order(df$package, df$version, decreasing = FALSE),]
     if (!missing(pkg)) {
         df <- df[df$package %in% pkg,]
     }
@@ -77,13 +93,13 @@ pruneRepo <- function(repopath=getOption("dratRepo", "~/git/drat"),
     ## 9  winsorize_0.0.2.tar.gz winsorize    0.0.2   TRUE
     ## R>
 
-    haspkg <- requireNamespace("git2r", quietly=TRUE)
+    haspkg <- requireNamespace("git2r", quietly = TRUE)
     
     if (remove != FALSE) {
         rmfiles <- df[!df[,"newest"], "file"]
         if (remove == "git") {
             if (!haspkg)
-                stop("The 'pruneRepo' function requires the 'git2r' packages.", call.=FALSE)
+                stop("The 'pruneRepo' function requires the 'git2r' packages.", call. = FALSE)
             repo <- git2r::repository(repopath)
             for (f in rmfiles) {
                 fullfile <- file.path(repodir, f)
