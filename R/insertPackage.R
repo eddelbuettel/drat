@@ -142,10 +142,10 @@ insertPackage <- function(file,
     pkgname <- gsub("\\.tar\\..*$", "", pkg)
     pkgname <- strsplit(pkgname, "_", fixed = TRUE)[[1L]][1L]
     if (action == "prune") {
-        pruneRepo(repopath = repodir, reldir = reldir, 
+        pruneRepo(repopath = repodir,  
                   type = pkgtype, pkg = pkgname, remove = TRUE)
     } else if (action == "archive") {
-        archivePackages(repopath = repodir, reldir = reldir,
+        archivePackages(repopath = repodir, 
                         type = pkgtype, pkg = pkgname)
     }
 

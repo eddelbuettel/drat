@@ -5,14 +5,12 @@
 \title{Move older copies of packages to an archive}
 \usage{
 archivePackages(repopath = getOption("dratRepo", "~/git/drat"),
-  reldir = "src/contrib", type = "source", pkg)
+  type = "source", pkg)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
 defaults to the value of the \dQuote{dratRepo} option with
-\dQuote{"~/git/drat"} as fallback
-##' @param reldir Character variable specifying the relative directory 
-  path within the repository; defaults to \dQuote{src/contrib}.}
+\dQuote{"~/git/drat"} as fallback}
 
 \item{type}{Character variable for the type of repository, so far \dQuote{source}}
 

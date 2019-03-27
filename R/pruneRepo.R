@@ -14,8 +14,6 @@
 ##' @param repopath Character variable with the path to the repo;
 ##'  defaults to the value of the \dQuote{dratRepo} option with
 ##'  \dQuote{"~/git/drat"} as fallback
-##' @param reldir Character variable specifying the relative directory 
-##'   path within the repository; defaults to \dQuote{src/contrib}.
 ##' @param type Character variable for the type of repository, so far
 ##'  \dQuote{source}
 ##' @param pkg Optional character variable specifying a package name,
@@ -33,14 +31,12 @@
 ##'  be removed.
 ##' @author Dirk Eddelbuettel
 pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                      reldir = "src/contrib",
                       type = "source", 
                       pkg,
                       remove = FALSE) {
    
     ## TODO need to deal with binary repos...
-    # repodir <- file.path(repopath, "src", "contrib")
-    repodir <- file.path(repopath, reldir)
+    repodir <- contrib.url(repopath, type)
 
     ##ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
     # ext <- "\\.tar\\..*$"            

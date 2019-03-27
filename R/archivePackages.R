@@ -9,8 +9,6 @@
 ##' @param repopath Character variable with the path to the repo;
 ##' defaults to the value of the \dQuote{dratRepo} option with
 ##' \dQuote{"~/git/drat"} as fallback
-##' ##' @param reldir Character variable specifying the relative directory 
-##'   path within the repository; defaults to \dQuote{src/contrib}.
 ##' @param type Character variable for the type of repository, so far \dQuote{source}
 ##' @param pkg Optional character variable specifying a package name(s), whose
 ##' older versions should be archived. If missing (the default), archiving is 
@@ -22,15 +20,12 @@
 ##' }
 ##' @author Thomas J. Leeper
 archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                            reldir = "src/contrib",
                             type = "source", 
                             pkg) {
    
     ## TODO need to deal with binary repos...
-    # repodir <- file.path(repopath, "src", "contrib")
-    repodir <- file.path(repopath, reldir)
-    
-    
+    repodir <- contrib.url(repopath, type)
+
     archive <- file.path(repodir, "Archive")
     if (!file.exists(archive)) {
         if (!dir.create(archive, recursive = TRUE)) {
@@ -48,12 +43,12 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
     }
     
     if (missing(pkg)) {
-        old <- pruneRepo(repopath = repopath, reldir = reldir, type = type, remove = FALSE)
+        old <- pruneRepo(repopath = repopath, type = type, remove = FALSE)
         old <- old[!old[,"newest"], ]
         sapply(unique(old$package), mkArchive)
     } else {
         pkg <- unique(pkg)
-        old <- pruneRepo(repopath = repopath, reldir = reldir, type = type, pkg = pkg, remove = FALSE)
+        old <- pruneRepo(repopath = repopath, type = type, pkg = pkg, remove = FALSE)
         old <- old[!old[,"newest"] & old[,"package"] %in% pkg, ]
         sapply(pkg, mkArchive)
     }
