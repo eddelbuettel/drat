@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
-\section{Changes in drat version 0.1.4 (2017-12-16)}{
+\section{Changes in drat version 0.1.5 (2019-03-28)}{
   \itemize{
     \item Changes in drat functionality
     \itemize{

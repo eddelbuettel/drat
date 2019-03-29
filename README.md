@@ -99,7 +99,8 @@ details, and the contributed vignette
 ### Author
 
 Dirk Eddelbuettel, with contributions by Carl Boettiger, Sebastian Gibb,
-Colin Gillespie, Matt Jones, Thomas Leeper, Steven Pav and Jan Schulz.
+Colin Gillespie, Matt Jones, Thomas Leeper, Steven Pav, Jan Schulz, and
+Christoph Stepper.
 
 ### License
 

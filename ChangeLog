@@ -1,3 +1,11 @@
+2019-03-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.5
+
+	* README.md: Mention Christoph in Author section
+
+	* NAMESPACE: Also import contrib.url() from utils
+
 2019-03-27  Christoph Stepper <christoph.stepper@gfk.com>
 	
 	* R/archivePackages.R: Simplification of argument use
