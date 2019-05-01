@@ -4,13 +4,6 @@ PKG_REPO=$PWD
 getRepo(){
   cd ..; mkdir drat; cd drat
 
-  if [ -z "$GITHUB_PAT"]
-  then
-	  echo "GITHUB_PAT empty"
-	  exit 1
-  fi
-
-
   ## Set up Repo parameters
   git init
   git config user.name "Jumping Rivers"
@@ -28,8 +21,7 @@ addToDrat(){
   Rscript -e "drat::insertPackage('$PKG_REPO/$PKG_TARBALL', \
     repodir = '.', \
     commit='Travis update $PKG_REPO: build $TRAVIS_BUILD_NUMBER')"
-  git push 2>err.txt
-  grep -q "fatal" err.txt && travis_terminate 1
+  git push 2>err.txt || travis_terminate 1
   cd ..
 }
 
