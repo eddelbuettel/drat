@@ -6,7 +6,7 @@ getRepo(){
 
   if [ -z "$GITHUB_PAT"]
   then
-	  echo "\$GITHUB_PAT empty"
+	  echo "GITHUB_PAT empty"
 	  exit 1
   fi
 
