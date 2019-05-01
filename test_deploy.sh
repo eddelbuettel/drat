@@ -29,16 +29,11 @@ addToDrat(){
     repodir = '.', \
     commit='Travis update $PKG_REPO: build $TRAVIS_BUILD_NUMBER')"
   git push 2>err.txt
+  grep -q "fatal" err.txt && travis_terminate 1
   cd ..
 }
 
 
 getRepo
 addToDrat
-
-echo "testing mail"
-
-mail -s "test" "jamie@jumpingrivers.com" <<EOF
-test
-EOF
 
