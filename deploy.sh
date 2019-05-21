@@ -3,7 +3,7 @@ set -o errexit -o nounset
 PKG_REPO=$PWD
 
 addToDrat(){
-  cd drat
+  cd ..; cd drat
   Rscript -e "drat::insertPackage('$PKG_REPO/$PKG_TARBALL', \
     repodir = '.', \
     commit='Travis update $PKG_REPO: build $TRAVIS_BUILD_NUMBER')"
