@@ -12,7 +12,7 @@ getRepo(){
 
   ## Get drat repo
   git remote add upstream "https://$GITHUB_PAT@github.com/JR-packages/drat.git"
-  git fetch upstream 2>err.txt
+  git fetch --depth 1 upstream 2>err.txt
   Rscript -e "file.remove('err.txt')"
   git checkout gh-pages
 }
