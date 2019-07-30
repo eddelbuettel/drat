@@ -42,6 +42,7 @@ order)
 | [jrGgplot2](https://github.com/jr-packages/jrGgplot2)           | [![Build Status](https://api.travis-ci.org/jr-packages/jrGgplot2.png?branch=master)](https://travis-ci.org/jr-packages/)      |
 | [jrIntroBio](https://github.com/jr-packages/jrIntroBio)         | [![Build Status](https://api.travis-ci.org/jr-packages/jrIntroBio.png?branch=master)](https://travis-ci.org/jr-packages/)     |
 | [jrIntroduction](https://github.com/jr-packages/jrIntroduction) | [![Build Status](https://api.travis-ci.org/jr-packages/jrIntroduction.png?branch=master)](https://travis-ci.org/jr-packages/) |
+| [jrIntroductionRSS](https://github.com/jr-packages/jrIntroductionRSS) | [![Build Status](https://api.travis-ci.org/jr-packages/jrIntroductionRSS.png?branch=master)](https://travis-ci.org/jr-packages/) |
 | [jrModelling](https://github.com/jr-packages/jrModelling)       | [![Build Status](https://api.travis-ci.org/jr-packages/jrModelling.png?branch=master)](https://travis-ci.org/jr-packages/)    |
 | [jrNotes](https://github.com/jr-packages/jrNotes)               | [![Build Status](https://api.travis-ci.org/jr-packages/jrNotes.png?branch=master)](https://travis-ci.org/jr-packages/)        |
 | [jrPredictive](https://github.com/jr-packages/jrPredictive)     | [![Build Status](https://api.travis-ci.org/jr-packages/jrPredictive.png?branch=master)](https://travis-ci.org/jr-packages/)   |
