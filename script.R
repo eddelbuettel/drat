@@ -1,6 +1,5 @@
 ## Script component of travis.yml
-devtools::install_github("jumpingrivers/inteRgrate
-")
+devtools::install_github("jumpingrivers/inteRgrate")
 
 inteRgrate::check_pkg()
 inteRgrate::check_r_filenames()
