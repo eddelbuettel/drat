@@ -1,4 +1,5 @@
 ## Script component of travis.yml
+if (!requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("jumpingrivers/inteRgrate")
 
 inteRgrate::check_pkg()
