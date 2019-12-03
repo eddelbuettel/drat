@@ -22,7 +22,10 @@ testPush(){
   cd ..
 }
 
-
-getRepo
-testPush
-
+if [[ $TRAVIS_PULL_REQUEST == “false” ]] && [[ $TRAVIS_BRANCH == “master” ]]
+then
+  getRepo
+  testPush
+else
+  echo "Not master"
+fi
