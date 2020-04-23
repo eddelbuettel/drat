@@ -81,6 +81,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
  - [ghrr](https://github.com/ghrr/drat)
  - [cloudyr](https://cloudyr.github.io/drat)
  - [dmlc](https://github.com/dmlc/drat)
+ - [thospfuller](https://github.com/thospfuller/drat)
 
 The [rOpenSci](https://ropensci.org) project uses
 [drat](http://dirk.eddelbuettel.com/code/drat.html) to distribute their code
