@@ -29,7 +29,7 @@ addRSPM() {
                                       R.version['arch'], R.version['os'])),
      download.file.extra = sprintf('--header \"User-Agent: R (%s)\"',    
                                  paste(getRversion(), R.version['platform'], 
-                                       R.version['arch'], R.version['os'])))" >> /usr/lib/R/etc/Rprofile.site
+                                       R.version['arch'], R.version['os'])))" >> ~/.Rprofile
 }
 
 addRSPM
