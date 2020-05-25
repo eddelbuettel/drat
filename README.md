@@ -1,13 +1,25 @@
-## drat [![Build Status](https://travis-ci.org/eddelbuettel/drat.svg)](https://travis-ci.org/eddelbuettel/drat) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) [![CRAN](http://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat) [![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat) [![Downloads](http://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](http://www.r-pkg.org/pkg/drat)
+## drat: Drat R Archive Template
 
-Drat R Archive Template
+[![Build Status](https://travis-ci.org/eddelbuettel/drat.svg)](https://travis-ci.org/eddelbuettel/drat) 
+[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) 
+[![CRAN](http://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat) 
+[![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat) 
+[![Downloads](http://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](http://www.r-pkg.org/pkg/drat)
+[![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/drat)](https://github.com/eddelbuettel/drat)
+
+> **drat**
+>
+> What cute people say when they are pissed off
+> 
+> _"Oh Drat, i lost my wallet"_
+>
+> [Urban Dictionary](http://www.urbandictionary.com/define.php?term=drat)
 
 ### Background
 
 The R package ecosystem is one of the cornerstones of the success seen by R.
-As of September 2017, over 11000 packages are on [CRAN](https://cran.r-project.org),
-with about one thousand more at [BioConductor](http://www.bioconductor.org) and
-probably another hundred at [OmegaHat](http://www.omegahat.net).
+As of May 2020, almost 16000 packages are on [CRAN](https://cran.r-project.org),
+with about one thousand more at [BioConductor](http://www.bioconductor.org).
 
 Support for multiple repositories is built deeply into R; mostly via the
 (default) package `utils`. The
