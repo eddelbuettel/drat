@@ -2,6 +2,8 @@
 
 	* README.md: Add 'last commit' badge
 
+	* .travis.yml: Switch to bionic and R 4.0.0
+
 2020-04-23  Thomas P. Fuller  <thomas.fuller@coherentlogic.com>
 
 	* README.md: Add entry for thospfuller/drat
