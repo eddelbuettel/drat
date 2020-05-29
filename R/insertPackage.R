@@ -250,15 +250,10 @@ contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
     if(is.null(version) || is.na(version)){
         return(contrib_url)
     }
-    version <- as.character(version)
-    split_version <- strsplit(version,"\\.")[[1L]]
-    if(length(split_version) < 2L || length(split_version) > 3L){
-        stop("'version' must be in the format 'X.Y' or 'X.Y.Z'.")
-    }
-    version <- paste(split_version[seq.int(1L,min(2L,length(split_version)))],
-                     collapse = ".")
+    version <- package_version(version)
     contrib_url <- gsub("contrib/[0-9]\\.[0-9]",
-                        paste0("contrib/",version),
+                        paste0("contrib/",
+                               paste0(version$major,".",version$minor)),
                         contrib_url)
     contrib_url
 }
