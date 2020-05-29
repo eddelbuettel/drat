@@ -43,7 +43,7 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     
     ext <- if (type == "source") {
         "\\.tar\\..*$"
-    } else if (type == "mac.binary") {
+    } else if (grepl("mac.binary",type)) {
         "\\.tgz$"
     } else if (type == "win.binary") {
         "\\.zip$"
