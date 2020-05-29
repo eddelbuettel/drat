@@ -4,8 +4,13 @@
 \alias{pruneRepo}
 \title{Prune repository from older copies of packages}
 \usage{
-pruneRepo(repopath = getOption("dratRepo", "~/git/drat"),
-  type = "source", pkg, remove = FALSE)
+pruneRepo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = "source",
+  pkg,
+  version = getRversion(),
+  remove = FALSE
+)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
@@ -13,11 +18,16 @@ defaults to the value of the \dQuote{dratRepo} option with
 \dQuote{"~/git/drat"} as fallback}
 
 \item{type}{Character variable for the type of repository, so far
-\dQuote{source}}
+\dQuote{source}, \dQuote{win.binary}, \dQuote{mac.binary}, 
+\dQuote{mac.binary.mavericks} or \dQuote{mac.binary.el-capitan}}
 
 \item{pkg}{Optional character variable specifying a package name,
 whose older versions should be pruned. If missing (the
 default), pruning is performed on all packages.}
+
+\item{version}{R version information in the format \code{X.Y} or 
+\code{X.Y.Z}. Only used, if pruning binary packages. 
+(default: \code{version = getRversion()})}
 
 \item{remove}{Character or logical variable indicating whether
 files should be removed. Nothing happens if \sQuote{FALSE}. If

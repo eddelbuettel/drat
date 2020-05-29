@@ -4,19 +4,29 @@
 \alias{archivePackages}
 \title{Move older copies of packages to an archive}
 \usage{
-archivePackages(repopath = getOption("dratRepo", "~/git/drat"),
-  type = "source", pkg)
+archivePackages(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = "source",
+  pkg,
+  version = getRversion()
+)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
 defaults to the value of the \dQuote{dratRepo} option with
 \dQuote{"~/git/drat"} as fallback}
 
-\item{type}{Character variable for the type of repository, so far \dQuote{source}}
+\item{type}{Character variable for the type of repository, so far
+\dQuote{source}, \dQuote{win.binary}, \dQuote{mac.binary}, 
+\dQuote{mac.binary.mavericks} or \dQuote{mac.binary.el-capitan}}
 
 \item{pkg}{Optional character variable specifying a package name(s), whose
 older versions should be archived. If missing (the default), archiving is 
 performed on all packages.}
+
+\item{version}{R version information in the format \code{X.Y} or 
+\code{X.Y.Z}. Only used, if archiving binary packages.
+(default: \code{version = getRversion()})}
 }
 \description{
 The function moves older versions of packages into a CRAN-style 
