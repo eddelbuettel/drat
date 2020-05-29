@@ -176,16 +176,16 @@ identifyPackageType <- function(file) {
     }
     if(ret == "mac.binary"){
         fields <- getPackageInfo(file)
-        if(fields$osxFolder == ""){
-            ret <- switch(fields$Rmajor,
+        if(fields["osxFolder"] == ""){
+            ret <- switch(fields["Rmajor"],
                           "3.2" = paste0(ret,".mavericks"),
                           "3.3" = paste0(ret,".mavericks"),
                           "3.4" = paste0(ret,".el-capitan"),
                           "3.5" = paste0(ret,".el-capitan"),
                           "3.6" = paste0(ret,".el-capitan"),
                           ret)
-        } else if(fields$osxFolder %in% c("mavericks","el-capitan")) {
-            ret <- paste0(ret,".",fields$osxFolder)
+        } else if(fields["osxFolder"] %in% c("mavericks","el-capitan")) {
+            ret <- paste0(ret,".",fields["osxFolder"])
         } else {
             stop("mac.binary subtype couldn't be determined. This shouldn't ",
                  "happen. Please report it with a reproducable example and ",
