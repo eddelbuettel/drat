@@ -109,7 +109,11 @@ insertPackage <- function(file,
     }
 
     ## update index
-    write_PACKAGES(pkgdir, type = pkgtype, ...)
+    split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
+    write_pkgtype <- 
+        paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
+              collapse = ".")
+    write_PACKAGES(pkgdir, type = write_pkgtype, ...)
 
     if (commit) {
         if (haspkg) {
