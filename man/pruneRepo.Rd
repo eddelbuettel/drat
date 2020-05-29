@@ -4,8 +4,12 @@
 \alias{pruneRepo}
 \title{Prune repository from older copies of packages}
 \usage{
-pruneRepo(repopath = getOption("dratRepo", "~/git/drat"),
-  type = "source", pkg, remove = FALSE)
+pruneRepo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = "source",
+  pkg,
+  remove = FALSE
+)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;

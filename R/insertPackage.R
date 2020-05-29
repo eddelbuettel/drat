@@ -94,9 +94,7 @@ insertPackage <- function(file,
     }
 
     pkgtype <- identifyPackageType(file)
-    reldir <- getPathForPackage(file)
-
-    pkgdir <- normalizePath(file.path(repodir, reldir))
+    pkgdir <- normalizePath(contrib.url(repodir, pkgtype))
 
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
@@ -176,6 +174,24 @@ identifyPackageType <- function(file) {
     } else {
         stop("Unknown package type", call. = FALSE)
     }
+    if(ret == "mac.binary"){
+        fields <- getPackageInfo(file)
+        if(fields$osxFolder == ""){
+            ret <- switch(fields$Rmajor,
+                          "3.2" = paste0(ret,".mavericks"),
+                          "3.3" = paste0(ret,".mavericks"),
+                          "3.4" = paste0(ret,".el-capitan"),
+                          "3.5" = paste0(ret,".el-capitan"),
+                          "3.6" = paste0(ret,".el-capitan"),
+                          ret)
+        } else if(fields$osxFolder %in% c("mavericks","el-capitan")) {
+            ret <- paste0(ret,".",fields$osxFolder)
+        } else {
+            stop("mac.binary subtype couldn't be determined. This shouldn't ",
+                 "happen. Please report it with a reproducable example and ",
+                 "provide the binary, if you can. Thanks.")
+        }
+    }
     return(ret)
 }
 
@@ -219,42 +235,3 @@ getPackageInfo <- function(file) {
 
     return(fields)
 }
-
-##' This function returns the directory path (relative to
-##' the repo root) where the package needs to be copied to.
-##'
-##' @title Get relative path for package type
-##' @param file The fully qualified path of the package
-##' @return string Relative file path where packages of
-##' this type should be copied to.
-##' @author Jan Schulz, Dirk Eddelbuettel and Matthew Jones
-getPathForPackage <- function(file) {
-    pkgtype <- identifyPackageType(file)
-    fields <- getPackageInfo(file)
-    rversion <- unname(fields["Rmajor"])
-
-    if (pkgtype == "source") {
-        ret <- file.path("src", "contrib")
-    } else if (pkgtype == "win.binary") {
-        ret <- file.path("bin", "windows", "contrib", rversion)
-    } else if (pkgtype == "mac.binary") {
-        if (unname(fields["OSflavour"]) == "") {
-            # non-binary package, treated as el-capitan
-            if (grepl("mac.binary", .Platform$pkgType)) {
-              fields["osxFolder"] <- gsub("mac.binary.", "", .Platform$pkgType)
-            } else {
-              fields["osxFolder"] <- "el-capitan"
-            }
-            message("Note: Non-binary OS X package will be installed in ", fields["osxFolder"], " path.")
-        }
-        if (unname(fields["osxFolder"]) != "") {
-            ret <- file.path("bin", "macosx", fields["osxFolder"], "contrib", rversion)
-        } else {
-            ret <- file.path("bin", "macosx", "contrib", rversion)
-        }
-    }
-    return(ret)
-}
-
-
-

@@ -4,8 +4,11 @@
 \alias{archivePackages}
 \title{Move older copies of packages to an archive}
 \usage{
-archivePackages(repopath = getOption("dratRepo", "~/git/drat"),
-  type = "source", pkg)
+archivePackages(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = "source",
+  pkg
+)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
