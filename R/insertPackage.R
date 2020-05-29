@@ -247,7 +247,7 @@ getPackageInfo <- function(file) {
 
 contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
     contrib_url <- contrib.url(repos = repos, type = type)
-    if(is.null(version)){
+    if(is.null(version) || is.na(version)){
         return(contrib_url)
     }
     version <- as.character(version)
