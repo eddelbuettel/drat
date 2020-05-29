@@ -15,6 +15,9 @@
 ##' @param pkg Optional character variable specifying a package name(s), whose
 ##' older versions should be archived. If missing (the default), archiving is 
 ##' performed on all packages.
+##' @param version R version information in the format \code{X.Y} or 
+##'   \code{X.Y.Z}. Only used, if archiving binary packages.
+##'   (default: \code{version = getRversion()})
 ##' @examples
 ##' \dontrun{
 ##'   archivePackages()   # archive all older package versions
@@ -23,10 +26,11 @@
 ##' @author Thomas J. Leeper
 archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
                             type = "source", 
-                            pkg) {
+                            pkg,
+                            version = getRversion()) {
     
     ## knows how to handle binary repos
-    repodir <- contrib.url(repopath, type)
+    repodir <- contrib.url2(repopath, type, version)
 
     archive <- file.path(repodir, "Archive")
     if (!file.exists(archive)) {
@@ -45,12 +49,14 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
     }
     
     if (missing(pkg)) {
-        old <- pruneRepo(repopath = repopath, type = type, remove = FALSE)
+        old <- pruneRepo(repopath = repopath, type = type, version = version,
+                         remove = FALSE)
         old <- old[!old[,"newest"], ]
         sapply(unique(old$package), mkArchive)
     } else {
         pkg <- unique(pkg)
-        old <- pruneRepo(repopath = repopath, type = type, pkg = pkg, remove = FALSE)
+        old <- pruneRepo(repopath = repopath, type = type, pkg = pkg,
+                         version = version, remove = FALSE)
         old <- old[!old[,"newest"] & old[,"package"] %in% pkg, ]
         sapply(pkg, mkArchive)
     }

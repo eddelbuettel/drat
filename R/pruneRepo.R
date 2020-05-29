@@ -20,6 +20,9 @@
 ##' @param pkg Optional character variable specifying a package name,
 ##'  whose older versions should be pruned. If missing (the
 ##'  default), pruning is performed on all packages.
+##' @param version R version information in the format \code{X.Y} or 
+##'   \code{X.Y.Z}. Only used, if pruning binary packages. 
+##'   (default: \code{version = getRversion()})
 ##' @param remove Character or logical variable indicating whether
 ##'  files should be removed. Nothing happens if \sQuote{FALSE}. If
 ##'  different from (logical) \sQuote{FALSE} and equal to character
@@ -34,10 +37,11 @@
 pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                       type = "source", 
                       pkg,
+                      version = getRversion(),
                       remove = FALSE) {
    
     ## knows how to handle binary repos
-    repodir <- contrib.url(repopath, type)
+    repodir <- contrib.url2(repopath, type, version)
 
     ##ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
     # ext <- "\\.tar\\..*$"            

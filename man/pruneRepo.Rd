@@ -8,6 +8,7 @@ pruneRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
   type = "source",
   pkg,
+  version = getRversion(),
   remove = FALSE
 )
 }
@@ -23,6 +24,10 @@ defaults to the value of the \dQuote{dratRepo} option with
 \item{pkg}{Optional character variable specifying a package name,
 whose older versions should be pruned. If missing (the
 default), pruning is performed on all packages.}
+
+\item{version}{R version information in the format \code{X.Y} or 
+\code{X.Y.Z}. Only used, if pruning binary packages. 
+(default: \code{version = getRversion()})}
 
 \item{remove}{Character or logical variable indicating whether
 files should be removed. Nothing happens if \sQuote{FALSE}. If

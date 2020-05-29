@@ -7,7 +7,8 @@
 archivePackages(
   repopath = getOption("dratRepo", "~/git/drat"),
   type = "source",
-  pkg
+  pkg,
+  version = getRversion()
 )
 }
 \arguments{
@@ -22,6 +23,10 @@ defaults to the value of the \dQuote{dratRepo} option with
 \item{pkg}{Optional character variable specifying a package name(s), whose
 older versions should be archived. If missing (the default), archiving is 
 performed on all packages.}
+
+\item{version}{R version information in the format \code{X.Y} or 
+\code{X.Y.Z}. Only used, if archiving binary packages.
+(default: \code{version = getRversion()})}
 }
 \description{
 The function moves older versions of packages into a CRAN-style 

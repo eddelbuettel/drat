@@ -92,9 +92,10 @@ insertPackage <- function(file,
         system2("git", c("checkout", branch))
         setwd(curwd)
     }
-
-    pkgtype <- identifyPackageType(file)
-    pkgdir <- normalizePath(contrib.url(repodir, pkgtype))
+    
+    pkginfo <- getPackageInfo(file)
+    pkgtype <- identifyPackageType(file, pkginfo)
+    pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]))
 
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
@@ -145,10 +146,15 @@ insertPackage <- function(file,
     pkgname <- strsplit(pkgname, "_", fixed = TRUE)[[1L]][1L]
     if (action == "prune") {
         pruneRepo(repopath = repodir,  
-                  type = pkgtype, pkg = pkgname, remove = TRUE)
+                  type = pkgtype,
+                  pkg = pkgname,
+                  version = pkginfo["Rmajor"],
+                  remove = TRUE)
     } else if (action == "archive") {
         archivePackages(repopath = repodir, 
-                        type = pkgtype, pkg = pkgname)
+                        type = pkgtype,
+                        pkg = pkgname,
+                        version = pkginfo["Rmajor"])
     }
 
     invisible(NULL)
@@ -165,9 +171,10 @@ insert <- function(...) insertPackage(...)
 ##' The returned string is suitable for \code{write_PACKAGES()}.
 ##' @title Identifies the package type from a filename
 ##' @param file An R package in source or binary format,
+##' @param pkginfo information on the R package referenced by \code{file}
 ##' @return string Type of the supplied package.
 ##' @author Jan Schulz and Dirk Eddelbuettel
-identifyPackageType <- function(file) {
+identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
     ##from src/library/tools/R/packages.R
     ret <- if (grepl("_.*\\.tar\\..*$", file)) {
         "source"
@@ -179,17 +186,16 @@ identifyPackageType <- function(file) {
         stop("Unknown package type", call. = FALSE)
     }
     if(ret == "mac.binary"){
-        fields <- getPackageInfo(file)
-        if(fields["osxFolder"] == ""){
-            ret <- switch(fields["Rmajor"],
+        if(pkginfo["osxFolder"] == ""){
+            ret <- switch(pkginfo["Rmajor"],
                           "3.2" = paste0(ret,".mavericks"),
                           "3.3" = paste0(ret,".mavericks"),
                           "3.4" = paste0(ret,".el-capitan"),
                           "3.5" = paste0(ret,".el-capitan"),
                           "3.6" = paste0(ret,".el-capitan"),
                           ret)
-        } else if(fields["osxFolder"] %in% c("mavericks","el-capitan")) {
-            ret <- paste0(ret,".",fields["osxFolder"])
+        } else if(pkginfo["osxFolder"] %in% c("mavericks","el-capitan")) {
+            ret <- paste0(ret,".",pkginfo["osxFolder"])
         } else {
             stop("mac.binary subtype couldn't be determined. This shouldn't ",
                  "happen. Please report it with a reproducable example and ",
@@ -238,4 +244,22 @@ getPackageInfo <- function(file) {
     fields <- c(fields, "Rmajor" = unname(rmajor), "osxFolder" = osxFolder)
 
     return(fields)
+}
+
+contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
+    contrib_url <- contrib.url(repos = repos, type = type)
+    if(is.null(version)){
+        return(contrib_url)
+    }
+    version <- as.character(version)
+    split_version <- strsplit(version,"\\.")[[1L]]
+    if(length(split_version) < 2L || length(split_version) > 3L){
+        stop("'version' must be in the format 'X.Y' or 'X.Y.Z'.")
+    }
+    version <- paste(split_version[seq.int(1L,min(2L,length(split_version)))],
+                     collapse = ".")
+    contrib_url <- gsub("contrib/[0-9]\\.[0-9]",
+                        paste0("contrib/",version),
+                        contrib_url)
+    contrib_url
 }
