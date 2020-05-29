@@ -9,7 +9,9 @@
 ##' @param repopath Character variable with the path to the repo;
 ##' defaults to the value of the \dQuote{dratRepo} option with
 ##' \dQuote{"~/git/drat"} as fallback
-##' @param type Character variable for the type of repository, so far \dQuote{source}
+##' @param type Character variable for the type of repository, so far
+##'  \dQuote{source}, \dQuote{win.binary}, \dQuote{mac.binary}, 
+##'  \dQuote{mac.binary.mavericks} or \dQuote{mac.binary.el-capitan}
 ##' @param pkg Optional character variable specifying a package name(s), whose
 ##' older versions should be archived. If missing (the default), archiving is 
 ##' performed on all packages.
@@ -22,8 +24,8 @@
 archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
                             type = "source", 
                             pkg) {
-   
-    ## TODO need to deal with binary repos...
+    
+    ## knows how to handle binary repos
     repodir <- contrib.url(repopath, type)
 
     archive <- file.path(repodir, "Archive")

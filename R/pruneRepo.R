@@ -15,7 +15,8 @@
 ##'  defaults to the value of the \dQuote{dratRepo} option with
 ##'  \dQuote{"~/git/drat"} as fallback
 ##' @param type Character variable for the type of repository, so far
-##'  \dQuote{source}
+##'  \dQuote{source}, \dQuote{win.binary}, \dQuote{mac.binary}, 
+##'  \dQuote{mac.binary.mavericks} or \dQuote{mac.binary.el-capitan}
 ##' @param pkg Optional character variable specifying a package name,
 ##'  whose older versions should be pruned. If missing (the
 ##'  default), pruning is performed on all packages.
@@ -35,12 +36,13 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                       pkg,
                       remove = FALSE) {
    
-    ## TODO need to deal with binary repos...
+    ## knows how to handle binary repos
     repodir <- contrib.url(repopath, type)
 
     ##ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
     # ext <- "\\.tar\\..*$"            
     
+    ## type == "both" is not supported
     ext <- if (type == "source") {
         "\\.tar\\..*$"
     } else if (grepl("mac.binary",type)) {
