@@ -3,6 +3,18 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.1.6 (2020-05-29)}{
+  \itemize{
+    \item Changes in drat functionality
+    \itemize{
+      \item Support for the various (current) macOS binary formats was
+      rewritten (Felix Ernst in \ghpr{89} fixing \ghit{88}).
+      \item Travis CI use was updated to R 4.0.0 and bionic (Dirk).
+      \item A drat repo was added to the README (Thomas Fuller in \ghpr{86})
+    }
+  }
+}
+    
 \section{Changes in drat version 0.1.5 (2019-03-28)}{
   \itemize{
     \item Changes in drat functionality

@@ -1,3 +1,16 @@
+2020-05-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version): Release 0.1.6
+	* README.md: Add Felix Ernst to Authors
+
+2020-05-29  FelixErnst  <felix.gm.ernst@outlook.com>
+
+	* R/archivePackages.R: Updated mac binary format support
+	* R/insertPackages.R: Idem
+	* R/pruneRepo.R: Idem
+	* man/*: Updated documentation
+	* DESCRIPTION: Roll minor version
+
 2020-05-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add 'last commit' badge
