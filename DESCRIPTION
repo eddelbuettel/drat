@@ -8,7 +8,7 @@ Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Neal Fultz,
  Steven Pav, Jan Schulz, Christoph Stepper and Felix G.M. Ernst. 
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Depends: R (>= 3.2.0)
-Imports: utils
+Imports: utils, stringr
 Suggests: git2r, knitr, rmarkdown
 VignetteBuilder: knitr
 Description: Creation and use of R Repositories via helper functions 

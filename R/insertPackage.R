@@ -53,6 +53,7 @@
 ##'   insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
 ##'   insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
 ##' }
+##' @export
 ##' @author Dirk Eddelbuettel
 insertPackage <- function(file,
                           repodir = getOption("dratRepo", "~/git/drat"),
@@ -60,19 +61,19 @@ insertPackage <- function(file,
                           pullfirst = FALSE,
                           action = c("none", "archive", "prune"),
                           ...) {
-
+    
     if (!file.exists(file)) stop("File ", file, " not found\n", call. = FALSE)
-
+    
     ## TODO src/contrib if needed, preferably via git2r
     if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call. = FALSE)
-
+    
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly = TRUE)
     hascmd <- length(Sys.which("git")) > 0
-
+    
     curwd <- getwd()
     on.exit(setwd(curwd))               # restore current working directory
-
+    
     pkg <- basename(file)
     msg <- if (isTRUE(commit)) sprintf("Adding %s to drat", pkg) else ""
     ## special case of commit via message: not TRUE, and character
@@ -80,7 +81,7 @@ insertPackage <- function(file,
         msg <- commit
         commit <- TRUE
     }
-
+    
     branch <- getOption("dratBranch", "gh-pages")
     if (commit && haspkg) {
         repo <- git2r::repository(repodir)
@@ -96,25 +97,25 @@ insertPackage <- function(file,
     pkginfo <- getPackageInfo(file)
     pkgtype <- identifyPackageType(file, pkginfo)
     pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]))
-
+    
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
         if (!dir.create(pkgdir, recursive = TRUE)) {
             stop("Directory ", pkgdir, " couldn't be created\n", call. = FALSE)
         }
     }
-
+    
     ## copy file into repo
     if (!file.copy(file, pkgdir, overwrite = TRUE)) {
         stop("File ", file, " can not be copied to ", pkgdir, call. = FALSE)
     }
-
+    
     ## update index
     split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
     write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
                            collapse = ".")
-    write_PACKAGES(pkgdir, type = write_pkgtype, ...)
-
+    tools::write_PACKAGES(pkgdir, type = write_pkgtype, ...)
+    
     if (commit) {
         if (haspkg) {
             repo <- git2r::repository(repodir)
@@ -139,7 +140,7 @@ insertPackage <- function(file,
                     call. = FALSE)
         }
     }
-
+    
     action <- match.arg(action)
     pkgname <- gsub("\\.tar\\..*$", "", pkg)
     pkgname <- strsplit(pkgname, "_", fixed = TRUE)[[1L]][1L]
@@ -155,7 +156,7 @@ insertPackage <- function(file,
                         pkg = pkgname,
                         version = pkginfo["Rmajor"])
     }
-
+    
     invisible(NULL)
 }
 
@@ -213,7 +214,7 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
 ##' @author Dirk Eddelbuettel
 getPackageInfo <- function(file) {
     if (!file.exists(file)) stop("File ", file, " not found!", call. = FALSE)
-
+    
     td <- tempdir()
     if (grepl(".zip$", file)) {
         unzip(file, exdir = td)
@@ -224,24 +225,24 @@ getPackageInfo <- function(file) {
         fields <- c("Source" = TRUE, "Rmajor" = NA, "osxFolder" = "")
         return(fields)
     }
-
+    
     pkgname <- gsub("^([a-zA-Z0-9.]*)_.*", "\\1", basename(file))
     path <- file.path(td, pkgname, "DESCRIPTION")
     builtstring <- read.dcf(path, 'Built')
     unlink(file.path(td, pkgname), recursive = TRUE)
-
+    
     fields <- strsplit(builtstring, "; ")[[1]]
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
-
+    
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
-
+    
     osxFolder <- switch(fields["OSflavour"],
                         "x86_64-apple-darwin13.4.0" = "mavericks",
                         "x86_64-apple-darwin15.6.0" = "el-capitan",
                         "")
-
+    
     fields <- c(fields, "Rmajor" = unname(rmajor), "osxFolder" = osxFolder)
-
+    
     return(fields)
 }
 

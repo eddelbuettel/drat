@@ -11,6 +11,7 @@
 ##' change in subsequent versions.
 ##'
 ##' @title Prune repository from older copies of packages
+##' @importFrom utils contrib.url
 ##' @param repopath Character variable with the path to the repo;
 ##'  defaults to the value of the \dQuote{dratRepo} option with
 ##'  \dQuote{"~/git/drat"} as fallback
@@ -33,95 +34,111 @@
 ##'  \dQuote{package} (just the name), \dQuote{version} and a
 ##'  logical variable \dQuote{newest} indicating if the package can
 ##'  be removed.
+##'  @export
 ##' @author Dirk Eddelbuettel
 pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                      type = "source", 
-                      pkg,
+                      type = c(
+                          "source", "mac.binary", "mac.binary.el-capitan",
+                          "mac.binary.mavericks", "win.binary"
+                      ),
+                      pkg = NULL,
                       version = getRversion(),
                       remove = FALSE) {
-   
-    ## knows how to handle binary repos
-    repodir <- contrib.url2(repopath, type, version)
-
-    ##ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
-    # ext <- "\\.tar\\..*$"            
     
-    ## type == "both" is not supported
-    ext <- if (type == "source") {
-        "\\.tar\\..*$"
-    } else if (grepl("mac.binary",type)) {
-        "\\.tgz$"
-    } else if (type == "win.binary") {
-        "\\.zip$"
-    } else {
-        stop("Unknown package type", call. = FALSE)
-    }
+    ## ext <- "_.*\\.tar\\..*$"            # with a nod to src/library/tools/packages.R
+    # ext <- "\\.tar\\..*$"
     
-    
-    files <- list.files(repodir, pattern = ext, full.names = FALSE)
-
-    ## subst. out the extension
-    noextfiles <- gsub(ext, "", files)
-    noextfiles <- do.call(rbind, strsplit(noextfiles, "_", fixed = TRUE))
-    
-    ## package names to the left
-    # pkgs <- sapply(strsplit(files, "_", fixed=TRUE), "[", 1L)
-    pkgs <- noextfiles[, 1]
-
-    ## versions is then the remainder to the right -- FIXME for something better
-    # verstxt <- gsub("[a-zA-Z0-9\\.]*_", "", noextfiles)
-    verstxt <- noextfiles[, 2]
-    
-    
-    ## parse into proper version objects -- thanks, base R!
-    vers <- package_version(verstxt)
-
-    df <- data.frame(file = files, package = pkgs, version = vers, stringsAsFactors = FALSE)
-
-    df <- df[order(df$package, df$version, decreasing = TRUE),]
-    df$newest <- !duplicated(df$package)
-
-    df <- df[order(df$package, df$version, decreasing = FALSE),]
-    if (!missing(pkg)) {
-        df <- df[df$package %in% pkg,]
-    }
-
-    ## R> df
-    ##                      file   package  version newest
-    ## 1     drat_0.0.3.1.tar.gz      drat  0.0.3.1   TRUE
-    ## 2   fasttime_1.0-1.tar.gz  fasttime    1.0.1   TRUE
-    ## 6  Rblpapi_0.2.1.9.tar.gz   Rblpapi  0.2.1.9  FALSE
-    ## 3 Rblpapi_0.2.1.11.tar.gz   Rblpapi 0.2.1.11  FALSE
-    ## 4 Rblpapi_0.2.1.12.tar.gz   Rblpapi 0.2.1.12  FALSE
-    ## 5 Rblpapi_0.2.1.14.tar.gz   Rblpapi 0.2.1.14   TRUE
-    ## 7   RcppR6_0.2.001.tar.gz    RcppR6    0.2.1   TRUE
-    ## 8   RcppTOML_0.0.3.tar.gz  RcppTOML    0.0.3   TRUE
-    ## 9  winsorize_0.0.2.tar.gz winsorize    0.0.2   TRUE
-    ## R>
-
-    haspkg <- requireNamespace("git2r", quietly = TRUE)
-    
-    if (remove != FALSE) {
-        rmfiles <- df[!df[,"newest"], "file"]
-        if (remove == "git") {
-            if (!haspkg)
-                stop("The 'pruneRepo' function requires the 'git2r' packages.", call. = FALSE)
-            repo <- git2r::repository(repopath)
-            for (f in rmfiles) {
-                fullfile <- file.path(repodir, f)
-                git2r::rm_file(repo, fullfile)
-            }
+    out = for (x in type) {
+        
+        ext <- if (x == "source") {
+            "\\.tar\\..*$"
+        } else if (x == "mac.binary") {
+            "\\.tgz$"
+        } else if (x == "mac.binary.el-capitan") {
+            "\\.tgz$"
+        } else if (x == "mac.binary.mavericks") {
+            "\\.tgz$"
+        } else if (x == "win.binary") {
+            "\\.zip$"
         } else {
-            for (f in rmfiles) {
-                fullfile <- file.path(repodir, f)
-                unlink(fullfile)
+            stop("Unknown package type. Valid values are 'source', 'mac.binary', 'mac.binary.el-capitan', 'mac.binary.mavericks' and 'win.binary'.", call. = FALSE)
+        }
+        
+        if (version == "") {
+            version = NULL
+        }
+        repodir <- contrib.url2(repopath, type, version = version)
+        
+        files <- list.files(repodir, pattern = ext, full.names = FALSE)
+        
+        if (length(files) == 0) {
+            return(NULL)
+        }
+        
+        ## subst. out the extension
+        noextfiles <- gsub(ext, "", files)
+        noextfiles <- do.call(rbind, strsplit(noextfiles, "_", fixed = TRUE))
+        
+        ## package names to the left
+        # pkgs <- sapply(strsplit(files, "_", fixed=TRUE), "[", 1L)
+        pkgs <- noextfiles[, 1]
+        
+        ## versions is then the remainder to the right -- FIXME for something better
+        # verstxt <- gsub("[a-zA-Z0-9\\.]*_", "", noextfiles)
+        verstxt <- noextfiles[, 2]
+        
+        
+        ## parse into proper version objects -- thanks, base R!
+        vers <- package_version(verstxt)
+        
+        df <- data.frame(file = files, package = pkgs, version = vers, stringsAsFactors = FALSE)
+        
+        
+        df <- df[order(df$package, df$version, decreasing = TRUE), ]
+        df$newest <- !duplicated(df$package)
+        
+        df <- df[order(df$package, df$version, decreasing = FALSE), ]
+        if (!is.null(pkg)) {
+            df <- df[df$package %in% pkg, ]
+        }
+        
+        ## R> df
+        ##                      file   package  version newest
+        ## 1     drat_0.0.3.1.tar.gz      drat  0.0.3.1   TRUE
+        ## 2   fasttime_1.0-1.tar.gz  fasttime    1.0.1   TRUE
+        ## 6  Rblpapi_0.2.1.9.tar.gz   Rblpapi  0.2.1.9  FALSE
+        ## 3 Rblpapi_0.2.1.11.tar.gz   Rblpapi 0.2.1.11  FALSE
+        ## 4 Rblpapi_0.2.1.12.tar.gz   Rblpapi 0.2.1.12  FALSE
+        ## 5 Rblpapi_0.2.1.14.tar.gz   Rblpapi 0.2.1.14   TRUE
+        ## 7   RcppR6_0.2.001.tar.gz    RcppR6    0.2.1   TRUE
+        ## 8   RcppTOML_0.0.3.tar.gz  RcppTOML    0.0.3   TRUE
+        ## 9  winsorize_0.0.2.tar.gz winsorize    0.0.2   TRUE
+        ## R>
+        
+        haspkg <- requireNamespace("git2r", quietly = TRUE)
+        
+        if (remove != FALSE) {
+            rmfiles <- df[!df[, "newest"], "file"]
+            if (remove == "git") {
+                if (!haspkg) {
+                    stop("The 'pruneRepo' function requires the 'git2r' packages.", call. = FALSE)
+                }
+                repo <- git2r::repository(repopath)
+                for (f in rmfiles) {
+                    fullfile <- file.path(repodir, f)
+                    git2r::rm_file(repo, fullfile)
+                }
+            } else {
+                for (f in rmfiles) {
+                    fullfile <- file.path(repodir, f)
+                    unlink(fullfile)
+                }
             }
         }
+        return(df)
     }
-
-    invisible(df)
+    
+    df <- do.call("rbind", out)
+    
+    return(invisible(df))
 }
-
-
-
-
