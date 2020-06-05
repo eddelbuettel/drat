@@ -11,7 +11,6 @@
 ##' change in subsequent versions.
 ##'
 ##' @title Prune repository from older copies of packages
-##' @importFrom utils contrib.url
 ##' @param repopath Character variable with the path to the repo;
 ##'  defaults to the value of the \dQuote{dratRepo} option with
 ##'  \dQuote{"~/git/drat"} as fallback
@@ -34,7 +33,6 @@
 ##'  \dQuote{package} (just the name), \dQuote{version} and a
 ##'  logical variable \dQuote{newest} indicating if the package can
 ##'  be removed.
-##'  @export
 ##' @author Dirk Eddelbuettel
 pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                       type = c(

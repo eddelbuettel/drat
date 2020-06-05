@@ -61,7 +61,7 @@ insertPackage <- function(file,
                           pullfirst = FALSE,
                           action = c("none", "archive", "prune"),
                           ...) {
-    
+
     if (!file.exists(file)) stop("File ", file, " not found\n", call. = FALSE)
 
     ## TODO src/contrib if needed, preferably via git2r
@@ -114,7 +114,7 @@ insertPackage <- function(file,
     split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
     write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
                            collapse = ".")
-    tools::write_PACKAGES(pkgdir, type = write_pkgtype, ...)
+    write_PACKAGES(pkgdir, type = write_pkgtype, ...)
 
     if (commit) {
         if (haspkg) {
@@ -214,7 +214,7 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
 ##' @author Dirk Eddelbuettel
 getPackageInfo <- function(file) {
     if (!file.exists(file)) stop("File ", file, " not found!", call. = FALSE)
-    
+
     td <- tempdir()
     if (grepl(".zip$", file)) {
         unzip(file, exdir = td)
@@ -233,16 +233,16 @@ getPackageInfo <- function(file) {
 
     fields <- strsplit(builtstring, "; ")[[1]]
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
-    
+
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
     
     osxFolder <- switch(fields["OSflavour"],
                         "x86_64-apple-darwin13.4.0" = "mavericks",
                         "x86_64-apple-darwin15.6.0" = "el-capitan",
                         "")
-    
+
     fields <- c(fields, "Rmajor" = unname(rmajor), "osxFolder" = osxFolder)
-    
+
     return(fields)
 }
 
