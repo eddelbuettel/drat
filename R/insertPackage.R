@@ -93,6 +93,7 @@ insertPackage <- function(file,
         system2("git", c("checkout", branch))
         setwd(curwd)
     }
+    
 
     pkginfo <- getPackageInfo(file)
     pkgtype <- identifyPackageType(file, pkginfo)
@@ -235,7 +236,7 @@ getPackageInfo <- function(file) {
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
 
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
-    
+
     osxFolder <- switch(fields["OSflavour"],
                         "x86_64-apple-darwin13.4.0" = "mavericks",
                         "x86_64-apple-darwin15.6.0" = "el-capitan",
