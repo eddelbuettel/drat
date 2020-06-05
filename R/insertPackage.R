@@ -53,7 +53,6 @@
 ##'   insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
 ##'   insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
 ##' }
-##' @export
 ##' @author Dirk Eddelbuettel
 insertPackage <- function(file,
                           repodir = getOption("dratRepo", "~/git/drat"),
@@ -94,7 +93,6 @@ insertPackage <- function(file,
         setwd(curwd)
     }
     
-
     pkginfo <- getPackageInfo(file)
     pkgtype <- identifyPackageType(file, pkginfo)
     pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]))
