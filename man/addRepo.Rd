@@ -41,6 +41,7 @@ This function retrieves the current set of repositories (see
 non-GitHub repositories an alternative URL can be specified as
 \sQuote{alturl} (and assigned to \sQuote{account} as well).
 
+
 An aliased function \code{add} is also available, but not exported
 via \code{NAMESPACE} to not clobber a possibly unrelated function;
 use it via \code{drat:::add()}.

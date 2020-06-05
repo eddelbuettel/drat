@@ -1,14 +1,14 @@
 Package: drat
 Type: Package
 Title: 'Drat' R Archive Template
-Version: 0.1.5
-Date: 2019-03-28
+Version: 0.1.6
+Date: 2020-05-29
 Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Neal Fultz,
  Sebastian Gibb, Colin Gillespie, Jan Górecki, Matt Jones, Thomas Leeper,
- Steven Pav, Jan Schulz and Christoph Stepper. 
+ Steven Pav, Jan Schulz, Christoph Stepper and Felix G.M. Ernst. 
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Depends: R (>= 3.2.0)
-Imports: utils
+Imports: utils, stringr
 Suggests: git2r, knitr, rmarkdown
 VignetteBuilder: knitr
 Description: Creation and use of R Repositories via helper functions 
@@ -20,4 +20,4 @@ License: GPL (>= 2)
 URL: http://dirk.eddelbuettel.com/code/drat.html
 BugReports: https://github.com/eddelbuettel/drat/issues
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0

@@ -53,6 +53,7 @@
 ##'   insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
 ##'   insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
 ##' }
+##' @export
 ##' @author Dirk Eddelbuettel
 insertPackage <- function(file,
                           repodir = getOption("dratRepo", "~/git/drat"),
@@ -60,19 +61,19 @@ insertPackage <- function(file,
                           pullfirst = FALSE,
                           action = c("none", "archive", "prune"),
                           ...) {
-
+    
     if (!file.exists(file)) stop("File ", file, " not found\n", call. = FALSE)
-
+    
     ## TODO src/contrib if needed, preferably via git2r
     if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call. = FALSE)
-
+    
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly = TRUE)
     hascmd <- length(Sys.which("git")) > 0
-
+    
     curwd <- getwd()
     on.exit(setwd(curwd))               # restore current working directory
-
+    
     pkg <- basename(file)
     msg <- if (isTRUE(commit)) sprintf("Adding %s to drat", pkg) else ""
     ## special case of commit via message: not TRUE, and character
@@ -80,7 +81,7 @@ insertPackage <- function(file,
         msg <- commit
         commit <- TRUE
     }
-
+    
     branch <- getOption("dratBranch", "gh-pages")
     if (commit && haspkg) {
         repo <- git2r::repository(repodir)
@@ -92,27 +93,29 @@ insertPackage <- function(file,
         system2("git", c("checkout", branch))
         setwd(curwd)
     }
-
-    pkgtype <- identifyPackageType(file)
-    reldir <- getPathForPackage(file)
-
-    pkgdir <- normalizePath(file.path(repodir, reldir))
-
+    
+    pkginfo <- getPackageInfo(file)
+    pkgtype <- identifyPackageType(file, pkginfo)
+    pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]))
+    
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
         if (!dir.create(pkgdir, recursive = TRUE)) {
             stop("Directory ", pkgdir, " couldn't be created\n", call. = FALSE)
         }
     }
-
+    
     ## copy file into repo
     if (!file.copy(file, pkgdir, overwrite = TRUE)) {
         stop("File ", file, " can not be copied to ", pkgdir, call. = FALSE)
     }
-
+    
     ## update index
-    write_PACKAGES(pkgdir, type = pkgtype, ...)
-
+    split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
+    write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
+                           collapse = ".")
+    tools::write_PACKAGES(pkgdir, type = write_pkgtype, ...)
+    
     if (commit) {
         if (haspkg) {
             repo <- git2r::repository(repodir)
@@ -137,18 +140,23 @@ insertPackage <- function(file,
                     call. = FALSE)
         }
     }
-
+    
     action <- match.arg(action)
     pkgname <- gsub("\\.tar\\..*$", "", pkg)
     pkgname <- strsplit(pkgname, "_", fixed = TRUE)[[1L]][1L]
     if (action == "prune") {
         pruneRepo(repopath = repodir,  
-                  type = pkgtype, pkg = pkgname, remove = TRUE)
+                  type = pkgtype,
+                  pkg = pkgname,
+                  version = pkginfo["Rmajor"],
+                  remove = TRUE)
     } else if (action == "archive") {
         archivePackages(repopath = repodir, 
-                        type = pkgtype, pkg = pkgname)
+                        type = pkgtype,
+                        pkg = pkgname,
+                        version = pkginfo["Rmajor"])
     }
-
+    
     invisible(NULL)
 }
 
@@ -163,9 +171,10 @@ insert <- function(...) insertPackage(...)
 ##' The returned string is suitable for \code{write_PACKAGES()}.
 ##' @title Identifies the package type from a filename
 ##' @param file An R package in source or binary format,
+##' @param pkginfo information on the R package referenced by \code{file}
 ##' @return string Type of the supplied package.
 ##' @author Jan Schulz and Dirk Eddelbuettel
-identifyPackageType <- function(file) {
+identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
     ##from src/library/tools/R/packages.R
     ret <- if (grepl("_.*\\.tar\\..*$", file)) {
         "source"
@@ -175,6 +184,23 @@ identifyPackageType <- function(file) {
         "win.binary"
     } else {
         stop("Unknown package type", call. = FALSE)
+    }
+    if(ret == "mac.binary"){
+        if(pkginfo["osxFolder"] == ""){
+            ret <- switch(pkginfo["Rmajor"],
+                          "3.2" = paste0(ret,".mavericks"),
+                          "3.3" = paste0(ret,".mavericks"),
+                          "3.4" = paste0(ret,".el-capitan"),
+                          "3.5" = paste0(ret,".el-capitan"),
+                          "3.6" = paste0(ret,".el-capitan"),
+                          ret)
+        } else if(pkginfo["osxFolder"] %in% c("mavericks","el-capitan")) {
+            ret <- paste0(ret,".",pkginfo["osxFolder"])
+        } else {
+            stop("mac.binary subtype couldn't be determined. This shouldn't ",
+                 "happen. Please report it with a reproducable example and ",
+                 "provide the binary, if you can. Thanks.")
+        }
     }
     return(ret)
 }
@@ -188,7 +214,7 @@ identifyPackageType <- function(file) {
 ##' @author Dirk Eddelbuettel
 getPackageInfo <- function(file) {
     if (!file.exists(file)) stop("File ", file, " not found!", call. = FALSE)
-
+    
     td <- tempdir()
     if (grepl(".zip$", file)) {
         unzip(file, exdir = td)
@@ -199,62 +225,36 @@ getPackageInfo <- function(file) {
         fields <- c("Source" = TRUE, "Rmajor" = NA, "osxFolder" = "")
         return(fields)
     }
-
+    
     pkgname <- gsub("^([a-zA-Z0-9.]*)_.*", "\\1", basename(file))
     path <- file.path(td, pkgname, "DESCRIPTION")
     builtstring <- read.dcf(path, 'Built')
     unlink(file.path(td, pkgname), recursive = TRUE)
-
+    
     fields <- strsplit(builtstring, "; ")[[1]]
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
-
+    
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
-
+    
     osxFolder <- switch(fields["OSflavour"],
                         "x86_64-apple-darwin13.4.0" = "mavericks",
                         "x86_64-apple-darwin15.6.0" = "el-capitan",
                         "")
-
+    
     fields <- c(fields, "Rmajor" = unname(rmajor), "osxFolder" = osxFolder)
-
+    
     return(fields)
 }
 
-##' This function returns the directory path (relative to
-##' the repo root) where the package needs to be copied to.
-##'
-##' @title Get relative path for package type
-##' @param file The fully qualified path of the package
-##' @return string Relative file path where packages of
-##' this type should be copied to.
-##' @author Jan Schulz, Dirk Eddelbuettel and Matthew Jones
-getPathForPackage <- function(file) {
-    pkgtype <- identifyPackageType(file)
-    fields <- getPackageInfo(file)
-    rversion <- unname(fields["Rmajor"])
-
-    if (pkgtype == "source") {
-        ret <- file.path("src", "contrib")
-    } else if (pkgtype == "win.binary") {
-        ret <- file.path("bin", "windows", "contrib", rversion)
-    } else if (pkgtype == "mac.binary") {
-        if (unname(fields["OSflavour"]) == "") {
-            # non-binary package, treated as el-capitan
-            if (grepl("mac.binary", .Platform$pkgType)) {
-              fields["osxFolder"] <- gsub("mac.binary.", "", .Platform$pkgType)
-            } else {
-              fields["osxFolder"] <- "el-capitan"
-            }
-            message("Note: Non-binary OS X package will be installed in ", fields["osxFolder"], " path.")
-        }
-        if (unname(fields["osxFolder"]) != "") {
-            ret <- file.path("bin", "macosx", fields["osxFolder"], "contrib", rversion)
-        } else {
-            ret <- file.path("bin", "macosx", "contrib", rversion)
-        }
+contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
+    contrib_url <- contrib.url(repos = repos, type = type)
+    if(is.null(version) || is.na(version)){
+        return(contrib_url)
     }
-    return(ret)
+    version <- package_version(version)
+    contrib_url <- gsub("contrib/[0-9]\\.[0-9]",
+                        paste0("contrib/",
+                               paste0(version$major,".",version$minor)),
+                        contrib_url)
+    contrib_url
 }
-
-
-
