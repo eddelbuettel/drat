@@ -4,13 +4,9 @@
 \alias{pruneRepo}
 \title{Prune repository from older copies of packages}
 \usage{
-pruneRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = "source",
-  pkg,
-  version = getRversion(),
-  remove = FALSE
-)
+pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
+  "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary"),
+  pkg = NULL, version = getRversion(), remove = FALSE)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
