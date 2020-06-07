@@ -84,7 +84,8 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
                 old <- old[!old[, "newest"] & old[, "package"] %in% pkg, ]
                 sapply(pkg, mkArchive)
             }
-            file.rename(file.path(repodir, i, old$file), file.path(repodir, i, "Archive", old$package, old$file))
+            file.rename(file.path(repodir, i, old$file),
+                        file.path(repodir, i, "Archive", old$package, old$file))
         }
         
     }
