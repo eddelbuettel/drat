@@ -1,13 +1,7 @@
 ## Script component of travis.yml
-if (!requireNamespace("devtools")) install.packages("devtools")
-devtools::install_github("jumpingrivers/inteRgrate")
-
-inteRgrate::check_pkg()
-inteRgrate::check_r_filenames()
-inteRgrate::check_meta()
-inteRgrate::check_lintr()
-inteRgrate::check_namespace()
-inteRgrate::check_version()
+if (!requireNamespace("remotes")) install.packages("devtools")
+remotes::install_github("jumpingrivers/inteRgrate")
+inteRgrate::check_via_env(default = "true")
 
 ## Don't need until the end
 install.packages("drat")
