@@ -6,7 +6,6 @@
 ##' change in subsequent versions.
 ##'
 ##' @title Move older copies of packages to an archive
-##' @importFrom stringr str_extract
 ##' @param repopath Character variable with the path to the repo;
 ##' defaults to the value of the \dQuote{dratRepo} option with
 ##' \dQuote{"~/git/drat"} as fallback
@@ -40,19 +39,19 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
         # respective "type" directory is scraped
         if (is.null(version)) {
             if (grepl("binary", type)) {
-                r_versions <- stringr::str_extract(list.dirs(gsub(
-                    "/[0-9].[0-9]$", "",
-                    contrib.url(repopath, type)
-                ), recursive = FALSE), "[0-9].[0-9]$")
+                dirs = list.dirs(gsub(
+                    "/[0-9].[0-9]$", "", contrib.url(repopath, type)), 
+                    recursive = FALSE)
+                r_versions = substring(dirs, regexpr("[0-9].[0-9]$", dirs))
             } else {
                 # no version for source packages
                 r_versions <- ""
             }
         } else {
-            r_versions <- stringr::str_extract(
-                contrib.url2(repopath, type, version),
-                "[0-9].[0-9]$"
-            )
+            dirs = list.dirs(gsub(
+                "/[0-9].[0-9]$", "", contrib.url(repopath, type)), 
+                recursive = FALSE)
+            r_versions = substring(dirs, regexpr("[0-9].[0-9]$", dirs))
         }
         
         repodir <- gsub("[0-9].[0-9]$", "", contrib.url2(repopath, type, version))
