@@ -142,9 +142,6 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     # input check
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)
-    if(!is.logical(remove) || length(remove) != 1L){
-        stop("'remove' must be a single logical value.")
-    }
     #
     repoinfo <- getRepoInfo(repopath = repopath, type = type, pkg = pkg,
                             version = version)
