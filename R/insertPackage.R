@@ -279,7 +279,7 @@ contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
         contrib_url
     }
     urls <- lapply(type,FUN)
-    names <- unlist(mapply(rep,type,lengths(urls)))
+    names <- unlist(mapply(rep,type,lengths(urls),SIMPLIFY = FALSE))
     urls <- unlist(urls)
     names(urls) <- names
     urls
