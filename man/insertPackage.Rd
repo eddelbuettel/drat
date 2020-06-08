@@ -3,17 +3,25 @@
 \name{insertPackage}
 \alias{insertPackage}
 \alias{drat:::insert}
+\alias{insertPackages}
 \alias{insert}
 \title{Insert a package source or binary file into a drat repository}
 \usage{
-insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
-  commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
-  "prune"), ...)
+insertPackage(
+  file,
+  repodir = getOption("dratRepo", "~/git/drat"),
+  commit = FALSE,
+  pullfirst = FALSE,
+  action = c("none", "archive", "prune"),
+  ...
+)
+
+insertPackages(files, ...)
 
 insert(...)
 }
 \arguments{
-\item{file}{An R package in source or binary format,}
+\item{file, files}{One or more R package(s) in source or binary format}
 
 \item{repodir}{A local directory corresponding to the repository
 top-level directory.}
