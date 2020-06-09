@@ -1,5 +1,5 @@
 ## Script component of travis.yml
-if (!requireNamespace("remotes")) install.packages("devtools")
+if (!requireNamespace("remotes")) install.packages("remotes")
 remotes::install_github("jumpingrivers/inteRgrate")
 inteRgrate::check_via_env(default = "true")
 
