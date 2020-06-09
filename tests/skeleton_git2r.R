@@ -38,7 +38,118 @@ testSkeletonGit2r <- function() {
 
   # finally add the package
   drat::insertPackage(file = file.path(wd, "foo_1.0.tar.gz"), repodir = rdir, commit = "test")
-  list(git2r::status(repo), dir(rdir, recursive = TRUE))
+  res <- list(status = git2r::status(repo),
+              dir = unique(dirname(dir(rdir, recursive = TRUE))))
+  if(!all(lengths(res$status) == 0L)){
+    stop("Unstaged files")
+  }
+  if(!all(c(".","src/contrib") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+  rdir
 }
 
-testSkeletonGit2r()
+testRepoActions <- function(repodir){
+  src_files <- list.files(system.file("extdata","src", package = "drat"),
+                          pattern = "foo*",
+                          full.names = TRUE)
+  drat::insertPackage(file = src_files[2], repodir = repodir)
+  drat::insertPackage(file = src_files[3], repodir = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  if(nrow(repoinfo) != 3L){
+    stop("Not all package files found")
+  }
+  #
+  bin_files_4_0 <- list.files(system.file("extdata", "4.0", package = "drat"),
+                              pattern = "foo*",
+                              full.names = TRUE)
+  drat::insertPackages(file = bin_files_4_0, repodir = repodir)
+  res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
+  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  if(nrow(repoinfo) != 9L){
+    stop("Wrong package files found")
+  }
+  if(sum(repoinfo$newest) != 3L){
+    stop("Package 'newest' status wrong")
+  }
+  #
+  bin_files_3_6 <- list.files(system.file("extdata", "3.6", package = "drat"),
+                              pattern = "foo*",
+                              full.names = TRUE)
+  drat::insertPackages(file = bin_files_3_6, repodir = repodir)
+  res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
+  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+            "bin/macosx/el-capitan/contrib/3.6") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+  #
+  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  repoinfo2 <- drat::pruneRepo(repopath = repodir)
+  if(!all(repoinfo == repoinfo2)){
+    stop("test run of pruneRepo changed files")
+  }
+  repoinfo <- drat::pruneRepo(repopath = repodir, remove = TRUE)
+  if(nrow(repoinfo) != 3L){
+    stop("Wrong package files found")
+  }
+  #
+  drat::insertPackages(file = src_files, repodir = repodir)
+  drat::insertPackages(file = bin_files_3_6, repodir = repodir)
+  drat::insertPackages(file = bin_files_4_0, repodir = repodir)
+  #
+  drat::archivePackages(repopath = repodir, type = "source")
+  res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
+  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+            "bin/macosx/el-capitan/contrib/3.6", "src/contrib/Archive/foo") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+  #
+  drat::archivePackages(repopath = repodir, type = "binary", version = "3.6")
+  res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
+  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+            "bin/macosx/el-capitan/contrib/3.6",
+            "bin/macosx/el-capitan/contrib/3.6/Archive/foo") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+  #
+  drat::archivePackages(repopath = repodir, type = "win.binary", version = "4.0")
+  res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
+  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+            "bin/macosx/el-capitan/contrib/3.6", 
+            "bin/macosx/el-capitan/contrib/3.6/Archive/foo",
+            "bin/windows/contrib/4.0/Archive/foo") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+  #
+  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  if(nrow(repoinfo) != 5L){
+    stop("Wrong package files found")
+  }
+  drat::insertPackages(file = src_files, repodir = repodir)
+  drat::insertPackages(file = bin_files_3_6, repodir = repodir)
+  drat::insertPackages(file = bin_files_4_0, repodir = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  if(nrow(repoinfo) != 9L){
+    stop("Wrong package files found")
+  }
+  #
+  drat::archivePackages(repopath = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  if(nrow(repoinfo) != 3L){
+    stop("Wrong package files found")
+  }
+  res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
+  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+            "bin/macosx/el-capitan/contrib/3.6", 
+            "bin/macosx/el-capitan/contrib/3.6/Archive/foo",
+            "bin/windows/contrib/4.0/Archive/foo",
+            "src/contrib/Archive/foo") %in% res$dir)){
+    stop("Wrong dir structure")
+  }
+}
+
+repodir <- testSkeletonGit2r()
+testRepoActions(repodir)

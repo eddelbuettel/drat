@@ -3,4 +3,3 @@
 .travis.yml
 vignettes/Makefile
 testpackages
-^.*\.tar\.gz$
