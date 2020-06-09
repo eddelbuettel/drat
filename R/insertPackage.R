@@ -28,7 +28,7 @@
 ##'
 ##' @title Insert a package source or binary file into a drat repository
 ##' @aliases drat:::insert
-##' @param file,files One or more R package(s) in source or binary format
+##' @param file One or more R package(s) in source or binary format
 ##' @param repodir A local directory corresponding to the repository
 ##' top-level directory.
 ##' @param commit Either boolean toggle to select automatic git operations
@@ -95,7 +95,8 @@ insertPackage <- function(file,
     
     pkginfo <- getPackageInfo(file)
     pkgtype <- identifyPackageType(file, pkginfo)
-    pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]))
+    pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]),
+                            mustWork = FALSE)
 
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
@@ -160,14 +161,14 @@ insertPackage <- function(file,
 }
 
 ##' @rdname insertPackage
-insertPackages <- function(files, ...){
-    lapply(files, insertPackage, ...)
+insertPackages <- function(file, ...){
+    invisible(lapply(file, insertPackage, ...))
 }
 
 ##' @rdname insertPackage
 insert <- function(...) {
     args <- list(...)
-    if("files" %in% names(args)){
+    if(length(args[["file"]]) > 1L){
         insertPackages(...)
     } else {
         insertPackage(...)

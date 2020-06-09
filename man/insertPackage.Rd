@@ -16,12 +16,12 @@ insertPackage(
   ...
 )
 
-insertPackages(files, ...)
+insertPackages(file, ...)
 
 insert(...)
 }
 \arguments{
-\item{file, files}{One or more R package(s) in source or binary format}
+\item{file}{One or more R package(s) in source or binary format}
 
 \item{repodir}{A local directory corresponding to the repository
 top-level directory.}
