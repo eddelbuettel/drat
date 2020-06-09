@@ -3,6 +3,7 @@ importFrom(utils, "untar", "unzip", "contrib.url")
 export(addRepo,
        initRepo,
        insertPackage,
+       insertPackages,
        getRepoInfo,
        pruneRepo,
        pruneRepoForAllRversions,

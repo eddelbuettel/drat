@@ -53,7 +53,8 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     ext <- lapply(types,.get_file_extension_from_package_type)
     # assemble repo info per package type
     infos <- mapply(.get_repoinfo_per_package_type, types, ext, repodir,
-                    MoreArgs = list(pkg = pkg))
+                    MoreArgs = list(pkg = pkg),
+                    SIMPLIFY = FALSE)
     # remove empty results and rbind
     infos <- infos[vapply(vapply(infos,nrow,integer(1)),">",logical(1),0L)]
     infos <- do.call(rbind,unname(infos))
@@ -158,6 +159,7 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
         } else {
             mapply(.prune_cmd, rmfiles$contrib.url, rmfiles$file)
         }
+        repoinfo <- repoinfo[repoinfo[,"newest"],]
     }
     invisible(repoinfo)
 }
