@@ -96,6 +96,15 @@ testRepoActions <- function(repodir){
     stop("Wrong package files found")
   }
   #
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA)
+  if(nrow(repoinfo) != 6L){
+    stop("Wrong package files found")
+  }
+  repoinfo2 <- drat::pruneRepoForAllRversions(repopath = repodir, remove = TRUE)
+  if(nrow(repoinfo2) != 4L){
+    stop("Wrong package files found")
+  }
+  #
   drat::insertPackages(file = src_files, repodir = repodir)
   drat::insertPackages(file = bin_files_3_6, repodir = repodir)
   drat::insertPackages(file = bin_files_4_0, repodir = repodir)
@@ -148,6 +157,16 @@ testRepoActions <- function(repodir){
             "bin/windows/contrib/4.0/Archive/foo",
             "src/contrib/Archive/foo") %in% res$dir)){
     stop("Wrong dir structure")
+  }
+  #
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA)
+  if(nrow(repoinfo) != 6L){
+    stop("Wrong package files found")
+  }
+  drat::archivePackagesForAllRversions(repopath = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA)
+  if(nrow(repoinfo) != 4L){
+    stop("Wrong package files found")
   }
 }
 
