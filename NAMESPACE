@@ -1,4 +1,4 @@
-importFrom(tools, "write_PACKAGES")
+importFrom(tools, "write_PACKAGES", "update_PACKAGES")
 importFrom(utils, "untar", "unzip", "contrib.url")
 export(addRepo,
        initRepo,
@@ -7,5 +7,6 @@ export(addRepo,
        getRepoInfo,
        pruneRepo,
        pruneRepoForAllRversions,
+       updateRepo,
        archivePackages,
        archivePackagesForAllRversions)

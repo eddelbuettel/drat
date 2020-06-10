@@ -160,6 +160,13 @@ insertPackage <- function(file,
     invisible(NULL)
 }
 
+.get_write_PACKAGES_type <- function(pkgtype){
+    split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
+    write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
+                           collapse = ".")
+    write_pkgtype
+}
+
 ##' @rdname insertPackage
 insertPackages <- function(file, ...){
     invisible(lapply(file, insertPackage, ...))

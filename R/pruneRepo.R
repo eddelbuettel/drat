@@ -6,8 +6,13 @@
 ##' Given a package name, R will always find the newest version of
 ##' that package. Older versions are therefore effectively shadowed
 ##' and can be removed without functionally changing a repository.
+##' 
+##' However, if a current package file is removed without \code{pruneRepo}, the
+##' PACKAGES, PACKAGES.gz and PACKAGES.rds file might be not up to date. To 
+##' ensure the correct information is available in these indices, run 
+##' \code{updateRepo}.
 ##'
-##' This function is still undergoing development and polish and may
+##' These functions are still undergoing development and polish and may
 ##' change in subsequent versions.
 ##' 
 ##' @name pruneRepo
@@ -31,7 +36,7 @@
 ##'  files should be removed. Nothing happens if \sQuote{FALSE}. If
 ##'  different from (logical) \sQuote{FALSE} and equal to character
 ##'  \dQuote{git} files are removed via \code{git rm} else via a
-##'  straight file deletion.
+##'  straight file deletion.  
 ##' @return A data frame describing the repository is returned
 ##'  containing columns with columns \dQuote{file},
 ##'  \dQuote{package} (just the name), \dQuote{version} and a
@@ -159,6 +164,7 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
         } else {
             mapply(.prune_cmd, rmfiles$contrib.url, rmfiles$file)
         }
+        updateRepo(repopath, type = unique(rmfiles$type), version = version)
         repoinfo <- repoinfo[repoinfo[,"newest"],]
     }
     invisible(repoinfo)
@@ -182,4 +188,23 @@ pruneRepoForAllRversions <- function(repopath = getOption("dratRepo", "~/git/dra
                                      remove = FALSE){
     pruneRepo(repopath = repopath, type = type, pkg = pkg, version = NA,
               remove = remove)
+}
+
+##' @rdname pruneRepo
+updateRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
+                       type = c("source", "mac.binary", "mac.binary.el-capitan",
+                                "mac.binary.mavericks", "win.binary", "both"),
+                       version = NA){
+    # input check
+    type <- .norm_type(type)
+    #
+    repodir <- contrib.url2(repopath, type, version)
+    repodir <- repodir[dir.exists(repodir)]
+    .update_packages_index(repodir)
+}
+
+.update_packages_index <- function(contrib.url, strict = FALSE){
+    udpate_pkgtype <- lapply(names(contrib.url),.get_write_PACKAGES_type)
+    update <- mapply(update_PACKAGES, dir = contrib.url, type = udpate_pkgtype)
+    invisible(NULL)
 }
