@@ -3,6 +3,7 @@
 \name{insertPackage}
 \alias{insertPackage}
 \alias{drat:::insert}
+\alias{insertPackages}
 \alias{insert}
 \title{Insert a package source or binary file into a drat repository}
 \usage{
@@ -15,10 +16,12 @@ insertPackage(
   ...
 )
 
+insertPackages(file, ...)
+
 insert(...)
 }
 \arguments{
-\item{file}{An R package in source or binary format,}
+\item{file}{One or more R package(s) in source or binary format}
 
 \item{repodir}{A local directory corresponding to the repository
 top-level directory.}

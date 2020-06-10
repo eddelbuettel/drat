@@ -2,13 +2,32 @@
 % Please edit documentation in R/pruneRepo.R
 \name{pruneRepo}
 \alias{pruneRepo}
+\alias{getRepoInfo}
+\alias{pruneRepoForAllRversions}
 \title{Prune repository from older copies of packages}
 \usage{
+getRepoInfo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
+    "mac.binary.mavericks", "win.binary", "both"),
+  pkg,
+  version = getRversion()
+)
+
 pruneRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = "source",
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
   pkg,
   version = getRversion(),
+  remove = FALSE
+)
+
+pruneRepoForAllRversions(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  pkg,
   remove = FALSE
 )
 }
@@ -18,8 +37,9 @@ defaults to the value of the \dQuote{dratRepo} option with
 \dQuote{"~/git/drat"} as fallback}
 
 \item{type}{Character variable for the type of repository, so far
-\dQuote{source}, \dQuote{win.binary}, \dQuote{mac.binary}, 
-\dQuote{mac.binary.mavericks} or \dQuote{mac.binary.el-capitan}}
+\dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary}, 
+\dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan} or 
+\dQuote{both}}
 
 \item{pkg}{Optional character variable specifying a package name,
 whose older versions should be pruned. If missing (the
@@ -27,7 +47,9 @@ default), pruning is performed on all packages.}
 
 \item{version}{R version information in the format \code{X.Y} or 
 \code{X.Y.Z}. Only used, if pruning binary packages. 
-(default: \code{version = getRversion()})}
+(default: \code{version = getRversion()}). If \code{version = NA}, all
+available R versions will be used. If \code{version = NULL}, this defaults
+to \code{getRversion()}.}
 
 \item{remove}{Character or logical variable indicating whether
 files should be removed. Nothing happens if \sQuote{FALSE}. If
