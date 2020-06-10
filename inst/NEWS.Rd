@@ -3,6 +3,19 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.1.7 (2020-xx-yy)}{
+  \itemize{
+    \item Changes in drat functionality
+    \itemize{
+      \item Functions \code{insertPackages}, \code{archivePackages} and
+      \code{prunePackages} are now vectorised (Patrick Schratz and Felix
+      Ernst in \ghpr{93}).
+      \item The new functionality is supported by unit tests (Felix
+      Ernst in \ghpr{93}).
+    }
+  }
+}
+
 \section{Changes in drat version 0.1.6 (2020-05-29)}{
   \itemize{
     \item Changes in drat functionality
