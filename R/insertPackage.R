@@ -111,15 +111,12 @@ insertPackage <- function(file,
     }
 
     ## update index
-    split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
-    write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
-                           collapse = ".")
     args <- list(...)
     if(is.null(args[["latestOnly"]])){
         args[["latestOnly"]] <- FALSE
     }
     do.call(tools::write_PACKAGES,
-            c(list(dir = pkgdir, type = write_pkgtype), args))
+            c(list(dir = pkgdir, type = .get_write_PACKAGES_type(pkgtype)), args))
 
     if (commit) {
         if (haspkg) {
