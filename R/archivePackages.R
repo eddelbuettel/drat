@@ -9,6 +9,13 @@ DRAT_BOTH_TYPES <- c("source", "mac.binary","mac.binary.el-capitan",
 DRAT_VERSION_REGEX <- "[0-9]\\.[0-9]$"
 DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
 
+.check_path <- function(repopath){
+    if(!dir.exists(repopath)){
+        stop("Directory '",repopath,"' does not exist or cannot be accessed.",
+             call. = FALSE)
+    }
+}
+
 .norm_type <- function(type){
     type <- match.arg(type,c("source", "binary", "mac.binary","mac.binary.el-capitan",
                              "mac.binary.mavericks", "win.binary", "both"), 
@@ -71,6 +78,7 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
                             pkg,
                             version = getRversion()) {
     # input check
+    .check_path(repopath)
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)
     # get repo info

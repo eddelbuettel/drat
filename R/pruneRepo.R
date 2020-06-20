@@ -49,6 +49,7 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                         pkg,
                         version = getRversion()) {
     # input check
+    .check_path(repopath)
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)
     ## knows how to handle binary repos
@@ -63,6 +64,7 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     # remove empty results and rbind
     infos <- infos[vapply(vapply(infos,nrow,integer(1)),">",logical(1),0L)]
     infos <- do.call(rbind,unname(infos))
+    rownames(infos) <- NULL # reset rownames
     invisible(infos)
 }
 
@@ -146,6 +148,7 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                       version = getRversion(),
                       remove = FALSE) {
     # input check
+    .check_path(repopath)
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)
     #
@@ -196,6 +199,7 @@ updateRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                                 "mac.binary.mavericks", "win.binary", "both"),
                        version = NA){
     # input check
+    .check_path(repopath)
     type <- .norm_type(type)
     #
     repodir <- contrib.url2(repopath, type, version)
