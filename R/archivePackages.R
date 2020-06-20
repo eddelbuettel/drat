@@ -93,6 +93,8 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
     # move each package
     mapply(.move_to_archive_directory, repoinfo$contrib.url, repoinfo$package,
            repoinfo$file)
+    # update 
+    updateRepo(repopath, type = unique(repoinfo$type), version = version)
     invisible(NULL)
 }
 
