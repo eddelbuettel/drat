@@ -111,10 +111,12 @@ insertPackage <- function(file,
     }
 
     ## update index
-    split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
-    write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
-                           collapse = ".")
-    write_PACKAGES(pkgdir, type = write_pkgtype, ...)
+    args <- list(...)
+    if(is.null(args[["latestOnly"]])){
+        args[["latestOnly"]] <- FALSE
+    }
+    do.call(tools::write_PACKAGES,
+            c(list(dir = pkgdir, type = .get_write_PACKAGES_type(pkgtype)), args))
 
     if (commit) {
         if (haspkg) {
@@ -158,6 +160,13 @@ insertPackage <- function(file,
     }
 
     invisible(NULL)
+}
+
+.get_write_PACKAGES_type <- function(pkgtype){
+    split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
+    write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
+                           collapse = ".")
+    write_pkgtype
 }
 
 ##' @rdname insertPackage
