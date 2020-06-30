@@ -12,6 +12,8 @@
       Ernst in \ghpr{93}).
       \item The new functionality is supported by unit tests (Felix
       Ernst in \ghpr{93}).
+      \item Added new function \code{updateRepo} (Felix
+      Ernst in \ghpr{95}).
     }
   }
 }

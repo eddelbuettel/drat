@@ -1,3 +1,15 @@
+2020-06-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+2020-06-20  FelixErnst  <felix.gm.ernst@outlook.com>
+
+	* R/pruneRepo.R: New function updateRepo, minor refactoring
+	* R/insertPackages.R: Idem
+	* R/archivePackages.R: Idem
+	* man/pruneRepo.Rd: Document updateRepo
+	* NAMESPACE: Add updateRepo
+
 2020-06-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
