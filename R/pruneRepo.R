@@ -154,9 +154,8 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     #
     repoinfo <- getRepoInfo(repopath = repopath, type = type, pkg = pkg,
                             version = version)
-    if (remove != FALSE) {
-        #
-        rmfiles <- repoinfo[!repoinfo[,"newest"],]
+    rmfiles <- repoinfo[!repoinfo[,"newest"],]
+    if (remove != FALSE && nrow(rmfiles) >= 1L) {
         if (remove == "git") {
             haspkg <- requireNamespace("git2r", quietly = TRUE)
             if (!haspkg)
