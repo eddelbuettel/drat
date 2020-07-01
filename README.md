@@ -49,10 +49,11 @@ order)
 | [jrProgBio](https://github.com/jr-packages/jrProgBio)           | [![Build Status](https://api.travis-ci.org/jr-packages/jrProgBio.png?branch=master)](https://travis-ci.org/jr-packages/)      |
 | [jrProgramming](https://github.com/jr-packages/jrProgramming)   | [![Build Status](https://api.travis-ci.org/jr-packages/jrProgramming.png?branch=master)](https://travis-ci.org/jr-packages/)  |
 | [jrPresentation](https://github.com/jr-packages/jrPresentation) | [![Build Status](https://api.travis-ci.org/jr-packages/jrPresentation.png?branch=master)](https://travis-ci.org/jr-packages/) |
+| [jrRmd](https://github.com/jr-packages/jrRmd)                 | [![Build Status](https://api.travis-ci.org/jr-packages/jrRmd.png?branch=master)](https://travis-ci.org/jr-packages/)         |
+| [jrRstan](https://github.com/jr-packages/jrRstan)                 | [![Build Status](https://api.travis-ci.org/jr-packages/jrRstan.png?branch=master)](https://travis-ci.org/jr-packages/)         |
 | [jrShiny](https://github.com/jr-packages/jrShiny)               | [![Build Status](https://api.travis-ci.org/jr-packages/jrShiny.png?branch=master)](https://travis-ci.org/jr-packages/)        |
 | [jrSpatial](https://github.com/jr-packages/jrSpatial)           | [![Build Status](https://api.travis-ci.org/jr-packages/jrSpatial.png?branch=master)](https://travis-ci.org/jr-packages/)      |
 | [jrSql](https://github.com/jr-packages/jrSql)                   | [![Build Status](https://api.travis-ci.org/jr-packages/jrSql.png?branch=master)](https://travis-ci.org/jr-packages/)          |
-| [jrRstan](https://github.com/jr-packages/jrRstan)                 | [![Build Status](https://api.travis-ci.org/jr-packages/jrRstan.png?branch=master)](https://travis-ci.org/jr-packages/)         |
 | [jrTidyverse](https://github.com/jr-packages/jrTidyverse)       | [![Build Status](https://api.travis-ci.org/jr-packages/jrTidyverse.png?branch=master)](https://travis-ci.org/jr-packages/)    |
 | [jrTidyverse2](https://github.com/jr-packages/jrTidyverse2)     | [![Build Status](https://api.travis-ci.org/jr-packages/jrTidyverse2.png?branch=master)](https://travis-ci.org/jr-packages/)   |
 | [jrWhyR](https://github.com/jr-packages/jrWhyR)                 | [![Build Status](https://api.travis-ci.org/jr-packages/jrWhyR.png?branch=master)](https://travis-ci.org/jr-packages/)         |
