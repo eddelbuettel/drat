@@ -115,6 +115,7 @@ testRepoActions <- function(repodir){
             "bin/macosx/el-capitan/contrib/3.6", "src/contrib/Archive/foo") %in% res$dir)){
     stop("Wrong dir structure")
   }
+  drat::insertPackages(file = src_files[3], repodir = repodir, action="archive")
   #
   drat::archivePackages(repopath = repodir, type = "binary", version = "3.6")
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
