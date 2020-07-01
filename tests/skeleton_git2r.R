@@ -96,6 +96,8 @@ testRepoActions <- function(repodir){
     stop("Wrong package files found")
   }
   #
+  repoinfo <- drat::pruneRepo(repopath = repodir, remove = TRUE)
+  #
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA)
   if(nrow(repoinfo) != 6L){
     stop("Wrong package files found")
