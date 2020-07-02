@@ -1,3 +1,13 @@
+2020-07-02  Dirk Eddelbuettel  <edd@debian.org>
+
+ 	* DESCRIPTION (Version, Date): Roll minor version
+
+2020-07-01  FelixErnst  <felix.gm.ernst@outlook.com>
+
+	* R/archivePackages.R: Cover special case of adding to archive
+	* R/pruneRepo.R: Idem
+	* tests/skeleton_get2r.R: Idem
+
 2020-06-30  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
