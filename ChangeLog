@@ -1,3 +1,10 @@
+2020-07-05  FelixErnst  <felix.gm.ernst@outlook.com>
+
+	* man/insertPackages.Rd: document optional arguments more clearly
+	* man/pruneRepo.Rd: document optional arguments more clearly
+	* R/insertPackages.R: minor refactoring
+	* R/pruneRepo.R: minor refactoring
+	
 2020-07-02  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Roll minor version

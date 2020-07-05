@@ -40,7 +40,9 @@ a package-specific archive folder, creating such an archive if it does
 not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).}
 
 \item{...}{For \code{insert} the aliases variant, a catch-all collection of
-parameters. For \code{insertPackage} arguments passed to \code{write_PACKAGES}.}
+parameters. For \code{insertPackage} arguments passed to 
+\code{write_PACKAGES} currently include \code{latestOnly}, for which the 
+default value is set here to \code{FALSE}. See \code{\link{write_PACKAGES}}.}
 }
 \value{
 NULL is returned.
