@@ -207,7 +207,7 @@ updateRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
 }
 
 .update_packages_index <- function(contrib.url, strict = FALSE){
-    udpate_pkgtype <- lapply(names(contrib.url),.get_write_PACKAGES_type)
-    update <- mapply(update_PACKAGES, dir = contrib.url, type = udpate_pkgtype)
+    update_pkgtype <- lapply(names(contrib.url),.get_write_PACKAGES_type)
+    update <- mapply(update_PACKAGES, dir = contrib.url, type = update_pkgtype)
     invisible(NULL)
 }
