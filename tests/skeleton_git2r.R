@@ -171,6 +171,42 @@ testRepoActions <- function(repodir){
   if(nrow(repoinfo) != 4L){
     stop("Wrong package files found")
   }
+  # test insertPackage optional arguments
+  drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
+  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  if(nrow(PACKAGES) != 1L){
+    stop("Wrong number of packages written to 'PACKAGES'")
+  }
+  drat::insertPackages(file = src_files, repodir = repodir)
+  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  if(nrow(PACKAGES) != 3L){
+    stop("Wrong number of packages written to 'PACKAGES'")
+  }
+  # test updateRepo optional arguments
+  drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
+  drat::updateRepo(repopath = repodir)
+  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  if(nrow(PACKAGES) != 3L){
+    stop("Wrong number of packages udpated to 'PACKAGES'")
+  }
+  drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
+  drat::updateRepo(repopath = repodir, latestOnly = TRUE)
+  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  if(nrow(PACKAGES) != 1L){
+    stop("Wrong number of packages udpated to 'PACKAGES'")
+  }
+  drat::insertPackages(file = src_files, repodir = repodir)
+  drat::updateRepo(repopath = repodir, latestOnly = TRUE)
+  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  if(nrow(PACKAGES) != 3L){
+    stop("Wrong number of packages udpated to 'PACKAGES'")
+  }
+  file.remove(file.path(repodir,"src/contrib/foo_1.0.tar.gz"))
+  drat::updateRepo(repopath = repodir, latestOnly = TRUE)
+  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  if(nrow(PACKAGES) != 2L){
+    stop("Wrong number of packages udpated to 'PACKAGES'")
+  }
 }
 
 repodir <- testSkeletonGit2r()
