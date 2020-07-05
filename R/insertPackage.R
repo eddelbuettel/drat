@@ -42,7 +42,9 @@
 ##' a package-specific archive folder, creating such an archive if it does
 ##' not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).
 ##' @param ... For \code{insert} the aliases variant, a catch-all collection of
-##' parameters. For \code{insertPackage} arguments passed to \code{write_PACKAGES}.
+##' parameters. For \code{insertPackage} arguments passed to 
+##' \code{write_PACKAGES} currently include \code{latestOnly}, for which the 
+##' default value is set here to \code{FALSE}. See \code{\link{write_PACKAGES}}.
 ##' @return NULL is returned.
 ##' @examples
 ##' \dontrun{
@@ -111,10 +113,7 @@ insertPackage <- function(file,
     }
 
     ## update index
-    args <- list(...)
-    if(is.null(args[["latestOnly"]])){
-        args[["latestOnly"]] <- FALSE
-    }
+    args <- .norm_tools_package_args(...)
     do.call(tools::write_PACKAGES,
             c(list(dir = pkgdir, type = .get_write_PACKAGES_type(pkgtype)), args))
 
@@ -160,6 +159,14 @@ insertPackage <- function(file,
     }
 
     invisible(NULL)
+}
+
+.norm_tools_package_args <- function(...){
+    args <- list(...)
+    if(is.null(args[["latestOnly"]])){
+        args[["latestOnly"]] <- FALSE
+    }
+    args
 }
 
 .get_write_PACKAGES_type <- function(pkgtype){

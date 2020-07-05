@@ -36,7 +36,13 @@
 ##'  files should be removed. Nothing happens if \sQuote{FALSE}. If
 ##'  different from (logical) \sQuote{FALSE} and equal to character
 ##'  \dQuote{git} files are removed via \code{git rm} else via a
-##'  straight file deletion.  
+##'  straight file deletion.
+##' @param ... For \code{updateRepo} a catch-all collection of parameters. 
+##'   Arguments passed to \code{update_PACKAGES} currently include 
+##'   \code{latestOnly}, for which the default value is set here to \code{FALSE}. 
+##'   See \code{\link{update_PACKAGES}}. Please note that this has an effect 
+##'   for \code{update_PACKAGES} only, if new packages are found, e.g. manually  
+##'   added. 
 ##' @return A data frame describing the repository is returned
 ##'  containing columns with columns \dQuote{file},
 ##'  \dQuote{package} (just the name), \dQuote{version} and a
@@ -196,18 +202,21 @@ pruneRepoForAllRversions <- function(repopath = getOption("dratRepo", "~/git/dra
 updateRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                        type = c("source", "mac.binary", "mac.binary.el-capitan",
                                 "mac.binary.mavericks", "win.binary", "both"),
-                       version = NA){
+                       version = NA,
+                       ... ){
     # input check
     .check_path(repopath)
     type <- .norm_type(type)
     #
     repodir <- contrib.url2(repopath, type, version)
     repodir <- repodir[dir.exists(repodir)]
-    .update_packages_index(repodir)
+    args <- .norm_tools_package_args(...)
+    .update_packages_index(repodir, args)
 }
 
-.update_packages_index <- function(contrib.url, strict = FALSE){
+.update_packages_index <- function(contrib.url, args){
     update_pkgtype <- lapply(names(contrib.url),.get_write_PACKAGES_type)
-    update <- mapply(update_PACKAGES, dir = contrib.url, type = update_pkgtype)
+    update <- mapply(update_PACKAGES, dir = contrib.url, type = update_pkgtype,
+                     MoreArgs = args)
     invisible(NULL)
 }

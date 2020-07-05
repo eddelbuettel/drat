@@ -36,7 +36,8 @@ updateRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
     "win.binary", "both"),
-  version = NA
+  version = NA,
+  ...
 )
 }
 \arguments{
@@ -64,6 +65,13 @@ files should be removed. Nothing happens if \sQuote{FALSE}. If
 different from (logical) \sQuote{FALSE} and equal to character
 \dQuote{git} files are removed via \code{git rm} else via a
 straight file deletion.}
+
+\item{...}{For \code{updateRepo} a catch-all collection of parameters. 
+Arguments passed to \code{update_PACKAGES} currently include 
+\code{latestOnly}, for which the default value is set here to \code{FALSE}. 
+See \code{\link{update_PACKAGES}}. Please note that this has an effect 
+for \code{update_PACKAGES} only, if new packages are found, e.g. manually  
+added.}
 }
 \value{
 A data frame describing the repository is returned
