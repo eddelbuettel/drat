@@ -86,7 +86,7 @@ testRepoActions <- function(repodir){
     stop("Wrong dir structure")
   }
   #
-  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "3.6")
   repoinfo2 <- drat::pruneRepo(repopath = repodir, version = "3.6")
   if(!all(repoinfo == repoinfo2)){
     stop("test run of pruneRepo changed files")
