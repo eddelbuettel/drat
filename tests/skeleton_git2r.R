@@ -68,7 +68,7 @@ testRepoActions <- function(repodir){
   if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0") %in% res$dir)){
     stop("Wrong dir structure")
   }
-  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "4.0")
   if(nrow(repoinfo) != 9L){
     stop("Wrong package files found")
   }
@@ -87,11 +87,11 @@ testRepoActions <- function(repodir){
   }
   #
   repoinfo <- drat:::getRepoInfo(repopath = repodir)
-  repoinfo2 <- drat::pruneRepo(repopath = repodir)
+  repoinfo2 <- drat::pruneRepo(repopath = repodir, version = "3.6")
   if(!all(repoinfo == repoinfo2)){
     stop("test run of pruneRepo changed files")
   }
-  repoinfo <- drat::pruneRepo(repopath = repodir, remove = TRUE)
+  repoinfo <- drat::pruneRepo(repopath = repodir, remove = TRUE, version = "4.0")
   if(nrow(repoinfo) != 3L){
     stop("Wrong package files found after pruning")
   }
@@ -136,20 +136,20 @@ testRepoActions <- function(repodir){
     stop("Wrong dir structure")
   }
   #
-  repoinfo <- drat:::getRepoInfo(repopath = repodir)
-  if(nrow(repoinfo) != 5L){
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version=NA)
+  if(nrow(repoinfo) != 6L){
     stop("Wrong package files found for getRepoInfo")
   }
   drat::insertPackages(file = src_files, repodir = repodir)
   drat::insertPackages(file = bin_files_3_6, repodir = repodir)
   drat::insertPackages(file = bin_files_4_0, repodir = repodir)
-  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "4.0")
   if(nrow(repoinfo) != 9L){
     stop("Wrong package files found for getRepoInfo after fill up")
   }
   #
-  drat::archivePackages(repopath = repodir)
-  repoinfo <- drat:::getRepoInfo(repopath = repodir)
+  drat::archivePackages(repopath = repodir, version = "4.0")
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "4.0")
   if(nrow(repoinfo) != 3L){
     stop("Wrong package files found for getRepoInfo after archiving")
   }

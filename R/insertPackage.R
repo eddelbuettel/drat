@@ -293,7 +293,6 @@ contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
                                 contrib_url)
             contrib_url
         }
-        message(contrib_url)
         contrib_url
     }
     urls <- lapply(type,FUN)
