@@ -288,8 +288,8 @@ contrib.url2 <- function(repos, type = getOption("pkgType"), version = NULL){
         } else {
             version <- package_version(version)
             contrib_url <- gsub(DRAT_CONTRIB_VERSION_REGEX,
-                                paste0("contrib/",
-                                       paste0(version$major,".",version$minor)),
+                                file.path("contrib",
+                                          paste0(version$major,".",version$minor)),
                                 contrib_url)
             contrib_url
         }
