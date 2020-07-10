@@ -1,10 +1,17 @@
+2020-07-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version): Release 0.1.7
+
+	* tests/skeleton_git2r.R (testRepoActions): More explicit
+	conditioning on presence of optional git2r
+
 2020-07-05  FelixErnst  <felix.gm.ernst@outlook.com>
 
 	* man/insertPackages.Rd: document optional arguments more clearly
 	* man/pruneRepo.Rd: document optional arguments more clearly
 	* R/insertPackages.R: minor refactoring
 	* R/pruneRepo.R: minor refactoring
-	
+
 2020-07-02  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Roll minor version

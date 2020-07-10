@@ -1,7 +1,5 @@
 
 testSkeletonGit2r <- function() {
-  if(!requireNamespace("git2r")) return(warning("couldn't find git2r"))
-
   wd <- tempdir()
 
   # options(error=traceback)
@@ -209,5 +207,7 @@ testRepoActions <- function(repodir){
   }
 }
 
-repodir <- testSkeletonGit2r()
-testRepoActions(repodir)
+if (requireNamespace("git2r", quietly=TRUE)) {
+    repodir <- testSkeletonGit2r()
+    testRepoActions(repodir)
+}
