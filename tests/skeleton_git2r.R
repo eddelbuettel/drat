@@ -96,9 +96,16 @@ testRepoActions <- function(repodir){
   #
   repoinfo <- drat::pruneRepo(repopath = repodir, remove = TRUE)
   #
-  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA)
-  if(nrow(repoinfo) != 6L){
-    stop("Wrong package files found after pruning for version = NA")
+  repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA,
+                                 type = c("source","binary"))
+  if(getRversion() < package_version("4.0")){
+    if(nrow(repoinfo) != 4L){
+      stop("Wrong package files found after pruning for version = NA")
+    }
+  } else {
+    if(nrow(repoinfo) != 6L){
+      stop("Wrong package files found after pruning for version = NA")
+    }
   }
   repoinfo2 <- drat::pruneRepoForAllRversions(repopath = repodir, remove = TRUE)
   if(nrow(repoinfo2) != 4L){
