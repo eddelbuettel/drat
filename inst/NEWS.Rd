@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.1.8 (2020-07-18)}{
+  \itemize{
+    \item The archive pruning test code was corrected for r-oldrel
+    (Felix Ernst in \ghpr{105} fixing \ghit{104}).
+  }
+}
+
 \section{Changes in drat version 0.1.7 (2020-07-10)}{
   \itemize{
     \item Changes in drat functionality

@@ -1,8 +1,8 @@
 Package: drat
 Type: Package
 Title: 'Drat' R Archive Template
-Version: 0.1.7
-Date: 2020-07-10
+Version: 0.1.8
+Date: 2020-07-18
 Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Neal Fultz,
  Sebastian Gibb, Colin Gillespie, Jan Górecki, Matt Jones, Thomas Leeper,
  Steven Pav, Jan Schulz, Christoph Stepper, Felix G.M. Ernst and Patrick 
