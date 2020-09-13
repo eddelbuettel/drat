@@ -1,0 +1,49 @@
+site_name: drat
+site_url: https://github.com/eddelbuettel/drat
+
+## input directory, usually 'docs' which we use for output
+docs_dir: src
+## output directory, i.e. docs/ on a GH repo
+## has to be a subdirectory so need to then copy to ../docs
+site_dir: docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - tabs
+  font:
+    text: Lato
+  favicon: assets/Rlogo.png
+  logo: assets/Rlogo.svg
+
+extra_css:
+  - assets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/eddelbuettel/drat
+
+nav:
+  - Home:
+    - index.md
+  - Reference:
+    - man/drat-package.md
+    - man/addRepo.md
+    - man/archivePackages.md
+    - man/getPackageInfo.md
+    - man/identifyPackageType.md
+    - man/initRepo.md
+    - man/insertPackage.md
+    - man/pruneRepo.md
+  - Articles:
+    - Drat FAQ: dratfaq.md
+    - Drat for Package Authors: dratforauthors.md
+    - Drat for Package Users: dratforusers.md
+    - Why Drat ?: whydrat.md
+    - Combining Drat And Travis: combiningdratandtravis.md
+  - News:
+    - news.md
+  - Changelog:
+    - changelog.md

@@ -6,7 +6,6 @@
 [![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat) 
 [![Downloads](https://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](https://www.r-pkg.org/pkg/drat)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/drat)](https://github.com/eddelbuettel/drat)
-[![Documentation](https://img.shields.io/badge/documentation-is_here-blue)](https://eddelbuettel.github.io/drat/)
 
 > **drat**
 >
@@ -55,11 +54,6 @@ The package documentation provides more details.  The
 tutorial, and the
 [blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) has even
 more.
-
-Package documentation, help pages, vignettes, and more is also available
-[here](https://eddelbuettel.github.io/anytime/).
-
-
 
 ### Installation
 

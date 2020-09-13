@@ -3,3 +3,4 @@
 .RData
 testpackages/
 *.tar.gz
+docs-src/docs

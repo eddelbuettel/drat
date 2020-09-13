@@ -4,3 +4,5 @@
 vignettes/Makefile
 testpackages
 drat_.*\.tar\.gz$
+^docs
+^docs-src
