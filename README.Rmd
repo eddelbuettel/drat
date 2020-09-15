@@ -30,7 +30,7 @@ This is an R package repository for the [Jumping Rivers](www.jumpingrivers.com) 
 ```{r, echo = FALSE}
 library(knitr)
 library(tibble)
-pkgs = c("jrAdvanced", "jrAnalytics", "jrAutomate", "jrBig", "jrEfficient", "jrGgplot2", "jrIntroBio", "jrIntroduction", "jrModelling", "jrNotes", "jrPredictive", "jrProgBio","jrProgramming", "jrPresentation", "jrShiny", "jrSpatial", "jrSql", "jrStan", "jrTidyverse", "jrTidyverse2","jrWhyR")
+pkgs = c("jrAdvanced", "jrAnalytics", "jrAutomate", "jrBig", "jrEfficient", "jrGgplot2", "jrIntroBio", "jrIntroduction", "jrModelling", "jrNotes", "jrPredictive", "jrProgBio","jrProgramming", "jrPresentation", "jrShiny", "jrSpatial", "jrSql", "jrStan", "jrTidymodels", "jrTidyverse", "jrTidyverse2","jrWhyR")
 Packages = paste0("[", pkgs, "](https://github.com/jr-packages/", pkgs, ")")
 Build_Status = paste0("[![Build Status](https://api.travis-ci.org/jr-packages/",
                       pkgs, ".png?branch=master)](https://travis-ci.org/jr-packages/)")
