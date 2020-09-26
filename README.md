@@ -57,7 +57,7 @@ tutorial, and the
 more.
 
 Package documentation, help pages, vignettes, and more is also available
-[here](https://eddelbuettel.github.io/anytime/).
+[here](https://eddelbuettel.github.io/drat/).
 
 
 
