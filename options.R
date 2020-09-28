@@ -3,7 +3,7 @@ local({
   # On the next update of Rcpp (post 9/2020)
   # This can be removed
   if (!requireNamespace("Rcpp", quietly = TRUE)) {
-    install.packages("Rcpp")
+    utils::install.packages("Rcpp")
   }
   
   sys = system2("lsb_release", args = "-c", stdout = TRUE)
