@@ -43,10 +43,11 @@ Please see the next section about how to get started, the package documentation,
 
 See the vignettes 
 
-- [Drat FAQ](https://eddelbuettel.github.io/drat/DratFAQ.html), 
-- [Drat for Package Authors](https://eddelbuettel.github.io/drat/DratForPackageAuthors.html), 
-- [Drat for Package Users](https://eddelbuettel.github.io/drat/DratForPackageUsers.html)
-- [Why Drat?](https://eddelbuettel.github.io/drat/WhyDrat.html)
+- [Drat FAQ](https://eddelbuettel.github.io/drat/dratfaq), 
+- [Drat for Package Authors](https://eddelbuettel.github.io/drat/dratforauthors), 
+- [Drat for Package Users](https://eddelbuettel.github.io/drat/dratforusers)
+- [Why Drat?](https://eddelbuettel.github.io/drat/whydrat)
+- [Combining Drat and Travis](https://eddelbuettel.github.io/drat/combiningdratandtravis)
 - [Drat Lightning Talk at useR!2015](https://dirk.eddelbuettel.com/papers/useR2015_drat.pdf)
 
 for the FAQ, two principal uses cases, basic motivation and an overview / introduction.

@@ -38,6 +38,7 @@ nav:
     - man/insertPackage.md
     - man/pruneRepo.md
   - Articles:
+    - Vignettes: vignettes.md
     - Drat FAQ: dratfaq.md
     - Drat for Package Authors: dratforauthors.md
     - Drat for Package Users: dratforusers.md
