@@ -38,12 +38,12 @@ nav:
     - man/insertPackage.md
     - man/pruneRepo.md
   - Articles:
-    - Vignettes: vignettes.md
-    - Drat FAQ: dratfaq.md
-    - Drat for Package Authors: dratforauthors.md
-    - Drat for Package Users: dratforusers.md
-    - Why Drat ?: whydrat.md
-    - Combining Drat And Travis: combiningdratandtravis.md
+    - Vignettes: vignettes/overview.md
+    - Drat FAQ: vignettes/dratfaq.md
+    - Drat for Package Authors: vignettes/dratforauthors.md
+    - Drat for Package Users: vignettes/dratforusers.md
+    - Why Drat ?: vignettes/whydrat.md
+    - Combining Drat And Travis: vignettes/combiningdratandtravis.md
   - News:
     - news.md
   - Changelog:

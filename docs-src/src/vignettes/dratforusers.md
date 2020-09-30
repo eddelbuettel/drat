@@ -14,7 +14,7 @@ two ways to use a package repository:
 
 This vignette deals with the second case: How to use
 [drat](http://dirk.eddelbuettel.com/code/drat.html) as package users.  A
-[companion vignette for package authors](/dratforauthors) is available as well.
+[companion vignette for package authors](/vignettes/dratforauthors) is available as well.
 
 
 ## Case 1: Using GitHub
@@ -24,7 +24,7 @@ use an R package repository hosted on GitHub.  It assumes simply that the R
 package repository is hosted in a GitHub repository named `drat`.  With that,
 we only need one piece of information: the name of the repository (and if
 this seem mysterious see the discussion in the
-[companion vignette](/dratforauthors).  So
+[companion vignette](/vignettes/dratforauthors).  So
 
 ```
 drat::addRepo("eddelbuettel")
@@ -58,7 +58,7 @@ drat::addRepo("workgroup", "file://nfs/groups/groupABC/R/drat")
 ```
 
 where the same local network repository example is used as in the example in
-the [companion vignette](/dratforauthors).  Note that we start the
+the [companion vignette](/vignettes/dratforauthors).  Note that we start the
 location URL with `file:`.
 
 

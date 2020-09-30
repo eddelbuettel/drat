@@ -14,7 +14,7 @@ two ways to use a package repository:
 
 This vignette deals with the first case: How to use
 [drat](http://dirk.eddelbuettel.com/code/drat.html) as a package author.  A
-[companion vignette for package users](/dratforusers) is available as well.
+[companion vignette for package users](/vignettes/dratforusers) is available as well.
 
 
 ## Case 1: Using GitHub
@@ -120,7 +120,7 @@ drat::insertPackage("myPkg_0.5.tar.gz", "file://nfs/groups/groupABC/R/drat")
 
 This updates the PACKAGES file (and its compressed variant) after which the
 repository is ready to serve files. See
-[the companion vignette](/dratforusers) for how to deploy it.
+[the companion vignette](/vignettes/dratforusers) for how to deploy it.
 Note that the location URL should begin with `file:`.
 
 ## Summary
@@ -137,5 +137,5 @@ is write access to a directory.
 Lastly, serving that directory as a repository then requires a web server
 (easiest via the automatic GitHub repo option) or other file access.  How to
 access packages from [drat](http://dirk.eddelbuettel.com/code/drat.html)
-repository is described in [the companion vignette](/dratforusers).
+repository is described in [the companion vignette](/vignettes/dratforusers).
 
