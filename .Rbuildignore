@@ -6,3 +6,4 @@ testpackages
 drat_.*\.tar\.gz$
 ^docs
 ^docs-src
+^\.github
