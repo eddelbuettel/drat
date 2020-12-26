@@ -1,6 +1,7 @@
 ## drat: Drat R Archive Template
 
 [![Build Status](https://travis-ci.org/eddelbuettel/drat.svg)](https://travis-ci.org/eddelbuettel/drat) 
+[![CI](https://github.com/eddelbuettel/drat/workflows/ci/badge.svg)](https://github.com/eddelbuettel/drat/actions?query=workflow%3Aci)
 [![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
 [![CRAN](https://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat) 
 [![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat) 
