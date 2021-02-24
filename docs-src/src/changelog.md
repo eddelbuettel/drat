@@ -1,5 +1,23 @@
+###  2021 
+
+2021-02-24  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * docs-src/mkdocs.yml: No longer show vignette overview 
+ 
 ###  2020 
 
+2020-12-26  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml: Add CI runner using r-ci 
+        * README.md: Add new CI badge 
+ 
+2020-09-13  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * docs/: Added package website 
+        * docs-src/: Added package website inputs 
+ 
+        * README.md: Added badge and short sentence linking to documentation 
+ 
 2020-07-18  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version): Release 0.1.8 
@@ -15,7 +33,7 @@
         * tests/skeleton_git2r.R (testRepoActions): More explicit 
         conditioning on presence of optional git2r 
  
-2020-07-05  FelixErnst  <felix.gm.ernst@outlook.com> 
+2020-07-05  Felix Ernst  <felix.gm.ernst@outlook.com> 
  
         * man/insertPackages.Rd: document optional arguments more clearly 
         * man/pruneRepo.Rd: document optional arguments more clearly 
@@ -36,7 +54,7 @@
  
         * DESCRIPTION (Version, Date): Roll minor version 
  
-2020-06-20  FelixErnst  <felix.gm.ernst@outlook.com> 
+2020-06-20  Felix Ernst  <felix.gm.ernst@outlook.com> 
  
         * R/pruneRepo.R: New function updateRepo, minor refactoring 
         * R/insertPackages.R: Idem 
@@ -50,7 +68,7 @@
  
         * drat.Rproj: Undo accidental delete in preceding commit storms 
  
-2020-06-09  FelixErnst  <felix.gm.ernst@outlook.com> 
+2020-06-09  Felix Ernst  <felix.gm.ernst@outlook.com> 
  
         * R/insertPackages.R: Updates to insertPackages function 
         * man/insertPackages.Rd: Idem 
@@ -61,7 +79,7 @@
         archivePackages and pruneRepo 
         * inst/extdata/*: Added toy packages to support tests 
  
-2020-06-08  FelixErnst  <felix.gm.ernst@outlook.com> 
+2020-06-08  Felix Ernst  <felix.gm.ernst@outlook.com> 
  
         * R/archivePackages.R: Refactored vectorisation 
         * R/prunePackages.R: Idem 
@@ -90,7 +108,7 @@
         * DESCRIPTION (Version): Release 0.1.6 
         * README.md: Add Felix Ernst to Authors 
  
-2020-05-29  FelixErnst  <felix.gm.ernst@outlook.com> 
+2020-05-29  Felix Ernst  <felix.gm.ernst@outlook.com> 
  
         * R/archivePackages.R: Updated mac binary format support 
         * R/insertPackages.R: Idem 
