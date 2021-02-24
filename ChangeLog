@@ -18,7 +18,7 @@
 
 	* DESCRIPTION (Version): Release 0.1.8
 
-2020-07-17  FelixErnst  <felix.gm.ernst@outlook.com>
+2020-07-17  Felix Ernst  <felix.gm.ernst@outlook.com>
 
 	* tests/skeleton_get2r.R: Fixed issue for pruning on r-oldrel
 
@@ -40,7 +40,7 @@
 
  	* DESCRIPTION (Version, Date): Roll minor version
 
-2020-07-01  FelixErnst  <felix.gm.ernst@outlook.com>
+2020-07-01  Felix Ernst  <felix.gm.ernst@outlook.com>
 
 	* R/archivePackages.R: Cover special case of adding to archive
 	* R/pruneRepo.R: Idem
