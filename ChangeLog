@@ -1,3 +1,8 @@
+2021-03-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/initRepo.R (initRepo): New option location to allow use of docs/
+	directory instead of gh-pages branch
+
 2021-02-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* docs-src/mkdocs.yml: No longer show vignette overview

@@ -4,7 +4,8 @@
 \alias{initRepo}
 \title{Intialize a git repo for drat}
 \usage{
-initRepo(name = "drat", basepath = "~/git")
+initRepo(name = "drat", basepath = getOption("dratDirectory", "~/git"),
+  location = getOption("dratGHPages", "gh-pages"))
 }
 \arguments{
 \item{name}{A character variable with the name the new repository,
@@ -12,19 +13,27 @@ the default is \dQuote{drat}.}
 
 \item{basepath}{A character variable with path to the directory in
 which the new repository is to be created. The default value is
-\dQuote{"~/git"}.}
+\dQuote{~/git} and can be overriden via option \sQuote{dratDirectory}.}
+
+\item{location}{A character variable with the GitHub Pages location:
+either \dQuote{gh-pages} indicating a branch of that name, or
+\dQuote{docs/} directory in the main branch. The default value can
+be overridden via the \dQuote{dratGHPages} option.}
 }
 \value{
 The function is invoked for its side-effects and only
 returns \code{NULL} invisibly.
 }
 \description{
-This helper function create a new repository, creates and checks
-out \sQuote{gh-pages} branch and fills it with the required path.
+This helper function creates a new repository, creates and checks
+out the default GitHub Pages location (either the \sQuote{gh-pages}
+branch or directory \sQuote{docs}) and fills it with the required
+new paths.
 }
 \details{
 Currently only \sQuote{src/contrib} for source repositories is
-supported.
+supported by this function. The \code{insertPackage()} function knows
+to deal with binaries for different architectures.
 
 This function is still undergoing development and polish and may
 change in subsequent versions.
