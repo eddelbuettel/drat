@@ -45,6 +45,10 @@
 ##' parameters. For \code{insertPackage} arguments passed to 
 ##' \code{write_PACKAGES} currently include \code{latestOnly}, for which the 
 ##' default value is set here to \code{FALSE}. See \code{\link{write_PACKAGES}}.
+##' @param location A character variable with the GitHub Pages location:
+##' either \dQuote{gh-pages} indicating a branch of that name, or
+##' \dQuote{docs/} directory in the main branch. The default value can
+##' be overridden via the \dQuote{dratBranch} option.
 ##' @return NULL is returned.
 ##' @examples
 ##' \dontrun{
@@ -61,12 +65,16 @@ insertPackage <- function(file,
                           commit = FALSE,
                           pullfirst = FALSE,
                           action = c("none", "archive", "prune"),
+                          location = getOption("dratBranch", "gh-pages"),
                           ...) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", call. = FALSE)
 
     ## TODO src/contrib if needed, preferably via git2r
     if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call. = FALSE)
+
+    if (is.na(match(location, c("gh-pages", "docs"))))
+        stop("Location argument unsuitable.", call.=FALSE)
 
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly = TRUE)
@@ -83,23 +91,33 @@ insertPackage <- function(file,
         commit <- TRUE
     }
 
-    branch <- getOption("dratBranch", "gh-pages")
+    #branch <- getOption("dratBranch", "gh-pages")
+    branch <- location
     if (commit && haspkg) {
         repo <- git2r::repository(repodir)
         if (isTRUE(pullfirst)) git2r::pull(repo)
-        git2r::checkout(repo, branch)
+        if (branch == "gh-pages") {
+            git2r::checkout(repo, branch)
+        } else {
+            setwd(branch)
+        }
     } else if (commit && hascmd) {
         setwd(repodir)
         if (isTRUE(pullfirst)) system("git pull")
-        system2("git", c("checkout", branch))
-        setwd(curwd)
+        if (branch == "gh-pages") {
+            system2("git", c("checkout", branch))
+            setwd(curwd)
+        } else {
+            setwd(curwd)
+        }
     }
-    
+
+    if (location == "docs") repodir <- file.path(repodir, location)
+
     pkginfo <- getPackageInfo(file)
     pkgtype <- identifyPackageType(file, pkginfo)
     pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]),
                             mustWork = FALSE)
-
     if (!file.exists(pkgdir)) {
         ## TODO: this could be in a git branch, need checking
         if (!dir.create(pkgdir, recursive = TRUE)) {

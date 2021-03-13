@@ -2,6 +2,9 @@
 
 	* R/initRepo.R (initRepo): New option location to allow use of docs/
 	directory instead of gh-pages branch
+	* R/insertPackage.R (insertPackage): Ditto
+	* man/initRepo.Rd: Documentation for new location option
+	* man/insertPackage.Rd: Ditto
 
 2021-02-24  Dirk Eddelbuettel  <edd@debian.org>
 

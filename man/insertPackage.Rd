@@ -9,7 +9,7 @@
 \usage{
 insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
   commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
-  "prune"), ...)
+  "prune"), location = getOption("dratBranch", "gh-pages"), ...)
 
 insertPackages(file, ...)
 
@@ -33,6 +33,11 @@ implies the \sQuote{TRUE} values in other contexts.}
 previous versions), \dQuote{archive} (place any previous versions into
 a package-specific archive folder, creating such an archive if it does
 not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).}
+
+\item{location}{A character variable with the GitHub Pages location:
+either \dQuote{gh-pages} indicating a branch of that name, or
+\dQuote{docs/} directory in the main branch. The default value can
+be overridden via the \dQuote{dratBranch} option.}
 
 \item{...}{For \code{insert} the aliases variant, a catch-all collection of
 parameters. For \code{insertPackage} arguments passed to 
