@@ -5,7 +5,7 @@
 \title{Intialize a git repo for drat}
 \usage{
 initRepo(name = "drat", basepath = getOption("dratDirectory", "~/git"),
-  location = getOption("dratGHPages", "gh-pages"))
+  location = getOption("dratBranch", "gh-pages"))
 }
 \arguments{
 \item{name}{A character variable with the name the new repository,
@@ -18,7 +18,7 @@ which the new repository is to be created. The default value is
 \item{location}{A character variable with the GitHub Pages location:
 either \dQuote{gh-pages} indicating a branch of that name, or
 \dQuote{docs/} directory in the main branch. The default value can
-be overridden via the \dQuote{dratGHPages} option.}
+be overridden via the \dQuote{dratBranch} option.}
 }
 \value{
 The function is invoked for its side-effects and only

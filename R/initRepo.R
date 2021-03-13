@@ -20,21 +20,19 @@
 ##' @param location A character variable with the GitHub Pages location:
 ##' either \dQuote{gh-pages} indicating a branch of that name, or
 ##' \dQuote{docs/} directory in the main branch. The default value can
-##' be overridden via the \dQuote{dratGHPages} option.
+##' be overridden via the \dQuote{dratBranch} option.
 ##' @return The function is invoked for its side-effects and only
 ##' returns \code{NULL} invisibly.
 ##' @author Dirk Eddelbuettel
-initRepo <- function(name="drat",
-                     basepath=getOption("dratDirectory", "~/git"),
-                     location=getOption("dratGHPages", "gh-pages")) {
+initRepo <- function(name = "drat",
+                     basepath = getOption("dratDirectory", "~/git"),
+                     location = getOption("dratBranch", "gh-pages")) {
 
     haspkg <- requireNamespace("git2r", quietly=TRUE)
-    if (!haspkg)
-        stop("The 'initRepo' function requires the 'git2r' packages.", call.=FALSE)
+    if (!haspkg) stop("The 'initRepo' function requires the 'git2r' packages.", call.=FALSE)
     
     dir <- file.path(basepath, name)
-    if (file.exists(dir))
-        stop("Directory '", dir, "' already exists.", call.=FALSE)
+    if (file.exists(dir)) stop("Directory '", dir, "' already exists.", call.=FALSE)
 
     if (is.na(match(location, c("gh-pages", "docs"))))
         stop("Location argument unsuitable.", call.=FALSE)
