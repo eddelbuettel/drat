@@ -32,6 +32,10 @@
 ##'   (default: \code{version = getRversion()}). If \code{version = NA}, all
 ##'   available R versions will be used. If \code{version = NULL}, this defaults
 ##'   to \code{getRversion()}.
+##' @param location An optional character variable with the GitHub Pages location:
+##'   either \dQuote{gh-pages} indicating a branch of that name, or
+##'   \dQuote{docs/} directory in the main branch. The default value can
+##'   be overridden via the \dQuote{dratBranch} option.
 ##' @param remove Character or logical variable indicating whether
 ##'  files should be removed. Nothing happens if \sQuote{FALSE}. If
 ##'  different from (logical) \sQuote{FALSE} and equal to character
@@ -53,8 +57,12 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                         type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
                                  "mac.binary.mavericks", "win.binary", "both"), 
                         pkg,
-                        version = getRversion()) {
-    # input check
+                        version = getRversion(),
+                        location = getOption("dratBranch", "gh-pages")
+                        ) {
+    ## input check
+    .check_location_arg(location)
+    if (location == "docs" && !grepl("docs$", repopath)) repopath <- file.path(repopath, location)
     .check_path(repopath)
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)
@@ -152,8 +160,12 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
                                "mac.binary.mavericks", "win.binary", "both"), 
                       pkg,
                       version = getRversion(),
-                      remove = FALSE) {
-    # input check
+                      remove = FALSE,
+                      location = getOption("dratBranch", "gh-pages")) {
+    ## input check
+    .check_location_arg(location)
+    if (location == "docs" && !grepl("docs$", repopath)) repopath <- file.path(repopath, location)
+    print(repopath)
     .check_path(repopath)
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)

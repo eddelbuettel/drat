@@ -1,3 +1,10 @@
+2021-03-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/archivePackages.R (.check_location_arg): Add helper function
+	* R/initRepo.R (initRepo): Use helper function
+	* R/insertPackage.R (insertPackage): Ditto
+	* R/pruneRepo.R (getRepoInfo): Ditto, use option location
+
 2021-03-13  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Roll minor version

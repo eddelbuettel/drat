@@ -34,8 +34,7 @@ initRepo <- function(name = "drat",
     dir <- file.path(basepath, name)
     if (file.exists(dir)) stop("Directory '", dir, "' already exists.", call.=FALSE)
 
-    if (is.na(match(location, c("gh-pages", "docs"))))
-        stop("Location argument unsuitable.", call.=FALSE)
+    .check_location_arg(location)
 
     dir.create(dir)
     repo <- git2r::init(dir)

@@ -40,6 +40,11 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
     pkg
 }
 
+.check_location_arg <- function(location) {
+    if (is.na(match(location, c("gh-pages", "docs"))))
+        stop("The 'location' argument '", location, "' is unsuitable.", call. = FALSE)
+}
+
 ##' The function moves older versions of packages into a CRAN-style 
 ##' archive folder.
 ##' 

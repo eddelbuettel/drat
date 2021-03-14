@@ -73,8 +73,7 @@ insertPackage <- function(file,
     ## TODO src/contrib if needed, preferably via git2r
     if (!dir.exists(repodir)) stop("Directory ", repodir, " not found\n", call. = FALSE)
 
-    if (is.na(match(location, c("gh-pages", "docs"))))
-        stop("Location argument unsuitable.", call.=FALSE)
+    .check_location_arg(location)
 
     ## check for the optional git2r package
     haspkg <- requireNamespace("git2r", quietly = TRUE)
