@@ -3,42 +3,26 @@
 \name{pruneRepo}
 \alias{pruneRepo}
 \alias{getRepoInfo}
+\alias{pruneRepo}
 \alias{pruneRepoForAllRversions}
 \alias{updateRepo}
 \title{Prune repository from older copies of packages}
 \usage{
-getRepoInfo(
-  repopath = getOption("dratRepo", "~/git/drat"),
+getRepoInfo(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
-  pkg,
-  version = getRversion()
-)
+  "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
 
-pruneRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  version = getRversion(),
-  remove = FALSE
-)
+pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
+  "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary",
+  "both"), pkg, version = getRversion(), remove = FALSE)
 
-pruneRepoForAllRversions(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  remove = FALSE
-)
+pruneRepoForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan",
+  "mac.binary.mavericks", "win.binary", "both"), pkg, remove = FALSE)
 
-updateRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  version = NA,
-  ...
-)
+updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan",
+  "mac.binary.mavericks", "win.binary", "both"), version = NA, ...)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;

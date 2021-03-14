@@ -1,3 +1,13 @@
+2021-03-13  Dirk Eddelbuettel  <edd@debian.org>
+
+ 	* DESCRIPTION (Version, Date): Roll minor version
+
+	* R/initRepo.R (initRepo): New option location to allow use of docs/
+	directory instead of gh-pages branch
+	* R/insertPackage.R (insertPackage): Ditto
+	* man/initRepo.Rd: Documentation for new location option
+	* man/insertPackage.Rd: Ditto
+
 2021-02-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* docs-src/mkdocs.yml: No longer show vignette overview
