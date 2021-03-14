@@ -98,16 +98,12 @@ insertPackage <- function(file,
         if (isTRUE(pullfirst)) git2r::pull(repo)
         if (branch == "gh-pages") {
             git2r::checkout(repo, branch)
-        } else {
-            setwd(branch)
         }
     } else if (commit && hascmd) {
         setwd(repodir)
         if (isTRUE(pullfirst)) system("git pull")
         if (branch == "gh-pages") {
             system2("git", c("checkout", branch))
-            setwd(curwd)
-        } else {
             setwd(curwd)
         }
     }
@@ -124,7 +120,6 @@ insertPackage <- function(file,
             stop("Directory ", pkgdir, " couldn't be created\n", call. = FALSE)
         }
     }
-
     ## copy file into repo
     if (!file.copy(file, pkgdir, overwrite = TRUE)) {
         stop("File ", file, " can not be copied to ", pkgdir, call. = FALSE)
