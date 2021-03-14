@@ -1,5 +1,7 @@
 2021-03-14  Dirk Eddelbuettel  <edd@debian.org>
 
+	* README.md: Mention drat-base/drat for easier forking
+
 	* R/archivePackages.R (.check_location_arg): Add helper function
 	* R/initRepo.R (initRepo): Use helper function
 	* R/insertPackage.R (insertPackage): Ditto
