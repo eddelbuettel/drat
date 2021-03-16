@@ -32,7 +32,15 @@ testSkeletonGit2r <- function() {
   cat("foo", file=file.path(rdir, "README"))
   git2r::add(repo, "README")
   comm <- git2r::commit(repo, "init")
-  git2r::branch_create(comm,"gh-pages")
+
+  location <- getOption("dratBranch", "gh-pages")
+
+  if (location == "gh-pages")  {
+      git2r::branch_create(comm,"gh-pages")
+  } else {
+      ddir <- file.path(rdir, "docs")
+      if (!dir.exists(ddir)) dir.create(ddir)
+  }
 
   # finally add the package
   drat::insertPackage(file = file.path(wd, "foo_1.0.tar.gz"), repodir = rdir, commit = "test")
@@ -41,8 +49,10 @@ testSkeletonGit2r <- function() {
   if(!all(lengths(res$status) == 0L)){
     stop("Unstaged files")
   }
-  if(!all(c(".","src/contrib") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib") %in% res$dir)) stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib") %in% res$dir)) stop("Wrong dir structure")
   }
   rdir
 }
@@ -58,13 +68,19 @@ testRepoActions <- function(repodir){
     stop("Not all package files found")
   }
   #
+  location <- getOption("dratBranch", "gh-pages")
+
   bin_files_4_0 <- list.files(system.file("extdata", "4.0", package = "drat"),
                               pattern = "foo*",
                               full.names = TRUE)
   drat::insertPackages(file = bin_files_4_0, repodir = repodir)
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
-  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0") %in% res$dir))
+          stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib","docs/bin/macosx/contrib/4.0","docs/bin/windows/contrib/4.0") %in% res$dir))
+          stop("Wrong dir structure")
   }
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "4.0")
   if(nrow(repoinfo) != 9L){
@@ -79,9 +95,14 @@ testRepoActions <- function(repodir){
                               full.names = TRUE)
   drat::insertPackages(file = bin_files_3_6, repodir = repodir)
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
-  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
-            "bin/macosx/el-capitan/contrib/3.6") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+                 "bin/macosx/el-capitan/contrib/3.6") %in% res$dir))
+          stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib","docs/bin/macosx/contrib/4.0","docs/bin/windows/contrib/4.0",
+                 "docs/bin/macosx/el-capitan/contrib/3.6") %in% res$dir))
+          stop("Wrong dir structure")
   }
   #
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "3.6")
@@ -118,27 +139,45 @@ testRepoActions <- function(repodir){
   #
   drat::archivePackages(repopath = repodir, type = "source")
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
-  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
-            "bin/macosx/el-capitan/contrib/3.6", "src/contrib/Archive/foo") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+                 "bin/macosx/el-capitan/contrib/3.6", "src/contrib/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib","docs/bin/macosx/contrib/4.0","docs/bin/windows/contrib/4.0",
+                 "docs/bin/macosx/el-capitan/contrib/3.6", "docs/src/contrib/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
   }
   drat::insertPackages(file = src_files[3], repodir = repodir, action="archive")
   #
   drat::archivePackages(repopath = repodir, type = "binary", version = "3.6")
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
-  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
-            "bin/macosx/el-capitan/contrib/3.6",
-            "bin/macosx/el-capitan/contrib/3.6/Archive/foo") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+                 "bin/macosx/el-capitan/contrib/3.6",
+                 "bin/macosx/el-capitan/contrib/3.6/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib","docs/bin/macosx/contrib/4.0","docs/bin/windows/contrib/4.0",
+                 "docs/bin/macosx/el-capitan/contrib/3.6",
+                 "docs/bin/macosx/el-capitan/contrib/3.6/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
   }
   #
   drat::archivePackages(repopath = repodir, type = "win.binary", version = "4.0")
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
-  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
-            "bin/macosx/el-capitan/contrib/3.6", 
-            "bin/macosx/el-capitan/contrib/3.6/Archive/foo",
-            "bin/windows/contrib/4.0/Archive/foo") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+                 "bin/macosx/el-capitan/contrib/3.6",
+                 "bin/macosx/el-capitan/contrib/3.6/Archive/foo",
+                 "bin/windows/contrib/4.0/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib","docs/bin/macosx/contrib/4.0","docs/bin/windows/contrib/4.0",
+                 "docs/bin/macosx/el-capitan/contrib/3.6",
+                 "docs/bin/macosx/el-capitan/contrib/3.6/Archive/foo",
+                 "docs/bin/windows/contrib/4.0/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
   }
   #
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version=NA)
@@ -159,12 +198,20 @@ testRepoActions <- function(repodir){
     stop("Wrong package files found for getRepoInfo after archiving")
   }
   res <- list(dir = unique(dirname(dir(repodir, recursive = TRUE))))
-  if(!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
-            "bin/macosx/el-capitan/contrib/3.6", 
-            "bin/macosx/el-capitan/contrib/3.6/Archive/foo",
-            "bin/windows/contrib/4.0/Archive/foo",
-            "src/contrib/Archive/foo") %in% res$dir)){
-    stop("Wrong dir structure")
+  if (location == "gh-pages") {
+      if (!all(c(".","src/contrib","bin/macosx/contrib/4.0","bin/windows/contrib/4.0",
+                 "bin/macosx/el-capitan/contrib/3.6",
+                 "bin/macosx/el-capitan/contrib/3.6/Archive/foo",
+                 "bin/windows/contrib/4.0/Archive/foo",
+                 "src/contrib/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
+  } else {
+      if (!all(c(".","docs/src/contrib","docs/bin/macosx/contrib/4.0","docs/bin/windows/contrib/4.0",
+                 "docs/bin/macosx/el-capitan/contrib/3.6",
+                 "docs/bin/macosx/el-capitan/contrib/3.6/Archive/foo",
+                 "docs/bin/windows/contrib/4.0/Archive/foo",
+                 "docs/src/contrib/Archive/foo") %in% res$dir))
+          stop("Wrong dir structure")
   }
   #
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA)
@@ -178,37 +225,40 @@ testRepoActions <- function(repodir){
   }
   # test insertPackage optional arguments
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
-  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  pkgsrds <- ifelse(location == "gh-pages", "src/contrib/PACKAGES.rds", "docs/src/contrib/PACKAGES.rds")
+  PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 1L){
     stop("Wrong number of packages written to 'PACKAGES'")
   }
   drat::insertPackages(file = src_files, repodir = repodir)
-  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 3L){
     stop("Wrong number of packages written to 'PACKAGES'")
   }
+  if (location == "docs") return(invisible(NULL)) ## FIXME
+
   # test updateRepo optional arguments
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
   drat::updateRepo(repopath = repodir)
-  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 3L){
     stop("Wrong number of packages udpated to 'PACKAGES'")
   }
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
-  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 1L){
     stop("Wrong number of packages udpated to 'PACKAGES'")
   }
   drat::insertPackages(file = src_files, repodir = repodir)
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
-  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 3L){
     stop("Wrong number of packages udpated to 'PACKAGES'")
   }
   file.remove(file.path(repodir,"src/contrib/foo_1.0.tar.gz"))
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
-  PACKAGES <- readRDS(file.path(repodir,"src/contrib/PACKAGES.rds"))
+  PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 2L){
     stop("Wrong number of packages udpated to 'PACKAGES'")
   }
