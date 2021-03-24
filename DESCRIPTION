@@ -18,7 +18,7 @@ Description: Creation and use of R Repositories via helper functions
  gh-pages at GitHub, as well as local repositories on either the same machine
  or a local network. Drat is a recursive acronym: Drat R Archive Template. 
 License: GPL (>= 2)
-URL: https://dirk.eddelbuettel.com/code/drat.html
+URL: https://github.com/eddelbuettel/drat, tps://dirk.eddelbuettel.com/code/drat.html
 BugReports: https://github.com/eddelbuettel/drat/issues
 Encoding: UTF-8
 RoxygenNote: 6.0.1

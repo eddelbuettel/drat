@@ -1,3 +1,7 @@
+2021-03-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (URL): Add link to repo
+
 2021-03-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Mention drat-base/drat for easier forking
