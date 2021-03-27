@@ -165,7 +165,6 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     ## input check
     .check_location_arg(location)
     if (location == "docs" && !grepl("docs$", repopath)) repopath <- file.path(repopath, location)
-    print(repopath)
     .check_path(repopath)
     type <- .norm_type(type)
     pkg <- .norm_pkg(pkg)
