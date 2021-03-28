@@ -1,5 +1,8 @@
 2021-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
+	* tests/skeleton_git2r.R (testRepoActions): More work supporting
+	new (optional) docs/ location
+
 	* docs/mkdmt-src/: Moved mkdocs-material input
 
 2021-03-23  Dirk Eddelbuettel  <edd@debian.org>

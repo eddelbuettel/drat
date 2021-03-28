@@ -235,32 +235,36 @@ testRepoActions <- function(repodir){
   if(nrow(PACKAGES) != 3L){
     stop("Wrong number of packages written to 'PACKAGES'")
   }
-  if (location == "docs") return(invisible(NULL)) ## FIXME
 
-  # test updateRepo optional arguments
+  repodir2 <- file.path(repodir, if (location == "gh-pages") "" else "docs")
+  # test updateRepo optional arguments -- now seems to update only one ?
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
-  drat::updateRepo(repopath = repodir)
+  drat::updateRepo(repopath = repodir2)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if(nrow(PACKAGES) != 3L){
-    stop("Wrong number of packages udpated to 'PACKAGES'")
+  if (nrow(PACKAGES) != 3L){
+    stop("Wrong number of packages updated to 'PACKAGES'")
   }
+
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if(nrow(PACKAGES) != 1L){
-    stop("Wrong number of packages udpated to 'PACKAGES'")
+  if (nrow(PACKAGES) != 1L){
+    stop("Wrong number of packages updated to 'PACKAGES'")
   }
+
   drat::insertPackages(file = src_files, repodir = repodir)
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if(nrow(PACKAGES) != 3L){
-    stop("Wrong number of packages udpated to 'PACKAGES'")
+  if (nrow(PACKAGES) != 3L){
+    stop("Wrong number of packages updated to 'PACKAGES'")
   }
-  file.remove(file.path(repodir,"src/contrib/foo_1.0.tar.gz"))
-  drat::updateRepo(repopath = repodir, latestOnly = TRUE)
+
+  file.path(repodir2, "src", "contrib", "foo_1.0.tar.gz")
+  file.remove(file.path(repodir2, "src", "contrib", "foo_1.0.tar.gz"))
+  drat::updateRepo(repopath = repodir2, latestOnly = TRUE)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 2L){
-    stop("Wrong number of packages udpated to 'PACKAGES'")
+    stop("Wrong number of packages updated to 'PACKAGES'")
   }
 }
 
