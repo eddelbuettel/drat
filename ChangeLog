@@ -1,6 +1,10 @@
 2021-03-29  Dirk Eddelbuettel  <edd@debian.org>
 
-	* vignettes/CombiningDratAndTravis.Rmd: Add note on docs/
+	* vignettes/CombiningDratAndTravis.Rmd: Note on docs/, https:// use
+	* vignettes/DratFAQ.Rmd: Ditto
+	* vignettes/DratForPackageAuthors.Rmd: Ditto
+	* vignettes/DratForPackageUsers.Rmd: Ditto
+	* vignettes/WhyDrat.Rmd: Ditto
 
 2021-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
