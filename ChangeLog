@@ -1,3 +1,7 @@
+2021-03-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/CombiningDratAndTravis.Rmd: Add note on docs/
+
 2021-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/skeleton_git2r.R (testRepoActions): More work supporting

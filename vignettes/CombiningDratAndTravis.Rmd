@@ -1,12 +1,12 @@
 ---
 title: "Combining Drat and Travis CI"
 author: "Colin Gillespie and Dirk Eddelbuettel"
-date: "2015-04-14"
+date: "Written 2015-04-14, updated 2021-03-29"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Combining Drat and Travis CI}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
   
 
@@ -105,3 +105,6 @@ addToDrat(){
 }
 addToDrat
 ```
+
+If you use a `docs/` directory in the main branch, omit `git checkout
+gh-pages` and use `cd docs` instead.
