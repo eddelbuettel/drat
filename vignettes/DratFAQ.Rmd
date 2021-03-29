@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Drat Frequently Asked Questions}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ## What is drat?
@@ -49,11 +49,11 @@ helps creating and using R package repositories easier_.
 
 Glad you asked.  We have written
 
-+ a [package webpage](http://dirk.eddelbuettel.com/code/drat.html) giving a
++ a [package webpage](https://dirk.eddelbuettel.com/code/drat.html) giving a
 first instroduction
-+ several [blog posts](http://dirk.eddelbuettel.com/blog/code/drat/) on the package
++ several [blog posts](https://dirk.eddelbuettel.com/blog/code/drat/) on the package
 and its releases
-+ the [GitHub page README](http://github.com/eddelbuettel/drat)
++ the [GitHub page README](https://github.com/eddelbuettel/drat)
 + several [vignettes accessible from the package page](https://cran.r-project.org/package=drat)
 and other places.
 + the [drat repo page](http://eddelbuettel.github.io/drat)
