@@ -12,13 +12,13 @@ given account.
 ### Usage
 
     addRepo(account, alturl)
-    
+
     add(...)
 
 ### Arguments
 
 | Argument  | Description                                                                                                                                                                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `account` | Character vector with one or more GitHub account for which a ‘drat’ archive is to be added.                                                                                                                                                                         |
 | `alturl`  | Alternative repo specification with a complete url string. If ‘alturl’ is provided, a single ‘account’ must be provided as well. For file-based access, the URL format has to follow the `file:/some/path/` format starting with ‘file’ followed by a single colon. |
 | `...`     | For the aliases variant, a catch-all collection of parameters.                                                                                                                                                                                                      |
@@ -48,8 +48,8 @@ Dirk Eddelbuettel
     ## Not run: 
       addRepo("drat")                            # adds GitHub repo via default URL
       addRepo(c("eddelbuettel", "ghrr"))         # ditto but adds two repos at once
-    
+
       addRepo("LocalRepo", "file:/nas/R/repo")   # adds local file-based repo,
                                                  # assumes you can read /nas/R/repo
-    
+
     ## End(Not run)

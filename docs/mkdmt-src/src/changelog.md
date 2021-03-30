@@ -1,5 +1,43 @@
 ###  2021 
 
+2021-03-29  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * vignettes/CombiningDratAndTravis.Rmd: Note on docs/, https:// use 
+        * vignettes/DratFAQ.Rmd: Ditto 
+        * vignettes/DratForPackageAuthors.Rmd: Ditto 
+        * vignettes/DratForPackageUsers.Rmd: Ditto 
+        * vignettes/WhyDrat.Rmd: Ditto 
+ 
+2021-03-28  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * tests/skeleton_git2r.R (testRepoActions): More work supporting 
+        new (optional) docs/ location 
+ 
+        * docs/mkdmt-src/: Moved mkdocs-material input 
+ 
+2021-03-23  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (URL): Add link to repo 
+ 
+2021-03-14  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Mention drat-base/drat for easier forking 
+ 
+        * R/archivePackages.R (.check_location_arg): Add helper function 
+        * R/initRepo.R (initRepo): Use helper function 
+        * R/insertPackage.R (insertPackage): Ditto 
+        * R/pruneRepo.R (getRepoInfo): Ditto, use option location 
+ 
+2021-03-13  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+         * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * R/initRepo.R (initRepo): New option location to allow use of docs/ 
+        directory instead of gh-pages branch 
+        * R/insertPackage.R (insertPackage): Ditto 
+        * man/initRepo.Rd: Documentation for new location option 
+        * man/insertPackage.Rd: Ditto 
+ 
 2021-02-24  Dirk Eddelbuettel  <edd@debian.org> 
  
         * docs-src/mkdocs.yml: No longer show vignette overview 

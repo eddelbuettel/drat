@@ -7,44 +7,27 @@ as they are being ‘shadowed’ by a newer version of the same packages.
 
 ### Usage
 
-    getRepoInfo(
-      repopath = getOption("dratRepo", "~/git/drat"),
+    getRepoInfo(repopath = getOption("dratRepo", "~/git/drat"),
       type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-        "mac.binary.mavericks", "win.binary", "both"),
-      pkg,
-      version = getRversion()
-    )
-    
-    pruneRepo(
-      repopath = getOption("dratRepo", "~/git/drat"),
-      type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-        "win.binary", "both"),
-      pkg,
-      version = getRversion(),
-      remove = FALSE
-    )
-    
-    pruneRepoForAllRversions(
-      repopath = getOption("dratRepo", "~/git/drat"),
-      type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-        "win.binary", "both"),
-      pkg,
-      remove = FALSE
-    )
-    
-    updateRepo(
-      repopath = getOption("dratRepo", "~/git/drat"),
-      type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-        "win.binary", "both"),
-      version = NA,
-      ...
-    )
+      "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
+
+    pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
+      "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary",
+      "both"), pkg, version = getRversion(), remove = FALSE)
+
+    pruneRepoForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
+      type = c("source", "mac.binary", "mac.binary.el-capitan",
+      "mac.binary.mavericks", "win.binary", "both"), pkg, remove = FALSE)
+
+    updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
+      type = c("source", "mac.binary", "mac.binary.el-capitan",
+      "mac.binary.mavericks", "win.binary", "both"), version = NA, ...)
 
 ### Arguments
 
 | Argument   | Description                                                                                                                                                                                                                                                                                                             |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repopath` | Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"\~/git/drat"” as fallback                                                                                                                                                                                           |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `repopath` | Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"~/git/drat"” as fallback                                                                                                                                                                                            |
 | `type`     | Character variable for the type of repository, so far “source”, “binary”, “win.binary”, “mac.binary”, “mac.binary.mavericks”, “mac.binary.el-capitan” or “both”                                                                                                                                                         |
 | `pkg`      | Optional character variable specifying a package name, whose older versions should be pruned. If missing (the default), pruning is performed on all packages.                                                                                                                                                           |
 | `version`  | R version information in the format `X.Y` or `X.Y.Z`. Only used, if pruning binary packages. (default: `version = getRversion()`). If `version = NA`, all available R versions will be used. If `version = NULL`, this defaults to `getRversion()`.                                                                     |

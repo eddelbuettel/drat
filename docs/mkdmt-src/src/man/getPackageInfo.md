@@ -12,7 +12,7 @@ This function returns the compile-time information added to the
 ### Arguments
 
 | Argument | Description                             |
-| -------- | --------------------------------------- |
+|----------|-----------------------------------------|
 | `file`   | the fully qualified path of the package |
 
 ### Value

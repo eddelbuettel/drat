@@ -776,10 +776,12 @@
                 
                 <h2 id="intialize-a-git-repo-for-drat">Intialize a git repo for drat</h2>
 <h3 id="description">Description</h3>
-<p>This helper function create a new repository, creates and checks out
-‘gh-pages’ branch and fills it with the required path.</p>
+<p>This helper function creates a new repository, creates and checks out
+the default GitHub Pages location (either the ‘gh-pages’ branch or
+directory ‘docs’) and fills it with the required new paths.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>initRepo(name = "drat", basepath = "~/git")
+<pre><code>initRepo(name = "drat", basepath = getOption("dratDirectory", "~/git"),
+  location = getOption("dratBranch", "gh-pages"))
 </code></pre>
 <h3 id="arguments">Arguments</h3>
 <table>
@@ -796,12 +798,18 @@
 </tr>
 <tr>
 <td><code>basepath</code></td>
-<td>A character variable with path to the directory in which the new repository is to be created. The default value is “"\~/git"”.</td>
+<td>A character variable with path to the directory in which the new repository is to be created. The default value is “~/git” and can be overriden via option ‘dratDirectory’.</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>A character variable with the GitHub Pages location: either “gh-pages” indicating a branch of that name, or “docs/” directory in the main branch. The default value can be overridden via the “dratBranch” option.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="details">Details</h3>
-<p>Currently only ‘src/contrib’ for source repositories is supported.</p>
+<p>Currently only ‘src/contrib’ for source repositories is supported by
+this function. The <code>insertPackage()</code> function knows to deal with
+binaries for different architectures.</p>
 <p>This function is still undergoing development and polish and may change
 in subsequent versions.</p>
 <h3 id="value">Value</h3>

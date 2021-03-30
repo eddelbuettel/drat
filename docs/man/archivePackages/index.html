@@ -779,20 +779,13 @@
 <p>The function moves older versions of packages into a CRAN-style archive
 folder.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>archivePackages(
-  repopath = getOption("dratRepo", "~/git/drat"),
+<pre><code>archivePackages(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
-  pkg,
-  version = getRversion()
-)
+  "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
 
-archivePackagesForAllRversions(
-  repopath = getOption("dratRepo", "~/git/drat"),
+archivePackagesForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
-  pkg
-)
+  "mac.binary.mavericks", "win.binary", "both"), pkg)
 </code></pre>
 <h3 id="arguments">Arguments</h3>
 <table>
@@ -805,7 +798,7 @@ archivePackagesForAllRversions(
 <tbody>
 <tr>
 <td><code>repopath</code></td>
-<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"\~/git/drat"” as fallback</td>
+<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"~/git/drat"” as fallback</td>
 </tr>
 <tr>
 <td><code>type</code></td>

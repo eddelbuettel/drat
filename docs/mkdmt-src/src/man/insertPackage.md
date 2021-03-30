@@ -11,28 +11,24 @@ repository.
 
 ### Usage
 
-    insertPackage(
-      file,
-      repodir = getOption("dratRepo", "~/git/drat"),
-      commit = FALSE,
-      pullfirst = FALSE,
-      action = c("none", "archive", "prune"),
-      ...
-    )
-    
+    insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
+      commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
+      "prune"), location = getOption("dratBranch", "gh-pages"), ...)
+
     insertPackages(file, ...)
-    
+
     insert(...)
 
 ### Arguments
 
 | Argument    | Description                                                                                                                                                                                                                                                                                                    |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `file`      | One or more R package(s) in source or binary format                                                                                                                                                                                                                                                            |
 | `repodir`   | A local directory corresponding to the repository top-level directory.                                                                                                                                                                                                                                         |
 | `commit`    | Either boolean toggle to select automatic git operations ‘add’, ‘commit’, and ‘push’ or, alternatively, a character variable can be used to specify a commit message; this also implies the ‘TRUE’ values in other contexts.                                                                                   |
 | `pullfirst` | Boolean toggle to call `git pull` before inserting the package.                                                                                                                                                                                                                                                |
 | `action`    | A character string containing one of: “none” (the default; add the new package into the repo, effectively masking previous versions), “archive” (place any previous versions into a package-specific archive folder, creating such an archive if it does not already exist), or “prune” (calling `pruneRepo`). |
+| `location`  | A character variable with the GitHub Pages location: either “gh-pages” indicating a branch of that name, or “docs/” directory in the main branch. The default value can be overridden via the “dratBranch” option.                                                                                             |
 | `...`       | For `insert` the aliases variant, a catch-all collection of parameters. For `insertPackage` arguments passed to `write_PACKAGES` currently include `latestOnly`, for which the default value is set here to `FALSE`. See `write_PACKAGES`.                                                                     |
 
 ### Details
@@ -56,11 +52,11 @@ NULL is returned.
 
 Set using `options`
 
-  - `dratRepo`  
-    Path to git repo. Defaults to `~/git/drat`
+`dratRepo`  
+Path to git repo. Defaults to `~/git/drat`
 
-  - `dratBranch`  
-    The git branch to store packages on. Defaults to `gh-pages`
+`dratBranch`  
+The git branch to store packages on. Defaults to `gh-pages`
 
 ### Author(s)
 
@@ -71,10 +67,10 @@ Dirk Eddelbuettel
     ## Not run: 
       insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
       insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
-    
+
     ## End(Not run)
     ## Not run: 
       insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
       insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
-    
+
     ## End(Not run)

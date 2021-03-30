@@ -811,14 +811,9 @@ as other publically available repositories. This function aids in the
 process, and defaults to inserting a given source archive into a given
 repository.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>insertPackage(
-  file,
-  repodir = getOption("dratRepo", "~/git/drat"),
-  commit = FALSE,
-  pullfirst = FALSE,
-  action = c("none", "archive", "prune"),
-  ...
-)
+<pre><code>insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
+  commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
+  "prune"), location = getOption("dratBranch", "gh-pages"), ...)
 
 insertPackages(file, ...)
 
@@ -854,6 +849,10 @@ insert(...)
 <td>A character string containing one of: “none” (the default; add the new package into the repo, effectively masking previous versions), “archive” (place any previous versions into a package-specific archive folder, creating such an archive if it does not already exist), or “prune” (calling <code>pruneRepo</code>).</td>
 </tr>
 <tr>
+<td><code>location</code></td>
+<td>A character variable with the GitHub Pages location: either “gh-pages” indicating a branch of that name, or “docs/” directory in the main branch. The default value can be overridden via the “dratBranch” option.</td>
+</tr>
+<tr>
 <td><code>...</code></td>
 <td>For <code>insert</code> the aliases variant, a catch-all collection of parameters. For <code>insertPackage</code> arguments passed to <code>write_PACKAGES</code> currently include <code>latestOnly</code>, for which the default value is set here to <code>FALSE</code>. See <code>write_PACKAGES</code>.</td>
 </tr>
@@ -873,16 +872,10 @@ is used.</p>
 <p>NULL is returned.</p>
 <h3 id="options">Options</h3>
 <p>Set using <code>options</code></p>
-<ul>
-<li>
 <p><code>dratRepo</code><br />
-    Path to git repo. Defaults to <code>~/git/drat</code></p>
-</li>
-<li>
+Path to git repo. Defaults to <code>~/git/drat</code></p>
 <p><code>dratBranch</code><br />
-    The git branch to store packages on. Defaults to <code>gh-pages</code></p>
-</li>
-</ul>
+The git branch to store packages on. Defaults to <code>gh-pages</code></p>
 <h3 id="authors">Author(s)</h3>
 <p>Dirk Eddelbuettel</p>
 <h3 id="examples">Examples</h3>

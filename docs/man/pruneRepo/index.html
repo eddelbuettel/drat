@@ -779,38 +779,21 @@
 <p>The function determines which packages in a repositories can be removed
 as they are being ‘shadowed’ by a newer version of the same packages.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>getRepoInfo(
-  repopath = getOption("dratRepo", "~/git/drat"),
+<pre><code>getRepoInfo(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
-  pkg,
-  version = getRversion()
-)
+  "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
 
-pruneRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  version = getRversion(),
-  remove = FALSE
-)
+pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
+  "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary",
+  "both"), pkg, version = getRversion(), remove = FALSE)
 
-pruneRepoForAllRversions(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  remove = FALSE
-)
+pruneRepoForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan",
+  "mac.binary.mavericks", "win.binary", "both"), pkg, remove = FALSE)
 
-updateRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  version = NA,
-  ...
-)
+updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan",
+  "mac.binary.mavericks", "win.binary", "both"), version = NA, ...)
 </code></pre>
 <h3 id="arguments">Arguments</h3>
 <table>
@@ -823,7 +806,7 @@ updateRepo(
 <tbody>
 <tr>
 <td><code>repopath</code></td>
-<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"\~/git/drat"” as fallback</td>
+<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"~/git/drat"” as fallback</td>
 </tr>
 <tr>
 <td><code>type</code></td>
