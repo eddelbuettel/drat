@@ -5,7 +5,7 @@ Dirk Eddelbuettel
 
 ## Drat Overview
 
-The [drat](http://dirk.eddelbuettel.com/code/drat.html) package makes it
+The [drat](https://dirk.eddelbuettel.com/code/drat.html) package makes it
 trivially easy to deploy package repositories.  There are essentially just
 two ways to use a package repository:
 
@@ -13,13 +13,13 @@ two ways to use a package repository:
 1) You _read_ from the reposiory as a _package user_ to install or update one or more packages.
 
 This vignette deals with the second case: How to use
-[drat](http://dirk.eddelbuettel.com/code/drat.html) as package users.  A
+[drat](https://dirk.eddelbuettel.com/code/drat.html) as package users.  A
 [companion vignette for package authors](/vignettes/dratforauthors) is available as well.
 
 
 ## Case 1: Using GitHub
 
-[drat](http://dirk.eddelbuettel.com/code/drat.html) makes it _very_ easy to
+[drat](https://dirk.eddelbuettel.com/code/drat.html) makes it _very_ easy to
 use an R package repository hosted on GitHub.  It assumes simply that the R
 package repository is hosted in a GitHub repository named `drat`.  With that,
 we only need one piece of information: the name of the repository (and if
@@ -64,7 +64,7 @@ location URL with `file:`.
 
 ## Summary
 
-[drat](http://dirk.eddelbuettel.com/code/drat.html) makes it very easy to
+[drat](https://dirk.eddelbuettel.com/code/drat.html) makes it very easy to
 register additional package repositories. One or more calls to
 `drat::addRepo()` is all that it takes as shown above. After that, one can
 use `install.packages()` or `update.packages()` just as before, but with the

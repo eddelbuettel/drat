@@ -43,11 +43,11 @@ helps creating and using R package repositories easier_.
 
 Glad you asked.  We have written
 
-+ a [package webpage](http://dirk.eddelbuettel.com/code/drat.html) giving a
++ a [package webpage](https://dirk.eddelbuettel.com/code/drat.html) giving a
 first instroduction
-+ several [blog posts](http://dirk.eddelbuettel.com/blog/code/drat/) on the package
++ several [blog posts](https://dirk.eddelbuettel.com/blog/code/drat/) on the package
 and its releases
-+ the [GitHub page README](http://github.com/eddelbuettel/drat)
++ the [GitHub page README](https://github.com/eddelbuettel/drat)
 + several [vignettes accessible from the package page](https://cran.r-project.org/package=drat)
 and other places.
 + the [drat repo page](http://eddelbuettel.github.io/drat)
@@ -59,8 +59,8 @@ Several answers:
 
 + Because it is there and used by ever increasing numbers of package authors.
 + Because it is pretty fast and reliable, no matter where in the world you are.
-+ Because it _already gives every repository owner a web-server_ via the
-gh-pages branch.
++ Because it _already gives every repository owner a web-server_ via either a
+gh-pages branch or a `docs/` directory.
 + Because all we need is a web-server and some file system space
 + Because the single variable `user` uniquely identifies a URL
 `user.github.io/drat/`, and communicating a single variable is easier than

@@ -99,3 +99,6 @@ addToDrat(){
 }
 addToDrat
 ```
+
+If you use a `docs/` directory in the main branch, omit `git checkout
+gh-pages` and use `cd docs` instead.

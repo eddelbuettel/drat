@@ -4,10 +4,12 @@ Steven Pav and Dirk Eddelbuettel
 2015-03-27  
 
 > Note: This was originally a 
-> [guest post](http://dirk.eddelbuettel.com/blog/2015/03/13#drat_guest_post_why_drat)
+> [guest post](https://dirk.eddelbuettel.com/blog/2015/03/13#drat_guest_post_why_drat)
 > by Steven on Dirk's blog.
 
-After playing around with [drat](http://dirk.eddelbuettel.com/code/drat.html) for a few
+### Why Drat?
+
+After playing around with [drat](https://dirk.eddelbuettel.com/code/drat.html) for a few
 days now, my impressions of it are best captured by Dirk's quote:
 
 > It just works.
@@ -56,7 +58,7 @@ to ask of my colleagues. With drat, they can instead add the following stanza to
 `drat:::addRepo('localRepo','file:///mnt/NAS/r/local/drat')`, and then rely on `update.packages`
 to do the rest.
 
-I suspect that in the future, [drat](http://dirk.eddelbuettel.com/code/drat.html) might be (ab)used in the following ways:
+I suspect that in the future, [drat](https://dirk.eddelbuettel.com/code/drat.html) might be (ab)used in the following ways:
 
 3. Rolling your own vanilla CRAN mirror, though I suspect there are better existing
 ways to accomplish this.
