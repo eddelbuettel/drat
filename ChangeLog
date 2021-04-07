@@ -1,3 +1,8 @@
+2021-04-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratStepByStep.md: Add new 'step-by-step' vignette
+	written with Roman Hornung
+
 2021-03-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/CombiningDratAndTravis.Rmd: Note on docs/, https:// use
