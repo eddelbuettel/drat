@@ -1,6 +1,6 @@
 2021-04-07  Dirk Eddelbuettel  <edd@debian.org>
 
-	* vignettes/DratStepByStep.md: Add new 'step-by-step' vignette
+	* vignettes/DratStepByStep.Rmd: Add new 'step-by-step' vignette
 	written with Roman Hornung
 
 	* vignettes/Makefile: Also process .md files
