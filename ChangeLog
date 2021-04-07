@@ -3,6 +3,8 @@
 	* vignettes/DratStepByStep.md: Add new 'step-by-step' vignette
 	written with Roman Hornung
 
+	* vignettes/Makefile: Also process .md files
+
 2021-03-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/CombiningDratAndTravis.Rmd: Note on docs/, https:// use

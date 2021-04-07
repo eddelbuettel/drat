@@ -1,10 +1,14 @@
 
-sources := 		$(wildcard *.Rmd)
-vignettes := 		$(sources:.Rmd=.html)
+rmdsources :=		$(wildcard *.Rmd)
+rmdvignettes :=		$(rmdsources:.Rmd=.html)
 
-all:			${vignettes}
+mdsources :=		$(wildcard *.md)
+mdvignettes :=		$(mdsources:.md=.html)
+
+all:			${rmdvignettes} ${mdvignettes}
 
 %.html:			%.Rmd
 			r -lrmarkdown -e"render(\"$<\")"
 
-
+%.html:			%.md
+			r -lrmarkdown -e"render(\"$<\")"
