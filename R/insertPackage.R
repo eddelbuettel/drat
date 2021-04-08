@@ -255,17 +255,24 @@ getPackageInfo <- function(file) {
 
     td <- tempdir()
     if (grepl(".zip$", file)) {
-        unzip(file, exdir = td)
+        unzip(file, exdir = td) # Windows
     } else if (grepl(".tgz$", file)) {
-        untar(file, exdir = td)
+        untar(file, exdir = td) # macOS
     } else {
+        # Source
         ##stop("Not sure we can handle ", file, call.=FALSE)
         fields <- c("Source" = TRUE, "Rmajor" = NA, "osxFolder" = "")
         return(fields)
     }
-
+    
+    # Working with data from compressed file only from here on
     pkgname <- gsub("^([a-zA-Z0-9.]*)_.*", "\\1", basename(file))
     path <- file.path(td, pkgname, "DESCRIPTION")
+    if(!file.exists(path)){
+        stop("DESCRIPTION file cannot be opened in '",file,"'. It is expected ",
+             "to be located in the base directory of compressed file.",
+             call. = FALSE)
+    }
     builtstring <- read.dcf(path, 'Built')
     unlink(file.path(td, pkgname), recursive = TRUE)
 
