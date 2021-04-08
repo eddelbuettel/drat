@@ -77,7 +77,7 @@
 </ul>
 <pre class="shell="><code>git clone git@github.com:donalduck/quacking</code></pre>
 <p>This will <em>clone</em> the repository to your local machine which creates a local copy typically used for read-only access.</p>
-<p>Now that you have the source, create a package from them via <code>R CMD build .</code> inside the <code>quacking</code> repository. This will generate are source file, say <code>quacking_1.2.3.tar.gz</code>.</p>
+<p>Now that you have the source, create a package from them via <code>R CMD build .</code> inside the <code>quacking</code> repository. This will generate a source file, say <code>quacking_1.2.3.tar.gz</code>, for this repository.</p>
 <p>(You can also create a binary package if you want, and/or do so from, say, within RStudio.<br />
 We focus on command-line use here.)</p>
 </section>
@@ -105,7 +105,7 @@ options(dratBranch=&quot;docs&quot;)   # to default to using docs/ as we set up
 insertPackage(file=c(&quot;quacking/quacking_1.2.3.tar.gz&quot;, &quot;quacking/quacking_1.2.3.zip&quot;), 
               repodir=&quot;drat/&quot;)</code></pre>
 <p>In the above “1.2.3” is a possible placeholder for the actual version number of the quacking package, just as quacking is a placeholder for your actual package of interest. This will add the quacking source and binary package to the folders <code>drat/docs/src/contrib</code> and <code>drat/docs/bin/windows/contrib/4.0</code>. If you only have a source package, just omit the binary package ending in <code>.zip</code>.</p>
-<p>Optionally, change to content of the file <code>drat/README.md</code> to fit your purpose. The file can be also be deleted altogether.</p>
+<p>Optionally, change the content of the file <code>drat/README.md</code> to fit your purpose. The file can be also be deleted altogether.</p>
 </section>
 <section id="finalising" class="level4">
 <h4>Finalising</h4>
@@ -124,7 +124,7 @@ git push origin master</code></pre>
 <h4>Test it</h4>
 <p>To test whether the package can be installed from your new repository, type in R</p>
 <pre class="r="><code>install.packages(&quot;quacking&quot;, repos=&quot;https://yourname.github.io/drat&quot;)</code></pre>
-<p>and verify that the package is installed successfully. (Note that you may have to say <code>type=&quot;source&quot;</code> if your operating prefers source installation and you only added a source version to your <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repository.)</p>
+<p>and verify that the package is installed successfully. (Note that you may have to say <code>type=&quot;source&quot;</code> if your operating system prefers source installation and you only added a source version to your <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repository.)</p>
 </section>
 <section id="use-the-drat-repo" class="level4">
 <h4>Use the <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repo</h4>

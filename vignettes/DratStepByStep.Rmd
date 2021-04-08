@@ -53,7 +53,7 @@ git clone git@github.com:donalduck/quacking
 This will _clone_ the repository to your local machine which creates a local copy typically used for read-only access.
 
 Now that you have the source, create a package from them via `R CMD build .` inside the `quacking` repository.
-This will generate are source file, say `quacking_1.2.3.tar.gz`.
+This will generate a source file, say `quacking_1.2.3.tar.gz`, for this repository.
 
 (You can also create a binary package if you want, and/or do so from, say, within RStudio.  
 We focus on command-line use here.)
@@ -118,7 +118,7 @@ In the above "1.2.3" is a possible placeholder for the actual version number of 
 This will add the quacking source and binary package to the folders `drat/docs/src/contrib` and `drat/docs/bin/windows/contrib/4.0`.
 If you only have a source package, just omit the binary package ending in `.zip`.
 
-Optionally, change to content of the file `drat/README.md` to fit your purpose. 
+Optionally, change the content of the file `drat/README.md` to fit your purpose. 
 The file can be also be deleted altogether.
 
 #### Finalising 
@@ -153,7 +153,7 @@ install.packages("quacking", repos="https://yourname.github.io/drat")
 ```
 
 and verify that the package is installed successfully.
-(Note that you may have to say `type="source"` if your operating prefers source installation and you only added a source version to your [`drat`](https://github.com/eddelbuettel/drat) repository.)
+(Note that you may have to say `type="source"` if your operating system prefers source installation and you only added a source version to your [`drat`](https://github.com/eddelbuettel/drat) repository.)
 
 #### Use the [`drat`](https://github.com/eddelbuettel/drat) repo
 
