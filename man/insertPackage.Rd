@@ -7,9 +7,15 @@
 \alias{insert}
 \title{Insert a package source or binary file into a drat repository}
 \usage{
-insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
-  commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
-  "prune"), location = getOption("dratBranch", "gh-pages"), ...)
+insertPackage(
+  file,
+  repodir = getOption("dratRepo", "~/git/drat"),
+  commit = FALSE,
+  pullfirst = FALSE,
+  action = c("none", "archive", "prune"),
+  location = getOption("dratBranch", "gh-pages"),
+  ...
+)
 
 insertPackages(file, ...)
 

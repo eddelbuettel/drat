@@ -3,26 +3,44 @@
 \name{pruneRepo}
 \alias{pruneRepo}
 \alias{getRepoInfo}
-\alias{pruneRepo}
 \alias{pruneRepoForAllRversions}
 \alias{updateRepo}
 \title{Prune repository from older copies of packages}
 \usage{
-getRepoInfo(repopath = getOption("dratRepo", "~/git/drat"),
+getRepoInfo(
+  repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-  "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
+    "mac.binary.mavericks", "win.binary", "both"),
+  pkg,
+  version = getRversion(),
+  location = getOption("dratBranch", "gh-pages")
+)
 
-pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
-  "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary",
-  "both"), pkg, version = getRversion(), remove = FALSE)
+pruneRepo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  pkg,
+  version = getRversion(),
+  remove = FALSE,
+  location = getOption("dratBranch", "gh-pages")
+)
 
-pruneRepoForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan",
-  "mac.binary.mavericks", "win.binary", "both"), pkg, remove = FALSE)
+pruneRepoForAllRversions(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  pkg,
+  remove = FALSE
+)
 
-updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan",
-  "mac.binary.mavericks", "win.binary", "both"), version = NA, ...)
+updateRepo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  version = NA,
+  ...
+)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;
@@ -43,6 +61,11 @@ default), pruning is performed on all packages.}
 (default: \code{version = getRversion()}). If \code{version = NA}, all
 available R versions will be used. If \code{version = NULL}, this defaults
 to \code{getRversion()}.}
+
+\item{location}{An optional character variable with the GitHub Pages location:
+either \dQuote{gh-pages} indicating a branch of that name, or
+\dQuote{docs/} directory in the main branch. The default value can
+be overridden via the \dQuote{dratBranch} option.}
 
 \item{remove}{Character or logical variable indicating whether
 files should be removed. Nothing happens if \sQuote{FALSE}. If
