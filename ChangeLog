@@ -1,3 +1,8 @@
+2021-04-08  Felix Ernst  <felix.gm.ernst@outlook.com>
+
+	tests/skeleton_git2r.R: Refactored and restructed for docs/ use
+	R/insertPackage.R: Add error message if DESCRIPTION not found
+
 2021-04-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/DratStepByStep.Rmd: Add new 'step-by-step' vignette
