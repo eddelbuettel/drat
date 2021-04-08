@@ -1,7 +1,5 @@
 
-testSkeletonGit2r <- function() {
-  wd <- tempdir()
-
+testSkeletonGit2r <- function(wd) {
   # options(error=traceback)
 
   # make a package to test with
@@ -268,7 +266,13 @@ testRepoActions <- function(repodir){
   }
 }
 
+wd <- tempdir()
 if (requireNamespace("git2r", quietly=TRUE)) {
-    repodir <- testSkeletonGit2r()
+    options("dratBranch" = "gh-pages")
+    repodir <- testSkeletonGit2r(wd)
     testRepoActions(repodir)
+    unlink(file.path(wd,"drat"), recursive = TRUE)
 }
+options("dratBranch" = "docs")
+repodir <- testSkeletonGit2r(wd)
+testRepoActions(repodir)
