@@ -266,13 +266,16 @@ testRepoActions <- function(repodir){
   }
 }
 
+runTest <- function(wd, location = "gh-pages"){
+  options("dratBranch" = location)
+  repodir <- testSkeletonGit2r(wd)
+  testRepoActions(repodir)
+  unlink(file.path(wd,"foo"), recursive = TRUE)
+  unlink(file.path(wd,"drat"), recursive = TRUE)
+}
+
 wd <- tempdir()
 if (requireNamespace("git2r", quietly=TRUE)) {
-    options("dratBranch" = "gh-pages")
-    repodir <- testSkeletonGit2r(wd)
-    testRepoActions(repodir)
-    unlink(file.path(wd,"drat"), recursive = TRUE)
+  runTest(wd, "gh-pages")
 }
-options("dratBranch" = "docs")
-repodir <- testSkeletonGit2r(wd)
-testRepoActions(repodir)
+runTest(wd, "docs")
