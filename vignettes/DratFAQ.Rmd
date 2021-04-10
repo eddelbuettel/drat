@@ -2,7 +2,11 @@
 title: "Drat Frequently Asked Questions"
 author: "Dirk Eddelbuettel"
 date: "2016-10-27"
-output: rmarkdown::html_vignette
+output:
+  minidown::mini_document:
+    framework: water
+    toc: true
+    toc_float: true
 vignette: >
   %\VignetteIndexEntry{Drat Frequently Asked Questions}
   %\VignetteEngine{knitr::rmarkdown}
