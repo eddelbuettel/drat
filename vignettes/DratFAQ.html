@@ -148,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>several <a href="https://dirk.eddelbuettel.com/blog/code/drat/">blog posts</a> on the package and its releases</li>
 <li>the <a href="https://github.com/eddelbuettel/drat">GitHub page README</a></li>
 <li>several <a href="https://cran.r-project.org/package=drat">vignettes accessible from the package page</a> and other places.</li>
-<li>the <a href="http://eddelbuettel.github.io/drat">drat repo page</a></li>
+<li>the <a href="https://eddelbuettel.github.io/drat/">drat repo page</a></li>
 </ul>
 </section>
 <section id="why-the-focus-on-github" class="level2">
@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="can-drat-act-as-an-additional_repositories" class="level2">
 <h2>Can drat act as an <code>Additional_repositories</code> ?</h2>
-<p>Glad you asked! In fact, you can use <a href="https://github.com/search?q=Additional_repositories+drat&amp;type=Code&amp;utf8=%E2%9C%93">this GitHub query</a> to find several dozen of packages using <code>Additional_repositories</code> to point to drat repos (still having drat in their name; other such as <a href="http://packages.ropensci.org/">packages.ropensci.org</a> may use domain nane such that the search may miss them). One example we used to point to here changed however. So for a more stable use case, one example from my packages: the <a href="https://cran.r-project.org/package=RcppRedis">RcppRedis package</a> points <a href="https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21">via this line</a> to the <a href="http://ghrr.github.io/drat">ghrr drat</a> to (optionally) use the <a href="https://github.com/eddelbuettel/rcppmsgpack">RcppMsgPack</a> package (which is not on CRAN as it uses a MsgPack release newer than what it in Debian).</p>
+<p>Glad you asked! In fact, you can use <a href="https://github.com/search?q=Additional_repositories+drat&amp;type=Code&amp;utf8=%E2%9C%93">this GitHub query</a> to find several dozen of packages using <code>Additional_repositories</code> to point to drat repos (still having drat in their name; other such as <a href="http://packages.ropensci.org/">packages.ropensci.org</a> may use domain nane such that the search may miss them). One example we used to point to here changed however. So for a more stable use case, one example from my packages: the <a href="https://cran.r-project.org/package=RcppRedis">RcppRedis package</a> points <a href="https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21">via this line</a> to the <a href="https://ghrr.github.io/drat/">ghrr drat</a> to (optionally) use the <a href="https://github.com/eddelbuettel/rcppmsgpack">RcppMsgPack</a> package (which is not on CRAN as it uses a MsgPack release newer than what it in Debian).</p>
 </section>
 <section id="what-about-the-minicran-package" class="level2">
 <h2>What about the miniCRAN package?</h2>

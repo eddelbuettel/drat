@@ -12,7 +12,7 @@ vignette: >
 ---
 
 > Note: This was originally a 
-> [guest post](https://dirk.eddelbuettel.com/blog/2015/03/13#drat_guest_post_why_drat)
+> [guest post](https://dirk.eddelbuettel.com/blog/2015/03/13/)
 > by Steven on Dirk's blog.
 
 ### Why Drat?

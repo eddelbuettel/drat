@@ -53,11 +53,11 @@ repo](https://github.com/drat-base/drat) instead. See below for more.
 
 See the vignettes
 
-- [Drat FAQ](https://eddelbuettel.github.io/drat/vignettes/dratfaq),
-- [Drat for Package Authors](https://eddelbuettel.github.io/drat/vignettes/dratforauthors),
-- [Drat for Package Users](https://eddelbuettel.github.io/drat/vignettes/dratforusers)
-- [Why Drat?](https://eddelbuettel.github.io/drat/vignettes/whydrat)
-- [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis)
+- [Drat FAQ](https://eddelbuettel.github.io/drat/vignettes/dratfaq/),
+- [Drat for Package Authors](https://eddelbuettel.github.io/drat/vignettes/dratforauthors/),
+- [Drat for Package Users](https://eddelbuettel.github.io/drat/vignettes/dratforusers/)
+- [Why Drat?](https://eddelbuettel.github.io/drat/vignettes/whydrat/)
+- [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
 - [Drat Lightning Talk at useR!2015](https://dirk.eddelbuettel.com/papers/useR2015_drat.pdf)
 
 for the FAQ, two principal uses cases, basic motivation and an overview / introduction.
@@ -110,7 +110,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
  - [arilamstein](https://github.com/arilamstein/drat)
  - [piccolbo](https://github.com/piccolbo/drat)
  - [ghrr](https://github.com/ghrr/drat)
- - [cloudyr](https://cloudyr.github.io/drat)
+ - [cloudyr](https://cloudyr.github.io/drat/)
  - [dmlc](https://github.com/dmlc/drat)
  - [thospfuller](https://github.com/thospfuller/drat)
 
@@ -124,8 +124,7 @@ about it.
 
 Colin Gillespie has started to integrate [Travis CI](https://www.travis-ci.org) with drat, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more details, and the
-contributed vignette [Combining Drat and
-Travis](https://eddelbuettel.github.io/drat/CombiningDratAndTravis.html)
+contributed vignette [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
 
 ### Author
 
