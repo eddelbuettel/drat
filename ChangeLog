@@ -1,5 +1,7 @@
 2021-04-10  Dirk Eddelbuettel  <edd@debian.org>
 
+	* vignettes/CombiningDratAndTravis.Rmd: Use to minidown and water
+
 	* DESCRIPTION (Depends): Increase to R (>= 3.6)
 
 2021-04-08  Dirk Eddelbuettel  <edd@debian.org>

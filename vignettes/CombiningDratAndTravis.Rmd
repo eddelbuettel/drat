@@ -2,7 +2,11 @@
 title: "Combining Drat and Travis CI"
 author: "Colin Gillespie and Dirk Eddelbuettel"
 date: "Written 2015-04-14, updated 2021-03-29"
-output: rmarkdown::html_vignette
+output:
+  minidown::mini_document:
+    framework: water
+    toc: true
+    toc_float: true
 vignette: >
   %\VignetteIndexEntry{Combining Drat and Travis CI}
   %\VignetteEngine{knitr::rmarkdown}
