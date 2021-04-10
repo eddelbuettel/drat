@@ -1,42 +1,19 @@
 <!DOCTYPE html>
-
-<html>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
 <head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<meta name="author" content="Dirk Eddelbuettel" />
-
-<meta name="date" content="2015-05-24" />
-
-<title>Drat Basics for Package Authors: Distributing Packages</title>
-
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
-
-
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Dirk Eddelbuettel" />
+  <meta name="dcterms.date" content="2015-05-24" />
+  <title>Drat Basics for Package Authors: Distributing Packages</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style>
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -100,71 +77,75 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
-
-
-
-
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
-
-
-
-
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+  <link href="data:text/css,%40charset%20%22UTF%2D8%22%3Bbody%7Bfont%2Dfamily%3Asystem%2Dui%2C%2Dapple%2Dsystem%2CBlinkMacSystemFont%2CSegoe%20UI%2CRoboto%2COxygen%2CUbuntu%2CCantarell%2CFira%20Sans%2CDroid%20Sans%2CHelvetica%20Neue%2Csans%2Dserif%3Bline%2Dheight%3A1%2E4%3Bmax%2Dwidth%3A800px%3Bmargin%3A20px%20auto%3Bpadding%3A0%2010px%3Bcolor%3A%23363636%3Bbackground%3A%23fff%3Btext%2Drendering%3AoptimizeLegibility%7Dbutton%2Cinput%2Ctextarea%7Btransition%3Abackground%2Dcolor%20%2E1s%20linear%2Cborder%2Dcolor%20%2E1s%20linear%2Ccolor%20%2E1s%20linear%2Cbox%2Dshadow%20%2E1s%20linear%2Ctransform%20%2E1s%20ease%7Dh1%7Bfont%2Dsize%3A2%2E2em%3Bmargin%2Dtop%3A0%7Dh1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%7Bmargin%2Dbottom%3A12px%7Dh1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%2Cstrong%7Bcolor%3A%23000%7Db%2Ch1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%2Cstrong%2Cth%7Bfont%2Dweight%3A600%7Dblockquote%7Bborder%2Dleft%3A4px%20solid%20rgba%280%2C150%2C191%2C%2E67%29%3Bmargin%3A1%2E5em%200%3Bpadding%3A%2E5em%201em%3Bfont%2Dstyle%3Aitalic%7Dblockquote%3Efooter%7Bmargin%2Dtop%3A10px%3Bfont%2Dstyle%3Anormal%7Daddress%2Cblockquote%20cite%7Bfont%2Dstyle%3Anormal%7Da%5Bhref%5E%3Dmailto%5D%3Abefore%7Bcontent%3A%22%F0%9F%93%A7%20%22%7Da%5Bhref%5E%3Dtel%5D%3Abefore%7Bcontent%3A%22%F0%9F%93%9E%20%22%7Da%5Bhref%5E%3Dsms%5D%3Abefore%7Bcontent%3A%22%F0%9F%92%AC%20%22%7Dbutton%2Cinput%5Btype%3Dbutton%5D%2Cinput%5Btype%3Dcheckbox%5D%2Cinput%5Btype%3Dsubmit%5D%7Bcursor%3Apointer%7Dinput%3Anot%28%5Btype%3Dcheckbox%5D%29%3Anot%28%5Btype%3Dradio%5D%29%2Cselect%7Bdisplay%3Ablock%7Dbutton%2Cinput%2Cselect%2Ctextarea%7Bcolor%3A%23000%3Bbackground%2Dcolor%3A%23efefef%3Bfont%2Dfamily%3Ainherit%3Bfont%2Dsize%3Ainherit%3Bmargin%2Dright%3A6px%3Bmargin%2Dbottom%3A6px%3Bpadding%3A10px%3Bborder%3Anone%3Bborder%2Dradius%3A6px%3Boutline%3Anone%7Dbutton%2Cinput%3Anot%28%5Btype%3Dcheckbox%5D%29%3Anot%28%5Btype%3Dradio%5D%29%2Cselect%2Ctextarea%7B%2Dwebkit%2Dappearance%3Anone%7Dtextarea%7Bmargin%2Dright%3A0%3Bwidth%3A100%25%3Bbox%2Dsizing%3Aborder%2Dbox%3Bresize%3Avertical%7Dbutton%2Cinput%5Btype%3Dbutton%5D%2Cinput%5Btype%3Dsubmit%5D%7Bpadding%2Dright%3A30px%3Bpadding%2Dleft%3A30px%7Dbutton%3Ahover%2Cinput%5Btype%3Dbutton%5D%3Ahover%2Cinput%5Btype%3Dsubmit%5D%3Ahover%7Bbackground%3A%23ddd%7Dbutton%3Afocus%2Cinput%3Afocus%2Cselect%3Afocus%2Ctextarea%3Afocus%7Bbox%2Dshadow%3A0%200%200%202px%20rgba%280%2C150%2C191%2C%2E67%29%7Dbutton%3Aactive%2Cinput%5Btype%3Dbutton%5D%3Aactive%2Cinput%5Btype%3Dcheckbox%5D%3Aactive%2Cinput%5Btype%3Dradio%5D%3Aactive%2Cinput%5Btype%3Dsubmit%5D%3Aactive%7Btransform%3AtranslateY%282px%29%7Dbutton%3Adisabled%2Cinput%3Adisabled%2Cselect%3Adisabled%2Ctextarea%3Adisabled%7Bcursor%3Anot%2Dallowed%3Bopacity%3A%2E5%7D%3A%3A%2Dwebkit%2Dinput%2Dplaceholder%7Bcolor%3A%23949494%7D%3A%2Dms%2Dinput%2Dplaceholder%7Bcolor%3A%23949494%7D%3A%3A%2Dms%2Dinput%2Dplaceholder%7Bcolor%3A%23949494%7D%3A%3Aplaceholder%7Bcolor%3A%23949494%7Da%7Btext%2Ddecoration%3Anone%3Bcolor%3A%230076d1%7Da%3Ahover%7Btext%2Ddecoration%3Aunderline%7Dcode%2Ckbd%7Bbackground%3A%23efefef%3Bcolor%3A%23000%3Bpadding%3A5px%3Bborder%2Dradius%3A6px%7Dpre%3Ecode%7Bpadding%3A10px%3Bdisplay%3Ablock%3Boverflow%2Dx%3Aauto%7Dimg%7Bmax%2Dwidth%3A100%25%7Dhr%7Bborder%3Anone%3Bborder%2Dtop%3A1px%20solid%20%23dbdbdb%7Dtable%7Bborder%2Dcollapse%3Acollapse%3Bmargin%2Dbottom%3A10px%3Bwidth%3A100%25%7Dtd%2Cth%7Bpadding%3A6px%3Btext%2Dalign%3Aleft%7Dth%7Bborder%2Dbottom%3A1px%20solid%20%23dbdbdb%7Dtbody%20tr%3Anth%2Dchild%282n%29%7Bbackground%2Dcolor%3A%23efefef%7D%3A%3A%2Dwebkit%2Dscrollbar%7Bheight%3A10px%3Bwidth%3A10px%7D%3A%3A%2Dwebkit%2Dscrollbar%2Dtrack%7Bbackground%3A%23efefef%3Bborder%2Dradius%3A6px%7D%3A%3A%2Dwebkit%2Dscrollbar%2Dthumb%7Bbackground%3A%23d5d5d5%3Bborder%2Dradius%3A6px%7D%3A%3A%2Dwebkit%2Dscrollbar%2Dthumb%3Ahover%7Bbackground%3A%23c4c4c4%7D%0A%0A" rel="stylesheet" />
+  <link href="data:text/css,%0Acode%20%7B%0Apadding%3A%202px%3B%0Aborder%2Dradius%3A%20unset%3B%0A%7D%0A%0Apre%20%7B%0Abackground%2Dcolor%3A%20unset%3B%0Aborder%3A%20solid%20%23aaa%201px%3B%0Apadding%3A%208px%3B%0A%7D%0Apre%2EnumberSource%20%7B%0Amargin%3A%200%3B%0Apadding%2Dleft%3A%200%3B%0A%7D%0Adiv%2EsourceCode%20%7B%0Aoverflow%3A%20visible%3B%0A%7D%0Apre%2C%20pre%2EsourceCode%20%7B%0Aoverflow%2Dx%3A%20auto%3B%0A%7D%0Apre%3Ecode%20%7B%0Awhite%2Dspace%3A%20pre%3B%0Aoverflow%3A%20visible%3B%0Abackground%2Dcolor%3A%20unset%3B%0Apadding%3A%200%3B%0A%7D%0Apre%2EsourceCode%2EnumberSource%20%7B%0Aoverflow%2Dx%3A%20visible%3B%0A%7D%0Apre%2EsourceCode%2EnumberSource%3Ecode%20%7B%0Awhite%2Dspace%3A%20pre%2Dwrap%0A%7D%0Apre%2EsourceCode%2EnumberSource%3Ecode%3Espan%20%7B%0Aleft%3A%208px%3B%0Atext%2Dindent%3A%20%2D4%2E6em%3B%0A%7D%0A%0A%2Echunk%2Dsummary%20%7B%0Atext%2Dalign%3A%20right%3B%0A%7D%0A%2Echunk%2Dsummary%2Bpre%2C%0A%2Echunk%2Dsummary%2Bdiv%2EsourceCode%20%7B%0Amargin%2Dtop%3A%202px%3B%0A%7D%0A%0Anav%20%3E%20ul%20%7B%0Aborder%3A%20%2E0625rem%20solid%20%23444%3B%0Aborder%2Dradius%3A%204px%3B%0Amargin%3A%205px%3B%0Apadding%3A%205px%3B%0A%7D%0Anav%20ul%20%7B%0Alist%2Dstyle%2Dtype%3A%20none%3B%0Apadding%2Dinline%2Dstart%3A%201rem%3B%0A%7D%0Anav%20ul%20li%20%7B%0Apadding%3A%200%3B%0A%7D%0Anav%20ul%20ul%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0Apadding%2Dtop%3A%200%3B%0Apadding%2Dbottom%3A%200%3B%0A%7D%0Anav%20code%20%7B%0Abackground%2Dcolor%3A%20unset%3B%0Acolor%3A%20unset%3B%0A%7D%0A" rel="stylesheet" />
+  <link href="data:text/css,%40media%20screen%20and%20%28max%2Dwidth%3A%20960px%29%20%7B%0Aheader%2C%20nav%2C%20article%20%7B%0Apadding%3A%200%203rem%3B%0A%7D%0A%7D%0A%23TOC%20%7B%0Afont%2Dsize%3A%200%2E9em%3B%0Aborder%3A%20none%3B%0A%7D%0A%23TOC%20%3E%20ul%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0A%7D%0A%23TOC%20ul%20%7B%0Amargin%3A%200%3B%0A%7D%0A%23TOC%20li%2C%20%23TOC%20a%20%7B%0Amargin%3A%200%3B%0Apadding%3A%200%3B%0A%7D%0A" rel="stylesheet" />
+  <link href="data:text/css,%2Etooltip%20%7B%0Aposition%3A%20relative%3B%0Adisplay%3A%20inline%2Dblock%3B%0A%7D%0A%2Etooltip%3Abefore%2C%20%2Etooltip%3Aafter%20%7B%0Aposition%3A%20absolute%3B%0Aopacity%3A%200%3B%0Aclip%3A%20rect%280%200%200%200%29%3B%0A%2Dwebkit%2Dclip%2Dpath%3A%20inset%28100%25%29%3B%0Aclip%2Dpath%3A%20inset%28100%25%29%3B%0Atransition%3A%20all%200%2E3s%3B%0Az%2Dindex%3A%201010%3B%0Aleft%3A%2050%25%3B%0A%7D%0A%2Etooltip%3Anot%28%2Ebottom%29%3Abefore%2C%20%2Etooltip%3Anot%28%2Ebottom%29%3Aafter%20%7B%0Abottom%3A%2075%25%3B%0A%7D%0A%2Etooltip%2Ebottom%3Abefore%2C%20%2Etooltip%2Ebottom%3Aafter%20%7B%0Atop%3A%2075%25%3B%0A%7D%0A%2Etooltip%3Ahover%3Abefore%2C%20%2Etooltip%3Ahover%3Aafter%2C%20%2Etooltip%3Afocus%3Abefore%2C%20%2Etooltip%3Afocus%3Aafter%20%7B%0Aopacity%3A%201%3B%0Aclip%3A%20auto%3B%0A%2Dwebkit%2Dclip%2Dpath%3A%20inset%280%25%29%3B%0Aclip%2Dpath%3A%20inset%280%25%29%3B%0A%7D%0A%2Etooltip%3Abefore%20%7B%0Acontent%3A%20%27%27%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%2E5rem%20solid%20transparent%3B%0Aleft%3A%20calc%2850%25%20%2D%200%2E5rem%29%3B%0A%7D%0A%2Etooltip%3Anot%28%2Ebottom%29%3Abefore%20%7B%0Aborder%2Dtop%2Dcolor%3A%20%23212121%3B%0A%7D%0A%2Etooltip%2Ebottom%3Abefore%20%7B%0Aborder%2Dbottom%2Dcolor%3A%20%23212121%3B%0A%7D%0A%2Etooltip%3Aafter%20%7B%0Acontent%3A%20attr%28aria%2Dlabel%29%3B%0Acolor%3A%20%23fafafa%3B%0Abackground%3A%20%23212121%3B%0Aborder%2Dradius%3A%200%2E125rem%3B%0Apadding%3A%200%2E5rem%3B%0Awhite%2Dspace%3A%20nowrap%3B%0Atransform%3A%20translateX%28%2D50%25%29%3B%0A%7D%0A%2Etooltip%3Anot%28%2Ebottom%29%3Aafter%20%7B%0Amargin%2Dbottom%3A%201rem%3B%0A%7D%0A%2Etooltip%2Ebottom%3Aafter%20%7B%0Amargin%2Dtop%3A%201rem%3B%0A%7D%0A" rel="stylesheet" />
+  <link href="data:text/css,%3Aroot%20%7B%0A%2D%2Dtoc%2Dwidth%3A%20300px%3B%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%20960px%29%20%7B%0Abody%20%7B%0Amax%2Dwidth%3A%20100vw%3B%0Amargin%3A%200%3B%0Apadding%3A%200%3B%0A%7D%0Amain%20%7B%0Adisplay%3A%20grid%3B%0Agrid%2Dtemplate%2Dcolumns%3A%20var%28%2D%2Dtoc%2Dwidth%29%201fr%3B%0Agrid%2Dtemplate%2Drows%3A%20auto%20auto%3B%0A%7D%0A%23TOC%20%7B%0Agrid%2Drow%3A%201%20%2F%20%2D1%3B%0Agrid%2Dcolumn%3A%201%20%2F%202%3B%0Aborder%3A%20none%3B%0Amargin%3A%200%3B%0Awidth%3A%20var%28%2D%2Dtoc%2Dwidth%29%3B%0A%7D%0A%23TOC%20%3E%20ul%20%7B%0Apadding%2Dtop%3A%200%3B%0Apadding%2Dbottom%3A%200%3B%0Aposition%3A%20sticky%3B%0Amax%2Dheight%3A%20100vh%3B%0Aoverflow%2Dy%3A%20auto%3B%0Atop%3A%200%3B%0Aborder%3A%20none%3B%0A%7D%0A%23TOC%20%3E%20ul%20%3E%20li%3Afirst%2Dchild%20%7B%0Apadding%2Dtop%3A%200%2E5rem%3B%0A%7D%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%20960px%29%20and%20%28max%2Dwidth%3A%201260px%29%20%7B%0Amain%20%7B%0Awidth%3A%20calc%28100vw%20%2D%202rem%29%3B%0A%7D%0Aheader%2C%20article%20%7B%0Awidth%3A%20calc%28100vw%20%2D%20var%28%2D%2Dtoc%2Dwidth%29%20%2D%206rem%29%3B%0Apadding%3A%200%200%200%204rem%3B%0A%7D%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%201260px%29%20%7B%0Amain%20%7B%0Awidth%3A%20calc%281260px%20%2D%202rem%29%3B%0Amargin%3A%200%20calc%2850vw%20%2D%20480px%29%200%20auto%3B%0A%7D%0Aheader%2C%20article%20%7B%0Awidth%3A%20calc%28960px%20%2D%206rem%29%3B%0Apadding%3A%200%200%200%204rem%3B%0A%7D%0A%7D%0A" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous" data-external="1">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous" data-external="1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);" data-external="1"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ],
+        displayMode: true
+      });
+    });
+  </script>
 </head>
-
 <body>
-
-
-
-
-<h1 class="title toc-ignore">Drat Basics for Package Authors: Distributing Packages</h1>
-<h4 class="author">Dirk Eddelbuettel</h4>
-<h4 class="date">2015-05-24</h4>
-
-
-
-<div id="drat-overview" class="section level2">
+<main>
+<header id="title-block-header">
+<h1 class="title">Drat Basics for Package Authors: Distributing Packages</h1>
+<p class="author">Dirk Eddelbuettel</p>
+<p class="date">2015-05-24</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#drat-overview">Drat Overview</a></li>
+<li><a href="#case-1-using-github">Case 1: Using GitHub</a>
+<ul>
+<li><a href="#github-as-a-web-server">GitHub as a Web Server</a></li>
+<li><a href="#place-files-into-the-local-repo">Place Files into the Local Repo</a></li>
+<li><a href="#github-and-travis-integration">GitHub and Travis Integration</a></li>
+</ul></li>
+<li><a href="#case-2-using-another-server-or-local-storage">Case 2: Using Another Server or Local Storage</a>
+<ul>
+<li><a href="#place-files-into-the-local-repo-1">Place Files into the Local Repo</a></li>
+</ul></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</nav>
+<article>
+<section id="drat-overview" class="level2">
 <h2>Drat Overview</h2>
 <p>The <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> package makes it trivially easy to deploy package repositories. There are essentially just two ways to use a package repository:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>You <em>write</em> to the repository as a <em>package author</em> to publish your package; or</li>
 <li>You <em>read</em> from the reposiory as a <em>package user</em> to install or update one or more packages.</li>
 </ol>
 <p>This vignette deals with the first case: How to use <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> as a package author. A <a href="DratForPackageUsers.html">companion vignette for package users</a> is available as well.</p>
-</div>
-<div id="case-1-using-github" class="section level2">
+</section>
+<section id="case-1-using-github" class="level2">
 <h2>Case 1: Using GitHub</h2>
-<div id="github-as-a-web-server" class="section level3">
+<section id="github-as-a-web-server" class="level3">
 <h3>GitHub as a Web Server</h3>
 <p>The core motivation for <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> comes from <a href="http://github.com">GitHub</a> and its implied web server. As you may know, <em>any</em> GitHub user (or organization) can enable a website for a given repository. All it takes is to create either a <a href="http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">git branch</a> named <code>gh-pages</code> (if following the original scheme), or creating a directory <code>docs/</code> in the main branch. After that, a website should be automatically visible (though you should check under ‘Settings’).</p>
 <p>To make this more explicit, consider a hypothetical user John with account <code>johndoe</code>. Once John creates a repo <code>foo</code> and in it a branch <code>gh-pages</code> (or an activated directory <code>docs/</code>), he will have a web address <code>http://johndoe.github.io/foo</code> for this repo.</p>
 <p>More formally, for a user <code>USER</code>, and a given repo named <code>drat</code>, we can always assume <code>http://USER.github.io/drat</code>.</p>
 <p>So for you as a package author with a given GitHub account, all that is needed is a repository named <code>drat</code> with a <code>gh-pages</code> branch. If you are familiar with <code>git</code> at the command-line, you can just create the branch (and the <code>src/contrib/</code> directory structure in it; see below).</p>
 <p>If you are less familiar with git, a really easy shortcut is to simply <a href="https://help.github.com/articles/fork-a-repo/">fork</a> the actual <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> repo. It contains the drat source code which you could keep, or remove. The fork only serves to set up the required directory layout, and the <code>src/contrib/</code> directory.</p>
-</div>
-<div id="place-files-into-the-local-repo" class="section level3">
+</section>
+<section id="place-files-into-the-local-repo" class="level3">
 <h3>Place Files into the Local Repo</h3>
 <p>We can now assume that you have a local git repository named <code>drat</code> with a subdirectory <code>src</code> containing a further subdirectory <code>contrib</code>.</p>
 <p>You are now ready to insert a package into it. For simplicit, let us assume the package is named <code>myPkg</code> and is at version 0.5. So <code>R CMD build</code> created a file <code>myPkg_0.5.tar.gz</code>.</p>
@@ -176,13 +157,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>drat<span class="sc">::</span><span class="fu">insertPackage</span>(<span class="st">&quot;myPkg_0.5.tar.gz&quot;</span>, <span class="st">&quot;/srv/projects/git/drat&quot;</span>)</span></code></pre></div>
 <p>In either case, the package will be copied into the repo, and the PACKAGES file will be updated.</p>
 <p>Lastly, if you have <code>git</code> (the command-line tool) or the wicked <a href="https://cran.r-project.org/package=git2r">git2r</a> package installed, then you can also use the <code>commit=TRUE</code> option to have the new files added and committed. Neither of these variant pushes, so that last step is left to the user (as it commonly requires authentication).</p>
-</div>
-<div id="github-and-travis-integration" class="section level3">
+</section>
+<section id="github-and-travis-integration" class="level3">
 <h3>GitHub and Travis Integration</h3>
 <p><a href="https://github.com/csgillespie">Colin Gillespie</a> has provided a nice walk-through of how to have <a href="https://travis-ci.org/">Travis CI</a> automagically push packages into a <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> repo. This is included as another (currently work-in-progress) vignette entitled <a href="https://github.com/eddelbuettel/drat/blob/master/vignettes/CombiningDratAndTravis.Rmd">Combining Drat And Travis</a> which can be found in the <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> package just like this vignette.</p>
-</div>
-</div>
-<div id="case-2-using-another-server-or-local-storage" class="section level2">
+</section>
+</section>
+<section id="case-2-using-another-server-or-local-storage" class="level2">
 <h2>Case 2: Using Another Server or Local Storage</h2>
 <p>Use of <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> is not limited to GitHub. Any server you can</p>
 <ul>
@@ -190,36 +171,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>serve via http or file access from</li>
 </ul>
 <p>is suitable. A common use case may be a local repository within a work group or deparment, meant to be locally accessible but not from an outside network.</p>
-<div id="place-files-into-the-local-repo-1" class="section level3">
+<section id="place-files-into-the-local-repo-1" class="level3">
 <h3>Place Files into the Local Repo</h3>
 <p>This is similar to the usage described above. Suppose that you are part of groupABC which has access to directory on shared filesystem somewhere, say under <code>/nfs/groups/groupABC/</code> where you created a directory <code>drat</code> within a directory <code>R</code>. We once again require that the resulting directory <code>/nfs/groups/groupABC/R/drat</code> contains a <code>src/contrib</code> directory structure.</p>
 <p>Hence, the following command would copy the package and update the index files:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## insert given package into given repo on a network-local file system</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>drat<span class="sc">::</span><span class="fu">insertPackage</span>(<span class="st">&quot;myPkg_0.5.tar.gz&quot;</span>, <span class="st">&quot;file://nfs/groups/groupABC/R/drat&quot;</span>)</span></code></pre></div>
 <p>This updates the PACKAGES file (and its compressed variant) after which the repository is ready to serve files. See <a href="DratForPackageUsers.html">the companion vignette</a> for how to deploy it. Note that the location URL should begin with <code>file:</code>.</p>
-</div>
-</div>
-<div id="summary" class="section level2">
+</section>
+</section>
+<section id="summary" class="level2">
 <h2>Summary</h2>
 <p><a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> permits package authors to add packages very easily to R package repositories. These repositories can be public, and GitHub provides a very natural option to serve a package repository via the web server (based on either the <code>gh-pages</code> branch of a drat or a <code>docs/</code> directory) to serve as GitHub Pages.</p>
 <p>Repositories can also be local (and private) as well: all that <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> requires to add packages is write access to a directory.</p>
 <p>Lastly, serving that directory as a repository then requires a web server (easiest via the automatic GitHub repo option) or other file access. How to access packages from <a href="https://dirk.eddelbuettel.com/code/drat.html">drat</a> repository is described in <a href="DratForPackageUsers.html">the companion vignette</a>.</p>
-</div>
-
-
-
-<!-- code folding -->
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
+</section>
+</article>
+</main>
 </body>
 </html>

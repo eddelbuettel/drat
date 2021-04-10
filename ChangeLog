@@ -2,6 +2,7 @@
 
 	* vignettes/CombiningDratAndTravis.Rmd: Use to minidown and water
 	* vignettes/DratFAQ.Rmd: Idem
+	* vignettes/DratForPackageAuthors.Rmd: Idem
 
 	* DESCRIPTION (Depends): Increase to R (>= 3.6)
 
