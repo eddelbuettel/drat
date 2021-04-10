@@ -2,7 +2,11 @@
 title: "Drat Basics for Package Users: Installing or Updating Packages"
 author: "Dirk Eddelbuettel"
 date: "2015-05-24"
-output: rmarkdown::html_vignette
+output:
+  minidown::mini_document:
+    framework: water
+    toc: true
+    toc_float: true
 vignette: >
   %\VignetteIndexEntry{Drat Basics for Package Users: Installing or Updating Packages}
   %\VignetteEngine{knitr::rmarkdown}
