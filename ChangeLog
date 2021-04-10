@@ -1,3 +1,7 @@
+2021-04-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Depends): Increase to R (>= 3.6)
+
 2021-04-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* vignettes/DratStepByStep.Rmd: Fix more typos thanks to Roman

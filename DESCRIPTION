@@ -8,7 +8,7 @@ Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Neal Fultz,
  Steven Pav, Jan Schulz, Christoph Stepper, Felix G.M. Ernst and Patrick 
  Schratz. 
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
-Depends: R (>= 3.2.0)
+Depends: R (>= 3.6.0)
 Imports: utils
 Suggests: git2r, knitr, rmarkdown
 VignetteBuilder: knitr
