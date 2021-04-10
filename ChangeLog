@@ -15,6 +15,7 @@
 	* man/drat-package.Rd: Idem
 	* vignettes/DratFAQ.Rmd: Idem
 	* vignettes/DratForPackageAuthors.Rmd: Idem
+	* vignettes/DratStepByStep.Rmd: Idem
 	* vignettes/WhyDrat.Rmd: Idem
 
 2021-04-08  Dirk Eddelbuettel  <edd@debian.org>

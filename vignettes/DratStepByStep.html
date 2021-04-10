@@ -69,7 +69,7 @@
 <p>We first prepare the other depended-upon <a href="https://www.r-project.org">R</a> package so it is ready for upload to the to-be-created (not yet existing) new repository.</p>
 <p>We start by downloading this <a href="https://www.r-project.org">R</a> package from its GitHub repository.</p>
 <ul>
-<li>Go to the GitHub page of the package, e.g. <a href="https://github.com/donaldduck/quacking" class="uri">https://github.com/donaldduck/quacking</a>, and click the green “Code” button.</li>
+<li>Go to the GitHub page of the package, e.g. <code>https://github.com/donaldduck/quacking</code>, and click the green “Code” button.</li>
 <li>The “Clone” option should have choices for http, ssh, the newer CLI.</li>
 <li>If you have an ssh key registered at GitHub, choose ssh.</li>
 <li>Else http is fine (though the frequent password checks get tiring).</li>
@@ -83,8 +83,8 @@ We focus on command-line use here.)</p>
 </section>
 <section id="create-the-drat-repository" class="level4">
 <h4>Create the <code>drat</code> repository</h4>
-<p>Go to <a href="https://github.com/drat-base/drat" class="uri">https://github.com/drat-base/drat</a> and fork the repository by clicking the button “Fork”. You now have a <em>remote</em> copy of that repository named <a href="https://github.com/YourName/drat" class="uri">https://github.com/YourName/drat</a> that can serve as your <code>drat</code> repository, and to which we will add your own content below. (There are other ways using <em>e.g.</em> <code>dratInit()</code> but we ignore this here to focus on the start via forking.)</p>
-<p>Next, we have to ensure your <code>drat</code> repository can server over https. Go to “Settings” on <a href="https://github.com/YourName/drat" class="uri">https://github.com/YourName/drat</a> and scroll down to “GitHub Pages”. Specify “master” below “Branch” and “docs” right of it and click “Save”. GitHub should now state that <em>Your site is ready to be published</em> and list <a href="https://YourName.github.io/drat/" class="uri">https://YourName.github.io/drat/</a> as its address. Note that the forked <code>drat</code> repository still contains a copy of the <code>drat</code> sources (in order to be a viable repository.) Once you added your content, you can remove it, or just keep it.</p>
+<p>Go to <a href="https://github.com/drat-base/drat" class="uri">https://github.com/drat-base/drat</a> and fork the repository by clicking the button “Fork”. You now have a <em>remote</em> copy of that repository named <code>https://github.com/YourName/drat</code> that can serve as your <code>drat</code> repository, and to which we will add your own content below. (There are other ways using <em>e.g.</em> <code>dratInit()</code> but we ignore this here to focus on the start via forking.)</p>
+<p>Next, we have to ensure your <code>drat</code> repository can server over https. Go to “Settings” on <code>https://github.com/YourName/drat</code> and scroll down to “GitHub Pages”. Specify “master” below “Branch” and “docs” right of it and click “Save”. GitHub should now state that <em>Your site is ready to be published</em> and list <code>https://YourName.github.io/drat/</code> as its address. Note that the forked <code>drat</code> repository still contains a copy of the <code>drat</code> sources (in order to be a viable repository.) Once you added your content, you can remove it, or just keep it.</p>
 </section>
 <section id="create-a-local-copy-of-your-fork" class="level4">
 <h4>Create a local copy of your fork</h4>
@@ -137,7 +137,7 @@ git push origin master</code></pre>
 </section>
 <section id="additional-optional-step" class="level4">
 <h4>Additional optional step</h4>
-<p>As the directory has no content, browsing <a href="https://yourname.github.io/drat" class="uri">https://yourname.github.io/drat</a> will show “404 File not found”. If you want to show empty pages there instead, you should add an empty “index.html” to the repository “drat”:</p>
+<p>As the directory has no content, browsing <code>https://yourname.github.io/drat</code> will show “404 File not found”. If you want to show empty pages there instead, you should add an empty “index.html” to the repository “drat”:</p>
 <ul>
 <li>Using an editor just make an empty file named “index.html” (file extension “html”).</li>
 <li>Copy “index.html” to the directory “drat/docs”.</li>

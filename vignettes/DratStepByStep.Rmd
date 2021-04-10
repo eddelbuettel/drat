@@ -40,7 +40,7 @@ We first prepare the other depended-upon [R](https://www.r-project.org) package 
 
 We start by downloading this [R](https://www.r-project.org) package from its GitHub repository.
 
-- Go to the GitHub page of the package, e.g. https://github.com/donaldduck/quacking, and click the green "Code" button.
+- Go to the GitHub page of the package, e.g. `https://github.com/donaldduck/quacking`, and click the green "Code" button.
 - The "Clone" option should have choices for http, ssh, the newer CLI. 
 - If you have an ssh key registered at GitHub, choose ssh.
 - Else http is fine (though the frequent password checks get tiring).
@@ -63,13 +63,13 @@ We focus on command-line use here.)
 #### Create the `drat` repository
 
 Go to https://github.com/drat-base/drat and fork the repository by clicking the button "Fork".
-You now have a _remote_ copy of that repository named https://github.com/YourName/drat that can serve as your `drat` repository, and to which we will add your own content below.
+You now have a _remote_ copy of that repository named `https://github.com/YourName/drat` that can serve as your `drat` repository, and to which we will add your own content below.
 (There are other ways using _e.g._ `dratInit()` but we ignore this here to focus on the start via forking.)
 
 Next, we have to ensure your `drat` repository can server over https. 
-Go to "Settings" on https://github.com/YourName/drat and scroll down to "GitHub Pages".
+Go to "Settings" on `https://github.com/YourName/drat` and scroll down to "GitHub Pages".
 Specify "master" below "Branch" and "docs" right of it and click "Save". 
-GitHub should now state that _Your site is ready to be published_ and list https://YourName.github.io/drat/ as its address.
+GitHub should now state that _Your site is ready to be published_ and list `https://YourName.github.io/drat/` as its address.
 Note that the forked `drat` repository still contains a copy of the `drat` sources (in order to be a viable repository.)
 Once you added your content, you can remove it, or just keep it.
 
@@ -168,7 +168,7 @@ If everything passes, you are now ready for submission to CRAN.
 
 #### Additional optional step
 
-As the directory has no content, browsing  https://yourname.github.io/drat will show "404 File not found". 
+As the directory has no content, browsing `https://yourname.github.io/drat` will show "404 File not found". 
 If you want to show empty pages there instead, you should add an empty "index.html" to the repository "drat":
 
 - Using an editor just make an empty file named "index.html" (file extension "html").
