@@ -4,6 +4,7 @@
 	* vignettes/DratFAQ.Rmd: Idem
 	* vignettes/DratForPackageAuthors.Rmd: Idem
  	* vignettes/DratForPackageUsers.Rmd: Idem
+	* vignettes/WhyDrat.Rmd: Idem
 
 	* DESCRIPTION (Depends): Increase to R (>= 3.6)
 

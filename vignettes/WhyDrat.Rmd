@@ -2,7 +2,9 @@
 title: "Why Drat?"
 author: "Steven Pav and Dirk Eddelbuettel"
 date: "2015-03-27"
-output: rmarkdown::html_vignette
+output:
+  minidown::mini_document:
+    framework: water
 vignette: >
   %\VignetteIndexEntry{Why Drat?}
   %\VignetteEngine{knitr::rmarkdown}
