@@ -1,7 +1,7 @@
 ---
 title: Drat Step-By-Step
 author: Roman Hornung and Dirk Eddelbuettel
-date: Draft dated 2021-Apr-04
+date: 2021-Apr-04
 output:
   minidown::mini_document:
     framework: water

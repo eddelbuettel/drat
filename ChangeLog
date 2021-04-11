@@ -1,3 +1,7 @@
+2021-04-11  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratStepByStep.Rmd: Remove 'draft' from date filed
+
 2021-04-10  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Roll minor version
