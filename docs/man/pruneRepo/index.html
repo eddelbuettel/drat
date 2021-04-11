@@ -573,6 +573,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../vignettes/dratstepbystep/" class="md-nav__link">
+        Drat Step by Step
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../vignettes/whydrat/" class="md-nav__link">
         Why Drat ?
       </a>
@@ -779,21 +791,40 @@
 <p>The function determines which packages in a repositories can be removed
 as they are being ‘shadowed’ by a newer version of the same packages.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>getRepoInfo(repopath = getOption("dratRepo", "~/git/drat"),
+<pre><code>getRepoInfo(
+  repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-  "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
+    "mac.binary.mavericks", "win.binary", "both"),
+  pkg,
+  version = getRversion(),
+  location = getOption("dratBranch", "gh-pages")
+)
 
-pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
-  "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary",
-  "both"), pkg, version = getRversion(), remove = FALSE)
+pruneRepo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  pkg,
+  version = getRversion(),
+  remove = FALSE,
+  location = getOption("dratBranch", "gh-pages")
+)
 
-pruneRepoForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan",
-  "mac.binary.mavericks", "win.binary", "both"), pkg, remove = FALSE)
+pruneRepoForAllRversions(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  pkg,
+  remove = FALSE
+)
 
-updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan",
-  "mac.binary.mavericks", "win.binary", "both"), version = NA, ...)
+updateRepo(
+  repopath = getOption("dratRepo", "~/git/drat"),
+  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
+    "win.binary", "both"),
+  version = NA,
+  ...
+)
 </code></pre>
 <h3 id="arguments">Arguments</h3>
 <table>
@@ -819,6 +850,10 @@ updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
 <tr>
 <td><code>version</code></td>
 <td>R version information in the format <code>X.Y</code> or <code>X.Y.Z</code>. Only used, if pruning binary packages. (default: <code>version = getRversion()</code>). If <code>version = NA</code>, all available R versions will be used. If <code>version = NULL</code>, this defaults to <code>getRversion()</code>.</td>
+</tr>
+<tr>
+<td><code>location</code></td>
+<td>An optional character variable with the GitHub Pages location: either “gh-pages” indicating a branch of that name, or “docs/” directory in the main branch. The default value can be overridden via the “dratBranch” option.</td>
 </tr>
 <tr>
 <td><code>remove</code></td>
