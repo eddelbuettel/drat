@@ -1,5 +1,39 @@
 ###  2021 
 
+2021-04-10  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+         * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * vignettes/CombiningDratAndTravis.Rmd: Use to minidown and water 
+        * vignettes/DratFAQ.Rmd: Idem 
+        * vignettes/DratForPackageAuthors.Rmd: Idem 
+         * vignettes/DratForPackageUsers.Rmd: Idem 
+        * vignettes/WhyDrat.Rmd: Idem 
+        * DESCRIPTION (Suggests): Add minidown (which implies rmarkdown) 
+ 
+        * DESCRIPTION (Depends): Increase to R (>= 3.6) 
+ 
+        * README.md: Sanitize some links for r-devel link checker 
+        * man/drat-package.Rd: Idem 
+        * vignettes/DratFAQ.Rmd: Idem 
+        * vignettes/DratForPackageAuthors.Rmd: Idem 
+        * vignettes/DratStepByStep.Rmd: Idem 
+        * vignettes/WhyDrat.Rmd: Idem 
+ 
+2021-04-08  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * vignettes/DratStepByStep.Rmd: Fix more typos thanks to Roman 
+ 
+2021-04-08  Felix Ernst  <felix.gm.ernst@outlook.com> 
+ 
+        tests/skeleton_git2r.R: Refactored and restructed for docs/ use 
+        R/insertPackage.R: Add error message if DESCRIPTION not found 
+ 
+2021-04-07  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * vignettes/DratStepByStep.Rmd: Add new 'step-by-step' vignette 
+        written with Roman Hornung 
+ 
 2021-03-29  Dirk Eddelbuettel  <edd@debian.org> 
  
         * vignettes/CombiningDratAndTravis.Rmd: Note on docs/, https:// use 

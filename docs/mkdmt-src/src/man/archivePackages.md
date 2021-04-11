@@ -7,13 +7,20 @@ folder.
 
 ### Usage
 
-    archivePackages(repopath = getOption("dratRepo", "~/git/drat"),
+    archivePackages(
+      repopath = getOption("dratRepo", "~/git/drat"),
       type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-      "mac.binary.mavericks", "win.binary", "both"), pkg, version = getRversion())
+        "mac.binary.mavericks", "win.binary", "both"),
+      pkg,
+      version = getRversion()
+    )
 
-    archivePackagesForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
+    archivePackagesForAllRversions(
+      repopath = getOption("dratRepo", "~/git/drat"),
       type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-      "mac.binary.mavericks", "win.binary", "both"), pkg)
+        "mac.binary.mavericks", "win.binary", "both"),
+      pkg
+    )
 
 ### Arguments
 

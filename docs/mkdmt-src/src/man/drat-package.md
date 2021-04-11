@@ -12,8 +12,8 @@ addresses can be used.
 
 Given a user account on GitHub, say, ‘eddelbuettel’, and a repository
 ‘drat’, we can infer an top-level repostory URL as such as
-<http://eddelbuettel.github.io/drat> by supplying only the username (as
-the rest is inferred by defaults). This allows us to create easily
+<https://eddelbuettel.github.io/drat/> by supplying only the username
+(as the rest is inferred by defaults). This allows us to create easily
 useable, identifiable and shareable per-user repositories—without the
 user having to create and administer a webserver anywhere.
 

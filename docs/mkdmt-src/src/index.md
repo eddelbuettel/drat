@@ -1,19 +1,27 @@
 ## drat: Drat R Archive Template
 
-[![Build Status](https://travis-ci.org/eddelbuettel/drat.svg)](https://travis-ci.org/eddelbuettel/drat) 
-[![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
-[![CRAN](https://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat) 
-[![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat) 
+[![Build Status](https://travis-ci.org/eddelbuettel/drat.svg)](https://travis-ci.org/eddelbuettel/drat)
+[![CI](https://github.com/eddelbuettel/drat/workflows/ci/badge.svg)](https://github.com/eddelbuettel/drat/actions?query=workflow%3Aci)
+[![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![CRAN](https://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat)
+[![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat)
 [![Downloads](https://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](https://www.r-pkg.org/pkg/drat)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/drat)](https://github.com/eddelbuettel/drat)
+[![Documentation](https://img.shields.io/badge/documentation-is_here-blue)](https://eddelbuettel.github.io/drat/)
+[![Fork](https://img.shields.io/badge/fork-this_instead-orange)](https://github.com/drat-base/drat)
 
 > **drat**
 >
 > What cute people say when they are pissed off
-> 
+>
 > _"Oh Drat, i lost my wallet"_
 >
 > [Urban Dictionary](https://www.urbandictionary.com/define.php?term=drat)
+
+### Nota Bene
+
+Do **not** fork _this_ repo as a quick start towards creating your `drat`, fork [this
+repo](https://github.com/drat-base/drat) instead. See below for more.
 
 ### Background
 
@@ -40,13 +48,17 @@ Please see the next section about how to get started, the package documentation,
 
 ### Getting Started
 
-See the vignettes 
+Do **not** fork _this_ repo as a quick start towards creating your `drat`, fork [this
+repo](https://github.com/drat-base/drat) instead. See below for more.
 
-- [Drat FAQ](https://eddelbuettel.github.io/drat/vignettes/dratfaq), 
-- [Drat for Package Authors](https://eddelbuettel.github.io/drat/vignettes/dratforauthors), 
-- [Drat for Package Users](https://eddelbuettel.github.io/drat/vignettes/dratforusers)
-- [Why Drat?](https://eddelbuettel.github.io/drat/vignettes/whydrat)
-- [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis)
+See the vignettes
+
+- [Drat FAQ](https://eddelbuettel.github.io/drat/vignettes/dratfaq/),
+- [Drat for Package Authors](https://eddelbuettel.github.io/drat/vignettes/dratforauthors/),
+- [Drat for Package Users](https://eddelbuettel.github.io/drat/vignettes/dratforusers/)
+- [Drat Step by Step](https://eddelbuettel.github.io/drat/vignettes/dratstepbystep/)
+- [Why Drat?](https://eddelbuettel.github.io/drat/vignettes/whydrat/)
+- [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
 - [Drat Lightning Talk at useR!2015](https://dirk.eddelbuettel.com/papers/useR2015_drat.pdf)
 
 for the FAQ, two principal uses cases, basic motivation and an overview / introduction.
@@ -56,23 +68,30 @@ tutorial, and the
 [blog section on drat](http://dirk.eddelbuettel.com/blog/code/drat/) has even
 more.
 
+Package documentation, help pages, vignettes, and more is also available
+[here](https://eddelbuettel.github.io/drat/).
+
+
+
 ### Installation
 
-You can install the package from [CRAN](https://cran.r-project.org) via the
-standard
+The preferred approach is to install the released package from [CRAN](https://cran.r-project.org) via the standard
 
 ```{.r}
 install.packages("drat")
 ```
 
-or alternatively,  you can also do
+command.
 
-```{.r}
-install.packages("drat", repos="https://eddelbuettel.github.io/drat")
-``` 
 
-to install directly from the drat repository. 
+### Quick Start Towards Your Own Drat
 
+`drat` comes with its own repo creation helper function
+[`initRepo`](https://eddelbuettel.github.io/drat/man/initRepo/), but an even shorter path may be to
+fork an existing repo.  This has been done numerous times with this original repo. However, over
+time this repo accumulated code refinements along with more documentation making it a little
+unwieldy. So we set up [dedicated repo](https://github.com/drat-base/drat) just to facilitate `drat`
+forking.  Clone it, and you will have a ready-to-use `drat` repository.
 
 ### Status
 
@@ -92,7 +111,7 @@ A few drat repositories are starting to appear (besides this one). An incomplete
  - [arilamstein](https://github.com/arilamstein/drat)
  - [piccolbo](https://github.com/piccolbo/drat)
  - [ghrr](https://github.com/ghrr/drat)
- - [cloudyr](https://cloudyr.github.io/drat)
+ - [cloudyr](https://cloudyr.github.io/drat/)
  - [dmlc](https://github.com/dmlc/drat)
  - [thospfuller](https://github.com/thospfuller/drat)
 
@@ -104,19 +123,16 @@ about it.
 
 ### Travis Integration
 
-Colin Gillespie has started to integrate
-[Travis CI](https://www.travis-ci.org) with drat, see his
-[dratTravis](https://github.com/csgillespie/dratTravis) repository for more
-details, and the contributed vignette
-[Combining Drat and Travis](https://eddelbuettel.github.io/drat/CombiningDratAndTravis.html)
+Colin Gillespie has started to integrate [Travis CI](https://www.travis-ci.org) with drat, see his
+[dratTravis](https://github.com/csgillespie/dratTravis) repository for more details, and the
+contributed vignette [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
 
 ### Author
 
-Dirk Eddelbuettel, with contributions by Carl Boettiger, Sebastian Gibb,
-Colin Gillespie, Matt Jones, Thomas Leeper, Steven Pav, Jan Schulz,
-Christoph Stepper, Felix G.M. Ernst, and Patrick Schratz.
+Dirk Eddelbuettel, with contributions by Carl Boettiger, Sebastian Gibb, Colin Gillespie, Matt
+Jones, Thomas Leeper, Steven Pav, Jan Schulz, Christoph Stepper, Felix G.M. Ernst, and Patrick
+Schratz.
 
 ### License
 
 GPL (>= 2)
-

@@ -11,9 +11,15 @@ repository.
 
 ### Usage
 
-    insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
-      commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
-      "prune"), location = getOption("dratBranch", "gh-pages"), ...)
+    insertPackage(
+      file,
+      repodir = getOption("dratRepo", "~/git/drat"),
+      commit = FALSE,
+      pullfirst = FALSE,
+      action = c("none", "archive", "prune"),
+      location = getOption("dratBranch", "gh-pages"),
+      ...
+    )
 
     insertPackages(file, ...)
 

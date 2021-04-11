@@ -8,8 +8,11 @@ directory ‘docs’) and fills it with the required new paths.
 
 ### Usage
 
-    initRepo(name = "drat", basepath = getOption("dratDirectory", "~/git"),
-      location = getOption("dratBranch", "gh-pages"))
+    initRepo(
+      name = "drat",
+      basepath = getOption("dratDirectory", "~/git"),
+      location = getOption("dratBranch", "gh-pages")
+    )
 
 ### Arguments
 
