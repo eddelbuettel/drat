@@ -3,6 +3,29 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.2.0 (2021-04-21)}{
+  \itemize{
+    \item A documentation website for the package was added at
+    \url{https://eddelbuettel.github.io/drat/} (Dirk)
+    \item The continuous integration was switched to using \sQuote{r-ci}
+    (Dirk) 
+    \item The \code{docs/} directory of the main repository branch can
+    now be used instead of \code{gh-pages} branch (Dirk in \ghpr{112})
+    \item A new repository \url{https://github.com/drat-base/drat} can
+    now be used to fork an initial \code{drat} repository (Dirk)
+    \item A new vignette \dQuote{Drat Step-by-Step} was added (Roman
+    Hornung and Dirk in \ghpr{117} fixing \ghit{115} and \ghit{113})
+    \item The test suite was refactored for \code{docs/} use (Felix
+    Ernst in \ghpr{118})
+    \item The minimum R version is now \sQuote{R (>= 3.6)} (Dirk fixing
+    \ghit{119}) 
+    \item The vignettes were switched to \code{minidown} (Dirk fixing
+    \ghit{116})
+    \item A new test file was added to ensure \sQuote{NEWS.Rd} is always
+    at the current release version.
+  }
+}
+
 \section{Changes in drat version 0.1.8 (2020-07-18)}{
   \itemize{
     \item The archive pruning test code was corrected for r-oldrel

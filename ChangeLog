@@ -1,5 +1,7 @@
 2021-04-21  Dirk Eddelbuettel  <edd@debian.org>
 
+	* inst/NEWS.Rd: Update NEWS.Rd
+
 	* tests/version.R: Add test to ensure NEWS file is current
 
 2021-04-11  Dirk Eddelbuettel  <edd@debian.org>
