@@ -1,5 +1,19 @@
 ###  2021 
 
+2021-04-21  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.2.0 
+ 
+        * DESCRIPTION (Suggests): Add rmarkdown as required by knitr change 
+ 
+        * inst/NEWS.Rd: Update NEWS.Rd 
+ 
+        * tests/version.R: Add test to ensure NEWS file is current 
+ 
+2021-04-11  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * vignettes/DratStepByStep.Rmd: Remove 'draft' from date filed 
+ 
 2021-04-10  Dirk Eddelbuettel  <edd@debian.org> 
  
          * DESCRIPTION (Version, Date): Roll minor version 

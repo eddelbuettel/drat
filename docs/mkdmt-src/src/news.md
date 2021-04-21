@@ -1,3 +1,34 @@
+### Version 0.2.0 (2021-04-21)
+
+-   A documentation website for the package was added at
+    <https://eddelbuettel.github.io/drat/> (Dirk)
+
+-   The continuous integration was switched to using 'r-ci' (Dirk)
+
+-   The `docs/` directory of the main repository branch can now be used
+    instead of `gh-pages` branch (Dirk in
+    [\#112](https://github.com/eddelbuettel/drat/pull/112))
+
+-   A new repository <https://github.com/drat-base/drat> can now be used
+    to fork an initial `drat` repository (Dirk)
+
+-   A new vignette "Drat Step-by-Step" was added (Roman Hornung and Dirk
+    in [\#117](https://github.com/eddelbuettel/drat/pull/117) fixing
+    [\#115](https://github.com/eddelbuettel/drat/issues/115) and
+    [\#113](https://github.com/eddelbuettel/drat/issues/113))
+
+-   The test suite was refactored for `docs/` use (Felix Ernst in
+    [\#118](https://github.com/eddelbuettel/drat/pull/118))
+
+-   The minimum R version is now 'R (\>= 3.6)' (Dirk fixing
+    [\#119](https://github.com/eddelbuettel/drat/issues/119))
+
+-   The vignettes were switched to `minidown` (Dirk fixing
+    [\#116](https://github.com/eddelbuettel/drat/issues/116))
+
+-   A new test file was added to ensure 'NEWS.Rd' is always at the
+    current release version.
+
 ### Version 0.1.8 (2020-07-18)
 
 -   The archive pruning test code was corrected for r-oldrel (Felix
