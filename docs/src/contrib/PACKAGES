@@ -1,0 +1,9 @@
+Package: RcppArmadillo
+Version: 0.10.4.1.0
+Depends: R (>= 3.3.0)
+Imports: Rcpp (>= 0.11.0), stats, utils, methods
+LinkingTo: Rcpp
+Suggests: tinytest, Matrix (>= 1.3.0), pkgKitten, reticulate, slam
+License: GPL (>= 2)
+MD5sum: 01457b9be6b1b6bbe51907e77046a097
+NeedsCompilation: yes
