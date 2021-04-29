@@ -1,5 +1,7 @@
 2021-04-29  Dirk Eddelbuettel  <edd@debian.org>
 
+ 	* DESCRIPTION (Version, Date): Roll minor version
+
 	* R/insertPackage.R (getPackageInfo,identifyPackageType): Mark two
 	functions as internal as they are not exported via NAMESPACE
 	* man/getPackageInfo.Rd: Idem

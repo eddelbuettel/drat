@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.2.0.1 (2021-04-29)}{
+  \itemize{
+    \item UNRELEASED
+    \item Two internal functions now have a note in their documentation
+    stating them as not exported (Dirk in response to \ghit{123})
+  }
+}
+
 \section{Changes in drat version 0.2.0 (2021-04-21)}{
   \itemize{
     \item A documentation website for the package was added at
