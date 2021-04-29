@@ -16,6 +16,12 @@ A named vector with several components
 This function returns the compile-time information added
 to the \code{DESCRIPTION} file in the package.
 }
+\section{Note}{
+
+This is an internal function, use \code{:::} to access it from outside
+the internal package code.
+}
+
 \author{
 Dirk Eddelbuettel
 }

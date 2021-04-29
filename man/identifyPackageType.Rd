@@ -20,6 +20,12 @@ This function identifies the package type from a filename.
 \details{
 The returned string is suitable for \code{write_PACKAGES()}.
 }
+\section{Note}{
+
+This is an internal function, use \code{:::} to access it from outside
+the internal package code.
+}
+
 \author{
 Jan Schulz and Dirk Eddelbuettel
 }

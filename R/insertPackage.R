@@ -210,6 +210,9 @@ insert <- function(...) {
 ##' @title Identifies the package type from a filename
 ##' @param file An R package in source or binary format,
 ##' @param pkginfo information on the R package referenced by \code{file}
+##' @section Note:
+##' This is an internal function, use \code{:::} to access it from outside
+##' the internal package code.
 ##' @return string Type of the supplied package.
 ##' @author Jan Schulz and Dirk Eddelbuettel
 identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
@@ -248,6 +251,9 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
 ##'
 ##' @title Get information from a binary package
 ##' @param file the fully qualified path of the package
+##' @section Note:
+##' This is an internal function, use \code{:::} to access it from outside
+##' the internal package code.
 ##' @return A named vector with several components
 ##' @author Dirk Eddelbuettel
 getPackageInfo <- function(file) {
