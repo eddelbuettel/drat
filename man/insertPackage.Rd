@@ -73,6 +73,12 @@ shell command is used.
 An aliased function \code{insert} is also available, but not
 exported via \code{NAMESPACE} to not clobber a possibly unrelated
 function; use it via \code{drat:::insert()}.
+
+The function also checks for a top-level \code{index.html} file to ensure
+external tests against the repository (as for example done by CRAN if you
+list the repository as an \sQuote{Additional_repositories} in a package)
+do not return a \sQuote{404} error. If missing, a simple one-line example is
+shown.
 }
 \section{Options}{
 

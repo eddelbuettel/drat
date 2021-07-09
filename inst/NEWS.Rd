@@ -10,6 +10,8 @@
     stating them as not exported (Dirk in response to \ghit{123})
     \item Repositories created by \code{initRepo} now have an placeholder
     \code{index.html} to not trigger a \code{curl} check at CRAN (Dirk)
+    \item Adding to a repository now checks for a top-level
+    \code{index.html} and displays a message if missing (Dirk)
   }
 }
 

@@ -17,6 +17,12 @@
 ##' exported via \code{NAMESPACE} to not clobber a possibly unrelated
 ##' function; use it via \code{drat:::insert()}.
 ##'
+##' The function also checks for a top-level \code{index.html} file to ensure
+##' external tests against the repository (as for example done by CRAN if you
+##' list the repository as an \sQuote{Additional_repositories} in a package)
+##' do not return a \sQuote{404} error. If missing, a simple one-line example is
+##' shown.
+##'
 ##' @section Options:
 ##'
 ##' Set using \code{\link{options}}
@@ -90,7 +96,6 @@ insertPackage <- function(file,
         commit <- TRUE
     }
 
-    #branch <- getOption("dratBranch", "gh-pages")
     branch <- location
     if (commit && haspkg) {
         repo <- git2r::repository(repodir)
@@ -108,6 +113,12 @@ insertPackage <- function(file,
     }
 
     if (location == "docs") repodir <- file.path(repodir, location)
+
+    if (!file.exists(file.path(repodir, "index.html"))) {
+        message("The repository '", repodir, "' does not have a top-level 'index.html' file. ",
+                "Consider adding a simple file\nto avoid 404 results on the repo. A one-line ",
+                "example is '<!doctype html><title>empty</title>'.")
+    }
 
     pkginfo <- getPackageInfo(file)
     pkgtype <- identifyPackageType(file, pkginfo)

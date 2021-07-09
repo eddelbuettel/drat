@@ -1,3 +1,11 @@
+2021-07-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/initRepo.R (initRepo): Create a placeholder index.html file in
+	the top-level directory to appease CRAN check of URL
+
+ 	* R/insertPackage.R (insertPackage): Show a message if no top-level
+	file index.html is found in the given repo directory.
+
 2021-04-29  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Roll minor version
