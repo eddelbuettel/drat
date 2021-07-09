@@ -6,6 +6,9 @@
  	* R/insertPackage.R (insertPackage): Show a message if no top-level
 	file index.html is found in the given repo directory.
 
+	* vignettes/DratStepByStep.Rmd: Mention that a placeholder index.html
+	file is now installed.
+
 2021-04-29  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION (Version, Date): Roll minor version

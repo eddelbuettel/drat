@@ -12,6 +12,7 @@
     \code{index.html} to not trigger a \code{curl} check at CRAN (Dirk)
     \item Adding to a repository now checks for a top-level
     \code{index.html} and displays a message if missing (Dirk)
+    \item The DratStepByStep.Rmd
   }
 }
 
