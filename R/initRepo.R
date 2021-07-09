@@ -8,8 +8,10 @@
 ##' supported by this function. The \code{insertPackage()} function knows
 ##' to deal with binaries for different architectures.
 ##'
-##' This function is still undergoing development and polish and may
-##' change in subsequent versions.
+##' The function also installs a top-level \code{index.html} file to ensure
+##' external tests against the repository (as for example done by CRAN if you
+##' list the repository as an \sQuote{Additional_repositories} in a package)
+##' do not return a \sQuote{404} error.
 ##'
 ##' @title Intialize a git repo for drat
 ##' @param name A character variable with the name the new repository,
@@ -53,6 +55,9 @@ initRepo <- function(name = "drat",
     dir.create(file.path(dir, "src"))
     dir.create(file.path(dir, "src", "contrib"))
     ## create binary path as well ?
+
+    ## CRAN checks a repo via 'curl -I -L https:/...' which needs an index.html file
+    writeLines("<!doctype html><title>empty placeholder file</title>", file.path(dir, "index.html"))
 
     invisible(NULL)
 }

@@ -38,8 +38,10 @@ Currently only \sQuote{src/contrib} for source repositories is
 supported by this function. The \code{insertPackage()} function knows
 to deal with binaries for different architectures.
 
-This function is still undergoing development and polish and may
-change in subsequent versions.
+The function also installs a top-level \code{index.html} file to ensure
+external tests against the repository (as for example done by CRAN if you
+list the repository as an \sQuote{Additional_repositories} in a package)
+do not return a \sQuote{404} error.
 }
 \author{
 Dirk Eddelbuettel
