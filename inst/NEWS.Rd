@@ -3,16 +3,16 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
-\section{Changes in drat version 0.2.0.2 (2021-07-09)}{
+\section{Changes in drat version 0.2.1 (2021-07-09)}{
   \itemize{
-    \item UNRELEASED
     \item Two internal functions now have a note in their documentation
     stating them as not exported (Dirk in response to \ghit{123})
     \item Repositories created by \code{initRepo} now have an placeholder
     \code{index.html} to not trigger a \code{curl} check at CRAN (Dirk)
     \item Adding to a repository now checks for a top-level
     \code{index.html} and displays a message if missing (Dirk)
-    \item The DratStepByStep.Rmd
+    \item The DratStepByStep.Rmd vignette mentions the added
+    \code{index.html} file
   }
 }
 
