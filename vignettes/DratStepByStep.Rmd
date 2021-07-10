@@ -1,7 +1,7 @@
 ---
 title: Drat Step-By-Step
 author: Roman Hornung and Dirk Eddelbuettel
-date: 2021-Apr-04
+date: "Written 2021-Apr-04, updated 2021-Jul-09"
 output:
   minidown::mini_document:
     framework: water
@@ -169,7 +169,7 @@ If everything passes, you are now ready for submission to CRAN.
 #### Additional step
 
 If a directory has no content, browsing `https://yourname.github.io/drat` will show "404 File not found". 
-This can upset checks as for example the ones done by CRAN.  
+This can upset checks as for example the ones done by CRAN. 
 As of release 0.2.1, [`drat`](https://github.com/eddelbuettel/drat) inserts a minimal placeholder file to avoid this error.
 
 

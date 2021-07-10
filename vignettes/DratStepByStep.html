@@ -135,17 +135,9 @@ git push origin master</code></pre>
 </ul>
 <p>Test the package via <code>R CMD check --as-cran packageName_0.1.2.tar.gz</code>. If everything passes, you are now ready for submission to CRAN.</p>
 </section>
-<section id="additional-optional-step" class="level4">
-<h4>Additional optional step</h4>
-<p>As the directory has no content, browsing <code>https://yourname.github.io/drat</code> will show “404 File not found”. If you want to show empty pages there instead, you should add an empty “index.html” to the repository “drat”:</p>
-<ul>
-<li>Using an editor just make an empty file named “index.html” (file extension “html”).</li>
-<li>Copy “index.html” to the directory “drat/docs”.</li>
-<li>In the terminal inside the <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repository, execute</li>
-</ul>
-<pre class="shell="><code>git add docs/index.html
-git commit -m &quot;Added empty index.html&quot;
-git push origin master</code></pre>
+<section id="additional-step" class="level4">
+<h4>Additional step</h4>
+<p>If a directory has no content, browsing <code>https://yourname.github.io/drat</code> will show “404 File not found”. This can upset checks as for example the ones done by CRAN. As of release 0.2.1, <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> inserts a minimal placeholder file to avoid this error.</p>
 </section>
 </section>
 <section id="summary" class="level2">
