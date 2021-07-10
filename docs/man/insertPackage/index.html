@@ -886,6 +886,11 @@ is used.</p>
 <p>An aliased function <code>insert</code> is also available, but not exported via
 <code>NAMESPACE</code> to not clobber a possibly unrelated function; use it via
 <code>drat:::insert()</code>.</p>
+<p>The function also checks for a top-level <code>index.html</code> file to ensure
+external tests against the repository (as for example done by CRAN if
+you list the repository as an ‘Additional_repositories’ in a package)
+do not return a ‘404’ error. If missing, a simple one-line example is
+shown.</p>
 <h3 id="value">Value</h3>
 <p>NULL is returned.</p>
 <h3 id="options">Options</h3>

@@ -50,7 +50,7 @@ and its releases
 + the [GitHub page README](https://github.com/eddelbuettel/drat)
 + several [vignettes accessible from the package page](https://cran.r-project.org/package=drat)
 and other places.
-+ the [drat repo page](http://eddelbuettel.github.io/drat)
++ the [drat repo page](https://eddelbuettel.github.io/drat/)
 
 
 ## Why the focus on GitHub?
@@ -124,7 +124,7 @@ such that the search may miss them). One example we used to point to here
 changed however. So for a more stable use case, one example from my packages:
 the [RcppRedis package](https://cran.r-project.org/package=RcppRedis) points
 [via this line](https://github.com/eddelbuettel/rcppredis/blob/e103ea1cb682ea164bf8a2ae022df64154466e58/DESCRIPTION#L21)
-to the [ghrr drat](http://ghrr.github.io/drat) to (optionally) use the
+to the [ghrr drat](https://ghrr.github.io/drat/) to (optionally) use the
 [RcppMsgPack](https://github.com/eddelbuettel/rcppmsgpack) package (which is
 not on CRAN as it uses a MsgPack release newer than what it in Debian).
 

@@ -1,3 +1,17 @@
+### Version 0.2.1 (2021-07-09)
+
+-   Two internal functions now have a note in their documentation
+    stating them as not exported (Dirk in response to
+    [\#123](https://github.com/eddelbuettel/drat/issues/123))
+
+-   Repositories created by `initRepo` now have an placeholder
+    `index.html` to not trigger a `curl` check at CRAN (Dirk)
+
+-   Adding to a repository now checks for a top-level `index.html` and
+    displays a message if missing (Dirk)
+
+-   The DratStepByStep.Rmd vignette mentions the added `index.html` file
+
 ### Version 0.2.0 (2021-04-21)
 
 -   A documentation website for the package was added at

@@ -28,8 +28,10 @@ Currently only ‘src/contrib’ for source repositories is supported by
 this function. The `insertPackage()` function knows to deal with
 binaries for different architectures.
 
-This function is still undergoing development and polish and may change
-in subsequent versions.
+The function also installs a top-level `index.html` file to ensure
+external tests against the repository (as for example done by CRAN if
+you list the repository as an ‘Additional\_repositories’ in a package)
+do not return a ‘404’ error.
 
 ### Value
 

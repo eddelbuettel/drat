@@ -825,8 +825,10 @@ directory ‘docs’) and fills it with the required new paths.</p>
 <p>Currently only ‘src/contrib’ for source repositories is supported by
 this function. The <code>insertPackage()</code> function knows to deal with
 binaries for different architectures.</p>
-<p>This function is still undergoing development and polish and may change
-in subsequent versions.</p>
+<p>The function also installs a top-level <code>index.html</code> file to ensure
+external tests against the repository (as for example done by CRAN if
+you list the repository as an ‘Additional_repositories’ in a package)
+do not return a ‘404’ error.</p>
 <h3 id="value">Value</h3>
 <p>The function is invoked for its side-effects and only returns <code>NULL</code>
 invisibly.</p>

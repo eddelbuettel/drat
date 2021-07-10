@@ -23,6 +23,11 @@ The returned string is suitable for `write_PACKAGES()`.
 
 string Type of the supplied package.
 
+### Note
+
+This is an internal function, use `:::` to access it from outside the
+internal package code.
+
 ### Author(s)
 
 Jan Schulz and Dirk Eddelbuettel

@@ -586,8 +586,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#additional-optional-step" class="md-nav__link">
-    Additional optional step
+  <a href="#additional-step" class="md-nav__link">
+    Additional step
   </a>
   
 </li>
@@ -815,8 +815,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#additional-optional-step" class="md-nav__link">
-    Additional optional step
+  <a href="#additional-step" class="md-nav__link">
+    Additional step
   </a>
   
 </li>
@@ -848,7 +848,7 @@
                 
                 <h1 id="drat-step-by-step">Drat Step-By-Step</h1>
 <p>Roman Hornung and Dirk Eddelbuettel<br />
-2021-Apr-04  </p>
+Written 2021-Apr-04, update 2021-Jul-09  </p>
 <h2 id="overview-scope-and-background">Overview, Scope and Background</h2>
 <p>This step-by-step tutorial shows how to use <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> to let an <a href="https://www.r-project.org">R</a> package utilise an <a href="https://www.r-project.org">R</a> package available on some other place that is not <a href="https://cran.r-project.org">CRAN</a>.
 We will assume <a href="https://github.com">GitHub</a> here as the (source) location of the 'other' package, but any other source repository applies equally for the <em>source</em> part of the other package.</p>
@@ -950,18 +950,10 @@ git push origin master
 </ul>
 <p>Test the package via <code>R CMD check --as-cran packageName_0.1.2.tar.gz</code>.
 If everything passes, you are now ready for submission to CRAN.</p>
-<h4 id="additional-optional-step">Additional optional step</h4>
-<p>As the directory has no content, browsing <code>https://yourname.github.io/drat</code> will show "404 File not found". 
-If you want to show empty pages there instead, you should add an empty "index.html" to the repository "drat":</p>
-<ul>
-<li>Using an editor just make an empty file named "index.html" (file extension "html").</li>
-<li>Copy "index.html" to the directory "drat/docs".</li>
-<li>In the terminal inside the <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repository, execute</li>
-</ul>
-<pre><code>git add docs/index.html
-git commit -m &quot;Added empty index.html&quot;
-git push origin master
-</code></pre>
+<h4 id="additional-step">Additional step</h4>
+<p>If a directory has no content, browsing <code>https://yourname.github.io/drat</code> will show "404 File not found". 
+This can upset checks as for example the ones done by CRAN. 
+As of release 0.2.1, <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> inserts a minimal placeholder file to avoid this error.</p>
 <h2 id="summary">Summary</h2>
 <p>This step by step demonstrated how to set up a <code>drat</code> repository to serve an optional package referenced by <code>Additional_repositories</code> and <code>Suggests</code> in a CRAN-compliant way.</p>
                 

@@ -19,6 +19,11 @@ This function returns the compile-time information added to the
 
 A named vector with several components
 
+### Note
+
+This is an internal function, use `:::` to access it from outside the
+internal package code.
+
 ### Author(s)
 
 Dirk Eddelbuettel

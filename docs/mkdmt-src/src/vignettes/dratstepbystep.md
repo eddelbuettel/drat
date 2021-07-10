@@ -1,7 +1,7 @@
 # Drat Step-By-Step
 
 Roman Hornung and Dirk Eddelbuettel  
-2021-Apr-04  
+Written 2021-Apr-04, update 2021-Jul-09  
 
 
 ## Overview, Scope and Background
@@ -159,20 +159,12 @@ Test the package via `R CMD check --as-cran packageName_0.1.2.tar.gz`.
 If everything passes, you are now ready for submission to CRAN.
 
 
-#### Additional optional step
+#### Additional step
 
-As the directory has no content, browsing `https://yourname.github.io/drat` will show "404 File not found". 
-If you want to show empty pages there instead, you should add an empty "index.html" to the repository "drat":
+If a directory has no content, browsing `https://yourname.github.io/drat` will show "404 File not found". 
+This can upset checks as for example the ones done by CRAN. 
+As of release 0.2.1, [`drat`](https://github.com/eddelbuettel/drat) inserts a minimal placeholder file to avoid this error.
 
-- Using an editor just make an empty file named "index.html" (file extension "html").
-- Copy "index.html" to the directory "drat/docs".
-- In the terminal inside the [`drat`](https://github.com/eddelbuettel/drat) repository, execute
-
-```
-git add docs/index.html
-git commit -m "Added empty index.html"
-git push origin master
-```
 
 ## Summary
 

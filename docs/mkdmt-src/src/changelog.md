@@ -1,5 +1,27 @@
 ###  2021 
 
+2021-07-09  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.2.1 
+         
+        * R/initRepo.R (initRepo): Create a placeholder index.html file in 
+        the top-level directory to appease CRAN check of URL 
+ 
+         * R/insertPackage.R (insertPackage): Show a message if no top-level 
+        file index.html is found in the given repo directory. 
+ 
+        * vignettes/DratStepByStep.Rmd: Mention that a placeholder index.html 
+        file is now installed. 
+ 
+2021-04-29  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+         * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * R/insertPackage.R (getPackageInfo,identifyPackageType): Mark two 
+        functions as internal as they are not exported via NAMESPACE 
+        * man/getPackageInfo.Rd: Idem 
+        * man/identifyPackageType.Rd: Idem 
+ 
 2021-04-21  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.2.0 

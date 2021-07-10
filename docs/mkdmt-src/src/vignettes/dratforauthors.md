@@ -22,10 +22,10 @@ This vignette deals with the first case: How to use
 ### GitHub as a Web Server
 
 The core motivation for [drat](https://dirk.eddelbuettel.com/code/drat.html)
-comes from [GitHub](http://github.com) and its implied web server.  As you
+comes from [GitHub](https://github.com/) and its implied web server.  As you
 may know, _any_ GitHub user (or organization) can enable a website for a
 given repository.  All it takes is to create either a
-[git branch](http://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+[git branch](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 named `gh-pages` (if following the original scheme), or creating a directory
 `docs/` in the main branch.  After that, a website should be automatically
 visible (though you should check under 'Settings').

@@ -50,6 +50,12 @@ An aliased function `insert` is also available, but not exported via
 `NAMESPACE` to not clobber a possibly unrelated function; use it via
 `drat:::insert()`.
 
+The function also checks for a top-level `index.html` file to ensure
+external tests against the repository (as for example done by CRAN if
+you list the repository as an ‘Additional\_repositories’ in a package)
+do not return a ‘404’ error. If missing, a simple one-line example is
+shown.
+
 ### Value
 
 NULL is returned.
