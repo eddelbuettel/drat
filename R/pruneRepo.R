@@ -89,10 +89,10 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
     ## type == "both" is not supported
     ext <- if (type == "source") {
         "\\.tar\\..*$"
-    } else if (grepl("mac.binary",type)) {
-        "\\.tgz$"
     } else if (type == "win.binary") {
         "\\.zip$"
+    } else if (grepl("binary",type)) {
+        "\\.tgz$"
     } else {
         stop("Unknown package type", call. = FALSE)
     }
@@ -156,7 +156,7 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
 
 ##' @rdname pruneRepo
 pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                      type = c("source", "mac.binary", "mac.binary.el-capitan",
+                      type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
                                "mac.binary.mavericks", "win.binary", "both"), 
                       pkg,
                       version = getRversion(),
