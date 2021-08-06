@@ -25,7 +25,7 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
     }
     if("binary" %in% type){
         type <- c(type,DRAT_BINARY_TYPES)
-        type <- type[type != "binary"]
+        # type <- type[type != "binary"]
         type <- unique(type)
     }
     type
