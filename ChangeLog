@@ -1,3 +1,8 @@
+2021-11-05  Dirk Eddelbuettel  <edd@debian.org>
+
+ 	* README.md: Remove Travis badge
+	* .travis.yml: Remove Travis YAML config
+
 2021-07-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.2.1
