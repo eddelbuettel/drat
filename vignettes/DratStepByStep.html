@@ -7,52 +7,165 @@
   <meta name="author" content="Roman Hornung and Dirk Eddelbuettel" />
   <title>Drat Step-By-Step</title>
   <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-  <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
-  <link href="data:text/css,%40charset%20%22UTF%2D8%22%3Bbody%7Bfont%2Dfamily%3Asystem%2Dui%2C%2Dapple%2Dsystem%2CBlinkMacSystemFont%2CSegoe%20UI%2CRoboto%2COxygen%2CUbuntu%2CCantarell%2CFira%20Sans%2CDroid%20Sans%2CHelvetica%20Neue%2Csans%2Dserif%3Bline%2Dheight%3A1%2E4%3Bmax%2Dwidth%3A800px%3Bmargin%3A20px%20auto%3Bpadding%3A0%2010px%3Bcolor%3A%23363636%3Bbackground%3A%23fff%3Btext%2Drendering%3AoptimizeLegibility%7Dbutton%2Cinput%2Ctextarea%7Btransition%3Abackground%2Dcolor%20%2E1s%20linear%2Cborder%2Dcolor%20%2E1s%20linear%2Ccolor%20%2E1s%20linear%2Cbox%2Dshadow%20%2E1s%20linear%2Ctransform%20%2E1s%20ease%7Dh1%7Bfont%2Dsize%3A2%2E2em%3Bmargin%2Dtop%3A0%7Dh1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%7Bmargin%2Dbottom%3A12px%7Dh1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%2Cstrong%7Bcolor%3A%23000%7Db%2Ch1%2Ch2%2Ch3%2Ch4%2Ch5%2Ch6%2Cstrong%2Cth%7Bfont%2Dweight%3A600%7Dblockquote%7Bborder%2Dleft%3A4px%20solid%20rgba%280%2C150%2C191%2C%2E67%29%3Bmargin%3A1%2E5em%200%3Bpadding%3A%2E5em%201em%3Bfont%2Dstyle%3Aitalic%7Dblockquote%3Efooter%7Bmargin%2Dtop%3A10px%3Bfont%2Dstyle%3Anormal%7Daddress%2Cblockquote%20cite%7Bfont%2Dstyle%3Anormal%7Da%5Bhref%5E%3Dmailto%5D%3Abefore%7Bcontent%3A%22%F0%9F%93%A7%20%22%7Da%5Bhref%5E%3Dtel%5D%3Abefore%7Bcontent%3A%22%F0%9F%93%9E%20%22%7Da%5Bhref%5E%3Dsms%5D%3Abefore%7Bcontent%3A%22%F0%9F%92%AC%20%22%7Dbutton%2Cinput%5Btype%3Dbutton%5D%2Cinput%5Btype%3Dcheckbox%5D%2Cinput%5Btype%3Dsubmit%5D%7Bcursor%3Apointer%7Dinput%3Anot%28%5Btype%3Dcheckbox%5D%29%3Anot%28%5Btype%3Dradio%5D%29%2Cselect%7Bdisplay%3Ablock%7Dbutton%2Cinput%2Cselect%2Ctextarea%7Bcolor%3A%23000%3Bbackground%2Dcolor%3A%23efefef%3Bfont%2Dfamily%3Ainherit%3Bfont%2Dsize%3Ainherit%3Bmargin%2Dright%3A6px%3Bmargin%2Dbottom%3A6px%3Bpadding%3A10px%3Bborder%3Anone%3Bborder%2Dradius%3A6px%3Boutline%3Anone%7Dbutton%2Cinput%3Anot%28%5Btype%3Dcheckbox%5D%29%3Anot%28%5Btype%3Dradio%5D%29%2Cselect%2Ctextarea%7B%2Dwebkit%2Dappearance%3Anone%7Dtextarea%7Bmargin%2Dright%3A0%3Bwidth%3A100%25%3Bbox%2Dsizing%3Aborder%2Dbox%3Bresize%3Avertical%7Dbutton%2Cinput%5Btype%3Dbutton%5D%2Cinput%5Btype%3Dsubmit%5D%7Bpadding%2Dright%3A30px%3Bpadding%2Dleft%3A30px%7Dbutton%3Ahover%2Cinput%5Btype%3Dbutton%5D%3Ahover%2Cinput%5Btype%3Dsubmit%5D%3Ahover%7Bbackground%3A%23ddd%7Dbutton%3Afocus%2Cinput%3Afocus%2Cselect%3Afocus%2Ctextarea%3Afocus%7Bbox%2Dshadow%3A0%200%200%202px%20rgba%280%2C150%2C191%2C%2E67%29%7Dbutton%3Aactive%2Cinput%5Btype%3Dbutton%5D%3Aactive%2Cinput%5Btype%3Dcheckbox%5D%3Aactive%2Cinput%5Btype%3Dradio%5D%3Aactive%2Cinput%5Btype%3Dsubmit%5D%3Aactive%7Btransform%3AtranslateY%282px%29%7Dbutton%3Adisabled%2Cinput%3Adisabled%2Cselect%3Adisabled%2Ctextarea%3Adisabled%7Bcursor%3Anot%2Dallowed%3Bopacity%3A%2E5%7D%3A%3A%2Dwebkit%2Dinput%2Dplaceholder%7Bcolor%3A%23949494%7D%3A%2Dms%2Dinput%2Dplaceholder%7Bcolor%3A%23949494%7D%3A%3A%2Dms%2Dinput%2Dplaceholder%7Bcolor%3A%23949494%7D%3A%3Aplaceholder%7Bcolor%3A%23949494%7Da%7Btext%2Ddecoration%3Anone%3Bcolor%3A%230076d1%7Da%3Ahover%7Btext%2Ddecoration%3Aunderline%7Dcode%2Ckbd%7Bbackground%3A%23efefef%3Bcolor%3A%23000%3Bpadding%3A5px%3Bborder%2Dradius%3A6px%7Dpre%3Ecode%7Bpadding%3A10px%3Bdisplay%3Ablock%3Boverflow%2Dx%3Aauto%7Dimg%7Bmax%2Dwidth%3A100%25%7Dhr%7Bborder%3Anone%3Bborder%2Dtop%3A1px%20solid%20%23dbdbdb%7Dtable%7Bborder%2Dcollapse%3Acollapse%3Bmargin%2Dbottom%3A10px%3Bwidth%3A100%25%7Dtd%2Cth%7Bpadding%3A6px%3Btext%2Dalign%3Aleft%7Dth%7Bborder%2Dbottom%3A1px%20solid%20%23dbdbdb%7Dtbody%20tr%3Anth%2Dchild%282n%29%7Bbackground%2Dcolor%3A%23efefef%7D%3A%3A%2Dwebkit%2Dscrollbar%7Bheight%3A10px%3Bwidth%3A10px%7D%3A%3A%2Dwebkit%2Dscrollbar%2Dtrack%7Bbackground%3A%23efefef%3Bborder%2Dradius%3A6px%7D%3A%3A%2Dwebkit%2Dscrollbar%2Dthumb%7Bbackground%3A%23d5d5d5%3Bborder%2Dradius%3A6px%7D%3A%3A%2Dwebkit%2Dscrollbar%2Dthumb%3Ahover%7Bbackground%3A%23c4c4c4%7D%0A%0A" rel="stylesheet" />
-  <link href="data:text/css,%0Acode%20%7B%0Apadding%3A%202px%3B%0Aborder%2Dradius%3A%20unset%3B%0A%7D%0A%0Apre%20%7B%0Abackground%2Dcolor%3A%20unset%3B%0Aborder%3A%20solid%20%23aaa%201px%3B%0Apadding%3A%208px%3B%0A%7D%0Apre%2EnumberSource%20%7B%0Amargin%3A%200%3B%0Apadding%2Dleft%3A%200%3B%0A%7D%0Adiv%2EsourceCode%20%7B%0Aoverflow%3A%20visible%3B%0A%7D%0Apre%2C%20pre%2EsourceCode%20%7B%0Aoverflow%2Dx%3A%20auto%3B%0A%7D%0Apre%3Ecode%20%7B%0Awhite%2Dspace%3A%20pre%3B%0Aoverflow%3A%20visible%3B%0Abackground%2Dcolor%3A%20unset%3B%0Apadding%3A%200%3B%0A%7D%0Apre%2EsourceCode%2EnumberSource%20%7B%0Aoverflow%2Dx%3A%20visible%3B%0A%7D%0Apre%2EsourceCode%2EnumberSource%3Ecode%20%7B%0Awhite%2Dspace%3A%20pre%2Dwrap%0A%7D%0Apre%2EsourceCode%2EnumberSource%3Ecode%3Espan%20%7B%0Aleft%3A%208px%3B%0Atext%2Dindent%3A%20%2D4%2E6em%3B%0A%7D%0A%0A%2Echunk%2Dsummary%20%7B%0Atext%2Dalign%3A%20right%3B%0A%7D%0A%2Echunk%2Dsummary%2Bpre%2C%0A%2Echunk%2Dsummary%2Bdiv%2EsourceCode%20%7B%0Amargin%2Dtop%3A%202px%3B%0A%7D%0A%0Anav%20%3E%20ul%20%7B%0Aborder%3A%20%2E0625rem%20solid%20%23444%3B%0Aborder%2Dradius%3A%204px%3B%0Amargin%3A%205px%3B%0Apadding%3A%205px%3B%0A%7D%0Anav%20ul%20%7B%0Alist%2Dstyle%2Dtype%3A%20none%3B%0Apadding%2Dinline%2Dstart%3A%201rem%3B%0A%7D%0Anav%20ul%20li%20%7B%0Apadding%3A%200%3B%0A%7D%0Anav%20ul%20ul%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0Apadding%2Dtop%3A%200%3B%0Apadding%2Dbottom%3A%200%3B%0A%7D%0Anav%20code%20%7B%0Abackground%2Dcolor%3A%20unset%3B%0Acolor%3A%20unset%3B%0A%7D%0A" rel="stylesheet" />
-  <link href="data:text/css,%40media%20screen%20and%20%28max%2Dwidth%3A%20960px%29%20%7B%0Aheader%2C%20nav%2C%20article%20%7B%0Apadding%3A%200%203rem%3B%0A%7D%0A%7D%0A%23TOC%20%7B%0Afont%2Dsize%3A%200%2E9em%3B%0Aborder%3A%20none%3B%0A%7D%0A%23TOC%20%3E%20ul%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0A%7D%0A%23TOC%20ul%20%7B%0Amargin%3A%200%3B%0A%7D%0A%23TOC%20li%2C%20%23TOC%20a%20%7B%0Amargin%3A%200%3B%0Apadding%3A%200%3B%0A%7D%0A" rel="stylesheet" />
-  <link href="data:text/css,%2Etooltip%20%7B%0Aposition%3A%20relative%3B%0Adisplay%3A%20inline%2Dblock%3B%0A%7D%0A%2Etooltip%3Abefore%2C%20%2Etooltip%3Aafter%20%7B%0Aposition%3A%20absolute%3B%0Aopacity%3A%200%3B%0Aclip%3A%20rect%280%200%200%200%29%3B%0A%2Dwebkit%2Dclip%2Dpath%3A%20inset%28100%25%29%3B%0Aclip%2Dpath%3A%20inset%28100%25%29%3B%0Atransition%3A%20all%200%2E3s%3B%0Az%2Dindex%3A%201010%3B%0Aleft%3A%2050%25%3B%0A%7D%0A%2Etooltip%3Anot%28%2Ebottom%29%3Abefore%2C%20%2Etooltip%3Anot%28%2Ebottom%29%3Aafter%20%7B%0Abottom%3A%2075%25%3B%0A%7D%0A%2Etooltip%2Ebottom%3Abefore%2C%20%2Etooltip%2Ebottom%3Aafter%20%7B%0Atop%3A%2075%25%3B%0A%7D%0A%2Etooltip%3Ahover%3Abefore%2C%20%2Etooltip%3Ahover%3Aafter%2C%20%2Etooltip%3Afocus%3Abefore%2C%20%2Etooltip%3Afocus%3Aafter%20%7B%0Aopacity%3A%201%3B%0Aclip%3A%20auto%3B%0A%2Dwebkit%2Dclip%2Dpath%3A%20inset%280%25%29%3B%0Aclip%2Dpath%3A%20inset%280%25%29%3B%0A%7D%0A%2Etooltip%3Abefore%20%7B%0Acontent%3A%20%27%27%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%2E5rem%20solid%20transparent%3B%0Aleft%3A%20calc%2850%25%20%2D%200%2E5rem%29%3B%0A%7D%0A%2Etooltip%3Anot%28%2Ebottom%29%3Abefore%20%7B%0Aborder%2Dtop%2Dcolor%3A%20%23212121%3B%0A%7D%0A%2Etooltip%2Ebottom%3Abefore%20%7B%0Aborder%2Dbottom%2Dcolor%3A%20%23212121%3B%0A%7D%0A%2Etooltip%3Aafter%20%7B%0Acontent%3A%20attr%28aria%2Dlabel%29%3B%0Acolor%3A%20%23fafafa%3B%0Abackground%3A%20%23212121%3B%0Aborder%2Dradius%3A%200%2E125rem%3B%0Apadding%3A%200%2E5rem%3B%0Awhite%2Dspace%3A%20nowrap%3B%0Atransform%3A%20translateX%28%2D50%25%29%3B%0A%7D%0A%2Etooltip%3Anot%28%2Ebottom%29%3Aafter%20%7B%0Amargin%2Dbottom%3A%201rem%3B%0A%7D%0A%2Etooltip%2Ebottom%3Aafter%20%7B%0Amargin%2Dtop%3A%201rem%3B%0A%7D%0A" rel="stylesheet" />
-  <link href="data:text/css,%3Aroot%20%7B%0A%2D%2Dtoc%2Dwidth%3A%20300px%3B%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%20960px%29%20%7B%0Abody%20%7B%0Amax%2Dwidth%3A%20100vw%3B%0Amargin%3A%200%3B%0Apadding%3A%200%3B%0A%7D%0Amain%20%7B%0Adisplay%3A%20grid%3B%0Agrid%2Dtemplate%2Dcolumns%3A%20var%28%2D%2Dtoc%2Dwidth%29%201fr%3B%0Agrid%2Dtemplate%2Drows%3A%20auto%20auto%3B%0A%7D%0A%23TOC%20%7B%0Agrid%2Drow%3A%201%20%2F%20%2D1%3B%0Agrid%2Dcolumn%3A%201%20%2F%202%3B%0Aborder%3A%20none%3B%0Amargin%3A%200%3B%0Awidth%3A%20var%28%2D%2Dtoc%2Dwidth%29%3B%0A%7D%0A%23TOC%20%3E%20ul%20%7B%0Apadding%2Dtop%3A%200%3B%0Apadding%2Dbottom%3A%200%3B%0Aposition%3A%20sticky%3B%0Amax%2Dheight%3A%20100vh%3B%0Aoverflow%2Dy%3A%20auto%3B%0Atop%3A%200%3B%0Aborder%3A%20none%3B%0A%7D%0A%23TOC%20%3E%20ul%20%3E%20li%3Afirst%2Dchild%20%7B%0Apadding%2Dtop%3A%200%2E5rem%3B%0A%7D%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%20960px%29%20and%20%28max%2Dwidth%3A%201260px%29%20%7B%0Amain%20%7B%0Awidth%3A%20calc%28100vw%20%2D%202rem%29%3B%0A%7D%0Aheader%2C%20article%20%7B%0Awidth%3A%20calc%28100vw%20%2D%20var%28%2D%2Dtoc%2Dwidth%29%20%2D%206rem%29%3B%0Apadding%3A%200%200%200%204rem%3B%0A%7D%0A%7D%0A%40media%20screen%20and%20%28min%2Dwidth%3A%201260px%29%20%7B%0Amain%20%7B%0Awidth%3A%20calc%281260px%20%2D%202rem%29%3B%0Amargin%3A%200%20calc%2850vw%20%2D%20480px%29%200%20auto%3B%0A%7D%0Aheader%2C%20article%20%7B%0Awidth%3A%20calc%28960px%20%2D%206rem%29%3B%0Apadding%3A%200%200%200%204rem%3B%0A%7D%0A%7D%0A" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous" data-external="1">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous" data-external="1"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);" data-external="1"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        delimiters: [
-          {left: "$$", right: "$$", display: true},
-          {left: "$", right: "$", display: false}
-        ],
-        displayMode: true
-      });
-    });
-  </script>
+  <style type="text/css">
+body {
+max-width: 50rem;
+margin-left: auto;
+margin-right: auto;
+font-family: system-ui;
+}
+
+code {
+padding: 2px;
+border-radius: unset;
+}
+
+pre {
+background-color: unset;
+border: solid #aaa 1px;
+padding: 8px;
+}
+pre.numberSource {
+margin: 0;
+padding-left: 0;
+}
+div.sourceCode {
+overflow: visible;
+}
+pre, pre.sourceCode {
+overflow-x: auto;
+}
+pre>code {
+white-space: pre;
+overflow: visible;
+background-color: unset;
+padding: 0;
+}
+pre.sourceCode.numberSource {
+overflow-x: visible;
+}
+pre.sourceCode.numberSource>code {
+white-space: pre-wrap
+}
+pre.sourceCode.numberSource>code>span {
+left: 8px;
+text-indent: -4.6em;
+}
+
+.chunk-summary {
+text-align: right;
+}
+.chunk-summary+pre,
+.chunk-summary+div.sourceCode {
+margin-top: 2px;
+}
+
+nav > ul {
+border: .0625rem solid #444;
+border-radius: 4px;
+margin: 5px;
+padding: 5px;
+}
+nav ul {
+list-style-type: none;
+padding-inline-start: 1rem;
+}
+nav ul li {
+padding: 0;
+}
+nav ul ul {
+margin-top: 0;
+margin-bottom: 0;
+padding-top: 0;
+padding-bottom: 0;
+}
+nav code {
+background-color: unset;
+color: unset;
+}
+</style>
 </head>
 <body>
-<main>
 <header id="title-block-header">
 <h1 class="title">Drat Step-By-Step</h1>
 <p class="author">Roman Hornung and Dirk Eddelbuettel</p>
-<p class="date">2021-Apr-04</p>
+<p class="date">Written 2021-Apr-04, updated 2021-Jul-09</p>
 </header>
-<nav id="TOC" role="doc-toc">
-<ul>
-<li><a href="#overview-scope-and-background">Overview, Scope and Background</a></li>
-<li><a href="#steps">Steps</a></li>
-<li><a href="#summary">Summary</a></li>
-</ul>
-</nav>
-<article>
-<section id="overview-scope-and-background" class="level2">
-<h2>Overview, Scope and Background</h2>
+<!--
+%\VignetteIndexEntry{Drat Step-by-Step}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
+<h2 id="overview-scope-and-background">Overview, Scope and Background</h2>
 <p>This step-by-step tutorial shows how to use <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> to let an <a href="https://www.r-project.org">R</a> package utilise an <a href="https://www.r-project.org">R</a> package available on some other place that is not <a href="https://cran.r-project.org">CRAN</a>. We will assume <a href="https://github.com">GitHub</a> here as the (source) location of the ‘other’ package, but any other source repository applies equally for the <em>source</em> part of the other package.</p>
 <p>The situation assumes your package (which you would like to publish on CRAN) has a <em>weak dependency</em> on this other package (which is something CRAN allows via an <code>Additional_repositories</code> entry). We will use this feature here, and have <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> be the helper to create one such additional repository. The other package may be written by you, or maybe someone else. Here we assume for simplicity that it is written by someone else, under a suitable license but for whichever reason <em>not</em> on CRAN. So the plan is to get the <em>other</em> package into a <code>drat</code> repo we set up so that <em>your package</em> can refer to it via <code>Additional_repositories</code> in its <code>DESCRIPTION</code> file.</p>
 <p>We assume the following tools to be available, as well as reasonable familiarity with them:</p>
@@ -61,11 +174,8 @@
 <li><a href="https://www.r-project.org">R</a> (as all this work is in the context of caring for <a href="https://www.r-project.org">R</a> packages),</li>
 <li><code>git</code> (and some familiarity with <code>git</code> on the command-line).</li>
 </ul>
-</section>
-<section id="steps" class="level2">
-<h2>Steps</h2>
-<section id="prepare-the-dependent-package" class="level4">
-<h4>Prepare the dependent package</h4>
+<h2 id="steps">Steps</h2>
+<h4 id="prepare-the-dependent-package">Prepare the dependent package</h4>
 <p>We first prepare the other depended-upon <a href="https://www.r-project.org">R</a> package so it is ready for upload to the to-be-created (not yet existing) new repository.</p>
 <p>We start by downloading this <a href="https://www.r-project.org">R</a> package from its GitHub repository.</p>
 <ul>
@@ -75,76 +185,56 @@
 <li>Else http is fine (though the frequent password checks get tiring).</li>
 <li>Hit the little folder icon to copy the URL and paste it into your command-line to form the <code>git clone</code> command:</li>
 </ul>
-<pre class="shell="><code>git clone git@github.com:donalduck/quacking</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">git</span> clone git@github.com:donalduck/quacking</span></code></pre></div>
 <p>This will <em>clone</em> the repository to your local machine which creates a local copy typically used for read-only access.</p>
 <p>Now that you have the source, create a package from them via <code>R CMD build .</code> inside the <code>quacking</code> repository. This will generate a source file, say <code>quacking_1.2.3.tar.gz</code>, for this repository.</p>
 <p>(You can also create a binary package if you want, and/or do so from, say, within RStudio.<br />
 We focus on command-line use here.)</p>
-</section>
-<section id="create-the-drat-repository" class="level4">
-<h4>Create the <code>drat</code> repository</h4>
-<p>Go to <a href="https://github.com/drat-base/drat" class="uri">https://github.com/drat-base/drat</a> and fork the repository by clicking the button “Fork”. You now have a <em>remote</em> copy of that repository named <code>https://github.com/YourName/drat</code> that can serve as your <code>drat</code> repository, and to which we will add your own content below. (There are other ways using <em>e.g.</em> <code>dratInit()</code> but we ignore this here to focus on the start via forking.)</p>
+<h4 id="create-the-drat-repository">Create the <code>drat</code> repository</h4>
+<p>Go to https://github.com/drat-base/drat and fork the repository by clicking the button “Fork”. You now have a <em>remote</em> copy of that repository named <code>https://github.com/YourName/drat</code> that can serve as your <code>drat</code> repository, and to which we will add your own content below. (There are other ways using <em>e.g.</em> <code>dratInit()</code> but we ignore this here to focus on the start via forking.)</p>
 <p>Next, we have to ensure your <code>drat</code> repository can server over https. Go to “Settings” on <code>https://github.com/YourName/drat</code> and scroll down to “GitHub Pages”. Specify “master” below “Branch” and “docs” right of it and click “Save”. GitHub should now state that <em>Your site is ready to be published</em> and list <code>https://YourName.github.io/drat/</code> as its address. Note that the forked <code>drat</code> repository still contains a copy of the <code>drat</code> sources (in order to be a viable repository.) Once you added your content, you can remove it, or just keep it.</p>
-</section>
-<section id="create-a-local-copy-of-your-fork" class="level4">
-<h4>Create a local copy of your fork</h4>
+<h4 id="create-a-local-copy-of-your-fork">Create a local copy of your fork</h4>
 <p>This follows the steps above for creating a local copy of the depended-upon package. Now we bring the freshly-forked <code>drat</code> repository ‘home’ to your computer. So in the directory in which you keep your git repositories, say</p>
-<pre class="shell="><code>git clone https://github.com/YourName/drat</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/YourName/drat</span></code></pre></div>
 <p>or</p>
-<pre class="shell="><code>git clone git@github.com:YourName/drat.git</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">git</span> clone git@github.com:YourName/drat.git</span></code></pre></div>
 <p>depending upon whether you prefer authentication via http or ssh.</p>
-</section>
-<section id="ensure-you-have-the-drat-package" class="level4">
-<h4>Ensure you have the <code>drat</code> package</h4>
+<h4 id="ensure-you-have-the-drat-package">Ensure you have the <code>drat</code> package</h4>
 <p>This usually entails just a simple <code>install.packages(&quot;drat&quot;)</code> as <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> is on <a href="https://cran.r-project.org">CRAN</a>. However, currently (spring 2021), we also want to ensure you have the most current version of <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> that can use <code>docs/</code>. To ensure this, install <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> from its source repo from within <a href="https://www.r-project.org">R</a> via</p>
-<pre class="r="><code>remotes::install_github(&quot;eddelbuettel/drat&quot;)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;eddelbuettel/drat&quot;</span>)</span></code></pre></div>
 <p>(as we are using the <code>drat</code> repo serving from <code>docs/</code> whereas the CRAN version still defaults to the older scheme of a <code>gh-pages</code> branch.)</p>
 <p>Now continue in <a href="https://www.r-project.org">R</a> (and we assume we are in your <code>git</code> working directory with both the cloned dependent <code>quacking</code> repository as well as a <code>drat</code> repo right below the working directory).</p>
-<pre class="r="><code>library(drat)
-options(dratBranch=&quot;docs&quot;)   # to default to using docs/ as we set up
-insertPackage(file=c(&quot;quacking/quacking_1.2.3.tar.gz&quot;, &quot;quacking/quacking_1.2.3.zip&quot;), 
-              repodir=&quot;drat/&quot;)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">library</span>(drat)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">dratBranch=</span><span class="st">&quot;docs&quot;</span>)   <span class="co"># to default to using docs/ as we set up</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">insertPackage</span>(<span class="dt">file=</span><span class="kw">c</span>(<span class="st">&quot;quacking/quacking_1.2.3.tar.gz&quot;</span>, <span class="st">&quot;quacking/quacking_1.2.3.zip&quot;</span>), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>              <span class="dt">repodir=</span><span class="st">&quot;drat/&quot;</span>)</span></code></pre></div>
 <p>In the above “1.2.3” is a possible placeholder for the actual version number of the quacking package, just as quacking is a placeholder for your actual package of interest. This will add the quacking source and binary package to the folders <code>drat/docs/src/contrib</code> and <code>drat/docs/bin/windows/contrib/4.0</code>. If you only have a source package, just omit the binary package ending in <code>.zip</code>.</p>
 <p>Optionally, change the content of the file <code>drat/README.md</code> to fit your purpose. The file can be also be deleted altogether.</p>
-</section>
-<section id="finalising" class="level4">
-<h4>Finalising</h4>
+<h4 id="finalising">Finalising</h4>
 <p>In the terminal, execute <code>cd drat</code> to get into the <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repository.</p>
 <p>If you use <code>git</code> for the first time, execute:</p>
-<pre class="shell="><code>git config --global user.email &quot;youremail@yourdomainhere&quot;
-git config --global user.name &quot;YourName&quot;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">git</span> config --global user.email <span class="st">&quot;youremail@yourdomainhere&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;YourName&quot;</span></span></code></pre></div>
 <p>This will tell git your identity. If you want to use <code>ssh</code>, you may want to upload an ssh key; see the relevant GitHub tutorials.</p>
 <p>Then type:</p>
-<pre class="shell="><code>git add .
-git commit -m &quot;Added quacking&quot;
-git push origin master</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="fu">git</span> add .</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="fu">git</span> commit -m <span class="st">&quot;Added quacking&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="fu">git</span> push origin master</span></code></pre></div>
 <p>This will upload the quacking package to the repository on GitHub. (You could add the <code>quacking</code> package version and/or <code>git</code> sha1 to the commit message but that is entirely optional.)</p>
-</section>
-<section id="test-it" class="level4">
-<h4>Test it</h4>
+<h4 id="test-it">Test it</h4>
 <p>To test whether the package can be installed from your new repository, type in R</p>
-<pre class="r="><code>install.packages(&quot;quacking&quot;, repos=&quot;https://yourname.github.io/drat&quot;)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;quacking&quot;</span>, <span class="dt">repos=</span><span class="st">&quot;https://yourname.github.io/drat&quot;</span>)</span></code></pre></div>
 <p>and verify that the package is installed successfully. (Note that you may have to say <code>type=&quot;source&quot;</code> if your operating system prefers source installation and you only added a source version to your <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repository.)</p>
-</section>
-<section id="use-the-drat-repo" class="level4">
-<h4>Use the <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repo</h4>
+<h4 id="use-the-drat-repo">Use the <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> repo</h4>
 <p>Prepare the <code>DESCRIPTION</code> file of your <a href="https://www.r-project.org">R</a> package:</p>
 <ul>
 <li>List the quacking package under <code>Suggests:</code></li>
 <li>Add the line <code>Additional_repositories: https://yourname.github.io/drat</code></li>
 </ul>
 <p>Test the package via <code>R CMD check --as-cran packageName_0.1.2.tar.gz</code>. If everything passes, you are now ready for submission to CRAN.</p>
-</section>
-<section id="additional-step" class="level4">
-<h4>Additional step</h4>
+<h4 id="additional-step">Additional step</h4>
 <p>If a directory has no content, browsing <code>https://yourname.github.io/drat</code> will show “404 File not found”. This can upset checks as for example the ones done by CRAN. As of release 0.2.1, <a href="https://github.com/eddelbuettel/drat"><code>drat</code></a> inserts a minimal placeholder file to avoid this error.</p>
-</section>
-</section>
-<section id="summary" class="level2">
-<h2>Summary</h2>
+<h2 id="summary">Summary</h2>
 <p>This step by step demonstrated how to set up a <code>drat</code> repository to serve an optional package referenced by <code>Additional_repositories</code> and <code>Suggests</code> in a CRAN-compliant way.</p>
-</section>
-</article>
-</main>
 </body>
 </html>

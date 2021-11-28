@@ -1,8 +1,11 @@
 
-rmdsources :=		$(wildcard *.Rmd)
-rmdvignettes :=		$(rmdsources:.Rmd=.html)
+mdsources :=		$(wildcard *.md)
+mdvignettes :=		$(mdsources:.md=.html)
 
-all:			${rmdvignettes}
+all:			${mdvignettes}
 
-%.html:			%.Rmd
-			r -lrmarkdown -e"render(\"$<\")"
+clean:
+			rm -f ${mdvignettes}
+
+%.html:			%.md
+			Rscript -e 'simplermarkdown::mdweave_to_html("$<")'
