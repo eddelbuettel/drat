@@ -10,8 +10,8 @@ Author: Dirk Eddelbuettel with contributions by Carl Boettiger, Neal Fultz,
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Depends: R (>= 3.6.0)
 Imports: utils
-Suggests: git2r, knitr, rmarkdown, minidown
-VignetteBuilder: knitr
+Suggests: git2r, simplermarkdown
+VignetteBuilder: simplermarkdown
 Description: Creation and use of R Repositories via helper functions 
  to insert packages into a repository, and to add repository information 
  to the current R session. Two primary types of repositories are support:
