@@ -1,6 +1,5 @@
 <!--
 %\VignetteIndexEntry{Why Drat?}
-%\VignetteIndexEntry{sha1() versus digest()}
 %\VignetteEngine{simplermarkdown::mdweave_to_html}
 %\VignetteEncoding{UTF-8}
 -->
