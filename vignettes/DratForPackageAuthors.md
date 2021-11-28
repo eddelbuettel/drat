@@ -1,16 +1,13 @@
+<!--
+%\VignetteIndexEntry{Drat Basics for Package Authors: Distributing Packages}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
 ---
 title: "Drat Basics for Package Authors: Distributing Packages"
 author: "Dirk Eddelbuettel"
 date: "2015-05-24"
-output:
-  minidown::mini_document:
-    framework: water
-    toc: true
-    toc_float: true
-vignette: >
-  %\VignetteIndexEntry{Drat Basics for Package Authors: Distributing Packages}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+css: "water.css"
 ---
 
 ## Drat Overview
@@ -70,7 +67,7 @@ a file `myPkg_0.5.tar.gz`.
 
 Then via
 
-```{r, eval=FALSE}
+```r
 ## insert given package into default drat repo on local file system
 drat::insertPackage("myPkg_0.5.tar.gz")
 ```
@@ -80,7 +77,7 @@ the source package will be copied into the default drat repo at location
 on your machine, just specify this either via the `options()` entry
 "dratRepo" or directly:
 
-```{r, eval=FALSE}
+```r
 ## insert given package into given repo on local file system
 drat::insertPackage("myPkg_0.5.tar.gz", "/srv/projects/git/drat")
 ```
@@ -126,7 +123,7 @@ directory `R`.  We once again require that the resulting directory
 
 Hence, the following command would copy the package and update the index files:
 
-```{r, eval=FALSE}
+```r
 ## insert given package into given repo on a network-local file system
 drat::insertPackage("myPkg_0.5.tar.gz", "file://nfs/groups/groupABC/R/drat")
 ```
