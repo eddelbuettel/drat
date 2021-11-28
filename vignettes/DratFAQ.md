@@ -1,16 +1,13 @@
+<!--
+%\VignetteIndexEntry{Drat Frequently Asked Questions}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
 ---
 title: "Drat Frequently Asked Questions"
 author: "Dirk Eddelbuettel"
 date: "2016-10-27"
-output:
-  minidown::mini_document:
-    framework: water
-    toc: true
-    toc_float: true
-vignette: >
-  %\VignetteIndexEntry{Drat Frequently Asked Questions}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+css: "water.css"
 ---
 
 ## What is drat?
@@ -158,6 +155,7 @@ edd@max:~/git/drat(master)$
 ```
 
 It combined four elements:
+
 - the package name
 - the current version
 - the current git repository commit hash marker
