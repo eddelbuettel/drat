@@ -1,6 +1,5 @@
 <!--
 %\VignetteIndexEntry{Combining Drat and Travis CI}
-%\VignetteIndexEntry{Drat Frequently Asked Questions}
 %\VignetteEngine{simplermarkdown::mdweave_to_html}
 %\VignetteEncoding{UTF-8}
 -->
