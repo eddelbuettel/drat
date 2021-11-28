@@ -3,6 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.2.1.1 (2021-xx-yy)}{
+  \itemize{
+    \item Vignettes now use \pkg{simplermarkdown}
+  }
+}
+
 \section{Changes in drat version 0.2.1 (2021-07-09)}{
   \itemize{
     \item Two internal functions now have a note in their documentation

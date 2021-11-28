@@ -1,18 +1,14 @@
+<!--
+%\VignetteIndexEntry{Combining Drat and Travis CI}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
 ---
 title: "Combining Drat and Travis CI"
 author: "Colin Gillespie and Dirk Eddelbuettel"
 date: "Written 2015-04-14, updated 2021-03-29"
-output:
-  minidown::mini_document:
-    framework: water
-    toc: true
-    toc_float: true
-vignette: >
-  %\VignetteIndexEntry{Combining Drat and Travis CI}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+css: "water.css"
 ---
-  
 
 ## What is Travis CI?
 
@@ -48,17 +44,17 @@ and give you a chance to copy it down.
 
 1. Travis CI will then [encrypt](http://docs.travis-ci.com/user/encryption-keys/) this token. 
 The short story is:
-```
+```sh
 # Install Ruby first. This may require sudo
 gem install travis
 ```
 If `sudo` is not available, you can do a local install
-```
+```sh
 # Look at ~/.gem/
 gem install --user-install travis
 ```
 1. `cd` to the R package directory and run
-```
+```sh
 travis encrypt GH_TOKEN=$MY_ACCESS_TOKEN --add env.global
 ```
 where `$MY_ACCESS_TOKEN` is your access token. The `--add env.global` automatically adds the token to your `.travis.yml` file.
@@ -82,7 +78,7 @@ is found at the end of this vignette and also in the
       
 ## Example `deploy.sh` script
 
-```
+```sh
 #!/bin/bash
 set -o errexit -o nounset
 addToDrat(){

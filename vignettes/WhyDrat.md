@@ -1,14 +1,13 @@
+<!--
+%\VignetteIndexEntry{Why Drat?}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
 ---
 title: "Why Drat?"
 author: "Steven Pav and Dirk Eddelbuettel"
 date: "2015-03-27"
-output:
-  minidown::mini_document:
-    framework: water
-vignette: >
-  %\VignetteIndexEntry{Why Drat?}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+css: "water.css"
 ---
 
 > Note: This was originally a 
@@ -29,21 +28,21 @@ R packages, but want access to, say, the latest, greatest releases of my distrib
 package, [sadist](https://github.com/shabbychef/sadists). 
 You can simply add the following to your `.Rprofile` file:
 
-```{r, eval=FALSE}
+```r
 drat:::add("shabbychef")
 ```
 
 After this, you instantly have access to new releases in the [github/shabbychef drat store](https://github.com/shabbychef/drat/tree/gh-pages) via the
 package tools you already know and tolerate. You can use
 
-```{r, eval=FALSE}
+```r
 install.packages('sadists')
 ```
 
 to install the sadists package from the drat store, for example. 
 Similarly, if you issue
 
-```{r, eval=FALSE}
+```r
 update.packages(ask=FALSE)
 ```
 
@@ -61,9 +60,9 @@ My personal drat store tends to be a few minor releases ahead of my CRAN release
 
 2. Local repositories. In my professional life, I write and maintain proprietary packages.
 Pushing package updates used to involve saving the package .tar.gz to a NAS, then calling
-something like ```R CMD INSTALL package_name_0.3.1.9001.tar.gz```. This is not something I wanted
+something like `R CMD INSTALL package_name_0.3.1.9001.tar.gz`. This is not something I wanted
 to ask of my colleagues. With drat, they can instead add the following stanza to .Rprofile:
-```drat:::addRepo('localRepo','file:///mnt/NAS/r/local/drat')```, and then rely on ```update.packages```
+`drat:::addRepo('localRepo','file:///mnt/NAS/r/local/drat')`, and then rely on `update.packages`
 to do the rest.
 
 I suspect that in the future, [drat](https://dirk.eddelbuettel.com/code/drat.html) might be (ab)used in the following ways:
@@ -91,7 +90,7 @@ In exchange for writing this blog post, I get to lobby Dirk for some features in
 6. I shudder at the thought of hundreds of tiny drat stores. Perhaps there should be a way to aggregate ```addRepo```
 commands in some way. This would allow curators to publish their suggested lists of repos.
 
-7. Drat stores are served in the ```gh-pages``` branch of a github repo. I wish there were some way to keep the 
+7. Drat stores are served in the `gh-pages` branch of a github repo. I wish there were some way to keep the 
 index.html file in that directory reflect the packages present in the sources. Maybe this could be achieved with 
 some canonical RMarkdown code that most people use.
 

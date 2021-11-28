@@ -1,16 +1,13 @@
+<!--
+%\VignetteIndexEntry{Drat Step-by-Step}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
 ---
 title: Drat Step-By-Step
 author: Roman Hornung and Dirk Eddelbuettel
 date: "Written 2021-Apr-04, updated 2021-Jul-09"
-output:
-  minidown::mini_document:
-    framework: water
-    toc: true
-    toc_float: true
-vignette: >
-  %\VignetteIndexEntry{Drat Step-by-Step}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+css: "water.css"
 ---
 
 
@@ -46,7 +43,7 @@ We start by downloading this [R](https://www.r-project.org) package from its Git
 - Else http is fine (though the frequent password checks get tiring).
 - Hit the little folder icon to copy the URL and paste it into your command-line to form the `git clone` command:
 
-```shell=
+```sh
 git clone git@github.com:donalduck/quacking
 ```
 
@@ -79,13 +76,13 @@ This follows the steps above for creating a local copy of the depended-upon pack
 Now we bring the freshly-forked `drat` repository 'home' to your computer.
 So in the directory in which you keep your git repositories, say
 
-```shell=
+```sh
 git clone https://github.com/YourName/drat
 ```
 
 or 
 
-```shell=
+```sh
 git clone git@github.com:YourName/drat.git
 ```
 
@@ -98,7 +95,7 @@ This usually entails just a simple `install.packages("drat")` as [`drat`](https:
 However, currently (spring 2021), we also want to ensure you have the most current version of [`drat`](https://github.com/eddelbuettel/drat) that can use `docs/`.
 To ensure this, install [`drat`](https://github.com/eddelbuettel/drat) from its source repo from within [R](https://www.r-project.org) via
 
-```r=
+```r
 remotes::install_github("eddelbuettel/drat")
 ```
 
@@ -107,7 +104,7 @@ remotes::install_github("eddelbuettel/drat")
 Now continue in [R](https://www.r-project.org) (and we assume we are in your `git` working directory with both the cloned dependent `quacking` repository as well as a `drat` repo right below the
 working directory).
 
-```r=
+```r
 library(drat)
 options(dratBranch="docs")   # to default to using docs/ as we set up
 insertPackage(file=c("quacking/quacking_1.2.3.tar.gz", "quacking/quacking_1.2.3.zip"), 
@@ -126,7 +123,7 @@ The file can be also be deleted altogether.
 In the terminal, execute `cd drat` to get into the [`drat`](https://github.com/eddelbuettel/drat) repository.
 
 If you use `git` for the first time, execute:
-```shell=
+```sh
 git config --global user.email "youremail@yourdomainhere"
 git config --global user.name "YourName"
 ```
@@ -135,7 +132,7 @@ This will tell git your identity.
 If you want to use `ssh`, you may want to upload an ssh key; see the relevant GitHub tutorials.
 
 Then type:
-```shell=
+```sh
 git add .
 git commit -m "Added quacking"
 git push origin master
@@ -148,7 +145,7 @@ This will upload the quacking package to the repository on GitHub.
 
 To test whether the package can be installed from your new repository, type in R
 
-```r=
+```r
 install.packages("quacking", repos="https://yourname.github.io/drat")
 ```
 
