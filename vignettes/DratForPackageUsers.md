@@ -1,16 +1,13 @@
+<!--
+%\VignetteIndexEntry{Drat Basics for Package Users: Installing or Updating Packages}
+%\VignetteEngine{simplermarkdown::mdweave_to_html}
+%\VignetteEncoding{UTF-8}
+-->
 ---
 title: "Drat Basics for Package Users: Installing or Updating Packages"
 author: "Dirk Eddelbuettel"
 date: "2015-05-24"
-output:
-  minidown::mini_document:
-    framework: water
-    toc: true
-    toc_float: true
-vignette: >
-  %\VignetteIndexEntry{Drat Basics for Package Users: Installing or Updating Packages}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+css: "water.css"
 ---
 
 ## Drat Overview
@@ -36,7 +33,7 @@ we only need one piece of information: the name of the repository (and if
 this seem mysterious see the discussion in the
 [companion vignette](DratForPackageAuthors.html).  So
 
-```{r, eval=FALSE}
+```r
 drat::addRepo("eddelbuettel")
 ```
 
@@ -46,7 +43,7 @@ footprint of forking small).
 One can add several repositoties at once. The following statements adds the
 repo for Rcpp and my catch-all ghrr repo:
 
-```{r, eval=FALSE}
+```r
 drat::addRepo(c("eddelbuettel", "RcppCore", "ghrr"))
 ```
 
@@ -63,7 +60,7 @@ In this case we use the two argument form: the first argument sets the name
 within the `repos` vector, and the second provides the local (filesystem-based)
 or remote (web-based) URL:
 
-```
+```r
 drat::addRepo("workgroup", "file://nfs/groups/groupABC/R/drat")
 ```
 
