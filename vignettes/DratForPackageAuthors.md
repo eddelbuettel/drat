@@ -98,7 +98,7 @@ walk-through of how to have [Travis CI](https://travis-ci.org/) automagically
 push packages into a [drat](https://dirk.eddelbuettel.com/code/drat.html)
 repo. This is included as another (currently work-in-progress) vignette
 entitled [Combining Drat And
-Travis](https://github.com/eddelbuettel/drat/blob/master/vignettes/CombiningDratAndTravis.Rmd)
+Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
 which can be found in the [drat](https://dirk.eddelbuettel.com/code/drat.html)
 package just like this vignette.
 

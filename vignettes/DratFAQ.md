@@ -125,8 +125,7 @@ this should just work for both Windows and OS X.
 Glad you asked!  In fact, you can use
 [this GitHub query](https://github.com/search?q=Additional_repositories+drat&type=Code&utf8=%E2%9C%93)
 to find several dozen of packages using `Additional_repositories` to point to
-drat repos (still having drat in their name; other such as
-[packages.ropensci.org](http://packages.ropensci.org/) may use domain nane
+drat repos (still having drat in their name; others may use domain nane
 such that the search may miss them). One example we used to point to here
 changed however. So for a more stable use case, one example from my packages:
 the [RcppRedis package](https://cran.r-project.org/package=RcppRedis) points

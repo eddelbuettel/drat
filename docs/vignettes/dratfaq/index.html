@@ -927,8 +927,7 @@ this should just work for both Windows and OS X.</p>
 <p>Glad you asked!  In fact, you can use
 <a href="https://github.com/search?q=Additional_repositories+drat&amp;type=Code&amp;utf8=%E2%9C%93">this GitHub query</a>
 to find several dozen of packages using <code>Additional_repositories</code> to point to
-drat repos (still having drat in their name; other such as
-<a href="http://packages.ropensci.org/">packages.ropensci.org</a> may use domain nane
+drat repos (still having drat in their name; others may use domain nane
 such that the search may miss them). One example we used to point to here
 changed however. So for a more stable use case, one example from my packages:
 the <a href="https://cran.r-project.org/package=RcppRedis">RcppRedis package</a> points
@@ -949,11 +948,13 @@ format I have suggested in the past and used:</p>
 drat 0.1.0 94248ed git@github.com:eddelbuettel/drat.git
 edd@max:~/git/drat(master)$ 
 </code></pre>
-<p>It combined four elements:
-- the package name
-- the current version
-- the current git repository commit hash marker
-- the repository URL.</p>
+<p>It combined four elements:</p>
+<ul>
+<li>the package name</li>
+<li>the current version</li>
+<li>the current git repository commit hash marker</li>
+<li>the repository URL.</li>
+</ul>
 <p>When both source and binary packages are uploaded, I often add <code>(src)</code> or
 <code>(win)</code> to indicate the type of package committed.</p>
 <p>This format has worked and could form the basis of a standard, but
