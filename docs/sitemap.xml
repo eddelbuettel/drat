@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://github.com/eddelbuettel/drat/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/drat-package/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/addRepo/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/archivePackages/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/getPackageInfo/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/identifyPackageType/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/initRepo/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/insertPackage/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/man/pruneRepo/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/vignettes/dratfaq/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/vignettes/dratforauthors/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/vignettes/dratforusers/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/vignettes/dratstepbystep/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/vignettes/whydrat/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/vignettes/combiningdratandtravis/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/news/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/eddelbuettel/drat/changelog/</loc>
-     <lastmod>2021-07-10</lastmod>
+     <lastmod>2021-12-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

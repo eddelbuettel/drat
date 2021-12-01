@@ -1,9 +1,28 @@
 ###  2021 
 
+2021-12-01  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.2.2 
+ 
+2021-11-28  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+         * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * DESCRIPTION (VignetteBuilder): Converted to simplermarkdown engine 
+        * vignettes/*md: Idem 
+        * vignettes/*html: Updated 
+        * vignettes/water.css: Added 
+        * vignettes/Makefile.hidden: Updated, and renamed 
+ 
+2021-11-05  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+         * README.md: Remove Travis badge 
+        * .travis.yml: Remove Travis YAML config 
+ 
 2021-07-09  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.2.1 
-         
+ 
         * R/initRepo.R (initRepo): Create a placeholder index.html file in 
         the top-level directory to appease CRAN check of URL 
  

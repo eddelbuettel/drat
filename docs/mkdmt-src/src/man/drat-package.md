@@ -1,3 +1,4 @@
+
 ## Easy-to-use package repository creation and access
 
 ### Description
@@ -25,7 +26,7 @@ session so that package in the repository can be accesses.
 
 Dirk Eddelbuettel
 
-Maintainer: Dirk Eddelbuettel &lt;edd@debian.org&gt;
+Maintainer: Dirk Eddelbuettel \<edd@debian.org\>
 
 ### References
 
@@ -38,7 +39,10 @@ repository creation
 
 ### Examples
 
-      ## Not run: 
-      drat::addRepo("eddelbuettel")   # adds the repo of GitHub user 'eddelbuettel'
+``` 
+  ## Not run: 
+  drat::addRepo("eddelbuettel")   # adds the repo of GitHub user 'eddelbuettel'
 
-    ## End(Not run)
+## End(Not run)
+```
+

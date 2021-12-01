@@ -1,3 +1,4 @@
+
 ## Get information from a binary package
 
 ### Description
@@ -12,7 +13,7 @@ This function returns the compile-time information added to the
 ### Arguments
 
 | Argument | Description                             |
-|----------|-----------------------------------------|
+| -------- | --------------------------------------- |
 | `file`   | the fully qualified path of the package |
 
 ### Value
@@ -27,3 +28,4 @@ internal package code.
 ### Author(s)
 
 Dirk Eddelbuettel
+

@@ -1,3 +1,4 @@
+
 ## Insert a package source or binary file into a drat repository
 
 ### Description
@@ -20,15 +21,15 @@ repository.
       location = getOption("dratBranch", "gh-pages"),
       ...
     )
-
+    
     insertPackages(file, ...)
-
+    
     insert(...)
 
 ### Arguments
 
 | Argument    | Description                                                                                                                                                                                                                                                                                                    |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `file`      | One or more R package(s) in source or binary format                                                                                                                                                                                                                                                            |
 | `repodir`   | A local directory corresponding to the repository top-level directory.                                                                                                                                                                                                                                         |
 | `commit`    | Either boolean toggle to select automatic git operations ‘add’, ‘commit’, and ‘push’ or, alternatively, a character variable can be used to specify a commit message; this also implies the ‘TRUE’ values in other contexts.                                                                                   |
@@ -64,11 +65,11 @@ NULL is returned.
 
 Set using `options`
 
-`dratRepo`  
-Path to git repo. Defaults to `~/git/drat`
+  - `dratRepo`  
+    Path to git repo. Defaults to `~/git/drat`
 
-`dratBranch`  
-The git branch to store packages on. Defaults to `gh-pages`
+  - `dratBranch`  
+    The git branch to store packages on. Defaults to `gh-pages`
 
 ### Author(s)
 
@@ -79,10 +80,11 @@ Dirk Eddelbuettel
     ## Not run: 
       insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
       insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
-
+    
     ## End(Not run)
     ## Not run: 
       insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
       insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
-
+    
     ## End(Not run)
+
