@@ -3,8 +3,9 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
-\section{Changes in drat version 0.2.1.1 (2021-xx-yy)}{
+\section{Changes in drat version 0.2.2 (2021-12-01)}{
   \itemize{
+    \item Travis artifacts and badges have been pruned
     \item Vignettes now use \pkg{simplermarkdown}
   }
 }
