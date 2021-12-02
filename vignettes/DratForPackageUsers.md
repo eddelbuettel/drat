@@ -40,7 +40,7 @@ drat::addRepo("eddelbuettel")
 adds my drat repo (which contains only the drat package in order to keep the
 footprint of forking small).
 
-One can add several repositoties at once. The following statements adds the
+One can add several repositories at once. The following statements adds the
 repo for Rcpp and my catch-all ghrr repo:
 
 ```r
