@@ -1,3 +1,11 @@
+2021-12-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* docs/mkdmt-src/src/vignettes/dratforusers.md: Also fix typo here
+
+2021-12-02  Noam Ross <noam.ross@gmail.com>
+
+	* vignettes/DratForPackageUsers.md: Fix one-char typo (from 2015 !!)
+
 2021-12-01  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.2.2
