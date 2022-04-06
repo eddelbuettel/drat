@@ -2,6 +2,6 @@
 .Rhistory
 .RData
 testpackages/
-*.tar.gz
+#*.tar.gz
 docs-src/docs
 docs/mkdmt-src/docs
