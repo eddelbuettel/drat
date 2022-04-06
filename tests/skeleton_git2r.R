@@ -59,6 +59,7 @@ testSkeletonGit2r <- function(wd) {
 }
 
 testRepoActions <- function(repodir){
+  if (!dir.exists(file.path(repodir, "docs"))) dir.create(file.path(repodir, "docs"))
   cat("<!doctype html><title>empty</title>", file=file.path(repodir, "docs", "index.html"))
   src_files <- list.files(system.file("extdata","src", package = "drat"),
                           pattern = "foo*",

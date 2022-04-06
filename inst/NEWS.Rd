@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+
+\section{Changes in drat version 0.2.2.1 (UNRELEASED)}{
+  \itemize{
+    \item Work towards supporting Arm M1 packages
+  }
+}
+
 \section{Changes in drat version 0.2.2 (2021-12-01)}{
   \itemize{
     \item Travis artifacts and badges have been pruned
