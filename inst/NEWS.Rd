@@ -4,7 +4,7 @@
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
 
-\section{Changes in drat version 0.2.2.1 (UNRELEASED)}{
+\section{Changes in drat version 0.2.2.2 (UNRELEASED)}{
   \itemize{
     \item Work towards supporting Arm M1 packages
   }
