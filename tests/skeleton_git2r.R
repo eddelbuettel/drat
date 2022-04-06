@@ -23,12 +23,15 @@ testSkeletonGit2r <- function(wd) {
 
   # make a repo to test with
   rdir <- file.path(wd, "drat")
+  cat("<!doctype html><title>empty</title>", file=file.path(wd, "index.html"))
 
   dir.create(rdir)
   repo <- git2r::init(rdir)
   git2r::config(repo, user.name="Alice", user.email="alice@example.org")
   cat("foo", file=file.path(rdir, "README"))
+  cat("<!doctype html><title>empty</title>", file=file.path(rdir, "index.html"))
   git2r::add(repo, "README")
+  git2r::add(repo, "index.html")
   comm <- git2r::commit(repo, "init")
 
   location <- getOption("dratBranch", "gh-pages")
@@ -56,6 +59,7 @@ testSkeletonGit2r <- function(wd) {
 }
 
 testRepoActions <- function(repodir){
+  cat("<!doctype html><title>empty</title>", file=file.path(repodir, "docs", "index.html"))
   src_files <- list.files(system.file("extdata","src", package = "drat"),
                           pattern = "foo*",
                           full.names = TRUE)
@@ -186,7 +190,7 @@ testRepoActions <- function(repodir){
   drat::insertPackages(file = bin_files_3_6, repodir = repodir)
   drat::insertPackages(file = bin_files_4_0, repodir = repodir)
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version = "4.0")
-  if(nrow(repoinfo) != 9L){
+  if(nrow(repoinfo) != 10L){
     stop("Wrong package files found for getRepoInfo after fill up")
   }
   #
@@ -226,12 +230,12 @@ testRepoActions <- function(repodir){
   pkgsrds <- ifelse(location == "gh-pages", "src/contrib/PACKAGES.rds", "docs/src/contrib/PACKAGES.rds")
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if(nrow(PACKAGES) != 1L){
-    stop("Wrong number of packages written to 'PACKAGES'")
+    stop("Wrong number of packages written to 'PACKAGES': ", nrow(PACKAGES), " != 1L (A)")
   }
   drat::insertPackages(file = src_files, repodir = repodir)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if(nrow(PACKAGES) != 3L){
-    stop("Wrong number of packages written to 'PACKAGES'")
+  if (nrow(PACKAGES) != 4L){
+    stop("Wrong number of packages written to 'PACKAGES': ", nrow(PACKAGES), " != 4L (B)")
   }
 
   repodir2 <- file.path(repodir, if (location == "gh-pages") "" else "docs")
@@ -239,30 +243,30 @@ testRepoActions <- function(repodir){
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
   drat::updateRepo(repopath = repodir2)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if (nrow(PACKAGES) != 3L){
-    stop("Wrong number of packages updated to 'PACKAGES'")
+  if (nrow(PACKAGES) != 4L){
+    stop("Wrong number of packages updated to 'PACKAGES': ", nrow(PACKAGES), " != 4L (C)")
   }
 
   drat::insertPackages(file = src_files, repodir = repodir, latestOnly = TRUE)
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
   if (nrow(PACKAGES) != 1L){
-    stop("Wrong number of packages updated to 'PACKAGES'")
+    stop("Wrong number of packages updated to 'PACKAGES': ", nrow(PACKAGES), " != 3L (D)")
   }
 
   drat::insertPackages(file = src_files, repodir = repodir)
   drat::updateRepo(repopath = repodir, latestOnly = TRUE)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if (nrow(PACKAGES) != 3L){
-    stop("Wrong number of packages updated to 'PACKAGES'")
+  if (nrow(PACKAGES) != 4L){
+    stop("Wrong number of packages updated to 'PACKAGES': ", nrow(PACKAGES), " != 4L (E)")
   }
 
   file.path(repodir2, "src", "contrib", "foo_1.0.tar.gz")
   file.remove(file.path(repodir2, "src", "contrib", "foo_1.0.tar.gz"))
   drat::updateRepo(repopath = repodir2, latestOnly = TRUE)
   PACKAGES <- readRDS(file.path(repodir, pkgsrds))
-  if(nrow(PACKAGES) != 2L){
-    stop("Wrong number of packages updated to 'PACKAGES'")
+  if(nrow(PACKAGES) != 3L){
+    stop("Wrong number of packages updated to 'PACKAGES':", nrow(PACKAGES), "!= 3L (F)")
   }
 }
 
