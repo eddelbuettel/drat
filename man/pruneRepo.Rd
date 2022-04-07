@@ -18,8 +18,8 @@ getRepoInfo(
 
 pruneRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
+    "mac.binary.mavericks", "win.binary", "both"),
   pkg,
   version = getRversion(),
   remove = FALSE,
