@@ -1,3 +1,9 @@
+2022-04-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* tests/testArmBinary.R: New test for binaries on Arm
+
 2022-04-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
