@@ -196,6 +196,11 @@ insertPackage <- function(file,
     split_pkgtype <- strsplit(pkgtype,"\\.")[[1L]]
     write_pkgtype <- paste(split_pkgtype[seq.int(1L,min(2L,length(split_pkgtype)))],
                            collapse = ".")
+    # write_pkgtype can only be "source", "mac.binary", or "win.binary"
+    # pkgtype could be "binary" in ARM Mac 
+    if( write_pkgtype == "binary" && grepl("darwin", R.version$os) ){
+        write_pkgtype <- "mac.binary"
+    }
     write_pkgtype
 }
 
@@ -239,13 +244,18 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
     }
     if(ret == "mac.binary"){
         if(pkginfo["osxFolder"] == ""){
-            ret <- switch(pkginfo["Rmajor"],
-                          "3.2" = paste0(ret,".mavericks"),
-                          "3.3" = paste0(ret,".mavericks"),
-                          "3.4" = paste0(ret,".el-capitan"),
-                          "3.5" = paste0(ret,".el-capitan"),
-                          "3.6" = paste0(ret,".el-capitan"),
-                          ret)
+            if(package_version(pkginfo["Rmajor"]) < package_version("4.1")){
+                ret <- switch(pkginfo["Rmajor"],
+                              "3.2" = paste0(ret,".mavericks"),
+                              "3.3" = paste0(ret,".mavericks"),
+                              "3.4" = paste0(ret,".el-capitan"),
+                              "3.5" = paste0(ret,".el-capitan"),
+                              "3.6" = paste0(ret,".el-capitan"),
+                              ret)
+            } else if (grepl("aarch64", pkginfo["OSflavour"])) {
+                # ARM Mac for R >= 4.1
+                ret <- "binary"
+            }
         } else if(pkginfo["osxFolder"] %in% c("mavericks","el-capitan")) {
             ret <- paste0(ret,".",pkginfo["osxFolder"])
         } else {
