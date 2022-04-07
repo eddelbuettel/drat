@@ -256,7 +256,7 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
                 # ARM Mac for R >= 4.1
                 ret <- "binary"
             }
-        } else if(pkginfo["osxFolder"] %in% c("mavericks","el-capitan")) {
+        } else if(pkginfo["osxFolder"] %in% c("mavericks","el-capitan","big-sur-arm64")) {
             ret <- paste0(ret,".",pkginfo["osxFolder"])
         } else {
             stop("mac.binary subtype couldn't be determined. This shouldn't ",
@@ -311,6 +311,7 @@ getPackageInfo <- function(file) {
     osxFolder <- switch(fields["OSflavour"],
                         "x86_64-apple-darwin13.4.0" = "mavericks",
                         "x86_64-apple-darwin15.6.0" = "el-capitan",
+                        "aarch64-apple-darwin20"    = "big-sur-arm64",
                         "")
 
     fields <- c(fields, "Rmajor" = unname(rmajor), "osxFolder" = osxFolder)
