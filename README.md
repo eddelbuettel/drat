@@ -128,9 +128,9 @@ contributed vignette [Combining Drat and Travis](https://eddelbuettel.github.io/
 
 ### Author
 
-Dirk Eddelbuettel, with contributions by Carl Boettiger, Sebastian Gibb, Colin Gillespie, Matt
-Jones, Thomas Leeper, Steven Pav, Jan Schulz, Christoph Stepper, Felix G.M. Ernst, and Patrick
-Schratz.
+Dirk Eddelbuettel, with contributions by Felix Ernst, Neal Fultz, Colin
+Gillespie, Christoph Stepper, Thomas Leeper, Mark van der Loo, Jan Gorecki,
+and others.
 
 ### License
 
