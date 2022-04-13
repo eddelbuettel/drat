@@ -4,9 +4,11 @@
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
 
-\section{Changes in drat version 0.2.2.2 (UNRELEASED)}{
+\section{Changes in drat version 0.2.3 (2022-04-13)}{
   \itemize{
-    \item Work towards supporting Arm M1 packages
+    \item Arm M1 repos are now supported (\ghpr{126} and
+    \ghpr{131} fixing \ghit{125})
+    \item A vignette typo has been fixed (\ghpr{130})
   }
 }
 
