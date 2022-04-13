@@ -1,5 +1,36 @@
+###  2022 
+
+2022-04-13  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.2.3 
+ 
+2022-04-06  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * tests/testArmBinary.R: New test for binaries on Arm 
+ 
+2022-04-05  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version 
+ 
+        * inst/extdata/4.1/arm64/foo_1.3.tgz: Added new test package 
+        * inst/extdata/big-sur-arm64/bin/4.1/bat_1.3.tgz: Idem 
+        * inst/extdata/src/foo_1.3.tar.gz: Idem 
+        * inst/extdata/src/bar_1.0.tar.gz: Idem 
+ 
+        * tests/skeleton_git2r.R: Adjusting to new test packages 
+ 
 ###  2021 
 
+2021-12-02  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * docs/mkdmt-src/src/vignettes/dratforusers.md: Also fix typo here 
+ 
+2021-12-02  Noam Ross <noam.ross@gmail.com> 
+ 
+        * vignettes/DratForPackageUsers.md: Fix one-char typo (from 2015 !!) 
+ 
 2021-12-01  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.2.2 
