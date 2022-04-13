@@ -50,8 +50,7 @@ needed is a repository named `drat` with a `gh-pages` branch.  If you are
 familiar with `git` at the command-line, you can just create the branch (and
 the `src/contrib/` directory structure in it; see below).
 
-If you are less familiar with git, a really easy shortcut is to simply
-[fork](https://help.github.com/articles/fork-a-repo/) the actual
+If you are less familiar with git, a really easy shortcut is to simply fork the actual
 [drat](https://dirk.eddelbuettel.com/code/drat.html) repo.  It contains the
 drat source code which you could keep, or remove.  The fork only serves to
 set up the required directory layout, and the `src/contrib/` directory.

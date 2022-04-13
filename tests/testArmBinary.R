@@ -1,4 +1,5 @@
 
+isWindows <- Sys.info()[["sysname"]] == "Windows"
 isArm <- Sys.info()[["machine"]] == "arm64"
 isVersion41 <- getRversion() >= "4.1.0" && getRversion() < "4.2.0"
 options("dratBranch" = "docs")
@@ -8,7 +9,7 @@ docsdir <- file.path(repodir, "docs")
 if (!dir.exists(docsdir)) dir.create(docsdir)
 cat("<!doctype html><title>empty</title>", file=file.path(docsdir, "index.html"))
 
-if (TRUE) {                             # this is the default case of a source package
+if (!isWindows) {                             # this is the default case of a source package
     pkg <- system.file("extdata", "src", "bar_1.0.tar.gz", package="drat")
     drat::insertPackage(file = pkg, repodir = repodir)
 
