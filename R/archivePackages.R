@@ -1,9 +1,9 @@
 
 DRAT_ARCHIVE_SUB_DIR <- "Archive"
 
-DRAT_BINARY_TYPES <- c("mac.binary","mac.binary.el-capitan",
+DRAT_BINARY_TYPES <- c("mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                        "mac.binary.mavericks", "win.binary")
-DRAT_BOTH_TYPES <- c("source", "mac.binary","mac.binary.el-capitan",
+DRAT_BOTH_TYPES <- c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                      "mac.binary.mavericks", "win.binary")
 
 DRAT_VERSION_REGEX <- "[0-9]\\.[0-9]$"
@@ -17,8 +17,8 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
 }
 
 .norm_type <- function(type){
-    type <- match.arg(type,c("source", "binary", "mac.binary","mac.binary.el-capitan",
-                             "mac.binary.mavericks", "win.binary", "both"), 
+    type <- match.arg(type,c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                             "mac.binary.mavericks", "win.binary", "both"),
                       several.ok = TRUE)
     if("both" %in% type){
         return(DRAT_BOTH_TYPES)
@@ -45,9 +45,9 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
         stop("The 'location' argument '", location, "' is unsuitable.", call. = FALSE)
 }
 
-##' The function moves older versions of packages into a CRAN-style 
+##' The function moves older versions of packages into a CRAN-style
 ##' archive folder.
-##' 
+##'
 ##' This function is still undergoing development and polish and may
 ##' change in subsequent versions.
 ##'
@@ -57,13 +57,14 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
 ##' defaults to the value of the \dQuote{dratRepo} option with
 ##' \dQuote{"~/git/drat"} as fallback
 ##' @param type Character variable for the type of repository, so far
-##'  \dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary}, 
-##'  \dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan} or 
+##'  \dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary},
+##'  \dQuote{mac.binary.big-sur-arm64},
+##'  \dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan} or
 ##'  \dQuote{both}
 ##' @param pkg Optional character variable specifying a package name(s), whose
-##' older versions should be archived. If missing (the default), archiving is 
+##' older versions should be archived. If missing (the default), archiving is
 ##' performed on all packages.
-##' @param version R version information in the format \code{X.Y} or 
+##' @param version R version information in the format \code{X.Y} or
 ##'   \code{X.Y.Z}. Only used, if archiving binary packages.
 ##'   (default: \code{version = getRversion()}). If \code{version = NA}, all
 ##'   available R versions will be used. If \code{version = NULL}, this defaults
@@ -78,7 +79,7 @@ NULL
 
 ##' @rdname archivePackages
 archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                            type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
+                            type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                      "mac.binary.mavericks", "win.binary", "both"),
                             pkg,
                             version = getRversion()) {
@@ -98,14 +99,14 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
     # move each package
     mapply(.move_to_archive_directory, repoinfo$contrib.url, repoinfo$package,
            repoinfo$file)
-    # update 
+    # update
     if(nrow(repoinfo) >= 1L){
         updateRepo(repopath, type = unique(repoinfo$type), version = version)
     }
     invisible(NULL)
 }
 
-# if a repodir exists at a an archive subdirectory to it. Otherwise leave it 
+# if a repodir exists at a an archive subdirectory to it. Otherwise leave it
 # alone
 .prepare_archive_directory <- function(repodir){
     archive <- file.path(repodir, DRAT_ARCHIVE_SUB_DIR)[file.exists(file.path(repodir))]
@@ -139,7 +140,7 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
 
 ##' @rdname archivePackages
 archivePackagesForAllRversions <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                                           type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
+                                           type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                                     "mac.binary.mavericks", "win.binary", "both"),
                                            pkg){
     archivePackages(repopath = repopath, type = type, pkg = pkg, version = NA)
