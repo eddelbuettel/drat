@@ -21,7 +21,7 @@ if (!isWindows) {                             # this is the default case of a so
 
 if (isArm && isVersion41) {
     pkg <- system.file("extdata", "big-sur-arm64", "bin", "4.1", "bar_1.0.tgz", package="drat")
-    drat::insertPackage(file = pkg, repodir = repodir)
+    drat::insertPackage(file = pkg, repodir = repodir, action = "prune")
 
     avpkg <- available.packages(repos=file.path("file:", docsdir))
 

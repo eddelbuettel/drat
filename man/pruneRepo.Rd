@@ -9,8 +9,8 @@
 \usage{
 getRepoInfo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64",
+    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
   pkg,
   version = getRversion(),
   location = getOption("dratBranch", "gh-pages")
@@ -18,8 +18,8 @@ getRepoInfo(
 
 pruneRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64",
+    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
   pkg,
   version = getRversion(),
   remove = FALSE,
@@ -28,16 +28,16 @@ pruneRepo(
 
 pruneRepoForAllRversions(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
+  type = c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+    "mac.binary.mavericks", "win.binary", "both"),
   pkg,
   remove = FALSE
 )
 
 updateRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
+  type = c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+    "mac.binary.mavericks", "win.binary", "both"),
   version = NA,
   ...
 )
@@ -48,16 +48,16 @@ defaults to the value of the \dQuote{dratRepo} option with
 \dQuote{"~/git/drat"} as fallback}
 
 \item{type}{Character variable for the type of repository, so far
-\dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary}, 
-\dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan} or 
-\dQuote{both}}
+\dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary},
+\dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan},
+\dQuote{mac.binary.big-sur-arm64}, or \dQuote{both}}
 
 \item{pkg}{Optional character variable specifying a package name,
 whose older versions should be pruned. If missing (the
 default), pruning is performed on all packages.}
 
-\item{version}{R version information in the format \code{X.Y} or 
-\code{X.Y.Z}. Only used, if pruning binary packages. 
+\item{version}{R version information in the format \code{X.Y} or
+\code{X.Y.Z}. Only used, if pruning binary packages.
 (default: \code{version = getRversion()}). If \code{version = NA}, all
 available R versions will be used. If \code{version = NULL}, this defaults
 to \code{getRversion()}.}
@@ -73,11 +73,11 @@ different from (logical) \sQuote{FALSE} and equal to character
 \dQuote{git} files are removed via \code{git rm} else via a
 straight file deletion.}
 
-\item{...}{For \code{updateRepo} a catch-all collection of parameters. 
-Arguments passed to \code{update_PACKAGES} currently include 
-\code{latestOnly}, for which the default value is set here to \code{FALSE}. 
-See \code{\link{update_PACKAGES}}. Please note that this has an effect 
-for \code{update_PACKAGES} only, if new packages are found, e.g. manually  
+\item{...}{For \code{updateRepo} a catch-all collection of parameters.
+Arguments passed to \code{update_PACKAGES} currently include
+\code{latestOnly}, for which the default value is set here to \code{FALSE}.
+See \code{\link{update_PACKAGES}}. Please note that this has an effect
+for \code{update_PACKAGES} only, if new packages are found, e.g. manually
 added.}
 }
 \value{
@@ -98,8 +98,8 @@ that package. Older versions are therefore effectively shadowed
 and can be removed without functionally changing a repository.
 
 However, if a current package file is removed without \code{pruneRepo}, the
-PACKAGES, PACKAGES.gz and PACKAGES.rds file might be not up to date. To 
-ensure the correct information is available in these indices, run 
+PACKAGES, PACKAGES.gz and PACKAGES.rds file might be not up to date. To
+ensure the correct information is available in these indices, run
 \code{updateRepo}.
 
 These functions are still undergoing development and polish and may
