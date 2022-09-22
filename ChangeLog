@@ -1,10 +1,10 @@
-2022-09-21 Joey Reid <joey.reid@metrotransit.org>
+2022-09-21  Joey Reid  <joey.reid@metrotransit.org>
 
-  * R/pruneRepo.R: Add support for macOS binaries on arm64
-  * R/archivePackages.R: Idem
-  * tests/testArmBinary.R: Idem
-  * man/pruneRepo.Rd: Idem
-  * man/archivePackages.Rd: Idem
+	* R/pruneRepo.R: Add support for macOS binaries on arm64
+	* R/archivePackages.R: Idem
+	* tests/testArmBinary.R: Idem
+	* man/pruneRepo.Rd: Idem
+	* man/archivePackages.Rd: Idem
 
 2022-04-13  Dirk Eddelbuettel  <edd@debian.org>
 
@@ -15,7 +15,7 @@
 	* R/insertPackages.R: Refinenment for Arm M1
 	* man/pruneRepo.Rd: Idem
 
-2022-04-06  Zhengjia Wang <zw23@rice.edu>
+2022-04-06  Zhengjia Wang  <zw23@rice.edu>
 
 	* R/archivePackages.R: Initial Support for Arm M1
 	* R/insertPackages.R: Idem
@@ -43,7 +43,7 @@
 
 	* docs/mkdmt-src/src/vignettes/dratforusers.md: Also fix typo here
 
-2021-12-02  Noam Ross <noam.ross@gmail.com>
+2021-12-02  Noam Ross  <noam.ross@gmail.com>
 
 	* vignettes/DratForPackageUsers.md: Fix one-char typo (from 2015 !!)
 
