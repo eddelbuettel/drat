@@ -1,3 +1,7 @@
+2022-09-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
 2022-09-21  Joey Reid  <joey.reid@metrotransit.org>
 
 	* R/pruneRepo.R: Add support for macOS binaries on arm64
