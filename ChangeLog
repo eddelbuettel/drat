@@ -3,6 +3,8 @@
   * R/pruneRepo.R: Add support for macOS binaries on arm64
   * R/archivePackages.R: Idem
   * tests/testArmBinary.R: Idem
+  * man/pruneRepo.Rd: Idem
+  * man/archivePackages.Rd: Idem
 
 2022-04-13  Dirk Eddelbuettel  <edd@debian.org>
 
