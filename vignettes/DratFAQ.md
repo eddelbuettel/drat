@@ -142,7 +142,7 @@ downloading all dependent packages.  As such, it is more of complement to
 drat than an alternative --- and Word is that several people have in fact
 combined both.
 
-## Is there a suggested commit message converntion?
+## Is there a suggested commit message convention?
 
 The small helper script `getCommitMessageForDrat.sh` implements a simple
 format I have suggested in the past and used:

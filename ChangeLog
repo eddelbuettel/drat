@@ -1,3 +1,10 @@
+2022-10-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* vignettes/DratFAQ.md: Correct typo
+	* vignettes/DratFAQ.html: Ditto
+	* docs/mkdmt-src/src/vignettes/dratfaq.md: Ditto
+	* docs/vignettes/dratfaq/index.html: Ditto
+
 2022-09-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
