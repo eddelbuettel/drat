@@ -14,7 +14,7 @@ two ways to use a package repository:
 
 This vignette deals with the first case: How to use
 [drat](https://dirk.eddelbuettel.com/code/drat.html) as a package author.  A
-[companion vignette for package users](/vignettes/dratforusers) is available as well.
+[companion vignette for package users](/drat/vignettes/dratforusers) is available as well.
 
 
 ## Case 1: Using GitHub
@@ -90,7 +90,7 @@ walk-through of how to have [Travis CI](https://travis-ci.org/) automagically
 push packages into a [drat](https://dirk.eddelbuettel.com/code/drat.html)
 repo. This is included as another (currently work-in-progress) vignette
 entitled [Combining Drat And
-Travis](/combiningdratandtravis)
+Travis](/drat/vignettes/combiningdratandtravis)
 which can be found in the [drat](https://dirk.eddelbuettel.com/code/drat.html)
 package just like this vignette.
 
@@ -122,7 +122,7 @@ drat::insertPackage("myPkg_0.5.tar.gz", "file://nfs/groups/groupABC/R/drat")
 
 This updates the PACKAGES file (and its compressed variant) after which the
 repository is ready to serve files. See
-[the companion vignette](/vignettes/dratforusers) for how to deploy it.
+[the companion vignette](/drat/vignettes/dratforusers) for how to deploy it.
 Note that the location URL should begin with `file:`.
 
 ## Summary
@@ -140,5 +140,5 @@ is write access to a directory.
 Lastly, serving that directory as a repository then requires a web server
 (easiest via the automatic GitHub repo option) or other file access.  How to
 access packages from [drat](https://dirk.eddelbuettel.com/code/drat.html)
-repository is described in [the companion vignette](/vignettes/dratforusers).
+repository is described in [the companion vignette](/drat/vignettes/dratforusers).
 
