@@ -1,5 +1,7 @@
 2023-01-26  Dirk Eddelbuettel  <edd@debian.org>
 
+	* .github/workflows/ci.yaml (jobs): (Temporarily) Install libgit2-dev
+
 	* R/insertPackage.R (insertPackage): Correct a setwd() placement
 
 2022-11-05  Dirk Eddelbuettel  <edd@debian.org>

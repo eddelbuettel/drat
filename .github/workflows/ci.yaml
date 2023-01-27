@@ -29,7 +29,9 @@ jobs:
         run: ./run.sh bootstrap
 
       - name: Dependencies
-        run: ./run.sh install_all
+        run: |
+          ./run.sh install_aptget libgit2-dev
+          ./run.sh install_all
 
       - name: Test
         run: ./run.sh run_tests
