@@ -108,8 +108,8 @@ insertPackage <- function(file,
         if (isTRUE(pullfirst)) system("git pull")
         if (branch == "gh-pages") {
             system2("git", c("checkout", branch))
-            setwd(curwd)
         }
+        setwd(curwd)
     }
 
     if (location == "docs") repodir <- file.path(repodir, location)
