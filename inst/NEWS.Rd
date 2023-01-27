@@ -4,7 +4,7 @@
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
 
-\section{Changes in drat version 0.2.4 (2022-xx-yy)}{
+\section{Changes in drat version 0.2.3.1 (2022-xx-yy)}{
   \itemize{
     \item Arm M1 repos are now also supported in pruning and archival 
     (Joey Reed in \ghpr{135} fixing \ghit{134})
