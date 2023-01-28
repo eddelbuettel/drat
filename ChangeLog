@@ -1,3 +1,7 @@
+2023-01-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .github/workflows/ci.yaml (jobs): Remove libgit2-dev as r2u is current
+
 2023-01-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): (Temporarily) Install libgit2-dev
