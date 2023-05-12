@@ -1,9 +1,10 @@
 
 DRAT_ARCHIVE_SUB_DIR <- "Archive"
 
-DRAT_BINARY_TYPES <- c("mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
-                       "mac.binary.mavericks", "win.binary")
-DRAT_BOTH_TYPES <- c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+DRAT_BINARY_TYPES <- c("mac.binary",  "mac.binary.big-sur-x86_64", "mac.binary.big-sur-arm64", 
+                       "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary")
+DRAT_BOTH_TYPES <- c("source", "mac.binary",  "mac.binary.big-sur-x86_64", 
+                     "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                      "mac.binary.mavericks", "win.binary")
 
 DRAT_VERSION_REGEX <- "[0-9]\\.[0-9]$"
@@ -17,7 +18,7 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
 }
 
 .norm_type <- function(type){
-    type <- match.arg(type,c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+    type <- match.arg(type,c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                              "mac.binary.mavericks", "win.binary", "both"),
                       several.ok = TRUE)
     if("both" %in% type){
@@ -58,6 +59,7 @@ DRAT_CONTRIB_VERSION_REGEX <- paste0("contrib/",DRAT_VERSION_REGEX)
 ##' \dQuote{"~/git/drat"} as fallback
 ##' @param type Character variable for the type of repository, so far
 ##'  \dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary},
+##'  \dQuote{mac.binary.big-sur-x86_64},
 ##'  \dQuote{mac.binary.big-sur-arm64},
 ##'  \dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan} or
 ##'  \dQuote{both}
@@ -79,7 +81,8 @@ NULL
 
 ##' @rdname archivePackages
 archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                            type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                            type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+                                     "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                      "mac.binary.mavericks", "win.binary", "both"),
                             pkg,
                             version = getRversion()) {
@@ -140,7 +143,8 @@ archivePackages <- function(repopath = getOption("dratRepo", "~/git/drat"),
 
 ##' @rdname archivePackages
 archivePackagesForAllRversions <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                                           type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                                           type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+                                                    "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                                     "mac.binary.mavericks", "win.binary", "both"),
                                            pkg){
     archivePackages(repopath = repopath, type = type, pkg = pkg, version = NA)
