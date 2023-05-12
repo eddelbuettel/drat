@@ -23,6 +23,7 @@
 ##' @param type Character variable for the type of repository, so far
 ##'  \dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary},
 ##'  \dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan},
+##'  \dQuote{mac.binary.big-sur-x86_64}, or \dQuote{both}
 ##'  \dQuote{mac.binary.big-sur-arm64}, or \dQuote{both}
 ##' @param pkg Optional character variable specifying a package name,
 ##'  whose older versions should be pruned. If missing (the
@@ -54,7 +55,8 @@
 ##'  be removed.
 ##' @author Dirk Eddelbuettel
 getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                        type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                        type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+                                 "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                  "mac.binary.mavericks", "win.binary", "both"),
                         pkg,
                         version = getRversion(),
@@ -156,7 +158,8 @@ getRepoInfo <- function(repopath = getOption("dratRepo", "~/git/drat"),
 
 ##' @rdname pruneRepo
 pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                      type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                      type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+                               "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                "mac.binary.mavericks", "win.binary", "both"),
                       pkg,
                       version = getRversion(),
@@ -201,7 +204,8 @@ pruneRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
 
 ##' @rdname pruneRepo
 pruneRepoForAllRversions <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                                     type = c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                                     type = c("source", "mac.binary", "mac.binary.big-sur-x86_64", 
+                                              "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                               "mac.binary.mavericks", "win.binary", "both"),
                                      pkg,
                                      remove = FALSE){
@@ -211,7 +215,8 @@ pruneRepoForAllRversions <- function(repopath = getOption("dratRepo", "~/git/dra
 
 ##' @rdname pruneRepo
 updateRepo <- function(repopath = getOption("dratRepo", "~/git/drat"),
-                       type = c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
+                       type = c("source", "mac.binary", "mac.binary.big-sur-x86_64", 
+                                "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
                                 "mac.binary.mavericks", "win.binary", "both"),
                        version = NA,
                        ... ){

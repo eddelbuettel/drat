@@ -7,16 +7,18 @@
 \usage{
 archivePackages(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64",
-    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks", 
+    "win.binary", "both"),
   pkg,
   version = getRversion()
 )
 
 archivePackagesForAllRversions(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64",
-    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+    "mac.binary.big-sur-arm64","mac.binary.el-capitan", "mac.binary.mavericks", 
+    "win.binary", "both"),
   pkg
 )
 }
@@ -27,6 +29,7 @@ defaults to the value of the \dQuote{dratRepo} option with
 
 \item{type}{Character variable for the type of repository, so far
 \dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary},
+\dQuote{mac.binary.big-sur-x86_64},
 \dQuote{mac.binary.big-sur-arm64},
 \dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan} or
 \dQuote{both}}

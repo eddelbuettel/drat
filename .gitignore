@@ -5,3 +5,4 @@ testpackages/
 #*.tar.gz
 docs-src/docs
 docs/mkdmt-src/docs
+.DS_Store

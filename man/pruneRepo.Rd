@@ -9,8 +9,9 @@
 \usage{
 getRepoInfo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64",
-    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
+    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks", 
+    "win.binary", "both"),
   pkg,
   version = getRversion(),
   location = getOption("dratBranch", "gh-pages")
@@ -18,8 +19,9 @@ getRepoInfo(
 
 pruneRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-arm64",
-    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64",
+    "mac.binary.big-sur-arm64","mac.binary.el-capitan", "mac.binary.mavericks", 
+    "win.binary", "both"),
   pkg,
   version = getRversion(),
   remove = FALSE,
@@ -28,16 +30,16 @@ pruneRepo(
 
 pruneRepoForAllRversions(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "mac.binary", "mac.binary.big-sur-x86_64", "mac.binary.big-sur-arm64", 
+    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
   pkg,
   remove = FALSE
 )
 
 updateRepo(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.big-sur-arm64", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+  type = c("source", "mac.binary", "mac.binary.big-sur-x86_64", "mac.binary.big-sur-arm64", 
+    "mac.binary.el-capitan", "mac.binary.mavericks", "win.binary", "both"),
   version = NA,
   ...
 )
