@@ -122,10 +122,16 @@ testRepoActions <- function(repodir){
   #
   repoinfo <- drat:::getRepoInfo(repopath = repodir, version = NA,
                                  type = c("source","binary"))
+  
   if(getRversion() < package_version("4.0")){
     if(nrow(repoinfo) != 4L){
       stop("Wrong package files found after pruning for version = NA")
     }
+  # R 4.1 and 4.2 produces one extra row in the repoinfo compared to R 4.3:
+  } else if(getRversion() < package_version("4.3")){
+      if(nrow(repoinfo) != 7L){
+          stop("Wrong package files found after pruning for version = NA")
+      }
   } else {
     if(nrow(repoinfo) != 6L){
       stop("Wrong package files found after pruning for version = NA")
