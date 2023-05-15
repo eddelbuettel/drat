@@ -1,3 +1,14 @@
+2023-05-12  Arne Johannes Holmin  <arnejh@hi.no>
+
+	* R/archivePackages.R: Add support for big-sur-x86_64
+	* R/insertPackage.R: Idem
+	* R/pruneRepo.R: Idem
+	* man/archivePackages.Rd: Documentation
+	* man/pruneRepo.Rd: Documentation
+	* tests/testBig-sur-x86_64Binary.R: Added tests
+	* inst/extdata/big-sur-x86_64/bin/4.3/bar_1.1.tgz: Test support
+	* inst/extdata/src/bar_1.1.tar.g: Idem
+
 2023-01-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Remove libgit2-dev as r2u is current

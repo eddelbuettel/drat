@@ -290,3 +290,15 @@ if (requireNamespace("git2r", quietly=TRUE)) {
   runTest(wd, "gh-pages")
 }
 runTest(wd, "docs")
+
+## TODO Use
+##   > as.package_version(system("sw_vers -productVersion", intern = TRUE)) == 13.1
+##   [1] TRUE
+## if on Darwin and x86_64 (as in tiledb-r's configure.ac with
+##   uname=`uname`
+##   machine=`uname -m`
+##   if test x"${uname}" = x"Darwin" -a x"${machine}" = x"x86_64"; then
+## which we can rework as R system() calls.
+##
+## Use https://en.wikipedia.org/wiki/MacOS_version_history for mininum versions
+## Using macOS 11 ("Big Sur") may work

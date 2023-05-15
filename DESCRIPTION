@@ -1,11 +1,11 @@
 Package: drat
 Type: Package
 Title: 'Drat' R Archive Template
-Version: 0.2.3.1
-Date: 2022-09-22
+Version: 0.2.3.2
+Date: 2023-05-12
 Author: Dirk Eddelbuettel, with contributions by Felix Ernst, Neal Fultz, Colin
  Gillespie, Christoph Stepper, Thomas Leeper, Mark van der Loo, Jan Gorecki,
- and others.
+ Joey Reid, Arne Johannes Holmin, and others.
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Depends: R (>= 3.6.0)
 Imports: utils
