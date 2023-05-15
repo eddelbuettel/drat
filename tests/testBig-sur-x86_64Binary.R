@@ -1,6 +1,6 @@
 
 isIntelMac <- .Platform$pkgType == "mac.binary.big-sur-x86_64"
-isRVersion4.3 <- getRversion() == "4.3.0"
+isRVersion4.3 <- getRversion() >= "4.3.0" && getRversion() < "4.4.0"
 options("dratBranch" = "docs")
 
 repodir <- tempdir()
