@@ -55,6 +55,7 @@
 ##' either \dQuote{gh-pages} indicating a branch of that name, or
 ##' \dQuote{docs/} directory in the main branch. The default value can
 ##' be overridden via the \dQuote{dratBranch} option.
+##' @param OSflavour an optional string naming the OSflavour, which is otherwise read as the second element of the 'Built' field of the \code{file}. For packages that do not need compilation on macOS for R >= 4.3 the 'Built' field is empty in the DESCRIPTION in a binary file (tgz), in which case it can be useful to set the \code{OSflavour} e.g. by the value of R.Version()$platform, so that \code{\link{insertPackages}} inserts the binary into the appropriate sub folder (under bin/maxosx).
 ##' @return NULL is returned.
 ##' @examples
 ##' \dontrun{
@@ -72,6 +73,7 @@ insertPackage <- function(file,
                           pullfirst = FALSE,
                           action = c("none", "archive", "prune"),
                           location = getOption("dratBranch", "gh-pages"),
+                          OSflavour = NULL, 
                           ...) {
 
     if (!file.exists(file)) stop("File ", file, " not found\n", call. = FALSE)
@@ -120,7 +122,7 @@ insertPackage <- function(file,
                 "example is '<!doctype html><title>empty</title>'.")
     }
 
-    pkginfo <- getPackageInfo(file)
+    pkginfo <- getPackageInfo(file, OSflavour = OSflavour)
     pkgtype <- identifyPackageType(file, pkginfo)
     pkgdir <- normalizePath(contrib.url2(repodir, pkgtype, pkginfo["Rmajor"]),
                             mustWork = FALSE)
@@ -272,12 +274,13 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
 ##'
 ##' @title Get information from a binary package
 ##' @param file the fully qualified path of the package
+##' @param OSflavour an optional string naming the OSflavour, which is otherwise read as the second element of the 'Built' field of the \code{file}. For packages that do not need compilation on macOS for R >= 4.3 the 'Built' field is empty in the DESCRIPTION in a binary file (tgz), in which case it can be useful to set the \code{OSflavour} e.g. by the value of R.Version()$platform, so that \code{\link{insertPackages}} inserts the binary into the appropriate sub folder (under bin/maxosx).
 ##' @section Note:
 ##' This is an internal function, use \code{:::} to access it from outside
 ##' the internal package code.
 ##' @return A named vector with several components
 ##' @author Dirk Eddelbuettel
-getPackageInfo <- function(file) {
+getPackageInfo <- function(file, OSflavour = NULL) {
     if (!file.exists(file)) stop("File ", file, " not found!", call. = FALSE)
 
     td <- tempdir()
@@ -305,6 +308,11 @@ getPackageInfo <- function(file) {
 
     fields <- strsplit(builtstring, "; ")[[1]]
     names(fields) <- c("Rversion", "OSflavour", "Date", "OS")
+    
+    # Insert the OSflavour if specified by the user:
+    if(length(OSflavour) && is.character(OSflavour)) {
+        fields[["OSflavour"]] <- OSflavour
+    }
 
     rmajor <- gsub("^R (\\d\\.\\d)\\.\\d.*", "\\1", fields["Rversion"])
 
