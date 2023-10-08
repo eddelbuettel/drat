@@ -1,3 +1,7 @@
+2023-10-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add r-universe badge
+
 2023-05-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/skeleton_git2r.R (testRepoActions): Additional tweak
