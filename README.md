@@ -123,9 +123,16 @@ about it.
 
 ### Travis Integration
 
-Colin Gillespie has started to integrate [Travis CI](https://www.travis-ci.org) with drat, see his
+Colin Gillespie integrated [Travis CI](https://www.travis-ci.org) with drat, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more details, and the
 contributed vignette [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
+
+### GitHub Actions
+
+Mike Mahoney uses [drat](https://dirk.eddelbuettel.com/code/drat.html)
+with [GitHub Actions in a 'push' setting](https://www.mm218.dev/posts/2021-09-22-automated-drat-uploads-with-github-actions/),
+while Zhian Kamvar uses [drat](https://dirk.eddelbuettel.com/code/drat.html)
+with [GitHub Actions in a 'pull' setting](https://zkamvar.netlify.app/blog/gh-drat/).
 
 ### Author
 
