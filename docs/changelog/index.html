@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#2022" class="md-skip">
+        <a href="#2023" class="md-skip">
           Skip to content
         </a>
       
@@ -694,6 +694,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2023" class="md-nav__link">
+    2023
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2022" class="md-nav__link">
     2022
   </a>
@@ -789,6 +796,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2023" class="md-nav__link">
+    2023
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2022" class="md-nav__link">
     2022
   </a>
@@ -861,9 +875,78 @@
 
   <h1>Changelog</h1>
 
+<h3 id="2023">2023</h3>
+<p>2023-10-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Release 0.2.4
+
+    * README.md: Add two blog posts in new section on GitHub Actions
+
+    * vignettes/CombiningDratAndTravis.md: Update Travis URL 
+    * vignettes/DratForPackageAuthors.md: Ditto 
+    * README.md: Ditto, also update urbandictionary.com URL
+
+    * R/pruneRepo.R: Minor line-length edit to appease R CMD check 
+    * man/pruneRepo.Rd: Regenerated
+</code></pre>
+<p>2023-10-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * README.md: Add r-universe badge
+</code></pre>
+<p>2023-05-15  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * tests/skeleton_git2r.R (testRepoActions): Additional tweak
+</code></pre>
+<p>2023-05-15  Arne Johannes Holmin  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;">&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;</a> </p>
+<pre><code>    * tests/skeleton_git2r.R (testRepoActions): Adjust for macOS-oldrel
+</code></pre>
+<p>2023-05-12  Arne Johannes Holmin  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;">&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;</a> </p>
+<pre><code>    * R/archivePackages.R: Add support for big-sur-x86_64 
+    * R/insertPackage.R: Idem 
+    * R/pruneRepo.R: Idem 
+    * man/archivePackages.Rd: Documentation 
+    * man/pruneRepo.Rd: Documentation 
+    * tests/testBig-sur-x86_64Binary.R: Added tests 
+    * inst/extdata/big-sur-x86_64/bin/4.3/bar_1.1.tgz: Test support 
+    * inst/extdata/src/bar_1.1.tar.g: Idem
+</code></pre>
+<p>2023-01-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .github/workflows/ci.yaml (jobs): Remove libgit2-dev as r2u is current
+</code></pre>
+<p>2023-01-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .github/workflows/ci.yaml (jobs): (Temporarily) Install libgit2-dev
+
+    * R/insertPackage.R (insertPackage): Correct a setwd() placement
+</code></pre>
 <h3 id="2022">2022</h3>
+<p>2022-11-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
+</code></pre>
+<p>2022-10-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * vignettes/DratFAQ.md: Correct typo 
+    * vignettes/DratFAQ.html: Ditto 
+    * docs/mkdmt-src/src/vignettes/dratfaq.md: Ditto 
+    * docs/vignettes/dratfaq/index.html: Ditto
+</code></pre>
+<p>2022-09-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * DESCRIPTION (Version, Date): Roll minor version
+</code></pre>
+<p>2022-09-21  Joey Reid  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#101;&#121;&#46;&#114;&#101;&#105;&#100;&#64;&#109;&#101;&#116;&#114;&#111;&#116;&#114;&#97;&#110;&#115;&#105;&#116;&#46;&#111;&#114;&#103;">&#106;&#111;&#101;&#121;&#46;&#114;&#101;&#105;&#100;&#64;&#109;&#101;&#116;&#114;&#111;&#116;&#114;&#97;&#110;&#115;&#105;&#116;&#46;&#111;&#114;&#103;</a> </p>
+<pre><code>    * R/pruneRepo.R: Add support for macOS binaries on arm64 
+    * R/archivePackages.R: Idem 
+    * tests/testArmBinary.R: Idem 
+    * man/pruneRepo.Rd: Idem 
+    * man/archivePackages.Rd: Idem
+</code></pre>
 <p>2022-04-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
 <pre><code>    * DESCRIPTION (Version, Date): Release 0.2.3
+</code></pre>
+<p>2022-04-07  Josh Errickson  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#115;&#104;&#64;&#101;&#114;&#114;&#105;&#99;&#107;&#115;&#111;&#110;&#46;&#110;&#101;&#116;">&#106;&#111;&#115;&#104;&#64;&#101;&#114;&#114;&#105;&#99;&#107;&#115;&#111;&#110;&#46;&#110;&#101;&#116;</a> </p>
+<pre><code>    * R/insertPackages.R: Refinenment for Arm M1 
+    * man/pruneRepo.Rd: Idem
+</code></pre>
+<p>2022-04-06  Zhengjia Wang  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#122;&#119;&#50;&#51;&#64;&#114;&#105;&#99;&#101;&#46;&#101;&#100;&#117;">&#122;&#119;&#50;&#51;&#64;&#114;&#105;&#99;&#101;&#46;&#101;&#100;&#117;</a> </p>
+<pre><code>    * R/archivePackages.R: Initial Support for Arm M1 
+    * R/insertPackages.R: Idem 
+    * R/pruneRepo.R: Idem 
+    [ Originally committed Aug 2021, merged now ]
 </code></pre>
 <p>2022-04-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
 <pre><code>    * DESCRIPTION (Version, Date): Roll minor version
@@ -884,7 +967,7 @@
 <p>2021-12-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
 <pre><code>    * docs/mkdmt-src/src/vignettes/dratforusers.md: Also fix typo here
 </code></pre>
-<p>2021-12-02  Noam Ross <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#111;&#97;&#109;&#46;&#114;&#111;&#115;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#110;&#111;&#97;&#109;&#46;&#114;&#111;&#115;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<p>2021-12-02  Noam Ross  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#111;&#97;&#109;&#46;&#114;&#111;&#115;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#110;&#111;&#97;&#109;&#46;&#114;&#111;&#115;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
 <pre><code>    * vignettes/DratForPackageUsers.md: Fix one-char typo (from 2015 !!)
 </code></pre>
 <p>2021-12-01  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>

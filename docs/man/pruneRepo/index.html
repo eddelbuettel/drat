@@ -864,37 +864,41 @@
 <p>The function determines which packages in a repositories can be removed
 as they are being ‘shadowed’ by a newer version of the same packages.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>getRepoInfo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+<pre><code class="language-R">getRepoInfo(
+  repopath = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
+  type = c(&quot;source&quot;, &quot;binary&quot;, &quot;mac.binary&quot;, &quot;mac.binary.big-sur-x86_64&quot;,
+    &quot;mac.binary.big-sur-arm64&quot;, &quot;mac.binary.el-capitan&quot;, &quot;mac.binary.mavericks&quot;,
+    &quot;win.binary&quot;, &quot;both&quot;),
   pkg,
   version = getRversion(),
-  location = getOption("dratBranch", "gh-pages")
+  location = getOption(&quot;dratBranch&quot;, &quot;gh-pages&quot;)
 )
 
 pruneRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
+  repopath = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
+  type = c(&quot;source&quot;, &quot;binary&quot;, &quot;mac.binary&quot;, &quot;mac.binary.big-sur-x86_64&quot;,
+    &quot;mac.binary.big-sur-arm64&quot;, &quot;mac.binary.el-capitan&quot;, &quot;mac.binary.mavericks&quot;,
+    &quot;win.binary&quot;, &quot;both&quot;),
   pkg,
   version = getRversion(),
   remove = FALSE,
-  location = getOption("dratBranch", "gh-pages")
+  location = getOption(&quot;dratBranch&quot;, &quot;gh-pages&quot;)
 )
 
 pruneRepoForAllRversions(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
+  repopath = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
+  type = c(&quot;source&quot;, &quot;mac.binary&quot;, &quot;mac.binary.big-sur-x86_64&quot;,
+    &quot;mac.binary.big-sur-arm64&quot;, &quot;mac.binary.el-capitan&quot;, &quot;mac.binary.mavericks&quot;,
+    &quot;win.binary&quot;, &quot;both&quot;),
   pkg,
   remove = FALSE
 )
 
 updateRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "mac.binary", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
+  repopath = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
+  type = c(&quot;source&quot;, &quot;mac.binary&quot;, &quot;mac.binary.big-sur-x86_64&quot;,
+    &quot;mac.binary.big-sur-arm64&quot;, &quot;mac.binary.el-capitan&quot;, &quot;mac.binary.mavericks&quot;,
+    &quot;win.binary&quot;, &quot;both&quot;),
   version = NA,
   ...
 )
@@ -903,18 +907,18 @@ updateRepo(
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>repopath</code></td>
-<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"\~/git/drat"” as fallback</td>
+<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"~/git/drat"” as fallback</td>
 </tr>
 <tr>
 <td><code>type</code></td>
-<td>Character variable for the type of repository, so far “source”, “binary”, “win.binary”, “mac.binary”, “mac.binary.mavericks”, “mac.binary.el-capitan” or “both”</td>
+<td>Character variable for the type of repository, so far “source”, “binary”, “win.binary”, “mac.binary”, “mac.binary.mavericks”, “mac.binary.el-capitan”, “mac.binary.big-sur-x86_64”, “mac.binary.big-sur-arm64”, or “both”</td>
 </tr>
 <tr>
 <td><code>pkg</code></td>

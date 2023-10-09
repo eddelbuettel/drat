@@ -8,13 +8,15 @@ This function returns the compile-time information added to the
 
 ### Usage
 
-    getPackageInfo(file)
+``` R
+getPackageInfo(file)
+```
 
 ### Arguments
 
-| Argument | Description                             |
-| -------- | --------------------------------------- |
-| `file`   | the fully qualified path of the package |
+|        |                                         |
+|--------|-----------------------------------------|
+| `file` | the fully qualified path of the package |
 
 ### Value
 

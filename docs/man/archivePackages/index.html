@@ -864,18 +864,20 @@
 <p>The function moves older versions of packages into a CRAN-style archive
 folder.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>archivePackages(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+<pre><code class="language-R">archivePackages(
+  repopath = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
+  type = c(&quot;source&quot;, &quot;binary&quot;, &quot;mac.binary&quot;, &quot;mac.binary.big-sur-x86_64&quot;,
+    &quot;mac.binary.big-sur-arm64&quot;, &quot;mac.binary.el-capitan&quot;, &quot;mac.binary.mavericks&quot;,
+    &quot;win.binary&quot;, &quot;both&quot;),
   pkg,
   version = getRversion()
 )
 
 archivePackagesForAllRversions(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.el-capitan",
-    "mac.binary.mavericks", "win.binary", "both"),
+  repopath = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
+  type = c(&quot;source&quot;, &quot;binary&quot;, &quot;mac.binary&quot;, &quot;mac.binary.big-sur-x86_64&quot;,
+    &quot;mac.binary.big-sur-arm64&quot;, &quot;mac.binary.el-capitan&quot;, &quot;mac.binary.mavericks&quot;,
+    &quot;win.binary&quot;, &quot;both&quot;),
   pkg
 )
 </code></pre>
@@ -883,18 +885,18 @@ archivePackagesForAllRversions(
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>repopath</code></td>
-<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"\~/git/drat"” as fallback</td>
+<td>Character variable with the path to the repo; defaults to the value of the “dratRepo” option with “"~/git/drat"” as fallback</td>
 </tr>
 <tr>
 <td><code>type</code></td>
-<td>Character variable for the type of repository, so far “source”, “binary”, “win.binary”, “mac.binary”, “mac.binary.mavericks”, “mac.binary.el-capitan” or “both”</td>
+<td>Character variable for the type of repository, so far “source”, “binary”, “win.binary”, “mac.binary”, “mac.binary.big-sur-x86_64”, “mac.binary.big-sur-arm64”, “mac.binary.mavericks”, “mac.binary.el-capitan” or “both”</td>
 </tr>
 <tr>
 <td><code>pkg</code></td>
@@ -912,9 +914,9 @@ in subsequent versions.</p>
 <h3 id="authors">Author(s)</h3>
 <p>Thomas J. Leeper</p>
 <h3 id="examples">Examples</h3>
-<pre><code>## Not run: 
+<pre><code class="language-R">## Not run: 
   archivePackages()   # archive all older package versions
-  archivePackages(pkg = "drat")  # archive older copies of just one package
+  archivePackages(pkg = &quot;drat&quot;)  # archive older copies of just one package
 
 ## End(Not run)
 </code></pre>
