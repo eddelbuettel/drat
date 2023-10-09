@@ -1,6 +1,15 @@
 2023-10-09  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.2.4
+
 	* README.md: Add two blog posts in new section on GitHub Actions
+
+	* vignettes/CombiningDratAndTravis.md: Update Travis URL
+	* vignettes/DratForPackageAuthors.md: Ditto
+	* README.md: Ditto, also update urbandictionary.com URL
+
+	* R/pruneRepo.R: Minor line-length edit to appease R CMD check
+	* man/pruneRepo.Rd: Regenerated
 
 2023-10-08  Dirk Eddelbuettel  <edd@debian.org>
 

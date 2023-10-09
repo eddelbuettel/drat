@@ -1,8 +1,8 @@
 Package: drat
 Type: Package
 Title: 'Drat' R Archive Template
-Version: 0.2.3.2
-Date: 2023-05-12
+Version: 0.2.4
+Date: 2023-10-09
 Author: Dirk Eddelbuettel, with contributions by Felix Ernst, Neal Fultz, Colin
  Gillespie, Christoph Stepper, Thomas Leeper, Mark van der Loo, Jan Gorecki,
  Joey Reid, Arne Johannes Holmin, and others.
@@ -20,4 +20,4 @@ License: GPL (>= 2)
 URL: https://github.com/eddelbuettel/drat, https://dirk.eddelbuettel.com/code/drat.html
 BugReports: https://github.com/eddelbuettel/drat/issues
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

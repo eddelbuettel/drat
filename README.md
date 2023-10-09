@@ -16,7 +16,7 @@
 >
 > _"Oh Drat, i lost my wallet"_
 >
-> [Urban Dictionary](https://www.urbandictionary.com/define.php?term=drat)
+> [Urban Dictionary](https://urbandictionary.com/define.php?term=drat)
 
 ### Nota Bene
 
@@ -123,7 +123,7 @@ about it.
 
 ### Travis Integration
 
-Colin Gillespie integrated [Travis CI](https://www.travis-ci.org) with drat, see his
+Colin Gillespie integrated [Travis CI](https://www.travis-ci.com) with drat, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more details, and the
 contributed vignette [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
 
