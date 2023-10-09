@@ -12,7 +12,7 @@ css: "water.css"
 
 ## What is Travis CI?
 
-[Travis CI](https://travis-ci.org/) is a hosted continuous integration service. 
+[Travis CI](https://www.travis-ci.com/) is a hosted continuous integration service. 
 It is integrated with GitHub and offers first class support for a number of languages, 
 but importantly for us, R. 
 Travis CI enables package authors to continually ensure their package always build and
