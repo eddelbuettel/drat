@@ -882,7 +882,7 @@ as other publically available repositories. This function aids in the
 process, and defaults to adding a ‘drat’ archive at GitHub under the
 given account.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>addRepo(account, alturl)
+<pre><code class="language-R">addRepo(account, alturl)
 
 add(...)
 </code></pre>
@@ -890,8 +890,8 @@ add(...)
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -923,11 +923,11 @@ as well).</p>
 <h3 id="authors">Author(s)</h3>
 <p>Dirk Eddelbuettel</p>
 <h3 id="examples">Examples</h3>
-<pre><code>## Not run: 
-  addRepo("drat")                            # adds GitHub repo via default URL
-  addRepo(c("eddelbuettel", "ghrr"))         # ditto but adds two repos at once
+<pre><code class="language-R">## Not run: 
+  addRepo(&quot;drat&quot;)                            # adds GitHub repo via default URL
+  addRepo(c(&quot;eddelbuettel&quot;, &quot;ghrr&quot;))         # ditto but adds two repos at once
 
-  addRepo("LocalRepo", "file:/nas/R/repo")   # adds local file-based repo,
+  addRepo(&quot;LocalRepo&quot;, &quot;file:/nas/R/repo&quot;)   # adds local file-based repo,
                                              # assumes you can read /nas/R/repo
 
 ## End(Not run)

@@ -23,7 +23,7 @@
 ##' @param type Character variable for the type of repository, so far
 ##'  \dQuote{source}, \dQuote{binary}, \dQuote{win.binary}, \dQuote{mac.binary},
 ##'  \dQuote{mac.binary.mavericks}, \dQuote{mac.binary.el-capitan},
-##'  \dQuote{mac.binary.big-sur-x86_64}, or \dQuote{both}
+##'  \dQuote{mac.binary.big-sur-x86_64},
 ##'  \dQuote{mac.binary.big-sur-arm64}, or \dQuote{both}
 ##' @param pkg Optional character variable specifying a package name,
 ##'  whose older versions should be pruned. If missing (the

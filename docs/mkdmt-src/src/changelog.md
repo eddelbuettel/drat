@@ -1,8 +1,91 @@
+###  2023 
+
+2023-10-09  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Release 0.2.4 
+ 
+        * README.md: Add two blog posts in new section on GitHub Actions 
+ 
+        * vignettes/CombiningDratAndTravis.md: Update Travis URL 
+        * vignettes/DratForPackageAuthors.md: Ditto 
+        * README.md: Ditto, also update urbandictionary.com URL 
+ 
+        * R/pruneRepo.R: Minor line-length edit to appease R CMD check 
+        * man/pruneRepo.Rd: Regenerated 
+ 
+2023-10-08  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Add r-universe badge 
+ 
+2023-05-15  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * tests/skeleton_git2r.R (testRepoActions): Additional tweak 
+ 
+2023-05-15  Arne Johannes Holmin  <arnejh@hi.no> 
+ 
+        * tests/skeleton_git2r.R (testRepoActions): Adjust for macOS-oldrel 
+ 
+2023-05-12  Arne Johannes Holmin  <arnejh@hi.no> 
+ 
+        * R/archivePackages.R: Add support for big-sur-x86_64 
+        * R/insertPackage.R: Idem 
+        * R/pruneRepo.R: Idem 
+        * man/archivePackages.Rd: Documentation 
+        * man/pruneRepo.Rd: Documentation 
+        * tests/testBig-sur-x86_64Binary.R: Added tests 
+        * inst/extdata/big-sur-x86_64/bin/4.3/bar_1.1.tgz: Test support 
+        * inst/extdata/src/bar_1.1.tar.g: Idem 
+ 
+2023-01-28  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Remove libgit2-dev as r2u is current 
+ 
+2023-01-26  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): (Temporarily) Install libgit2-dev 
+ 
+        * R/insertPackage.R (insertPackage): Correct a setwd() placement 
+ 
 ###  2022 
 
+2022-11-05  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3 
+ 
+2022-10-19  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * vignettes/DratFAQ.md: Correct typo 
+        * vignettes/DratFAQ.html: Ditto 
+        * docs/mkdmt-src/src/vignettes/dratfaq.md: Ditto 
+        * docs/vignettes/dratfaq/index.html: Ditto 
+ 
+2022-09-22  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll minor version 
+ 
+2022-09-21  Joey Reid  <joey.reid@metrotransit.org> 
+ 
+        * R/pruneRepo.R: Add support for macOS binaries on arm64 
+        * R/archivePackages.R: Idem 
+        * tests/testArmBinary.R: Idem 
+        * man/pruneRepo.Rd: Idem 
+        * man/archivePackages.Rd: Idem 
+ 
 2022-04-13  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.2.3 
+ 
+2022-04-07  Josh Errickson  <josh@errickson.net> 
+ 
+        * R/insertPackages.R: Refinenment for Arm M1 
+        * man/pruneRepo.Rd: Idem 
+ 
+2022-04-06  Zhengjia Wang  <zw23@rice.edu> 
+ 
+        * R/archivePackages.R: Initial Support for Arm M1 
+        * R/insertPackages.R: Idem 
+        * R/pruneRepo.R: Idem 
+        [ Originally committed Aug 2021, merged now ] 
  
 2022-04-06  Dirk Eddelbuettel  <edd@debian.org> 
  
@@ -27,7 +110,7 @@
  
         * docs/mkdmt-src/src/vignettes/dratforusers.md: Also fix typo here 
  
-2021-12-02  Noam Ross <noam.ross@gmail.com> 
+2021-12-02  Noam Ross  <noam.ross@gmail.com> 
  
         * vignettes/DratForPackageUsers.md: Fix one-char typo (from 2015 !!) 
  

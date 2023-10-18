@@ -93,7 +93,7 @@ step is left to the user (as it commonly requires authentication).
 ### GitHub and Travis Integration
 
 [Colin Gillespie](https://github.com/csgillespie) has provided a nice
-walk-through of how to have [Travis CI](https://travis-ci.org/) automagically
+walk-through of how to have [Travis CI](https://www.travis-ci.com/) automagically
 push packages into a [drat](https://dirk.eddelbuettel.com/code/drat.html)
 repo. This is included as another (currently work-in-progress) vignette
 entitled [Combining Drat And

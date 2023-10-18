@@ -896,13 +896,13 @@ as other publically available repositories. This function aids in the
 process, and defaults to inserting a given source archive into a given
 repository.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>insertPackage(
+<pre><code class="language-R">insertPackage(
   file,
-  repodir = getOption("dratRepo", "~/git/drat"),
+  repodir = getOption(&quot;dratRepo&quot;, &quot;~/git/drat&quot;),
   commit = FALSE,
   pullfirst = FALSE,
-  action = c("none", "archive", "prune"),
-  location = getOption("dratBranch", "gh-pages"),
+  action = c(&quot;none&quot;, &quot;archive&quot;, &quot;prune&quot;),
+  location = getOption(&quot;dratBranch&quot;, &quot;gh-pages&quot;),
   ...
 )
 
@@ -914,8 +914,8 @@ insert(...)
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -961,34 +961,28 @@ is used.</p>
 <code>drat:::insert()</code>.</p>
 <p>The function also checks for a top-level <code>index.html</code> file to ensure
 external tests against the repository (as for example done by CRAN if
-you list the repository as an ‘Additional_repositories’ in a package)
-do not return a ‘404’ error. If missing, a simple one-line example is
+you list the repository as an ‘Additional_repositories’ in a package) do
+not return a ‘404’ error. If missing, a simple one-line example is
 shown.</p>
 <h3 id="value">Value</h3>
 <p>NULL is returned.</p>
 <h3 id="options">Options</h3>
 <p>Set using <code>options</code></p>
-<ul>
-<li>
 <p><code>dratRepo</code><br />
-    Path to git repo. Defaults to <code>~/git/drat</code></p>
-</li>
-<li>
+Path to git repo. Defaults to <code>~/git/drat</code></p>
 <p><code>dratBranch</code><br />
-    The git branch to store packages on. Defaults to <code>gh-pages</code></p>
-</li>
-</ul>
+The git branch to store packages on. Defaults to <code>gh-pages</code></p>
 <h3 id="authors">Author(s)</h3>
 <p>Dirk Eddelbuettel</p>
 <h3 id="examples">Examples</h3>
-<pre><code>## Not run: 
-  insertPackage("foo_0.2.3.tar.gz")   # inserts into (default) repo
-  insertPackage("foo_0.2.3.tar.gz", "/nas/R/")  # ... into local dir
+<pre><code class="language-R">## Not run: 
+  insertPackage(&quot;foo_0.2.3.tar.gz&quot;)   # inserts into (default) repo
+  insertPackage(&quot;foo_0.2.3.tar.gz&quot;, &quot;/nas/R/&quot;)  # ... into local dir
 
 ## End(Not run)
 ## Not run: 
-  insertPackage("foo_0.2.3.tar.gz", action = "prune")   # prunes any older copies
-  insertPackage("foo_0.2.3.tar.gz", action = "archive")   # archives any older copies
+  insertPackage(&quot;foo_0.2.3.tar.gz&quot;, action = &quot;prune&quot;)   # prunes any older copies
+  insertPackage(&quot;foo_0.2.3.tar.gz&quot;, action = &quot;archive&quot;)   # archives any older copies
 
 ## End(Not run)
 </code></pre>

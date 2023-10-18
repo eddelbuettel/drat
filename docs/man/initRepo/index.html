@@ -865,18 +865,18 @@
 the default GitHub Pages location (either the ‘gh-pages’ branch or
 directory ‘docs’) and fills it with the required new paths.</p>
 <h3 id="usage">Usage</h3>
-<pre><code>initRepo(
-  name = "drat",
-  basepath = getOption("dratDirectory", "~/git"),
-  location = getOption("dratBranch", "gh-pages")
+<pre><code class="language-R">initRepo(
+  name = &quot;drat&quot;,
+  basepath = getOption(&quot;dratDirectory&quot;, &quot;~/git&quot;),
+  location = getOption(&quot;dratBranch&quot;, &quot;gh-pages&quot;)
 )
 </code></pre>
 <h3 id="arguments">Arguments</h3>
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -886,7 +886,7 @@ directory ‘docs’) and fills it with the required new paths.</p>
 </tr>
 <tr>
 <td><code>basepath</code></td>
-<td>A character variable with path to the directory in which the new repository is to be created. The default value is “\~/git” and can be overriden via option ‘dratDirectory’.</td>
+<td>A character variable with path to the directory in which the new repository is to be created. The default value is “~/git” and can be overriden via option ‘dratDirectory’.</td>
 </tr>
 <tr>
 <td><code>location</code></td>
@@ -900,8 +900,8 @@ this function. The <code>insertPackage()</code> function knows to deal with
 binaries for different architectures.</p>
 <p>The function also installs a top-level <code>index.html</code> file to ensure
 external tests against the repository (as for example done by CRAN if
-you list the repository as an ‘Additional_repositories’ in a package)
-do not return a ‘404’ error.</p>
+you list the repository as an ‘Additional_repositories’ in a package) do
+not return a ‘404’ error.</p>
 <h3 id="value">Value</h3>
 <p>The function is invoked for its side-effects and only returns <code>NULL</code>
 invisibly.</p>

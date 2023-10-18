@@ -7,8 +7,8 @@
 \usage{
 archivePackages(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
-    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks", 
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64",
+    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
     "win.binary", "both"),
   pkg,
   version = getRversion()
@@ -16,8 +16,8 @@ archivePackages(
 
 archivePackagesForAllRversions(
   repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64", 
-    "mac.binary.big-sur-arm64","mac.binary.el-capitan", "mac.binary.mavericks", 
+  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64",
+    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
     "win.binary", "both"),
   pkg
 )

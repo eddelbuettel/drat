@@ -4,12 +4,17 @@
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
 
-\section{Changes in drat version 0.2.3.2 (2023-xx-yy)}{
+\section{Changes in drat version 0.2.4 (2023-10-09)}{
   \itemize{
     \item macOS Arm M1 repos are now also supported in pruning and archival  
-    (Joey Reed in \ghpr{135} fixing \ghit{134})
+    (Joey Reid in \ghpr{135} fixing \ghit{134})
+    \item A minor vignette typo was fixed (Dirk)
+    \item A small error with \code{setwd()} in \code{insertPackage()} was
+    corrected (Dirk)
     \item macOS x86_64 repos (on big-sur) are now supported too (Arne
     Johannes Holmin in \ghpr{139} fixing \ghit{138})
+    \item A few small maintenance tweaks were applied to the CI setup, and to
+    the main README.md
   }
 }
 

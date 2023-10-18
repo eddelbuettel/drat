@@ -3,6 +3,7 @@
 [![CI](https://github.com/eddelbuettel/drat/workflows/ci/badge.svg)](https://github.com/eddelbuettel/drat/actions?query=workflow%3Aci)
 [![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](https://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat)
+[![r-universe](https://eddelbuettel.r-universe.dev/badges/drat)](https://eddelbuettel.r-universe.dev/drat)
 [![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat)
 [![Downloads](https://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](https://www.r-pkg.org/pkg/drat)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/drat)](https://github.com/eddelbuettel/drat)
@@ -15,7 +16,7 @@
 >
 > _"Oh Drat, i lost my wallet"_
 >
-> [Urban Dictionary](https://www.urbandictionary.com/define.php?term=drat)
+> [Urban Dictionary](https://urbandictionary.com/define.php?term=drat)
 
 ### Nota Bene
 
@@ -122,9 +123,16 @@ about it.
 
 ### Travis Integration
 
-Colin Gillespie has started to integrate [Travis CI](https://www.travis-ci.org) with drat, see his
+Colin Gillespie integrated [Travis CI](https://www.travis-ci.com) with drat, see his
 [dratTravis](https://github.com/csgillespie/dratTravis) repository for more details, and the
 contributed vignette [Combining Drat and Travis](https://eddelbuettel.github.io/drat/vignettes/combiningdratandtravis/)
+
+### GitHub Actions
+
+Mike Mahoney uses [drat](https://dirk.eddelbuettel.com/code/drat.html)
+with [GitHub Actions in a 'push' setting](https://www.mm218.dev/posts/2021-09-22-automated-drat-uploads-with-github-actions/),
+while Zhian Kamvar uses [drat](https://dirk.eddelbuettel.com/code/drat.html)
+with [GitHub Actions in a 'pull' setting](https://zkamvar.netlify.app/blog/gh-drat/).
 
 ### Author
 

@@ -39,7 +39,7 @@ repository creation
 
 ### Examples
 
-``` 
+``` R
   ## Not run: 
   drat::addRepo("eddelbuettel")   # adds the repo of GitHub user 'eddelbuettel'
 
