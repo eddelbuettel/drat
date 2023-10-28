@@ -1,3 +1,7 @@
+2023-10-28  Arne Johannes Holmin  <arnejh@hi.no>
+
+	* R/insertPackage.R: Added the the optional argument OSflavour
+
 2023-10-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.2.4
