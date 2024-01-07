@@ -3,6 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
+\section{Changes in drat version 0.2.4.1 (unreleased)}{
+  \itemize{
+    \item Function \cpde{insertPackage} has a new optional argument
+    \code{OSflavour} (Arne Holmin in \ghpr{142})
+  }
+}
 
 \section{Changes in drat version 0.2.4 (2023-10-09)}{
   \itemize{
