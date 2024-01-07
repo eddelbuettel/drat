@@ -4,10 +4,17 @@
 \alias{getPackageInfo}
 \title{Get information from a binary package}
 \usage{
-getPackageInfo(file)
+getPackageInfo(file, OSflavour = character())
 }
 \arguments{
 \item{file}{the fully qualified path of the package}
+
+\item{OSflavour}{an optional string naming the OSflavour, which is otherwise read as 
+the second element of the 'Built' field of the \code{file}. For packages that do not 
+need compilation on macOS for R >= 4.3 the 'Built' field is empty in the DESCRIPTION 
+in a binary file (tgz), in which case it can be useful to set the \code{OSflavour} 
+e.g. by the value of R.Version()$platform, so that \code{\link{insertPackages}} inserts 
+the binary into the appropriate sub folder (under bin/maxosx).}
 }
 \value{
 A named vector with several components

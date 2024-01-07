@@ -3,48 +3,32 @@
 \name{pruneRepo}
 \alias{pruneRepo}
 \alias{getRepoInfo}
+\alias{pruneRepo}
 \alias{pruneRepoForAllRversions}
 \alias{updateRepo}
 \title{Prune repository from older copies of packages}
 \usage{
-getRepoInfo(
-  repopath = getOption("dratRepo", "~/git/drat"),
+getRepoInfo(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64",
-    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  version = getRversion(),
-  location = getOption("dratBranch", "gh-pages")
-)
+  "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
+  "win.binary", "both"), pkg, version = getRversion(),
+  location = getOption("dratBranch", "gh-pages"))
 
-pruneRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
-  type = c("source", "binary", "mac.binary", "mac.binary.big-sur-x86_64",
-    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  version = getRversion(),
-  remove = FALSE,
-  location = getOption("dratBranch", "gh-pages")
-)
+pruneRepo(repopath = getOption("dratRepo", "~/git/drat"), type = c("source",
+  "binary", "mac.binary", "mac.binary.big-sur-x86_64",
+  "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
+  "win.binary", "both"), pkg, version = getRversion(), remove = FALSE,
+  location = getOption("dratBranch", "gh-pages"))
 
-pruneRepoForAllRversions(
-  repopath = getOption("dratRepo", "~/git/drat"),
+pruneRepoForAllRversions(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "mac.binary", "mac.binary.big-sur-x86_64",
-    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  pkg,
-  remove = FALSE
-)
+  "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
+  "win.binary", "both"), pkg, remove = FALSE)
 
-updateRepo(
-  repopath = getOption("dratRepo", "~/git/drat"),
+updateRepo(repopath = getOption("dratRepo", "~/git/drat"),
   type = c("source", "mac.binary", "mac.binary.big-sur-x86_64",
-    "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
-    "win.binary", "both"),
-  version = NA,
-  ...
-)
+  "mac.binary.big-sur-arm64", "mac.binary.el-capitan", "mac.binary.mavericks",
+  "win.binary", "both"), version = NA, ...)
 }
 \arguments{
 \item{repopath}{Character variable with the path to the repo;

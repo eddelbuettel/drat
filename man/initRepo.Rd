@@ -4,11 +4,8 @@
 \alias{initRepo}
 \title{Intialize a git repo for drat}
 \usage{
-initRepo(
-  name = "drat",
-  basepath = getOption("dratDirectory", "~/git"),
-  location = getOption("dratBranch", "gh-pages")
-)
+initRepo(name = "drat", basepath = getOption("dratDirectory", "~/git"),
+  location = getOption("dratBranch", "gh-pages"))
 }
 \arguments{
 \item{name}{A character variable with the name the new repository,
