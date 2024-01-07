@@ -7,15 +7,10 @@
 \alias{insert}
 \title{Insert a package source or binary file into a drat repository}
 \usage{
-insertPackage(
-  file,
-  repodir = getOption("dratRepo", "~/git/drat"),
-  commit = FALSE,
-  pullfirst = FALSE,
-  action = c("none", "archive", "prune"),
-  location = getOption("dratBranch", "gh-pages"),
-  ...
-)
+insertPackage(file, repodir = getOption("dratRepo", "~/git/drat"),
+  commit = FALSE, pullfirst = FALSE, action = c("none", "archive",
+  "prune"), location = getOption("dratBranch", "gh-pages"),
+  OSflavour = character(), ...)
 
 insertPackages(file, ...)
 
@@ -44,6 +39,13 @@ not already exist), or \dQuote{prune} (calling \code{\link{pruneRepo}}).}
 either \dQuote{gh-pages} indicating a branch of that name, or
 \dQuote{docs/} directory in the main branch. The default value can
 be overridden via the \dQuote{dratBranch} option.}
+
+\item{OSflavour}{an optional string naming the OSflavour, which is otherwise read as 
+the second element of the 'Built' field of the \code{file}. For packages that do not 
+need compilation on macOS for R >= 4.3 the 'Built' field is empty in the DESCRIPTION 
+in a binary file (tgz), in which case it can be useful to set the \code{OSflavour} 
+e.g. by the value of R.Version()$platform, so that \code{\link{insertPackages}} inserts 
+the binary into the appropriate sub folder (under bin/maxosx).}
 
 \item{...}{For \code{insert} the aliases variant, a catch-all collection of
 parameters. For \code{insertPackage} arguments passed to 

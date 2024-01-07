@@ -285,7 +285,7 @@ identifyPackageType <- function(file, pkginfo = getPackageInfo(file)) {
 ##' in a binary file (tgz), in which case it can be useful to set the \code{OSflavour} 
 ##' e.g. by the value of R.Version()$platform, so that \code{\link{insertPackages}} inserts 
 ##' the binary into the appropriate sub folder (under bin/maxosx).
-##' ##' @section Note:
+##' @section Note:
 ##' This is an internal function, use \code{:::} to access it from outside
 ##' the internal package code.
 ##' @return A named vector with several components
