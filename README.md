@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN](https://www.r-pkg.org/badges/version/drat)](https://cran.r-project.org/package=drat)
 [![r-universe](https://eddelbuettel.r-universe.dev/badges/drat)](https://eddelbuettel.r-universe.dev/drat)
-[![Dependencies](https://tinyverse.netlify.com/badge/drat)](https://cran.r-project.org/package=drat)
+[![Dependencies](https://tinyverse.netlify.app/badge/drat)](https://cran.r-project.org/package=drat)
 [![Downloads](https://cranlogs.r-pkg.org/badges/drat?color=brightgreen)](https://www.r-pkg.org/pkg/drat)
 [![Last Commit](https://img.shields.io/github/last-commit/eddelbuettel/drat)](https://github.com/eddelbuettel/drat)
 [![Documentation](https://img.shields.io/badge/documentation-is_here-blue)](https://eddelbuettel.github.io/drat/)
