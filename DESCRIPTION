@@ -3,10 +3,17 @@ Type: Package
 Title: 'Drat' R Archive Template
 Version: 0.2.4.1
 Date: 2023-10-28
-Author: Dirk Eddelbuettel, with contributions by Felix Ernst, Neal Fultz, Colin
- Gillespie, Christoph Stepper, Thomas Leeper, Mark van der Loo, Jan Gorecki,
- Joey Reid, Arne Johannes Holmin, and others.
-Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
+                    comment = c(ORCID = "0000-0001-6419-907X")),
+             person("Felix", "Ernst", role="ctb"),
+             person("Neal", "Fultz", role="ctb"),
+             person("Colin", "Gillespie", role="ctb"),
+             person("Christoph", "Stepper", role="ctb"),
+             person("Thomas", "Leeper", role="ctb"),
+             person("Mark", "van der Loo", role="ctb", comment = c(ORCID = "0000-0002-9807-4686")),
+             person("Jan", "Gorecki", role="ctb"),
+             person("Joey", "Reid", role="ctb"),
+             person("Arne Johannes", "Holmin", role="ctb"))
 Depends: R (>= 3.6.0)
 Imports: utils
 Suggests: git2r, simplermarkdown
