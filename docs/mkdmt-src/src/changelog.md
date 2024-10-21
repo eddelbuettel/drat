@@ -1,5 +1,36 @@
+###  2024 
+
+2024-10-21  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * tests/skeleton_git2r.R (runTest): Improved conditioning on package 
+        `git2r` being present 
+ 
+2024-08-18  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Authors@R): Added 
+ 
+2024-06-18  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Update to r-ci-setup action 
+ 
+2024-05-19  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * README.md: Use tinyverse.netlify.app for dependency badge 
+ 
+2024-01-05  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v4 
+ 
 ###  2023 
 
+2023-10-28  Dirk Eddelbuettel  <edd@debian.org> 
+ 
+        * DESCRIPTION (Version, Date): Roll micro version 
+ 
+2023-10-28  Arne Johannes Holmin  <arnejh@hi.no> 
+ 
+        * R/insertPackage.R: Added the the optional argument OSflavour 
+ 
 2023-10-09  Dirk Eddelbuettel  <edd@debian.org> 
  
         * DESCRIPTION (Version, Date): Release 0.2.4 

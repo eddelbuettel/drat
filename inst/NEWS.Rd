@@ -5,7 +5,7 @@
 
 \section{Changes in drat version 0.2.4.1 (unreleased)}{
   \itemize{
-    \item Function \cpde{insertPackage} has a new optional argument
+    \item Function \code{insertPackage} has a new optional argument
     \code{OSflavour} (Arne Holmin in \ghpr{142})
   }
 }

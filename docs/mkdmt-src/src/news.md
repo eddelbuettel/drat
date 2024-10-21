@@ -1,5 +1,11 @@
-<section id="NEWS" class="container">
-<h2>News for Package <code>drat</code></h2>
+<div class="container">
+<div role="main">
+<h3 id="version-0.2.4.1-unreleased">Version 0.2.4.1 (unreleased)</h3>
+<ul>
+<li><p>Function <code>insertPackage</code> has a new optional argument
+<code>OSflavour</code> (Arne Holmin in <a
+href="https://github.com/eddelbuettel/drat/pull/142">#142</a>)</p></li>
+</ul>
 <h3 id="version-0.2.4-2023-10-09">Version 0.2.4 (2023-10-09)</h3>
 <ul>
 <li><p>macOS Arm M1 repos are now also supported in pruning and archival
@@ -245,4 +251,5 @@ Travis</em></p></li>
 <li><p>Initial version with <code>insert()</code>, <code>add()</code>
 and more</p></li>
 </ul>
-</section>
+</div>
+</div>
