@@ -1,10 +1,14 @@
 <div class="container">
 <div role="main">
-<h3 id="version-0.2.4.1-unreleased">Version 0.2.4.1 (unreleased)</h3>
+<h3 id="version-0.2.5-2024-10-21">Version 0.2.5 (2024-10-21)</h3>
 <ul>
 <li><p>Function <code>insertPackage</code> has a new optional argument
 <code>OSflavour</code> (Arne Holmin in <a
 href="https://github.com/eddelbuettel/drat/pull/142">#142</a>)</p></li>
+<li><p>A test file conditions correctly about <code>git2r</code> being
+present (Dirk)</p></li>
+<li><p>Several smaller packaging updates and enhancements to continuous
+integration and documentation have been added (Dirk)</p></li>
 </ul>
 <h3 id="version-0.2.4-2023-10-09">Version 0.2.4 (2023-10-09)</h3>
 <ul>

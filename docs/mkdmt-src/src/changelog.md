@@ -2,8 +2,12 @@
 
 2024-10-21  Dirk Eddelbuettel  <edd@debian.org> 
  
+        * DESCRIPTION (Version, Date): Release 0.2.5 
+ 
         * tests/skeleton_git2r.R (runTest): Improved conditioning on package 
         `git2r` being present 
+ 
+        * README.md: Update one URL to its now-current location 
  
 2024-08-18  Dirk Eddelbuettel  <edd@debian.org> 
  
