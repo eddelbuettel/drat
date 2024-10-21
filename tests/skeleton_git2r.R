@@ -290,8 +290,8 @@ runTest <- function(wd, location = "gh-pages"){
 wd <- tempdir()
 if (requireNamespace("git2r", quietly=TRUE)) {
   runTest(wd, "gh-pages")
+  runTest(wd, "docs")
 }
-runTest(wd, "docs")
 
 ## TODO Use
 ##   > as.package_version(system("sw_vers -productVersion", intern = TRUE)) == 13.1

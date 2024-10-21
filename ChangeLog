@@ -1,3 +1,8 @@
+2024-10-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/skeleton_git2r.R (runTest): Improved conditioning on package
+	`git2r` being present
+
 2024-08-18  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Authors@R): Added
