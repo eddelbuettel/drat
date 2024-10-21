@@ -3,10 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/drat/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/drat/issues/#1}{##1}}
 
-\section{Changes in drat version 0.2.4.1 (unreleased)}{
+\section{Changes in drat version 0.2.5 (2024-10-21)}{
   \itemize{
     \item Function \code{insertPackage} has a new optional argument
     \code{OSflavour} (Arne Holmin in \ghpr{142})
+    \item A test file conditions correctly about \pkg{git2r} being present (Dirk)
+    \item Several smaller packaging updates and enhancements to continuous
+    integration and documentation have been added (Dirk)
   }
 }
 

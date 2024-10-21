@@ -16,7 +16,7 @@
 >
 > _"Oh Drat, i lost my wallet"_
 >
-> [Urban Dictionary](https://urbandictionary.com/define.php?term=drat)
+> [Urban Dictionary](https://www.urbandictionary.com/define.php?term=drat)
 
 ### Nota Bene
 
