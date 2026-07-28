@@ -1,0 +1,71 @@
+
+
+# Intialize a git repo for drat
+
+[**Source code**](https://github.com/eddelbuettel/drat/tree/master/R/#L)
+
+## Description
+
+This helper function creates a new repository, creates and checks out
+the default GitHub Pages location (either the ‘gh-pages’ branch or
+directory ‘docs’) and fills it with the required new paths.
+
+## Usage
+
+<pre><code class='language-R'>initRepo(name = "drat", basepath = getOption("dratDirectory", "~/git"),
+  location = getOption("dratBranch", "gh-pages"))
+</code></pre>
+
+## Arguments
+
+<table role="presentation">
+<tr>
+<td style="white-space: nowrap; font-family: monospace; vertical-align: top">
+<code id="name">name</code>
+</td>
+<td>
+A character variable with the name the new repository, the default is
+“drat”.
+</td>
+</tr>
+<tr>
+<td style="white-space: nowrap; font-family: monospace; vertical-align: top">
+<code id="basepath">basepath</code>
+</td>
+<td>
+A character variable with path to the directory in which the new
+repository is to be created. The default value is “~/git” and can be
+overriden via option ‘dratDirectory’.
+</td>
+</tr>
+<tr>
+<td style="white-space: nowrap; font-family: monospace; vertical-align: top">
+<code id="location">location</code>
+</td>
+<td>
+A character variable with the GitHub Pages location: either “gh-pages”
+indicating a branch of that name, or “docs/” directory in the main
+branch. The default value can be overridden via the “dratBranch” option.
+</td>
+</tr>
+</table>
+
+## Details
+
+Currently only ‘src/contrib’ for source repositories is supported by
+this function. The <code>insertPackage()</code> function knows to deal
+with binaries for different architectures.
+
+The function also installs a top-level <code>index.html</code> file to
+ensure external tests against the repository (as for example done by
+CRAN if you list the repository as an ‘Additional_repositories’ in a
+package) do not return a ‘404’ error.
+
+## Value
+
+The function is invoked for its side-effects and only returns
+<code>NULL</code> invisibly.
+
+## Author(s)
+
+Dirk Eddelbuettel

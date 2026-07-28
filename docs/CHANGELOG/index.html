@@ -1,0 +1,1865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../Rlogo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>ChangeLog - drat</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2025" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="drat" class="md-header__button md-logo" aria-label="drat" data-md-component="logo">
+      
+  <img src="../Rlogo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            drat
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ChangeLog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eddelbuettel/drat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    drat
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../vignettes/CombiningDratAndTravis/" class="md-tabs__link">
+          
+  
+  
+  Articles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../man/addRepo/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../NEWS/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  News
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CHANGELOG/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CITATION/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Citation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="drat" class="md-nav__button md-logo" aria-label="drat" data-md-component="logo">
+      
+  <img src="../Rlogo.svg" alt="logo">
+
+    </a>
+    drat
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eddelbuettel/drat" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    drat
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Articles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Articles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vignettes/CombiningDratAndTravis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CombiningDratAndTravis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vignettes/DratFAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DratFAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vignettes/DratForPackageAuthors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DratForPackageAuthors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vignettes/DratForPackageUsers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DratForPackageUsers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vignettes/DratStepByStep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DratStepByStep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vignettes/WhyDrat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WhyDrat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/addRepo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    addRepo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/archivePackages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    archivePackages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/drat-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    drat-package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/getPackageInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    getPackageInfo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/identifyPackageType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    identifyPackageType
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/initRepo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    initRepo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/insertPackage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    insertPackage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../man/pruneRepo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pruneRepo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NEWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    News
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CITATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2025
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2024
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2023
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2022" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2022
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2021
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2020
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2019" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2019
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2018" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2018
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2017" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2017
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2016
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2015" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2015
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>ChangeLog</h1>
+
+<h3 id="2025">2025</h3>
+<p>2025-12-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml: Switch to actions/checkout@v6
+</code></pre></div>
+<h3 id="2024">2024</h3>
+<p>2024-12-31  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml: Simplify to r-ci with included bootstrap
+</code></pre></div>
+<p>2024-10-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.2.5
+
+    * tests/skeleton_git2r.R (runTest): Improved conditioning on package 
+    `git2r` being present
+
+    * README.md: Update one URL to its now-current location
+</code></pre></div>
+<p>2024-08-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Authors@R): Added
+</code></pre></div>
+<p>2024-06-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml (jobs): Update to r-ci-setup action
+</code></pre></div>
+<p>2024-05-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * README.md: Use tinyverse.netlify.app for dependency badge
+</code></pre></div>
+<p>2024-01-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v4
+</code></pre></div>
+<h3 id="2023">2023</h3>
+<p>2023-10-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll micro version
+</code></pre></div>
+<p>2023-10-28  Arne Johannes Holmin  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;">&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Added the the optional argument OSflavour
+</code></pre></div>
+<p>2023-10-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.2.4
+
+    * README.md: Add two blog posts in new section on GitHub Actions
+
+    * vignettes/CombiningDratAndTravis.md: Update Travis URL 
+    * vignettes/DratForPackageAuthors.md: Ditto 
+    * README.md: Ditto, also update urbandictionary.com URL
+
+    * R/pruneRepo.R: Minor line-length edit to appease R CMD check 
+    * man/pruneRepo.Rd: Regenerated
+</code></pre></div>
+<p>2023-10-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * README.md: Add r-universe badge
+</code></pre></div>
+<p>2023-05-15  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * tests/skeleton_git2r.R (testRepoActions): Additional tweak
+</code></pre></div>
+<p>2023-05-15  Arne Johannes Holmin  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;">&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * tests/skeleton_git2r.R (testRepoActions): Adjust for macOS-oldrel
+</code></pre></div>
+<p>2023-05-12  Arne Johannes Holmin  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;">&#97;&#114;&#110;&#101;&#106;&#104;&#64;&#104;&#105;&#46;&#110;&#111;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Add support for big-sur-x86_64 
+    * R/insertPackage.R: Idem 
+    * R/pruneRepo.R: Idem 
+    * man/archivePackages.Rd: Documentation 
+    * man/pruneRepo.Rd: Documentation 
+    * tests/testBig-sur-x86_64Binary.R: Added tests 
+    * inst/extdata/big-sur-x86_64/bin/4.3/bar_1.1.tgz: Test support 
+    * inst/extdata/src/bar_1.1.tar.g: Idem
+</code></pre></div>
+<p>2023-01-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml (jobs): Remove libgit2-dev as r2u is current
+</code></pre></div>
+<p>2023-01-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml (jobs): (Temporarily) Install libgit2-dev
+
+    * R/insertPackage.R (insertPackage): Correct a setwd() placement
+</code></pre></div>
+<h3 id="2022">2022</h3>
+<p>2022-11-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
+</code></pre></div>
+<p>2022-10-19  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratFAQ.md: Correct typo 
+    * vignettes/DratFAQ.html: Ditto 
+    * docs/mkdmt-src/src/vignettes/dratfaq.md: Ditto 
+    * docs/vignettes/dratfaq/index.html: Ditto
+</code></pre></div>
+<p>2022-09-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll minor version
+</code></pre></div>
+<p>2022-09-21  Joey Reid  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#101;&#121;&#46;&#114;&#101;&#105;&#100;&#64;&#109;&#101;&#116;&#114;&#111;&#116;&#114;&#97;&#110;&#115;&#105;&#116;&#46;&#111;&#114;&#103;">&#106;&#111;&#101;&#121;&#46;&#114;&#101;&#105;&#100;&#64;&#109;&#101;&#116;&#114;&#111;&#116;&#114;&#97;&#110;&#115;&#105;&#116;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/pruneRepo.R: Add support for macOS binaries on arm64 
+    * R/archivePackages.R: Idem 
+    * tests/testArmBinary.R: Idem 
+    * man/pruneRepo.Rd: Idem 
+    * man/archivePackages.Rd: Idem
+</code></pre></div>
+<p>2022-04-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.2.3
+</code></pre></div>
+<p>2022-04-07  Josh Errickson  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#115;&#104;&#64;&#101;&#114;&#114;&#105;&#99;&#107;&#115;&#111;&#110;&#46;&#110;&#101;&#116;">&#106;&#111;&#115;&#104;&#64;&#101;&#114;&#114;&#105;&#99;&#107;&#115;&#111;&#110;&#46;&#110;&#101;&#116;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackages.R: Refinenment for Arm M1 
+    * man/pruneRepo.Rd: Idem
+</code></pre></div>
+<p>2022-04-06  Zhengjia Wang  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#122;&#119;&#50;&#51;&#64;&#114;&#105;&#99;&#101;&#46;&#101;&#100;&#117;">&#122;&#119;&#50;&#51;&#64;&#114;&#105;&#99;&#101;&#46;&#101;&#100;&#117;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Initial Support for Arm M1 
+    * R/insertPackages.R: Idem 
+    * R/pruneRepo.R: Idem 
+    [ Originally committed Aug 2021, merged now ]
+</code></pre></div>
+<p>2022-04-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * tests/testArmBinary.R: New test for binaries on Arm
+</code></pre></div>
+<p>2022-04-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * inst/extdata/4.1/arm64/foo_1.3.tgz: Added new test package 
+    * inst/extdata/big-sur-arm64/bin/4.1/bat_1.3.tgz: Idem 
+    * inst/extdata/src/foo_1.3.tar.gz: Idem 
+    * inst/extdata/src/bar_1.0.tar.gz: Idem
+
+    * tests/skeleton_git2r.R: Adjusting to new test packages
+</code></pre></div>
+<h3 id="2021">2021</h3>
+<p>2021-12-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * docs/mkdmt-src/src/vignettes/dratforusers.md: Also fix typo here
+</code></pre></div>
+<p>2021-12-02  Noam Ross  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#111;&#97;&#109;&#46;&#114;&#111;&#115;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#110;&#111;&#97;&#109;&#46;&#114;&#111;&#115;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratForPackageUsers.md: Fix one-char typo (from 2015 !!)
+</code></pre></div>
+<p>2021-12-01  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.2.2
+</code></pre></div>
+<p>2021-11-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>     * DESCRIPTION (Version, Date): Roll minor version
+
+    * DESCRIPTION (VignetteBuilder): Converted to simplermarkdown engine 
+    * vignettes/*md: Idem 
+    * vignettes/*html: Updated 
+    * vignettes/water.css: Added 
+    * vignettes/Makefile.hidden: Updated, and renamed
+</code></pre></div>
+<p>2021-11-05  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>     * README.md: Remove Travis badge 
+    * .travis.yml: Remove Travis YAML config
+</code></pre></div>
+<p>2021-07-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.2.1
+
+    * R/initRepo.R (initRepo): Create a placeholder index.html file in 
+    the top-level directory to appease CRAN check of URL
+
+     * R/insertPackage.R (insertPackage): Show a message if no top-level 
+    file index.html is found in the given repo directory.
+
+    * vignettes/DratStepByStep.Rmd: Mention that a placeholder index.html 
+    file is now installed.
+</code></pre></div>
+<p>2021-04-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>     * DESCRIPTION (Version, Date): Roll minor version
+
+    * R/insertPackage.R (getPackageInfo,identifyPackageType): Mark two 
+    functions as internal as they are not exported via NAMESPACE 
+    * man/getPackageInfo.Rd: Idem 
+    * man/identifyPackageType.Rd: Idem
+</code></pre></div>
+<p>2021-04-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.2.0
+
+    * DESCRIPTION (Suggests): Add rmarkdown as required by knitr change
+
+    * inst/NEWS.Rd: Update NEWS.Rd
+
+    * tests/version.R: Add test to ensure NEWS file is current
+</code></pre></div>
+<p>2021-04-11  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratStepByStep.Rmd: Remove &#39;draft&#39; from date filed
+</code></pre></div>
+<p>2021-04-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>     * DESCRIPTION (Version, Date): Roll minor version
+
+    * vignettes/CombiningDratAndTravis.Rmd: Use to minidown and water 
+    * vignettes/DratFAQ.Rmd: Idem 
+    * vignettes/DratForPackageAuthors.Rmd: Idem 
+     * vignettes/DratForPackageUsers.Rmd: Idem 
+    * vignettes/WhyDrat.Rmd: Idem 
+    * DESCRIPTION (Suggests): Add minidown (which implies rmarkdown)
+
+    * DESCRIPTION (Depends): Increase to R (&gt;= 3.6)
+
+    * README.md: Sanitize some links for r-devel link checker 
+    * man/drat-package.Rd: Idem 
+    * vignettes/DratFAQ.Rmd: Idem 
+    * vignettes/DratForPackageAuthors.Rmd: Idem 
+    * vignettes/DratStepByStep.Rmd: Idem 
+    * vignettes/WhyDrat.Rmd: Idem
+</code></pre></div>
+<p>2021-04-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratStepByStep.Rmd: Fix more typos thanks to Roman
+</code></pre></div>
+<p>2021-04-08  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    tests/skeleton_git2r.R: Refactored and restructed for docs/ use 
+    R/insertPackage.R: Add error message if DESCRIPTION not found
+</code></pre></div>
+<p>2021-04-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratStepByStep.Rmd: Add new &#39;step-by-step&#39; vignette 
+    written with Roman Hornung
+</code></pre></div>
+<p>2021-03-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/CombiningDratAndTravis.Rmd: Note on docs/, https:// use 
+    * vignettes/DratFAQ.Rmd: Ditto 
+    * vignettes/DratForPackageAuthors.Rmd: Ditto 
+    * vignettes/DratForPackageUsers.Rmd: Ditto 
+    * vignettes/WhyDrat.Rmd: Ditto
+</code></pre></div>
+<p>2021-03-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * tests/skeleton_git2r.R (testRepoActions): More work supporting 
+    new (optional) docs/ location
+
+    * docs/mkdmt-src/: Moved mkdocs-material input
+</code></pre></div>
+<p>2021-03-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (URL): Add link to repo
+</code></pre></div>
+<p>2021-03-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * README.md: Mention drat-base/drat for easier forking
+
+    * R/archivePackages.R (.check_location_arg): Add helper function 
+    * R/initRepo.R (initRepo): Use helper function 
+    * R/insertPackage.R (insertPackage): Ditto 
+    * R/pruneRepo.R (getRepoInfo): Ditto, use option location
+</code></pre></div>
+<p>2021-03-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>     * DESCRIPTION (Version, Date): Roll minor version
+
+    * R/initRepo.R (initRepo): New option location to allow use of docs/ 
+    directory instead of gh-pages branch 
+    * R/insertPackage.R (insertPackage): Ditto 
+    * man/initRepo.Rd: Documentation for new location option 
+    * man/insertPackage.Rd: Ditto
+</code></pre></div>
+<p>2021-02-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * docs-src/mkdocs.yml: No longer show vignette overview
+</code></pre></div>
+<h3 id="2020">2020</h3>
+<p>2020-12-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .github/workflows/ci.yaml: Add CI runner using r-ci 
+    * README.md: Add new CI badge
+</code></pre></div>
+<p>2020-09-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * docs/: Added package website 
+    * docs-src/: Added package website inputs
+
+    * README.md: Added badge and short sentence linking to documentation
+</code></pre></div>
+<p>2020-07-18  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version): Release 0.1.8
+</code></pre></div>
+<p>2020-07-17  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * tests/skeleton_get2r.R: Fixed issue for pruning on r-oldrel
+</code></pre></div>
+<p>2020-07-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version): Release 0.1.7
+
+    * tests/skeleton_git2r.R (testRepoActions): More explicit 
+    conditioning on presence of optional git2r
+</code></pre></div>
+<p>2020-07-05  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * man/insertPackages.Rd: document optional arguments more clearly 
+    * man/pruneRepo.Rd: document optional arguments more clearly 
+    * R/insertPackages.R: minor refactoring 
+    * R/pruneRepo.R: minor refactoring
+</code></pre></div>
+<p>2020-07-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>     * DESCRIPTION (Version, Date): Roll minor version
+</code></pre></div>
+<p>2020-07-01  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Cover special case of adding to archive 
+    * R/pruneRepo.R: Idem 
+    * tests/skeleton_get2r.R: Idem
+</code></pre></div>
+<p>2020-06-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll minor version
+</code></pre></div>
+<p>2020-06-20  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/pruneRepo.R: New function updateRepo, minor refactoring 
+    * R/insertPackages.R: Idem 
+    * R/archivePackages.R: Idem 
+    * man/pruneRepo.Rd: Document updateRepo 
+    * NAMESPACE: Add updateRepo
+</code></pre></div>
+<p>2020-06-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll minor version
+
+    * drat.Rproj: Undo accidental delete in preceding commit storms
+</code></pre></div>
+<p>2020-06-09  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackages.R: Updates to insertPackages function 
+    * man/insertPackages.Rd: Idem 
+    * R/archivePackages.R: Bug fixes 
+    * R/prunePackages.R: Idem
+
+    * tests/skeleton_git2r.R: Added tests for insertPackages, 
+    archivePackages and pruneRepo 
+    * inst/extdata/*: Added toy packages to support tests
+</code></pre></div>
+<p>2020-06-08  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Refactored vectorisation 
+    * R/prunePackages.R: Idem 
+    * man/addRepo.Rd: Updated 
+    * man/archivePackages.Rd: Idem 
+    * man/pruneRepo.Rd: Idem 
+    * R/insertPackages.R: Added insertPackages function 
+    * man/insertPackages.Rd: Idem
+</code></pre></div>
+<p>2020-06-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * man/addRepo.Rd: Updated 
+    * man/archivePackages.Rd: Idem 
+    * man/insertPackages.Rd: Idem 
+    * man/pruneRepo.Rd: Idem
+</code></pre></div>
+<p>2020-06-05  Patrick Schratz  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#97;&#116;&#114;&#105;&#99;&#107;&#46;&#115;&#99;&#104;&#114;&#97;&#116;&#122;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#97;&#116;&#114;&#105;&#99;&#107;&#46;&#115;&#99;&#104;&#114;&#97;&#116;&#122;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: First pass at vectorising operations 
+    * R/insertPackages.R: Idem 
+    * R/prunePackages.R: Idem 
+    * NAMESPACE: Idem
+</code></pre></div>
+<p>2020-05-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version): Release 0.1.6 
+    * README.md: Add Felix Ernst to Authors
+</code></pre></div>
+<p>2020-05-29  Felix Ernst  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#102;&#101;&#108;&#105;&#120;&#46;&#103;&#109;&#46;&#101;&#114;&#110;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Updated mac binary format support 
+    * R/insertPackages.R: Idem 
+    * R/pruneRepo.R: Idem 
+    * man/*: Updated documentation 
+    * DESCRIPTION: Roll minor version
+</code></pre></div>
+<p>2020-05-25  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * README.md: Add &#39;last commit&#39; badge
+
+    * .travis.yml: Switch to bionic and R 4.0.0
+</code></pre></div>
+<p>2020-04-23  Thomas P. Fuller  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#104;&#111;&#109;&#97;&#115;&#46;&#102;&#117;&#108;&#108;&#101;&#114;&#64;&#99;&#111;&#104;&#101;&#114;&#101;&#110;&#116;&#108;&#111;&#103;&#105;&#99;&#46;&#99;&#111;&#109;">&#116;&#104;&#111;&#109;&#97;&#115;&#46;&#102;&#117;&#108;&#108;&#101;&#114;&#64;&#99;&#111;&#104;&#101;&#114;&#101;&#110;&#116;&#108;&#111;&#103;&#105;&#99;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * README.md: Add entry for thospfuller/drat
+</code></pre></div>
+<h3 id="2019">2019</h3>
+<p>2019-03-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.1.5
+
+    * README.md: Mention Christoph in Author section
+
+    * NAMESPACE: Also import contrib.url() from utils
+</code></pre></div>
+<p>2019-03-27  Christoph Stepper <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#46;&#115;&#116;&#101;&#112;&#112;&#101;&#114;&#64;&#103;&#102;&#107;&#46;&#99;&#111;&#109;">&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#46;&#115;&#116;&#101;&#112;&#112;&#101;&#114;&#64;&#103;&#102;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Simplification of argument use 
+    * R/pruneRepo.R: Idem 
+    * R/insertPackage.R: Idem 
+    * man/archivePackages.Rd: Idem 
+    * man/pruneRepo.Rd: Idem
+</code></pre></div>
+<p>2019-03-25  Christoph Stepper <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#46;&#115;&#116;&#101;&#112;&#112;&#101;&#114;&#64;&#103;&#102;&#107;&#46;&#99;&#111;&#109;">&#99;&#104;&#114;&#105;&#115;&#116;&#111;&#112;&#104;&#46;&#115;&#116;&#101;&#112;&#112;&#101;&#114;&#64;&#103;&#102;&#107;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: Support binary packages 
+    * R/pruneRepo.R: Idem
+
+    * man/archivePackages.Rd: Added documentation 
+    * man/pruneRepo.Rd: Idem
+
+    * man/*.Rd: Rebuilt under current roxygen2
+</code></pre></div>
+<p>2019-03-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * README.md: Add dependencies badge
+
+    * tests/skeleton_git2r.R (testSkeletonGit2r): Ensure &#39;R&#39; is prefixed 
+    by proper path as recommended in Section 1.6 of Writing R Extensions
+</code></pre></div>
+<h3 id="2018">2018</h3>
+<p>2018-03-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo.R: Minor documentation update 
+    * man/addRepo.Rd: Idem
+</code></pre></div>
+<p>2018-01-30  Neal Fultz  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#102;&#117;&#108;&#116;&#122;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#110;&#102;&#117;&#108;&#116;&#122;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Correct working directoru for git2r 
+    * tests/skeleton_git2r.R: Add end-to-end test
+</code></pre></div>
+<h3 id="2017">2017</h3>
+<p>2017-12-16  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.1.4
+</code></pre></div>
+<p>2017-12-15  Neal Fultz  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#110;&#102;&#117;&#108;&#116;&#122;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#110;&#102;&#117;&#108;&#116;&#122;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Split macOS binaries along R version into 
+    mavericks and el-capitan repos; allow for global option() value 
+    dratBranch to select a branch to commit to
+</code></pre></div>
+<p>2017-10-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Always add PACKAGES.rds
+</code></pre></div>
+<p>2017-09-16  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.1.3
+
+    * R/insertPackage.R (insertPackage): Consider PACKAGES.rds too
+
+    * README.md: Remove one now-defunct drat repo from list
+</code></pre></div>
+<p>2017-02-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .travis.yml (before_install): Use https to fetch script
+</code></pre></div>
+<h3 id="2016">2016</h3>
+<p>2016-10-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Release 0.1.2
+
+    * vignettes/DratFAQ.Rmd (vignette): Added &#39;Why use drat&#39; section 
+    at the top based on a suggestion by Ben Marwick
+</code></pre></div>
+<p>2016-10-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): Roll minor version and date
+
+    * README.md: More canonical URLs, and omegahat.net correction
+
+    * vignettes/DratFAQ.Rmd (vignette): More canonical URLs 
+    * vignettes/DratForPackageAuthors.Rmd (drat): Ditto
+</code></pre></div>
+<p>2016-08-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Suggests): Add rmarkdown
+</code></pre></div>
+<p>2016-08-13  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/pruneRepo.R: Extend documentation to also mention option 
+    remove=&quot;git&quot; to invoke git2r::rm (where available)
+</code></pre></div>
+<p>2016-08-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION: Release 0.1.1
+
+    * DESCRIPTION: Add URL and BugReports links
+
+    * inst/NEWS.Rd: Added
+
+    * README.md: Use canonical CRAN URL 
+    * vignettes/DratFAQ.Rmd: Ditto
+
+    * vignettes/DratFAQ.Rmd: Update question on Additional_repositories 
+    as the original example moved on
+</code></pre></div>
+<p>2016-08-01  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * .travis.yml: Switch to using run.sh for Travis CI
+</code></pre></div>
+<p>2016-07-31  Jan Gorecki  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#46;&#103;&#111;&#114;&#101;&#99;&#107;&#105;&#64;&#119;&#105;&#116;&#46;&#101;&#100;&#117;&#46;&#112;&#108;">&#106;&#46;&#103;&#111;&#114;&#101;&#99;&#107;&#105;&#64;&#119;&#105;&#116;&#46;&#101;&#100;&#117;&#46;&#112;&#108;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Support additional fields 
+    * man/insertPackage.Rd: Idem
+</code></pre></div>
+<p>2016-06-02  Colin Gillespie  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#115;&#103;&#105;&#108;&#108;&#101;&#115;&#112;&#105;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#99;&#115;&#103;&#105;&#108;&#108;&#101;&#115;&#112;&#105;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo: Use https URLs
+</code></pre></div>
+<p>2016-03-09  Antonio Piccolboni  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#110;&#116;&#111;&#110;&#105;&#111;&#64;&#112;&#105;&#99;&#99;&#111;&#108;&#98;&#111;&#110;&#105;&#46;&#105;&#110;&#102;&#111;">&#97;&#110;&#116;&#111;&#110;&#105;&#111;&#64;&#112;&#105;&#99;&#99;&#111;&#108;&#98;&#111;&#110;&#105;&#46;&#105;&#110;&#102;&#111;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/pruneRepo.R: Generalize regexp to allow dots in package names
+</code></pre></div>
+<p>2016-02-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratForPackageAuthors.Rmd: Correct file:// URL 
+    * vignettes/DratForPackageUsers.Rmd: Idem
+</code></pre></div>
+<p>2016-02-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION: Add versioned Depends: on R (&gt;= 3.2.0)
+</code></pre></div>
+<p>2016-02-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Use dir.exists() for directory 
+    test (with thanks to Kevin Wright)
+</code></pre></div>
+<h3 id="2015">2015</h3>
+<p>2015-08-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): New release 0.1.0
+
+    * vignettes/DratFAQ.Rmd (vignette): Updated with respect to support 
+    for binary packages on OS X and Windows; added commit message entry
+
+    * inst/scripts/getCommitMessageForDrat.sh: Added
+
+    * README.md: Updated
+</code></pre></div>
+<p>2015-08-03  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (getPathForPackage): In case of non-compiled OS X 
+    package, issue a message that it will be install in Mavericks path.
+</code></pre></div>
+<p>2015-08-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (getPackageInfo): New function, building on 
+    earlier code by Matt Jones and Jan Schulz 
+    (getPathForPackage): Simplified earlier function by Jan and Dirk 
+    (insertPackage): Use new / modified functions
+
+    * NAMESPACE: Import two functions from utils to please R CMD check 
+    * vignettes/DratForPackageAuthors.Rmd (drat): Use canonical CRAN URL 
+    to please R CMD check even more
+</code></pre></div>
+<p>2015-07-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Author): Finally credit all contributors; 
+    (Version): Roll minor version 
+    (Date): Update Date
+</code></pre></div>
+<p>2015-07-29  Matt Jones <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#105;&#116;&#99;&#111;&#100;&#101;&#64;&#109;&#97;&#103;&#105;&#115;&#97;&#46;&#111;&#114;&#103;">&#103;&#105;&#116;&#99;&#111;&#100;&#101;&#64;&#109;&#97;&#103;&#105;&#115;&#97;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Better support for OS X binaries via 
+    getPathForMac() function which  untars the tgz file, extracts the 
+    Built: line from the description, and determines if the build 
+    platform was &quot;darwin13&quot;, in which case &quot;mavericks&quot; is included on the 
+    returned path.
+</code></pre></div>
+<p>2015-07-25  Thomas Leeper <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#104;&#111;&#115;&#106;&#108;&#101;&#101;&#112;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#116;&#104;&#111;&#115;&#106;&#108;&#101;&#101;&#112;&#101;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/archivePackages.R: New function to (optionally) archive 
+    existing packages when a new one gets added. 
+    * R/insertPackages.R: Support archivePackages() 
+    * R/pruneRepo.R: Support archivePackages()
+</code></pre></div>
+<p>2015-06-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Correct use from .Call to call. 
+    with a big Doh! and thanks to Guy Dawson for PR #25
+</code></pre></div>
+<p>2015-05-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratFAQ.Rmd (vignette): Add a short paragraph about miniCRAN
+</code></pre></div>
+<p>2015-05-25  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): New release 0.0.4
+
+    * README.md: Corrected one URL, added link to drat FAQ
+</code></pre></div>
+<p>2015-05-24  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratFAQ.Rmd (vignette): Added new section
+</code></pre></div>
+<p>2015-05-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo.R: In non-GH mode, explicitly check for spaces in the URL 
+    and abort if found as file-based access with spaces breaks.
+
+    * R/addRepo.R: State that file-based URL has to be &#39;file:/some/path&#39; 
+    * man/addRepo.Rd: Ditto
+</code></pre></div>
+<p>2015-05-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratFAQ.Rmd (vignette): Small edits
+</code></pre></div>
+<p>2015-05-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION: Roll Date and Version
+
+    * NAMESPACE: Also export new functions pruneRepo and initRepo
+
+    * R/pruneRepo.R (pruneRepo): Added (untested so far) removal 
+    * man/pruneRepo.Rd: Initial documentation
+
+    * R/initRepo.R (initRepo): (Very) initial  version of a repo creator 
+    * man/initRepo.Rd: Initial documentation
+
+    * R/insertPackage.R (identifyPackageType): Fix documentation typo
+</code></pre></div>
+<p>2015-04-28  Carl Boettiger <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#98;&#111;&#101;&#116;&#116;&#105;&#103;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#99;&#98;&#111;&#101;&#116;&#116;&#105;&#103;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Protect git2r::commit() call 
+    with tryCatch() to gracefully deal with error conditions
+</code></pre></div>
+<p>2015-04-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratFAQ.Rmd: Beginnings of a Drat FAQ vignette
+</code></pre></div>
+<p>2015-04-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Some tweaking
+</code></pre></div>
+<p>2015-04-26  Jan Schulz <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#97;&#115;&#99;&#64;&#103;&#109;&#120;&#46;&#110;&#101;&#116;">&#106;&#97;&#115;&#99;&#64;&#103;&#109;&#120;&#46;&#110;&#101;&#116;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Support Windows and Mac OS X 
+    binary packages
+</code></pre></div>
+<p>2015-04-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/rmd2html.r: Added to process vignettes 
+    * vignettes/*.Rmd: Correct VignetteIndexEntry 
+    * vignettes/*.html: Added html versions prior to build
+</code></pre></div>
+<p>2015-04-09  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): New release 0.0.3
+
+    * vignettes/DratForPackageUsers.Rmd: Added new vignette detailing 
+    drat use for package users (ie someone installing from a drat)
+</code></pre></div>
+<p>2015-04-08  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/DratForPackageAuthors.Rmd: Added new vignette detailing 
+    drat use for package authors (ie someone writing to a drat)
+</code></pre></div>
+<p>2015-03-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION: Added knitr to Suggests: and VignetteBuilder: 
+    * .travis.yml: Added knitr
+</code></pre></div>
+<p>2015-03-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * vignettes/WhyDrat.Rmd: Adding post by Steven as vignette
+
+    * vignettes/CombiningDratAndTravis.Rmd: Adding (work-in-progress) 
+    post by Colin
+</code></pre></div>
+<p>2015-03-26  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo.R: Added/extended/clarified example 
+    * man/addRepo.Rd: Corresponding Rd file
+</code></pre></div>
+<p>2015-03-22  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Support setting a commit message
+
+    * inst/scripts/git2targz.sh: Beginnings of helper script to create a 
+    tarball (suitable for a drat repo) given a repo URL
+</code></pre></div>
+<p>2015-03-16  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Use on.exit() with setwd() to 
+    ensure we return to current working directory           (closes #9)
+</code></pre></div>
+<p>2015-03-14  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo.R: Added examples (inside \dontrun{}) to help page
+
+    * R/insertPackage.R: Idem
+</code></pre></div>
+<p>2015-03-12  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Add quietly=TRUE to 
+    requireNamespace
+</code></pre></div>
+<p>2015-03-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Correction to file operations 
+    and path settings (cf GH issue #7)
+</code></pre></div>
+<p>2015-03-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Re-enable git2r::checkout()
+</code></pre></div>
+<p>2015-02-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version, Date): New release 0.0.2
+
+    * R/insertPackage.R: Document git2r in help page, don&#39;t use git2r for 
+    checkout yet though (cf git2r issue #109)
+
+    * R/pruneRepo.R: Default path for repo also contains src/contrib/; 
+    generalize regular expression for source tarball
+
+    * inst/TODO.md: Updated with recent changes
+</code></pre></div>
+<p>2015-02-27  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R: Use git2r if available 
+    * DESCRIPTION: Add Suggests: on git2r
+
+    * DESCRIPTION (Version,Date): Bump Date: and Version:
+
+    * .travis.yml: Also install git2r
+</code></pre></div>
+<p>2015-02-21  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version,Date): Bump Date: and Version:
+
+    * R/insertPackage.R (insertPackage): Correct directory location for 
+    the (optional) git commands
+</code></pre></div>
+<p>2015-02-10  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/pruneRepo.R (.pruneRepo): Beginnings of a helper function to 
+    identify older versions of given packages in a repo directory
+
+    * inst/TODO.md: Added item to generalize sources beyond .tar.gz
+</code></pre></div>
+<p>2015-02-07  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Version): Bumping Version and Date
+</code></pre></div>
+<p>2015-02-06  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION (Description): Remove continuation lines which trigger 
+    a bug in devtools (cf issue tick #1)
+
+    * man/drat-package.Rd (Maintainer): Correction from pull request #2 
+    by Colin Gillespie applied
+
+    * R/addRepo.R: Clarify alturl argument as per issue ticket #3 
+    * man/addRepo.Rd: Ditto
+</code></pre></div>
+<p>2015-02-04  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION: Version 0.0.1
+
+    * DESCRIPTION (Description): And another editing of Description:
+</code></pre></div>
+<p>2015-02-02  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo.R (addRepo): Use http, not https, at GitHub
+
+    * man/drat-package.Rd: Ditto
+</code></pre></div>
+<p>2015-02-01  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insertPackage.R (insertPackage): Renamed from insertRelesae()
+
+    * NAMESPACE: Explicitly expotr addRepo() and insertPackage()
+
+    * R/addRepo.R (add): Also provide unexported alias drat:::add() 
+    * R/insertPackage.R (insert): Ditto for drat:::insert()
+
+    * inst/TODO.md: Moved from top-level
+
+    * tests/simpleTests.R (testInsertLocal): Expanded tests
+
+    * .travis.yml (script): Added Travis CI support 
+    * .Rbuildignore: Added to exclude Travis file
+</code></pre></div>
+<p>2015-01-30  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/addRepo.R (addRepo): Renamed from add.R; function now addRepo()
+
+    * R/insertRelease.R (insertRelease): Renamed from insert.R, function 
+    renamed too to stress that repos contains releases not commits
+
+    * tests/simpleTests.R: Changed to use addRepo()
+</code></pre></div>
+<p>2015-01-29  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insert.R (insert): Small enhancements / corrections
+</code></pre></div>
+<p>2015-01-28  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * R/insert.R (insert): Offer optional git add, commit push
+
+    * R/add.R (add): Allow for multiple accounts added at once
+
+    * tests/simpleTests.R: Added first simple test script
+
+    * man/drat-package.Rd: Updated
+</code></pre></div>
+<p>2015-01-23  Dirk Eddelbuettel  <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;">&#101;&#100;&#100;&#64;&#100;&#101;&#98;&#105;&#97;&#110;&#46;&#111;&#114;&#103;</a> </p>
+<div class="language-text highlight"><pre><span></span><code>    * DESCRIPTION: Beginnings of what will become version 0.0.1
+
+    * R/add.R: Initial version 
+    * R/insert.R: Ditto
+
+    * TODO.md: Added with some first notes
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017, 2026 Randy Lai, Dirk Eddelbuettel
+    </div>
+  
+  
+    Made with
+    <a href="https://altdoc.etiennebacher.com/#/" target="_blank">altdoc</a>
+    and
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener"> Material for MkDocs</a>.
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/eddelbuettel/" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://bsky.app/profile/eddelbuettel.com" target="_blank" rel="noopener" title="Bsky" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
