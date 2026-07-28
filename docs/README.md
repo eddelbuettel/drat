@@ -1,4 +1,4 @@
-## drat: Drat R Archive Template
+# drat: Drat R Archive Template
 
 [![CI](https://github.com/eddelbuettel/drat/workflows/ci/badge.svg)](https://github.com/eddelbuettel/drat/actions?query=workflow%3Aci)
 [![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
