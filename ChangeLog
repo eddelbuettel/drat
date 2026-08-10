@@ -1,3 +1,7 @@
+2026-08-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .github/workflows/ci.yaml: Switch to actions/checkout@v7
+
 2026-07-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* docs/: Redone using 'altdoc' with 'material for mkdocs'
